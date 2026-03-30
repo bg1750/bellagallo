@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella Gallo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout-grid">
+
+    <!-- ===== TOP NAVBAR ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="nav-logo" data-section="home" href="#">IG</a>
+            <ul class="nav-list" role="list">
+
+                <li class="nav-item active" data-section="home">
+                    <div class="nav-bubble"></div>
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="currentColor" viewBox="0 0 495.398 495.398" aria-hidden="true" class="nav-icon">
+                            <path d="m487.083 225.514-75.08-75.08v-86.73c0-15.682-12.708-28.391-28.413-28.391-15.669 0-28.377 12.709-28.377 28.391v29.941L299.31 37.74c-27.639-27.624-75.694-27.575-103.27.05L8.312 225.514c-11.082 11.104-11.082 29.071 0 40.158 11.087 11.101 29.089 11.101 40.172 0l187.71-187.729c6.115-6.083 16.893-6.083 22.976-.018l187.742 187.747a28.337 28.337 0 0 0 20.081 8.312c7.271 0 14.541-2.764 20.091-8.312 11.086-11.086 11.086-29.053-.001-40.158z"/>
+                            <path d="M257.561 131.836c-5.454-5.451-14.285-5.451-19.723 0L72.712 296.913a13.977 13.977 0 0 0-4.085 9.877v120.401c0 28.253 22.908 51.16 51.16 51.16h81.754v-126.61h92.299v126.61h81.755c28.251 0 51.159-22.907 51.159-51.159V306.79c0-3.713-1.465-7.271-4.085-9.877L257.561 131.836z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item" data-section="about">
+                    <div class="nav-bubble"></div>
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1000 1000" aria-hidden="true" class="nav-icon">
+                            <path d="M500 81q-116 0-215 58-96 56-152 152-58 100-58 215.5T133 721q56 96 152 152 99 58 215 58t215-58q96-56 152-152 58-99 58-214.5T867 291q-56-96-152-152-99-58-215-58zm-81 462q-38-29-63-81-23-50-23-99 0-45 22.5-83.5t61-61T500 196t83.5 22.5 61 61T667 363q0 50-25 102-25 53-65 81-17 12-17 33v5q0 24 15 42.5t38 23.5q77 16 132 45 15 8 17.5 25t-9.5 29q-49 52-115.5 80t-138 28T362 828.5 246 748q-12-12-9.5-28.5T254 695q53-29 128-45 23-5 38-23.5t15-41.5v-10q0-20-16-32z"/>
+                        </svg>
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item" data-section="projects">
+                    <div class="nav-bubble"></div>
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 -8 72 72" aria-hidden="true" class="nav-icon">
+                            <path d="M38.68 9.47a5 5 0 0 0-4.45-2.7h-23a3.33 3.33 0 0 0-3.34 3.34v1.79h32.05ZM60.78 14.91H7.89v31a3.34 3.34 0 0 0 3.34 3.34h49.54a3.34 3.34 0 0 0 3.34-3.34V18.25a3.32 3.32 0 0 0-3.33-3.34Z"/>
+                        </svg>
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item" data-section="skills">
+                    <div class="nav-bubble"></div>
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="currentColor" viewBox="0 0 232.688 232.688" aria-hidden="true" class="nav-icon">
+                            <path d="M97.688 61.344h120c8.284 0 15-6.716 15-15s-6.716-15-15-15h-120c-8.284 0-15 6.716-15 15s6.715 15 15 15zM217.688 101.344h-120c-8.284 0-15 6.716-15 15s6.716 15 15 15h120c8.284 0 15-6.716 15-15s-6.716-15-15-15zM217.688 171.344h-120c-8.284 0-15 6.716-15 15 0 8.284 6.716 15 15 15h120c8.284 0 15-6.716 15-15 0-8.284-6.716-15-15-15zM48.785 104.408l-9.989-1.452-4.467-9.052a7.5 7.5 0 0 0-13.452 0l-4.468 9.052-9.988 1.452A7.5 7.5 0 0 0 2.263 117.2l7.228 7.045-1.707 9.949a7.5 7.5 0 0 0 10.881 7.908l8.936-4.698 8.936 4.698a7.493 7.493 0 0 0 3.489.861h.021a7.5 7.5 0 0 0 7.276-9.325l-1.612-9.393 7.228-7.045a7.499 7.499 0 0 0-4.154-12.792zM48.785 34.408l-9.989-1.452-4.467-9.052a7.5 7.5 0 0 0-13.452 0l-4.468 9.052-9.988 1.452A7.5 7.5 0 0 0 2.263 47.2l7.228 7.045-1.707 9.949a7.5 7.5 0 0 0 10.881 7.908l8.936-4.698 8.936 4.698a7.493 7.493 0 0 0 3.489.861h.021a7.5 7.5 0 0 0 7.499-7.5 7.52 7.52 0 0 0-.223-1.825l-1.612-9.393 7.228-7.045a7.499 7.499 0 0 0-4.154-12.792zM48.785 174.408l-9.989-1.452-4.467-9.052a7.5 7.5 0 0 0-13.452 0l-4.468 9.052-9.988 1.452A7.5 7.5 0 0 0 2.263 187.2l7.228 7.045-1.707 9.949a7.5 7.5 0 0 0 10.881 7.908l8.936-4.698 8.936 4.698a7.493 7.493 0 0 0 3.489.861h.021a7.5 7.5 0 0 0 7.276-9.325l-1.612-9.393 7.228-7.045a7.499 7.499 0 0 0-4.154-12.792z"/>
+                        </svg>
+                        Skills
+                    </a>
+                </li>
+
+                <li class="nav-item" data-section="contact">
+                    <div class="nav-bubble"></div>
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" aria-hidden="true" class="nav-icon">
+                            <path fill="currentColor" fill-rule="evenodd" d="M3.6 7.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V17c0 .6-.4 1-1 1C7.6 18 0 10.4 0 1c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1L3.6 7.8Z"/>
+                        </svg>
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <img class="top-flower" src="./images/flower1.png" alt="">
+                <img class="bottom-flower" src="./images/flower2.png" alt="">
+                <div class="hero-content">
+                    <h1>Hello, I'm Bella.</h1>
+                    <p class="hero-subtitle">Computer Engineer &amp; Frontend Developer</p>
+                    <div class="hero-buttons">
+                        <button class="hero-btn" data-target="projects">View Projects</button>
+                        <button class="hero-btn hero-btn--outline" data-target="contact">Get in Touch</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="page-section">
+            <div class="section-wrap">
+                <div class="about-grid">
+                    <div class="widget">
+                        <h2 class="widget-heading">About Me</h2>
+                        <p class="body-text">
+                            I began early in my career as a hardware encryption engineer intern. Most recently I was hired at a national laboratory as a computer engineer, working extensively on user interfaces for devices, robots, and autonomous systems.
+                        </p>
+                    </div>
+                    <div class="widget about-photo-widget">
+                        <img class="profile-pic" src="./images/profilePic.JPG" alt="Isabella Gallo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="page-section">
+            <div class="section-wrap">
+
+                <!-- Top row: heading + description -->
+                <div class="dash-row dash-top">
+                    <div class="widget">
+                        <h1 class="main-heading">Some of my past works include...</h1>
+                    </div>
+                    <div class="widget">
+                        <p class="body-text">A variety of projects that allowed me to apply and expand my skills — from machine learning pipelines to robotics interfaces. Each one presented unique challenges and learning opportunities.</p>
+                        <p class="hint-text">Click the + on a project card to view more info.</p>
+                    </div>
+                </div>
+
+                <!-- Project rows: [card (left)] [buttons (right)] -->
+
+                <div class="dash-row dash-bottom">
+                    <div class="project-card widget" id="card-1">
+                        <div class="card-face card-front">
+                            <div id="carousel-anomaly" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel-anomaly" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#carousel-anomaly" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#carousel-anomaly" data-bs-slide-to="2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <!-- Replace src with your screenshot: <img src="./images/anomaly-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
+                                        <div class="carousel-placeholder">Screenshot 1</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 2</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 3</div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-anomaly" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-anomaly" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <button class="toggle-btn">+</button>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-inner">
+                                <div>
+                                    <h3 class="card-title">Real-Time Anomaly Detection</h3>
+                                    <p class="card-desc">Engineered a real-time anomaly detection and OCR pipeline on NVIDIA Jetson Orin with CUDA acceleration. Achieved 95% detection accuracy using PyTorch, Anomalib, and PyTesseract.</p>
+                                </div>
+                            </div>
+                            <button class="toggle-btn">−</button>
+                        </div>
+                    </div>
+                    <div class="project-actions widget">
+                        <p class="project-name">Anomaly Detection</p>
+                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+                    </div>
+                </div>
+
+                <div class="dash-row dash-bottom">
+                    <div class="project-card widget" id="card-2">
+                        <div class="card-face card-front">
+                            <div id="carousel-agv" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel-agv" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#carousel-agv" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#carousel-agv" data-bs-slide-to="2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <!-- Replace src with your screenshot: <img src="./images/agv-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
+                                        <div class="carousel-placeholder">Screenshot 1</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 2</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 3</div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-agv" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-agv" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <button class="toggle-btn">+</button>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-inner">
+                                <div>
+                                    <h3 class="card-title">AGV Control Interface</h3>
+                                    <p class="card-desc">Built a production GUI for automated guided vehicles using PyQt, integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times.</p>
+                                </div>
+                            </div>
+                            <button class="toggle-btn">−</button>
+                        </div>
+                    </div>
+                    <div class="project-actions widget">
+                        <p class="project-name">AGV Interface</p>
+                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+                    </div>
+                </div>
+
+                <!-- Crawler Robot -->
+                <div class="dash-row dash-bottom">
+                    <div class="project-card widget" id="card-3">
+                        <div class="card-face card-front">
+                            <div id="carousel-crawler" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel-crawler" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#carousel-crawler" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#carousel-crawler" data-bs-slide-to="2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <!-- Replace src with your screenshot: <img src="./images/crawler-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
+                                        <div class="carousel-placeholder">Screenshot 1</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 2</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 3</div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-crawler" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-crawler" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <button class="toggle-btn">+</button>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-inner">
+                                <div>
+                                    <h3 class="card-title">Crawler Robot Interface</h3>
+                                    <p class="card-desc">Developed a control interface for a crawler robot, enabling real-time monitoring and command dispatch. Add more details about your project here.</p>
+                                </div>
+                            </div>
+                            <button class="toggle-btn">−</button>
+                        </div>
+                    </div>
+                    <div class="project-actions widget">
+                        <p class="project-name">Crawler Robot</p>
+                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+                    </div>
+                </div>
+
+                <!-- Calorimeter -->
+                <div class="dash-row dash-bottom">
+                    <div class="project-card widget" id="card-4">
+                        <div class="card-face card-front">
+                            <div id="carousel-calorimeter" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel-calorimeter" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#carousel-calorimeter" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#carousel-calorimeter" data-bs-slide-to="2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <!-- Replace src with your screenshot: <img src="./images/calorimeter-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
+                                        <div class="carousel-placeholder">Screenshot 1</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 2</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 3</div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-calorimeter" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-calorimeter" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <button class="toggle-btn">+</button>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-inner">
+                                <div>
+                                    <h3 class="card-title">Calorimeter Heating System</h3>
+                                    <p class="card-desc">Designed and built the user interface for a calorimeter heating system, providing real-time temperature monitoring and control. Add more details about your project here.</p>
+                                </div>
+                            </div>
+                            <button class="toggle-btn">−</button>
+                        </div>
+                    </div>
+                    <div class="project-actions widget">
+                        <p class="project-name">Calorimeter</p>
+                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+                    </div>
+                </div>
+
+                <!-- Mass Spectrometer -->
+                <div class="dash-row dash-bottom">
+                    <div class="project-card widget" id="card-5">
+                        <div class="card-face card-front">
+                            <div id="carousel-spectrometer" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel-spectrometer" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                    <button type="button" data-bs-target="#carousel-spectrometer" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#carousel-spectrometer" data-bs-slide-to="2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <!-- Replace src with your screenshot: <img src="./images/spectrometer-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
+                                        <div class="carousel-placeholder">Screenshot 1</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 2</div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="carousel-placeholder">Screenshot 3</div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-spectrometer" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-spectrometer" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <button class="toggle-btn">+</button>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-inner">
+                                <div>
+                                    <h3 class="card-title">Mass Spectrometer Interface</h3>
+                                    <p class="card-desc">Built a GUI for a mass spectrometer, visualizing spectral data and enabling precise instrument control. Add more details about your project here.</p>
+                                </div>
+                            </div>
+                            <button class="toggle-btn">−</button>
+                        </div>
+                    </div>
+                    <div class="project-actions widget">
+                        <p class="project-name">Mass Spectrometer</p>
+                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mass Spectrometer -->
+            <div class="dash-row dash-bottom">
+                <div class="project-card widget" id="card-6">
+                    <div class="card-face card-front">
+                        <div id="carousel-IR" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel-IR" data-bs-slide-to="0" class="active"
+                                    aria-current="true"></button>
+                                <button type="button" data-bs-target="#carousel-IR" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carousel-IR" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <!-- Replace src with your screenshot: <img src="./images/IR-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
+                                    <div class="carousel-placeholder">Screenshot 1</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carousel-placeholder">Screenshot 2</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carousel-placeholder">Screenshot 3</div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-IR"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-IR"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <button class="toggle-btn">+</button>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-back-inner">
+                            <div>
+                                <h3 class="card-title">IR Facial Recognition Interface</h3>
+                                <p class="card-desc">I like to include this project in my experience because it was my first introduction to seeing the components of frontend, backend, and even UX/UI design. 
+                                    I learned how much I loved seeing how each component come together to create something intuitive and responsive. This project was a learning experience during my final year of my Bachelors Degree in Computer Engineering. 
+                                It involved a series of open sources that helped us create our backend specficially, where the frontend and interface was built more from scratch for our needs. </p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">−</button>
+                    </div>
+                </div>
+                <div class="project-actions widget">
+                    <p class="project-name">IR Facial Recognition Interface</p>
+                    <a class="action-btn action-btn--tinted" href="https://github.com/bg1750/Ombra_IR_Facial_Recognition_Capstone">View Repo</a>
+                </div>
+            </div>
+
+            </div>
+
+
+
+
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="page-section">
+            <div class="section-wrap">
+                <h2 class="section-heading">My Skills</h2>
+                <div class="skills-grid">
+                    <div class="widget skill-widget">
+                        <img class="skill-img" src="./images/frontendIcon.png" alt="Frontend">
+                        <h3 class="skill-name">Frontend Development</h3>
+                        <p class="body-text">Building responsive, user-friendly interfaces using HTML, CSS, JavaScript, and React. Led frontend development across all projects, including production GUIs with PyQt and Visual Basic at a national laboratory.</p>
+                    </div>
+                    <div class="widget skill-widget">
+                        <img class="skill-img" src="./images/MLIcon.png" alt="ML">
+                        <h3 class="skill-name">Machine Learning &amp; CV</h3>
+                        <p class="body-text">Engineered real-time anomaly detection and OCR pipelines using PyTorch, Anomalib, OpenCV, and PyTesseract on NVIDIA Jetson Orin with CUDA, achieving 95% detection accuracy.</p>
+                    </div>
+                    <div class="widget skill-widget">
+                        <img class="skill-img" src="./images/robotIcon.png" alt="Robotics">
+                        <h3 class="skill-name">Robotics &amp; Automation</h3>
+                        <p class="body-text">Programmed AGVs with PLC logic for automated material handling, integrating LiDAR, vision, and encoder sensor fusion with RTOS motion control achieving sub-10ms response times.</p>
+                    </div>
+                    <div class="widget skill-widget">
+                        <img class="skill-img" src="./images/leadershipIcon.png" alt="Leadership">
+                        <h3 class="skill-name">Leadership</h3>
+                        <p class="body-text">Led frontend development across automation systems and robotics interfaces. I love taking something complex and making it feel simple and intuitive for the people using it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="page-section">
+            <div class="section-wrap contact-wrap">
+                <h2 class="section-heading">Get in Touch</h2>
+                <div class="contact-row">
+                    <a class="contact-btn" href="mailto:">Email</a>
+                    <a class="contact-btn" href="https://www.linkedin.com/in/isabellagallo86328/">LinkedIn</a>
+                    <a class="contact-btn" href="https://github.com/bg1750">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBXFB+bAJFpONUF5PCFpj3SJkQ" crossorigin="anonymous"></script>
+<script>
+    function navigateTo(id) {
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+        const navItem = document.querySelector(`.nav-item[data-section="${id}"]`);
+        const section = document.getElementById(id);
+        if (navItem) navItem.classList.add('active');
+        if (section) {
+            section.classList.add('active');
+            section.scrollTop = 0;
+        }
+    }
+
+    document.querySelectorAll('.nav-item[data-section]').forEach(item => {
+        item.querySelector('.nav-link').addEventListener('click', e => {
+            e.preventDefault();
+            navigateTo(item.dataset.section);
+        });
+    });
+
+    document.querySelector('.nav-logo').addEventListener('click', e => {
+        e.preventDefault();
+        navigateTo('home');
+    });
+
+    document.querySelectorAll('[data-target]').forEach(btn => {
+        btn.addEventListener('click', () => navigateTo(btn.dataset.target));
+    });
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
+    });
+</script>
+</body>
+</html>

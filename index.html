@@ -128,11 +128,14 @@
                     <div class="filter-row">
                         <button class="filter-btn filter-active" data-category="all">All</button>
                         <button class="filter-btn" data-category="ai">AI / ML</button>
-                        <button class="filter-btn" data-category="robotics">Robotics</button>
-                        <button class="filter-btn" data-category="hardware">Hardware</button>
+                        <button class="filter-btn" data-category="fullstack">Full Stack</button>
                         <button class="filter-btn" data-category="frontend">Frontend</button>
+                        <button class="filter-btn" data-category="automation">Industrial Automation</button>
                     </div>
                 </div>
+
+                <!-- Hint text below header -->
+                <p class="proj-hint">Click <strong>+</strong> on any project image for a brief description, or select the project to view the full breakdown.</p>
 
                 <!-- Decorative gradient divider line below the header -->
                 <div class="proj-divider"></div>
@@ -227,7 +230,7 @@
                     </div>
 
                     <!-- AGV Control Interface -->
-                    <div class="proj-card" data-category="robotics">
+                    <div class="proj-card" data-category="automation">
                         <a href="projects/agv-interface.html" class="proj-card-link" aria-label="View AGV Control Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -235,24 +238,23 @@
                                 <div class="proj-img-placeholder">[ Add screenshot ]</div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Robotics</span>
+                                <span class="proj-category">Industrial Automation</span>
                                 <h3 class="proj-title">AGV Control Interface</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Robotics</span>
+                                <span class="proj-category">Industrial Automation</span>
                                 <h3 class="proj-title">AGV Control Interface</h3>
                             </div>
-                            <p class="proj-desc">Built a production GUI for automated guided vehicles using PyQt, integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times.</p>
+                            <p class="proj-desc">Worked with Amerden AGV systems and proprietary software to configure driving path mapping, object placement, and area safety scanning using SICK safety sensors. Interfaced with PLC ladder logic for motion control and developed operator-facing software tools for fleet management and navigation configuration.</p>
                             <div class="proj-tags">
-                                <span class="proj-tag">PyQt</span>
-                                <span class="proj-tag">Python</span>
-                                <span class="proj-tag">PLC</span>
+                                <span class="proj-tag">PLC / Ladder Logic</span>
+                                <span class="proj-tag">Amerden AGV</span>
+                                <span class="proj-tag">SICK Safety Sensors</span>
+                                <span class="proj-tag">Path Mapping</span>
                                 <span class="proj-tag">LiDAR</span>
-                                <span class="proj-tag">RTOS</span>
-                                <span class="proj-tag">Ladder Logic</span>
-                                <span class="proj-tag">Sensor Fusion</span>
+                                <span class="proj-tag">Fleet Management</span>
                             </div>
                             <div class="proj-links">
                                 <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
@@ -263,7 +265,7 @@
                     </div>
 
                     <!-- Crawler Robot Interface -->
-                    <div class="proj-card" data-category="robotics">
+                    <div class="proj-card" data-category="frontend">
                         <a href="projects/crawler-robot.html" class="proj-card-link" aria-label="View Crawler Robot Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -273,16 +275,16 @@
                                 </div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Robotics</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">Crawler Robot Interface</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Robotics</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">Crawler Robot Interface</h3>
                             </div>
-                            <p class="proj-desc">Developed a control interface for a crawler robot, enabling real-time monitoring and command dispatch with a responsive operator dashboard.</p>
+                            <p class="proj-desc">Designed and built the operator-facing control interface for a crawler robot. Focused entirely on the frontend — creating a responsive dashboard for real-time status monitoring and command dispatch.</p>
                             <div class="proj-tags">
                                 <span class="proj-tag">PyQt</span>
                                 <span class="proj-tag">Real-Time Control</span>
@@ -298,7 +300,7 @@
                     </div>
 
                     <!-- Calorimeter -->
-                    <div class="proj-card" data-category="hardware">
+                    <div class="proj-card" data-category="fullstack">
                         <a href="projects/calorimeter.html" class="proj-card-link" aria-label="View Calorimeter Heating System project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -309,16 +311,16 @@
                                 </div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Hardware</span>
+                                <span class="proj-category">Full Stack</span>
                                 <h3 class="proj-title">Calorimeter Heating System</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Hardware</span>
+                                <span class="proj-category">Full Stack</span>
                                 <h3 class="proj-title">Calorimeter Heating System</h3>
                             </div>
-                            <p class="proj-desc">Designed and built the user interface for a calorimeter heating system, providing real-time temperature monitoring and precise control for laboratory use.</p>
+                            <p class="proj-desc">Built the frontend interface and contributed to backend logic for a calorimeter heating system, providing real-time temperature monitoring and precise instrument control for laboratory use.</p>
                             <div class="proj-tags">
                                 <span class="proj-tag">Python</span>
                                 <span class="proj-tag">Visual Basic</span>
@@ -334,7 +336,7 @@
                     </div>
 
                     <!-- Mass Spectrometer -->
-                    <div class="proj-card" data-category="hardware">
+                    <div class="proj-card" data-category="fullstack">
                         <a href="projects/mass-spectrometer.html" class="proj-card-link" aria-label="View Mass Spectrometer Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -342,16 +344,16 @@
                                 <div class="proj-img-placeholder">[ Add screenshot ]</div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Hardware</span>
+                                <span class="proj-category">Full Stack</span>
                                 <h3 class="proj-title">Mass Spectrometer Interface</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Hardware</span>
+                                <span class="proj-category">Full Stack</span>
                                 <h3 class="proj-title">Mass Spectrometer Interface</h3>
                             </div>
-                            <p class="proj-desc">Built a GUI for a mass spectrometer, visualizing spectral data and enabling precise instrument control for scientific measurement workflows.</p>
+                            <p class="proj-desc">Led frontend development and contributed to backend integration for a mass spectrometer interface, visualizing live spectral data and enabling precise instrument control for scientific measurement workflows.</p>
                             <div class="proj-tags">
                                 <span class="proj-tag">Python</span>
                                 <span class="proj-tag">Visual Basic</span>
@@ -368,7 +370,7 @@
                     </div>
 
                     <!-- IR Facial Recognition -->
-                    <div class="proj-card" data-category="frontend">
+                    <div class="proj-card" data-category="fullstack">
                         <a href="projects/ir-facial-recognition.html" class="proj-card-link" aria-label="View IR Facial Recognition Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -376,16 +378,16 @@
                                 <div class="proj-img-placeholder">[ Add screenshot ]</div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Frontend</span>
+                                <span class="proj-category">Full Stack</span>
                                 <h3 class="proj-title">IR Facial Recognition Interface</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Frontend</span>
+                                <span class="proj-category">Full Stack</span>
                                 <h3 class="proj-title">IR Facial Recognition Interface</h3>
                             </div>
-                            <p class="proj-desc">My first deep dive into frontend, backend, and UX/UI — built during my senior capstone. Seeing every component come together into something intuitive and responsive is what sparked my passion for this space.</p>
+                            <p class="proj-desc">Full stack senior capstone project with a heavy frontend focus — built the complete UX/UI and integrated it with a Python/OpenCV backend for real-time IR-based facial recognition. The project that sparked my passion for making complex systems feel intuitive.</p>
                             <div class="proj-tags">
                                 <span class="proj-tag">OpenCV</span>
                                 <span class="proj-tag">Python</span>

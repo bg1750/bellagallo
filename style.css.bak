@@ -1,15 +1,11 @@
-/* ============================================================
-   1. RESET
-   ============================================================ */
+/* ===== RESET ===== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* ============================================================
-   2. BASE & TYPOGRAPHY
-   ============================================================ */
+/* ===== BASE ===== */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #31003C;
@@ -20,19 +16,14 @@ body {
     flex-direction: column;
 }
 
-/* ============================================================
-   3. LAYOUT
-   — Outer flex column: navbar on top, scrollable main below
-   ============================================================ */
+/* ===== LAYOUT: top nav + scrollable main ===== */
 .layout-grid {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* ============================================================
-   4. NAVBAR
-   ============================================================ */
+/* ===== TOP NAVBAR ===== */
 .site-header {
     background-color: #4C066C;
     border-bottom: 1px solid #9940FF44;
@@ -132,14 +123,14 @@ body {
     flex-shrink: 0;
 }
 
-/* ----- Main scrollable content area ----- */
+/* ===== MAIN (scrollable) ===== */
 main {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-/* ----- Scrollbar ----- */
+/* ===== SCROLLBAR STYLING ===== */
 main::-webkit-scrollbar,
 .detail-scroll-area::-webkit-scrollbar {
     width: 4px;
@@ -161,7 +152,7 @@ main::-webkit-scrollbar-thumb:hover,
     background: #9940FF99;
 }
 
-/* ----- Page section visibility (JS toggles .active) ----- */
+/* ===== PAGE SECTIONS ===== */
 .page-section {
     display: none;
     min-height: 100%;
@@ -171,21 +162,14 @@ main::-webkit-scrollbar-thumb:hover,
     display: block;
 }
 
-/* ============================================================
-   5. SHARED / GLOBAL COMPONENTS
-   — Reused across multiple pages
-   ============================================================ */
-
-/* Card widget base */
+/* ===== WIDGET (shared card style) ===== */
 .widget {
     background-color: #4C066C;
     border-radius: 16px;
     padding: 28px;
 }
 
-/* ============================================================
-   6. HOME PAGE
-   ============================================================ */
+/* ===== HOME / HERO ===== */
 .hero {
     position: relative;
     height: calc(100vh - 65px);
@@ -282,25 +266,20 @@ h1 {
     color: #31003C;
 }
 
-/* Centered content wrapper used on About, Projects, Skills, Contact */
+/* ===== SECTION WRAPPER ===== */
 .section-wrap {
     padding: 48px 40px;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Purple section heading used on About, Skills, Contact */
 .section-heading {
     color: #9940FF;
     font-size: 2em;
     margin-bottom: 32px;
 }
 
-/* ============================================================
-   7. ABOUT PAGE
-   ============================================================ */
-
-/* Two-column grid: text widget on left, photo on right */
+/* ===== ABOUT ===== */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -338,9 +317,9 @@ h1 {
     display: block;
 }
 
-/* ============================================================
-   8. PROJECTS PAGE
-   ============================================================ */
+/* ===== PROJECTS =====
+   All styles below were added to replace the old flip-card/carousel layout
+   with a modern grid-based design inspired by evanqhuang.com. ===== */
 
 /* --- Section header: "Selected Work" label + "Projects" heading on the left,
        filter buttons on the right --- */
@@ -457,7 +436,7 @@ h1 {
     z-index: 1;          /* above card content, but below the toggle button (z-index: 3) and links (z-index: 2) */
 }
 
-/* ----- Card front (image + caption — shown by default) ----- */
+/* ===== CARD FRONT (image view — shown by default) ===== */
 
 /* Front face fills the full card */
 .proj-card-front {
@@ -496,15 +475,6 @@ h1 {
     color: #9940FF55;
     font-family: monospace;
     font-size: 0.8em;
-    overflow: hidden; /* prevents oversized images from breaking out of the card */
-}
-
-/* Images inside placeholder (e.g. crawler, calorimeter) fill the card like any other project image */
-.proj-img-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
 }
 
 /* Caption panel sitting below the image */
@@ -520,7 +490,7 @@ h1 {
     gap: 3px;
 }
 
-/* ----- Card back (description — shown when + is clicked) ----- */
+/* ===== CARD BACK (description view — hidden until + is clicked) ===== */
 
 /* Back face hidden by default; shown when .proj-card has the .flipped class */
 .proj-card-back {
@@ -536,8 +506,7 @@ h1 {
 .proj-card.flipped .proj-card-front { display: none; }
 .proj-card.flipped .proj-card-back  { display: flex; }
 
-/* ----- Toggle button (+ / -) in top-right corner ----- */
-/* z-index 3: sits above the card link (1) and GitHub links (2) */
+/* ===== TOGGLE BUTTON (+ / −) ===== */
 
 /* Positioned in the top-right corner of the card.
    z-index: 3 keeps it above both the card link (z-index: 1) and the GitHub links (z-index: 2)
@@ -652,7 +621,7 @@ h1 {
     font-size: 0.9em;
 }
 
-/* ----- Calorimeter detail page ----- */
+/* Calorimeter */
 .detail-cal-pic1 {
     width: 100%;
     max-width: 500px;
@@ -666,17 +635,13 @@ h1 {
     object-position: center;
 }
 
-/* ----- Crawler detail page ----- */
+/* Crawler */
 .crawler-img-sub {
     height:500px;
     width:700px;
 }
 
-/* ============================================================
-   9. SKILLS PAGE
-   ============================================================ */
-
-/* 2-column grid of skill widgets */
+/* ===== SKILLS ===== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -709,9 +674,7 @@ h1 {
     font-size: 0.9em;
 }
 
-/* ============================================================
-   10. CONTACT PAGE
-   ============================================================ */
+/* ===== CONTACT ===== */
 .contact-wrap {
     display: flex;
     flex-direction: column;
@@ -760,10 +723,7 @@ h1 {
     color: #9940FF;
 }
 
-/* ============================================================
-   11. PROJECT DETAIL PAGES
-   — Layout shared across all detail pages (agv, crawler, etc.)
-   ============================================================ */
+/* ===== PROJECT DETAIL PAGE ===== */
 .detail-page {
     background-color: #31003C;
     height: 100vh;
@@ -942,16 +902,11 @@ h1 {
     margin: 32px 0 12px;
 }
 
-/* ============================================================
-   12. RESPONSIVE / MOBILE
-   ============================================================ */
-
-/* Tablet: collapse project grid to 2 columns */
+/* ===== RESPONSIVE: ranging from desktops to mobile devices ===== */
 @media (max-width: 900px) {
     .proj-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobile: full single-column layout */
 @media (max-width: 768px) {
     body { overflow: auto; height: auto; }
 
@@ -974,18 +929,15 @@ h1 {
 
     .section-wrap { padding: 32px 20px; }
 
-    /* About */
     .about-grid { grid-template-columns: 1fr; }
     /* FIX: profile picture was hidden on portrait mobile — changed display:none to
        a centered block so it stacks below the About Me text on small screens */
     .about-photo-widget { display: flex; justify-content: center; }
     .profile-pic { width: 120px; height: 120px; }
 
-    /* Projects */
     .proj-grid { grid-template-columns: 1fr; }
     .proj-header { flex-direction: column; align-items: flex-start; }
 
-    /* Skills */
     .skills-grid { grid-template-columns: 1fr; }
 
     .skill-img { width: 100px; height: 100px; }

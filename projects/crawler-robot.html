@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler Robot Interface — Bella Gallo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="detail-page">
+
+    <header class="detail-header">
+        <a href="../index.html" class="detail-logo">BG</a>
+    </header>
+
+    <div class="detail-scroll-area">
+    <main class="detail-main">
+
+        <a href="../index.html#projects" class="detail-back">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to projects
+        </a>
+
+        <span class="detail-category">Robotics</span>
+        <h1 class="detail-title">Crawler Robot Interface</h1>
+        <p class="detail-summary">Developed a control interface for a crawler robot, enabling real-time monitoring and command dispatch with a responsive operator dashboard built in Python and PyQt.</p>
+
+        <div class="detail-tags">
+            <span class="detail-tag">PyQt</span>
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">Real-Time Control</span>
+            <span class="detail-tag">Real-Time Monitoring</span>
+        </div>
+
+        <div class="detail-img-placeholder">
+            <img class="crawler-img-sub" src="../images/CrawlerInterface.PNG"></img>
+        </div>
+
+        <div class="detail-body">
+            <p>This project centered on building the operator interface for a crawler robot — a vehicle designed to navigate constrained or hazardous environments. The GUI needed to provide clear, low-latency feedback while keeping the interaction model simple enough for an operator to use under pressure.</p>
+
+            <h3>Command Dispatch</h3>
+            <p>The interface allowed operators to send directional commands and mode changes to the robot with immediate visual confirmation. All inputs were validated before transmission to prevent sending conflicting commands during critical maneuvers.</p>
+
+            <h3>Real-Time Monitoring</h3>
+            <p>A live status panel surfaced telemetry from the robot including speed, heading, and system health indicators. The panel updated continuously without blocking the UI thread, keeping the interface responsive at all times.</p>
+
+            <h3>Dashboard Design</h3>
+            <p>Built with PyQt, the dashboard was designed to be readable at a glance — prioritizing the most critical information in the primary view and grouping secondary diagnostics into collapsible panels.</p>
+        </div>
+
+    </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Anomaly Detection — Bella Gallo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="detail-page">
+
+    <header class="detail-header">
+        <a href="../index.html" class="detail-logo">BG</a>
+    </header>
+
+    <div class="detail-scroll-area">
+    <main class="detail-main">
+
+        <a href="../index.html#projects" class="detail-back">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to projects
+        </a>
+
+        <span class="detail-category">AI / ML</span>
+        <h1 class="detail-title">Real-Time Anomaly Detection</h1>
+        <p class="detail-summary">Engineered a real-time anomaly detection and OCR pipeline on NVIDIA Jetson Orin with CUDA acceleration. Achieved 95% detection accuracy using PyTorch, Anomalib, and PyTesseract across a production manufacturing environment.</p>
+
+        <div class="detail-tags">
+            <span class="detail-tag">PyTorch</span>
+            <span class="detail-tag">Anomalib</span>
+            <span class="detail-tag">CUDA</span>
+            <span class="detail-tag">OpenCV</span>
+            <span class="detail-tag">PyTesseract</span>
+            <span class="detail-tag">NVIDIA Jetson Orin</span>
+        </div>
+
+        <!-- Replace this placeholder with a real screenshot once available -->
+        <div class="detail-img-placeholder">[ Add a project screenshot here ]</div>
+
+        <div class="detail-body">
+            <p>This project involved building an end-to-end anomaly detection pipeline capable of running inference in real time on edge hardware. The system was deployed on an NVIDIA Jetson Orin, leveraging CUDA cores to run the detection model with minimal latency in a production setting.</p>
+
+            <h3>Detection Pipeline</h3>
+            <p>The core detection model was built using Anomalib, a library purpose-built for anomaly detection on images. PyTorch served as the underlying framework. The pipeline ingests a camera feed, preprocesses each frame with OpenCV, runs inference, and flags anomalous regions with bounding box overlays in real time.</p>
+
+            <h3>OCR Integration</h3>
+            <p>PyTesseract was integrated alongside the vision pipeline to perform optical character recognition on parts passing through the inspection line, enabling the system to log part IDs alongside any detected defects automatically.</p>
+
+            <h3>Results</h3>
+            <p>After training and tuning, the system achieved 95% detection accuracy on the validation set. Latency remained under the threshold required for the production line speed, making it viable for deployment without slowing throughput.</p>
+        </div>
+
+    </main>
+    </div>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isabella Gallo</title>
+    <title>Bella Gallo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
     <!-- ===== TOP NAVBAR ===== -->
     <header class="site-header">
         <div class="header-inner">
-            <a class="nav-logo" data-section="home" href="#">IG</a>
+            <a class="nav-logo" data-section="home" href="#">BG</a>
             <ul class="nav-list" role="list">
 
                 <li class="nav-item active" data-section="home">
@@ -84,7 +84,8 @@
                 <img class="bottom-flower" src="./images/flower2.png" alt="">
                 <div class="hero-content">
                     <h1>Hello, I'm Bella.</h1>
-                    <p class="hero-subtitle">Computer Engineer &amp; Frontend Developer</p>
+                    <p class="hero-subtitle">Computer Engineer</p>
+                    <p class="hero-subtitle hero-subtitle--small">Diving into the realm of UX/UI &amp; Full Stack Development</p>
                     <div class="hero-buttons">
                         <button class="hero-btn" data-target="projects">View Projects</button>
                         <button class="hero-btn hero-btn--outline" data-target="contact">Get in Touch</button>
@@ -114,321 +115,297 @@
         <section id="projects" class="page-section">
             <div class="section-wrap">
 
-                <!-- Top row: heading + description -->
-                <div class="dash-row dash-top">
-                    <div class="widget">
-                        <h1 class="main-heading">Some of my past works include...</h1>
+                <!-- ===== SECTION HEADER =====
+                     Left side: "Selected Work" small label + "Projects" heading.
+                     Right side: filter buttons — each button has a data-category attribute
+                     that the JS filter logic reads to show/hide matching project cards. -->
+                <div class="proj-header">
+                    <div>
+                        <p class="proj-label">Selected Work</p>
+                        <h2 class="proj-heading">Projects</h2>
                     </div>
-                    <div class="widget">
-                        <p class="body-text">A variety of projects that allowed me to apply and expand my skills — from machine learning pipelines to robotics interfaces. Each one presented unique challenges and learning opportunities.</p>
-                        <p class="hint-text">Click the + on a project card to view more info.</p>
-                    </div>
-                </div>
-
-                <!-- Project rows: [card (left)] [buttons (right)] -->
-
-                <div class="dash-row dash-bottom">
-                    <div class="project-card widget" id="card-1">
-                        <div class="card-face card-front">
-                            <div id="carousel-anomaly" class="carousel slide" data-bs-ride="false">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-anomaly" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                                    <button type="button" data-bs-target="#carousel-anomaly" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carousel-anomaly" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <!-- Replace src with your screenshot: <img src="./images/anomaly-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
-                                        <div class="carousel-placeholder">Screenshot 1</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 2</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 3</div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-anomaly" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-anomaly" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <button class="toggle-btn">+</button>
-                        </div>
-                        <div class="card-face card-back">
-                            <div class="card-back-inner">
-                                <div>
-                                    <h3 class="card-title">Real-Time Anomaly Detection</h3>
-                                    <p class="card-desc">Engineered a real-time anomaly detection and OCR pipeline on NVIDIA Jetson Orin with CUDA acceleration. Achieved 95% detection accuracy using PyTorch, Anomalib, and PyTesseract.</p>
-                                </div>
-                            </div>
-                            <button class="toggle-btn">−</button>
-                        </div>
-                    </div>
-                    <div class="project-actions widget">
-                        <p class="project-name">Anomaly Detection</p>
-                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+                    <!-- Filter buttons — data-category must match the data-category on each .proj-card -->
+                    <div class="filter-row">
+                        <button class="filter-btn filter-active" data-category="all">All</button>
+                        <button class="filter-btn" data-category="ai">AI / ML</button>
+                        <button class="filter-btn" data-category="robotics">Robotics</button>
+                        <button class="filter-btn" data-category="hardware">Hardware</button>
+                        <button class="filter-btn" data-category="frontend">Frontend</button>
                     </div>
                 </div>
 
-                <div class="dash-row dash-bottom">
-                    <div class="project-card widget" id="card-2">
-                        <div class="card-face card-front">
-                            <div id="carousel-agv" class="carousel slide" data-bs-ride="false">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-agv" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                                    <button type="button" data-bs-target="#carousel-agv" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carousel-agv" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <!-- Replace src with your screenshot: <img src="./images/agv-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
-                                        <div class="carousel-placeholder">Screenshot 1</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 2</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 3</div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-agv" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-agv" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                <!-- Decorative gradient divider line below the header -->
+                <div class="proj-divider"></div>
+
+                <!-- ===== PROJECT GRID =====
+                     3-column responsive grid (drops to 2 on tablet, 1 on mobile).
+                     Each .proj-card has a data-category attribute used by the filter buttons.
+                     Inside each card, .proj-card-link is an invisible full-card anchor that
+                     makes the whole card clickable and navigates to the project detail page. -->
+                <div class="proj-grid">
+
+                    <!-- PROJECT CARD STRUCTURE:
+                         Each card has two faces toggled by the + / − button:
+                         FRONT (.proj-card-front): image + title/category caption at the bottom.
+                         BACK  (.proj-card-back):  description, tech tags, GitHub link — hidden by default.
+                         .proj-card-link: invisible overlay that makes the whole card navigate to the detail page.
+                         .proj-toggle-btn: sits at z-index 3 (above the link overlay) so it captures clicks independently.
+                         To add a real screenshot, replace the .proj-img-placeholder div with an <img> tag. -->
+
+                    <!-- Real-Time Anomaly Detection -->
+                    <div class="proj-card" data-category="ai">
+                        <!-- Full-card link to detail page (z-index 1) -->
+                        <a href="projects/anomaly-detection.html" class="proj-card-link" aria-label="View Real-Time Anomaly Detection project"></a>
+                        <!-- Toggle button — stops propagation so it doesn't trigger the card link -->
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <!-- FRONT: image with title overlay -->
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
                             </div>
-                            <button class="toggle-btn">+</button>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">AI / ML</span>
+                                <h3 class="proj-title">Real-Time Anomaly Detection</h3>
+                            </div>
                         </div>
-                        <div class="card-face card-back">
-                            <div class="card-back-inner">
-                                <div>
-                                    <h3 class="card-title">AGV Control Interface</h3>
-                                    <p class="card-desc">Built a production GUI for automated guided vehicles using PyQt, integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times.</p>
-                                </div>
+                        <!-- BACK: description revealed when + is clicked -->
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">AI / ML</span>
+                                <h3 class="proj-title">Real-Time Anomaly Detection</h3>
                             </div>
-                            <button class="toggle-btn">−</button>
+                            <p class="proj-desc">Engineered a real-time anomaly detection and OCR pipeline on NVIDIA Jetson Orin with CUDA acceleration. Achieved 95% detection accuracy using PyTorch, Anomalib, and PyTesseract.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">PyTorch</span>
+                                <span class="proj-tag">Anomalib</span>
+                                <span class="proj-tag">CUDA</span>
+                                <span class="proj-tag">OpenCV</span>
+                                <span class="proj-tag">PyTesseract</span>
+                                <span class="proj-tag">NVIDIA Jetson Orin</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-actions widget">
-                        <p class="project-name">AGV Interface</p>
-                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
+
+                    <!-- NucFilter OCR -->
+                    <div class="proj-card" data-category="ai">
+                        <a href="projects/ocr.html" class="proj-card-link" aria-label="View NucFilter OCR project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">AI / ML</span>
+                                <h3 class="proj-title">OCR System</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">AI / ML</span>
+                                <h3 class="proj-title">OCR System</h3>
+                            </div>
+                            <p class="proj-desc">Automated OCR pipeline for industrial inspection at Savannah River National Laboratory. Identifies and validates equipment labels on radioactive waste containers using 360° rotation scanning and 6-step criteria verification.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">Python</span>
+                                <span class="proj-tag">EasyOCR</span>
+                                <span class="proj-tag">OpenCV</span>
+                                <span class="proj-tag">NumPy</span>
+                                <span class="proj-tag">GPU Accelerated</span>
+                                <span class="proj-tag">Affine Transforms</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- AGV Control Interface -->
+                    <div class="proj-card" data-category="robotics">
+                        <a href="projects/agv-interface.html" class="proj-card-link" aria-label="View AGV Control Interface project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">Robotics</span>
+                                <h3 class="proj-title">AGV Control Interface</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Robotics</span>
+                                <h3 class="proj-title">AGV Control Interface</h3>
+                            </div>
+                            <p class="proj-desc">Built a production GUI for automated guided vehicles using PyQt, integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">PyQt</span>
+                                <span class="proj-tag">Python</span>
+                                <span class="proj-tag">PLC</span>
+                                <span class="proj-tag">LiDAR</span>
+                                <span class="proj-tag">RTOS</span>
+                                <span class="proj-tag">Ladder Logic</span>
+                                <span class="proj-tag">Sensor Fusion</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Crawler Robot Interface -->
+                    <div class="proj-card" data-category="robotics">
+                        <a href="projects/crawler-robot.html" class="proj-card-link" aria-label="View Crawler Robot Interface project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">
+                                    <img class="crawler-img" src="./images/CrawlerInterface.PNG" ></img>
+                                </div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">Robotics</span>
+                                <h3 class="proj-title">Crawler Robot Interface</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Robotics</span>
+                                <h3 class="proj-title">Crawler Robot Interface</h3>
+                            </div>
+                            <p class="proj-desc">Developed a control interface for a crawler robot, enabling real-time monitoring and command dispatch with a responsive operator dashboard.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">PyQt</span>
+                                <span class="proj-tag">Real-Time Control</span>
+                                <span class="proj-tag">Real-Time Monitoring</span>
+                                <span class="proj-tag">Python</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calorimeter -->
+                    <div class="proj-card" data-category="hardware">
+                        <a href="projects/calorimeter.html" class="proj-card-link" aria-label="View Calorimeter Heating System project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">
+                                    <img class="cal-pic1" src ="./images/Cal1.PNG" ></img>
+
+                                </div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">Hardware</span>
+                                <h3 class="proj-title">Calorimeter Heating System</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Hardware</span>
+                                <h3 class="proj-title">Calorimeter Heating System</h3>
+                            </div>
+                            <p class="proj-desc">Designed and built the user interface for a calorimeter heating system, providing real-time temperature monitoring and precise control for laboratory use.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">Python</span>
+                                <span class="proj-tag">Visual Basic</span>
+                                <span class="proj-tag">Hardware Interface</span>
+                                <span class="proj-tag">Real-Time Monitoring</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mass Spectrometer -->
+                    <div class="proj-card" data-category="hardware">
+                        <a href="projects/mass-spectrometer.html" class="proj-card-link" aria-label="View Mass Spectrometer Interface project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">Hardware</span>
+                                <h3 class="proj-title">Mass Spectrometer Interface</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Hardware</span>
+                                <h3 class="proj-title">Mass Spectrometer Interface</h3>
+                            </div>
+                            <p class="proj-desc">Built a GUI for a mass spectrometer, visualizing spectral data and enabling precise instrument control for scientific measurement workflows.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">Python</span>
+                                <span class="proj-tag">Visual Basic</span>
+                                <span class="proj-tag">Data Visualization</span>
+                                <span class="proj-tag">Hardware Interface</span>
+                                <span class="proj-tag">Real-Time Monitoring</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IR Facial Recognition -->
+                    <div class="proj-card" data-category="frontend">
+                        <a href="projects/ir-facial-recognition.html" class="proj-card-link" aria-label="View IR Facial Recognition Interface project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">Frontend</span>
+                                <h3 class="proj-title">IR Facial Recognition Interface</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Frontend</span>
+                                <h3 class="proj-title">IR Facial Recognition Interface</h3>
+                            </div>
+                            <p class="proj-desc">My first deep dive into frontend, backend, and UX/UI — built during my senior capstone. Seeing every component come together into something intuitive and responsive is what sparked my passion for this space.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">OpenCV</span>
+                                <span class="proj-tag">Python</span>
+                                <span class="proj-tag">HTML/CSS</span>
+                                <span class="proj-tag">UX/UI</span>
+                                <span class="proj-tag">Real-Time Monitoring</span>
+                                <span class="proj-tag">Backend Integration</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750/Ombra_IR_Facial_Recognition_Capstone" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Crawler Robot -->
-                <div class="dash-row dash-bottom">
-                    <div class="project-card widget" id="card-3">
-                        <div class="card-face card-front">
-                            <div id="carousel-crawler" class="carousel slide" data-bs-ride="false">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-crawler" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                                    <button type="button" data-bs-target="#carousel-crawler" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carousel-crawler" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <!-- Replace src with your screenshot: <img src="./images/crawler-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
-                                        <div class="carousel-placeholder">Screenshot 1</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 2</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 3</div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-crawler" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-crawler" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <button class="toggle-btn">+</button>
-                        </div>
-                        <div class="card-face card-back">
-                            <div class="card-back-inner">
-                                <div>
-                                    <h3 class="card-title">Crawler Robot Interface</h3>
-                                    <p class="card-desc">Developed a control interface for a crawler robot, enabling real-time monitoring and command dispatch. Add more details about your project here.</p>
-                                </div>
-                            </div>
-                            <button class="toggle-btn">−</button>
-                        </div>
-                    </div>
-                    <div class="project-actions widget">
-                        <p class="project-name">Crawler Robot</p>
-                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
-                    </div>
-                </div>
-
-                <!-- Calorimeter -->
-                <div class="dash-row dash-bottom">
-                    <div class="project-card widget" id="card-4">
-                        <div class="card-face card-front">
-                            <div id="carousel-calorimeter" class="carousel slide" data-bs-ride="false">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-calorimeter" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                                    <button type="button" data-bs-target="#carousel-calorimeter" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carousel-calorimeter" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <!-- Replace src with your screenshot: <img src="./images/calorimeter-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
-                                        <div class="carousel-placeholder">Screenshot 1</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 2</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 3</div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-calorimeter" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-calorimeter" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <button class="toggle-btn">+</button>
-                        </div>
-                        <div class="card-face card-back">
-                            <div class="card-back-inner">
-                                <div>
-                                    <h3 class="card-title">Calorimeter Heating System</h3>
-                                    <p class="card-desc">Designed and built the user interface for a calorimeter heating system, providing real-time temperature monitoring and control. Add more details about your project here.</p>
-                                </div>
-                            </div>
-                            <button class="toggle-btn">−</button>
-                        </div>
-                    </div>
-                    <div class="project-actions widget">
-                        <p class="project-name">Calorimeter</p>
-                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
-                    </div>
-                </div>
-
-                <!-- Mass Spectrometer -->
-                <div class="dash-row dash-bottom">
-                    <div class="project-card widget" id="card-5">
-                        <div class="card-face card-front">
-                            <div id="carousel-spectrometer" class="carousel slide" data-bs-ride="false">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-spectrometer" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                                    <button type="button" data-bs-target="#carousel-spectrometer" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carousel-spectrometer" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <!-- Replace src with your screenshot: <img src="./images/spectrometer-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
-                                        <div class="carousel-placeholder">Screenshot 1</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 2</div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-placeholder">Screenshot 3</div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-spectrometer" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-spectrometer" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <button class="toggle-btn">+</button>
-                        </div>
-                        <div class="card-face card-back">
-                            <div class="card-back-inner">
-                                <div>
-                                    <h3 class="card-title">Mass Spectrometer Interface</h3>
-                                    <p class="card-desc">Built a GUI for a mass spectrometer, visualizing spectral data and enabling precise instrument control. Add more details about your project here.</p>
-                                </div>
-                            </div>
-                            <button class="toggle-btn">−</button>
-                        </div>
-                    </div>
-                    <div class="project-actions widget">
-                        <p class="project-name">Mass Spectrometer</p>
-                        <a class="action-btn action-btn--tinted" href="https://github.com/bg1750">View Repo</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Mass Spectrometer -->
-            <div class="dash-row dash-bottom">
-                <div class="project-card widget" id="card-6">
-                    <div class="card-face card-front">
-                        <div id="carousel-IR" class="carousel slide" data-bs-ride="false">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carousel-IR" data-bs-slide-to="0" class="active"
-                                    aria-current="true"></button>
-                                <button type="button" data-bs-target="#carousel-IR" data-bs-slide-to="1"></button>
-                                <button type="button" data-bs-target="#carousel-IR" data-bs-slide-to="2"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <!-- Replace src with your screenshot: <img src="./images/IR-1.png" class="carousel-img d-block w-100" alt="Screenshot 1"> -->
-                                    <div class="carousel-placeholder">Screenshot 1</div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="carousel-placeholder">Screenshot 2</div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="carousel-placeholder">Screenshot 3</div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-IR"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-IR"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <button class="toggle-btn">+</button>
-                    </div>
-                    <div class="card-face card-back">
-                        <div class="card-back-inner">
-                            <div>
-                                <h3 class="card-title">IR Facial Recognition Interface</h3>
-                                <p class="card-desc">I like to include this project in my experience because it was my first introduction to seeing the components of frontend, backend, and even UX/UI design. 
-                                    I learned how much I loved seeing how each component come together to create something intuitive and responsive. This project was a learning experience during my final year of my Bachelors Degree in Computer Engineering. 
-                                It involved a series of open sources that helped us create our backend specficially, where the frontend and interface was built more from scratch for our needs. </p>
-                            </div>
-                        </div>
-                        <button class="toggle-btn">−</button>
-                    </div>
-                </div>
-                <div class="project-actions widget">
-                    <p class="project-name">IR Facial Recognition Interface</p>
-                    <a class="action-btn action-btn--tinted" href="https://github.com/bg1750/Ombra_IR_Facial_Recognition_Capstone">View Repo</a>
-                </div>
-            </div>
-
-            </div>
-
-
+                <!-- Empty state message — hidden by default, shown by JS when a filter returns 0 results -->
+                <div id="proj-empty" class="proj-empty" style="display:none;">No projects in this category.</div>
 
 
         </section>
@@ -479,6 +456,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBXFB+bAJFpONUF5PCFpj3SJkQ" crossorigin="anonymous"></script>
 <script>
+    // Navigate to section from URL hash on page load
+    // ===== HASH ROUTING =====
+    // When arriving from a project detail page (e.g. index.html#projects),
+    // read the URL hash and jump straight to that section instead of defaulting to Home.
+    const initHash = window.location.hash.slice(1);
+    if (initHash && document.getElementById(initHash)) navigateTo(initHash);
+
     function navigateTo(id) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
@@ -507,11 +491,41 @@
         btn.addEventListener('click', () => navigateTo(btn.dataset.target));
     });
 
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.querySelectorAll('.toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                card.classList.toggle('flipped');
+    // ===== CARD TOGGLE (+ / − button) =====
+    // Clicking + reveals the description back face; clicking − returns to the image front face.
+    // e.stopPropagation() prevents the click from bubbling up to the .proj-card-link overlay.
+    document.querySelectorAll('.proj-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const card = btn.closest('.proj-card');
+            card.classList.toggle('flipped');
+            btn.textContent = card.classList.contains('flipped') ? '−' : '+';
+        });
+    });
+
+    // ===== PROJECT FILTER =====
+    // When a filter button is clicked:
+    //   1. Remove the active style from all buttons, add it to the clicked one.
+    //   2. Read the clicked button's data-category value.
+    //   3. Loop through every project card — show it if its data-category matches
+    //      (or if "All" was clicked), hide it otherwise.
+    //   4. If no cards are visible after filtering, show the empty-state message.
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projCards = document.querySelectorAll('.proj-card');
+    const projEmpty = document.getElementById('proj-empty');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('filter-active'));
+            btn.classList.add('filter-active');
+            const cat = btn.dataset.category;
+            let visible = 0;
+            projCards.forEach(card => {
+                const show = cat === 'all' || card.dataset.category === cat;
+                card.style.display = show ? '' : 'none';
+                if (show) visible++;
             });
+            projEmpty.style.display = visible === 0 ? 'block' : 'none';
         });
     });
 </script>

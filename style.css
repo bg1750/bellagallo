@@ -130,6 +130,28 @@ main {
     overflow-x: hidden;
 }
 
+/* ===== SCROLLBAR STYLING ===== */
+main::-webkit-scrollbar,
+.detail-scroll-area::-webkit-scrollbar {
+    width: 4px;
+}
+
+main::-webkit-scrollbar-track,
+.detail-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+main::-webkit-scrollbar-thumb,
+.detail-scroll-area::-webkit-scrollbar-thumb {
+    background: #9940FF44;
+    border-radius: 999px;
+}
+
+main::-webkit-scrollbar-thumb:hover,
+.detail-scroll-area::-webkit-scrollbar-thumb:hover {
+    background: #9940FF99;
+}
+
 /* ===== PAGE SECTIONS ===== */
 .page-section {
     display: none;
@@ -199,6 +221,12 @@ h1 {
     font-size: 1.3em;
     color: #C8A79C;
     letter-spacing: 2px;
+}
+
+/* Modifier class applied to the second hero subtitle line to make it
+   visually smaller than the "Computer Engineer" line above it */
+.hero-subtitle--small {
+    font-size: 0.95em;
 }
 
 .hero-buttons {
@@ -289,177 +317,321 @@ h1 {
     display: block;
 }
 
-/* ===== PROJECTS ===== */
-.main-heading {
-    color: #C8A79C;
-    font-size: 1.5em;
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
-    line-height: 1.4;
-}
+/* ===== PROJECTS =====
+   All styles below were added to replace the old flip-card/carousel layout
+   with a modern grid-based design inspired by evanqhuang.com. ===== */
 
-.hint-text {
-    color: #9940FF;
-    font-size: 0.85em;
-    font-style: italic;
-    margin-top: 10px;
-    display: block;
-    text-align: left;
-}
-
-/* Dashboard rows */
-.dash-row {
-    display: grid;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.dash-top {
-    grid-template-columns: 1fr 1fr;
-}
-
-/* Bottom row: card (large, left) + actions panel (right) */
-.dash-bottom {
-    grid-template-columns: 1fr auto;
-    align-items: start;
-}
-
-/* Actions panel */
-.project-actions {
+/* --- Section header: "Selected Work" label + "Projects" heading on the left,
+       filter buttons on the right --- */
+.proj-header {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    min-width: 160px;
-}
-
-.project-name {
-    color: #C8A79C;
-    font-weight: 600;
-    font-size: 0.95em;
-    text-align: left;
-    display: block;
-}
-
-.action-btn {
-    display: block;
-    width: 100%;
-    padding: 10px 0;
-    background-color: #9940FF;
-    color: #31003C;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 0.85em;
-    text-align: center;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.action-btn:hover {
-    background-color: #C8A79C;
-    color: #31003C;
-}
-
-.action-btn--tinted {
-    background-color: transparent;
-    color: #9940FF;
-    border: 1px solid #9940FF;
-}
-
-.action-btn--tinted:hover {
-    background-color: #9940FF;
-    color: #31003C;
-}
-
-/* Flip card */
-.project-card {
-    position: relative;
-    min-height: 300px;
-    padding: 0;
-    overflow: hidden;
-}
-
-.card-face {
-    width: 100%;
-}
-
-.card-front {
-    display: block;
-}
-
-.card-back {
-    display: none;
-}
-
-.project-card.flipped .card-front {
-    display: none;
-}
-
-.project-card.flipped .card-back {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
     justify-content: space-between;
-    min-height: 300px;
+    gap: 20px;
+    margin-bottom: 28px;
 }
 
-.card-img-wrap {
+/* Small monospace label above the Projects heading */
+.proj-label {
+    font-size: 0.75em;
+    font-family: monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9940FF;
+    margin-bottom: 6px;
+}
+
+/* Main "Projects" heading */
+.proj-heading {
+    font-size: 2em;
+    font-weight: bold;
+    color: #C8A79C;
+    line-height: 1.1;
+}
+
+/* Row of filter buttons that sit to the right of the heading */
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* --- Filter buttons: default (inactive) state --- */
+.filter-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #9940FF44;
+    background-color: transparent;
+    color: #C8A79C;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Filter button on hover */
+.filter-btn:hover {
+    border-color: #9940FF;
+    color: #9940FF;
+}
+
+/* Filter button when it is the currently selected category */
+.filter-btn.filter-active {
+    background-color: #9940FF;
+    border-color: #9940FF;
+    color: #31003C;
+    font-weight: 600;
+}
+
+/* Decorative 1px gradient line between the header and the card grid */
+.proj-divider {
+    height: 1px;
+    background: linear-gradient(to right, #9940FF66, #4C066C, transparent);
+    margin-bottom: 32px;
+}
+
+/* 3-column responsive grid that holds the project cards */
+.proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* --- Project card: base style --- */
+.proj-card {
+    position: relative;
+    background-color: #4C066C;
+    border-radius: 12px;
+    border: 1px solid #9940FF22; /* subtle border at rest */
+    overflow: hidden;            /* clips the image and caption inside the rounded corners */
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    min-height: 280px;           /* consistent card height across the grid */
+}
+
+/* --- Hover effect: purple outline glow + slight lift --- */
+.proj-card:hover {
+    border-color: #9940FF;                               /* solid purple border */
+    box-shadow: 0 0 0 1px #9940FF, 0 6px 28px #9940FF22; /* outer glow ring */
+    transform: translateY(-3px);                         /* lifts card upward */
+}
+
+/* --- Title turns purple on hover (targets .proj-title inside a hovered card) --- */
+.proj-card:hover .proj-title {
+    color: #9940FF;
+}
+
+/* --- Stretched invisible link covering the entire card, so clicking anywhere opens the project detail page --- */
+.proj-card-link {
+    position: absolute;
+    inset: 0;            /* fills the full card area */
+    border-radius: 12px;
+    z-index: 1;          /* above card content, but below the toggle button (z-index: 3) and links (z-index: 2) */
+}
+
+/* ===== CARD FRONT (image view — shown by default) ===== */
+
+/* Front face fills the full card */
+.proj-card-front {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 250px;
-    background-color: #31003C;
+    height: 100%;
+    min-height: 280px;
+}
+
+/* Image area fills the available space above the caption */
+.proj-card-img {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Image tag inside .proj-card-img — covers the full area */
+.proj-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Placeholder shown until a real screenshot is added */
+.proj-img-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    border-radius: 8px;
+    background-color: #31003C;
+    border: 2px dashed #9940FF33;
+    color: #9940FF55;
+    font-family: monospace;
+    font-size: 0.8em;
 }
 
-.card-img {
-    width: 100%;
+/* Caption panel sitting below the image */
+.proj-card-caption {
+    padding: 12px 20px;
+    background: rgba(49, 0, 60, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-top: 1px solid #9940FF33;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* ===== CARD BACK (description view — hidden until + is clicked) ===== */
+
+/* Back face hidden by default; shown when .proj-card has the .flipped class */
+.proj-card-back {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
     height: 100%;
-    object-fit: contain;
-    padding: 20px;
+    min-height: 280px;
 }
 
-.card-back-inner {
-    padding: 28px;
-    flex: 1;
-}
+/* When .flipped is added by JS: hide the front, show the back */
+.proj-card.flipped .proj-card-front { display: none; }
+.proj-card.flipped .proj-card-back  { display: flex; }
 
-.card-title {
-    color: #9940FF;
-    font-size: 1.1em;
-    margin-bottom: 12px;
-}
+/* ===== TOGGLE BUTTON (+ / −) ===== */
 
-.card-desc {
-    color: #C8A79C;
-    font-size: 0.9em;
-    line-height: 1.7;
-    text-align: left;
-    display: block;
-}
-
-.toggle-btn {
+/* Positioned in the top-right corner of the card.
+   z-index: 3 keeps it above both the card link (z-index: 1) and the GitHub links (z-index: 2)
+   so it always captures its own click events. */
+.proj-toggle-btn {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background-color: #9940FF;
     color: #31003C;
     border: none;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
+    line-height: 1;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s;
+}
+
+.proj-toggle-btn:hover {
+    background-color: #C8A79C;
+}
+
+/* Top section of each card: stacks category label above the title */
+.proj-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Small uppercase monospace category label (e.g. "AI / ML", "Robotics") */
+.proj-category {
+    font-size: 0.7em;
+    font-family: monospace;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #9940FF;
+}
+
+/* Project title — color transitions to purple on card hover (see .proj-card:hover .proj-title) */
+.proj-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: #C8A79C;
+    line-height: 1.3;
+}
+
+/* Short project description shown on the card */
+.proj-desc {
+    font-size: 0.875em;
+    color: #C8A79Caa;
+    line-height: 1.7;
+    flex: 1; /* pushes the tags and links to the bottom of the card */
+}
+
+/* Container for technology pill badges */
+.proj-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Individual technology badge pill */
+.proj-tag {
+    font-size: 0.72em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background-color: #31003C;
+    color: #9940FF;
+    border: 1px solid #9940FF33;
+    font-family: monospace;
+}
+
+/* Bottom row of each card containing icon links (e.g. GitHub).
+   z-index: 2 ensures these links sit above the .proj-card-link overlay
+   so they remain independently clickable. */
+.proj-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #9940FF22;
+    margin-top: auto;
+    position: relative;
     z-index: 2;
 }
 
-.toggle-btn:hover {
-    background-color: #C8A79C;
+/* Icon-only link (GitHub, etc.) inside .proj-links */
+.proj-link-icon {
+    color: #C8A79C66;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.proj-link-icon:hover {
+    color: #9940FF;
+}
+
+/* Message shown when a filter returns zero matching cards */
+.proj-empty {
+    text-align: center;
+    padding: 48px 0;
+    color: #C8A79C66;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Calorimeter */
+.detail-cal-pic1 {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 32px;
+}
+
+.detail-cal-pic1 .carousel-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Crawler */
+.crawler-img-sub {
+    height:500px;
+    width:700px;
 }
 
 /* ===== SKILLS ===== */
@@ -525,60 +697,190 @@ h1 {
     color: #31003C;
 }
 
-/* ===== CAROUSEL ===== */
-.carousel {
-    width: 100%;
-    height: 250px;
-    border-radius: 8px;
-    overflow: hidden;
+/* ===== PROJECT DETAIL PAGE ===== */
+.detail-page {
     background-color: #31003C;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: #C8A79C;
+    font-family: 'Inter', sans-serif;
 }
 
-.carousel-inner,
-.carousel-item {
-    height: 100%;
+.detail-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
 }
 
-/* When user adds a real screenshot, use this class */
-.carousel-img {
+.detail-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #31003Cee;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #9940FF22;
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detail-logo {
+    font-family: 'Mea Culpa', cursive;
+    font-size: 1.5em;
+    color: #C8A79C;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.detail-logo:hover { color: #9940FF; }
+
+.detail-main {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+}
+
+.detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: monospace;
+    font-size: 0.85em;
+    color: #C8A79C88;
+    text-decoration: none;
+    margin-bottom: 40px;
+    transition: color 0.2s;
+}
+
+.detail-back:hover { color: #9940FF; }
+
+.detail-back svg { flex-shrink: 0; }
+
+.detail-category {
+    font-size: 0.7em;
+    font-family: monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9940FF;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.detail-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #C8A79C;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.detail-summary {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: #C8A79Cbb;
+    margin-bottom: 28px;
+}
+
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.detail-tag {
+    font-size: 0.75em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background-color: #4C066C;
+    color: #9940FF;
+    border: 1px solid #9940FF33;
+    font-family: monospace;
+}
+
+.detail-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #9940FF22;
+    margin-bottom: 36px;
+}
+
+.detail-gh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid #9940FF44;
+    color: #C8A79C;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.detail-gh-btn:hover {
+    border-color: #9940FF;
+    color: #9940FF;
+    background-color: #9940FF11;
+}
+
+.detail-img-wrap {
     width: 100%;
-    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #9940FF22;
+    margin-bottom: 40px;
+    background-color: #4C066C;
+}
+
+.detail-img-wrap img {
+    width: 100%;
+    aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
 }
 
-/* Placeholder shown until screenshots are added */
-.carousel-placeholder {
+.detail-img-placeholder {
     width: 100%;
-    height: 250px;
-    background-color: #31003C;
-    border: 2px dashed #9940FF44;
+    aspect-ratio: 16/9;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9940FF;
+    color: #9940FF44;
+    font-family: monospace;
     font-size: 0.85em;
-    opacity: 0.6;
-    letter-spacing: 1px;
+    border: 2px dashed #9940FF22;
+    border-radius: 10px;
+    margin-bottom: 40px;
 }
 
-/* Keep carousel indicators/controls styled on dark bg */
-.carousel-indicators [data-bs-target] {
-    background-color: #9940FF;
-    opacity: 0.5;
-    border: none;
+.detail-body {
+    font-size: 0.95em;
+    line-height: 1.85;
+    color: #C8A79Caa;
 }
 
-.carousel-indicators .active {
-    opacity: 1;
-}
+.detail-body p { margin-bottom: 20px; }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(40%) sepia(80%) saturate(2000%) hue-rotate(245deg);
+.detail-body h3 {
+    color: #C8A79C;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 32px 0 12px;
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .proj-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
     body { overflow: auto; height: auto; }
 
@@ -601,8 +903,8 @@ h1 {
     .about-grid { grid-template-columns: 1fr; }
     .about-photo-widget { display: none; }
 
-    .dash-top { grid-template-columns: 1fr; }
-    .dash-bottom { grid-template-columns: 1fr; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .proj-header { flex-direction: column; align-items: flex-start; }
 
     .skills-grid { grid-template-columns: 1fr; }
 

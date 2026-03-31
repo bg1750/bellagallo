@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGV Control Interface — Bella Gallo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="detail-page">
+
+    <header class="detail-header">
+        <a href="../index.html" class="detail-logo">BG</a>
+    </header>
+
+    <div class="detail-scroll-area">
+    <main class="detail-main">
+
+        <a href="../index.html#projects" class="detail-back">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to projects
+        </a>
+
+        <span class="detail-category">Robotics</span>
+        <h1 class="detail-title">AGV Control Interface</h1>
+        <p class="detail-summary">Built a production-grade GUI for automated guided vehicles using PyQt, integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor deployment.</p>
+
+        <div class="detail-tags">
+            <span class="detail-tag">PyQt</span>
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">PLC</span>
+            <span class="detail-tag">LiDAR</span>
+            <span class="detail-tag">RTOS</span>
+            <span class="detail-tag">Ladder Logic</span>
+            <span class="detail-tag">Sensor Fusion</span>
+        </div>
+
+        <div class="detail-img-placeholder">[ Add a project screenshot here ]</div>
+
+        <div class="detail-body">
+            <p>This project involved designing and building the operator-facing control interface for a fleet of automated guided vehicles operating in a production environment. The interface needed to surface real-time positional data, sensor health, and control inputs without introducing latency that could affect vehicle safety.</p>
+
+            <h3>Sensor Fusion</h3>
+            <p>Each AGV combined data from LiDAR scanners, a forward-facing camera, and wheel encoders. The interface consumed fused position estimates, visualizing the vehicle's path and surrounding obstacles on a live floor map rendered within the PyQt GUI.</p>
+
+            <h3>Motion Control</h3>
+            <p>Commands sent through the GUI were relayed to the vehicle's RTOS layer, which enforced sub-10ms round-trip execution. PLC integration allowed hardware-level interlocks to be monitored and overridden directly from the interface when needed.</p>
+
+            <h3>Operator Experience</h3>
+            <p>The interface was designed around operator workflows — minimizing the number of interactions needed for common tasks, surfacing alerts prominently, and providing enough diagnostic detail for maintenance without cluttering the primary view.</p>
+        </div>
+
+    </main>
+    </div>
+
+</body>
+</html>

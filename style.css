@@ -383,6 +383,13 @@ h1 {
     font-weight: 600;
 }
 
+/* Hint text below projects header */
+.proj-hint {
+    font-size: 0.78rem;
+    color: #C8A79C99;
+    margin-bottom: 16px;
+}
+
 /* Decorative 1px gradient line between the header and the card grid */
 .proj-divider {
     height: 1px;

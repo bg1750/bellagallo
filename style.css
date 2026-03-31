@@ -895,7 +895,10 @@ h1 {
 
     .header-inner { padding: 8px 16px; flex-wrap: wrap; }
 
-    .nav-link span, .nav-link { font-size: 0.78em; }
+    /* FIX: nav text labels overflow on small screens — collapse to icon-only
+       by zeroing font-size (hides text nodes) and tightening padding */
+    .nav-link { font-size: 0; padding: 9px 10px; gap: 0; }
+    .nav-icon { width: 20px; height: 20px; }
 
     main { overflow: visible; }
 
@@ -921,6 +924,9 @@ h1 {
     .skill-img { width: 100px; height: 100px; }
 
     /* FIX: contact section was getting clipped on mobile because min-height was
-       forcing it to 100vh — removed fixed height so it sizes naturally with padding */
+       forcing it to 100vh — removed fixed height so it sizes naturally with padding.
+       Buttons now stack full-width so they don't overflow on small screens. */
     .contact-wrap { min-height: auto; padding-top: 64px; padding-bottom: 64px; }
+    .contact-row { flex-direction: column; }
+    .contact-btn { text-align: center; width: 100%; }
 }

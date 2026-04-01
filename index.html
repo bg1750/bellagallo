@@ -4,11 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Gallo</title>
+
+    <!-- ===== OPEN GRAPH =====
+         These tags control how your site looks when shared on LinkedIn, Slack, iMessage, etc.
+         Each platform reads these instead of guessing from your page content. -->
+
+    <!-- The title shown in the preview card -->
+    <meta property="og:title" content="Bella Gallo — Computer Engineer &amp; Aspiring Web Developer">
+
+    <!-- The short description shown under the title -->
+    <meta property="og:description" content="Computer engineer and aspiring web developer building interfaces for robotics, scientific instruments, and the web.">
+
+    <!-- Must be the full URL — no relative paths here -->
+    <meta property="og:url" content="https://bg1750.github.io/bellagallo">
+
+    <!-- Tells platforms this is a website (not an article, video, etc.) -->
+    <meta property="og:type" content="website">
+
+    <!-- The preview image — must also be a full URL, and a real PNG/JPG file -->
+    <meta property="og:image" content="https://bg1750.github.io/bellagallo/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter/X uses its own tags (same idea, different prefix) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bella Gallo — Computer Engineer &amp; Aspiring Web Developer">
+    <meta name="twitter:description" content="Computer engineer and aspiring web developer building interfaces for robotics, scientific instruments, and the web.">
+    <meta name="twitter:image" content="https://bg1750.github.io/bellagallo/og-image.png">
+
+    <!-- ===== END OPEN GRAPH ===== -->
+
+    <!-- Google Fonts: loads Inter (body text) and Mea Culpa (the BG logo / h1 script font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap: used for the calorimeter image carousel on its detail page -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Font Awesome: icon library used for the navbar contact icons and skill icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Favicon: the small BG icon shown in the browser tab (favicon.svg lives in the root folder) -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Main stylesheet: all custom styles live in style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,16 +68,6 @@
                             <path d="M257.561 131.836c-5.454-5.451-14.285-5.451-19.723 0L72.712 296.913a13.977 13.977 0 0 0-4.085 9.877v120.401c0 28.253 22.908 51.16 51.16 51.16h81.754v-126.61h92.299v126.61h81.755c28.251 0 51.159-22.907 51.159-51.159V306.79c0-3.713-1.465-7.271-4.085-9.877L257.561 131.836z"/>
                         </svg>
                         Home
-                    </a>
-                </li>
-
-                <li class="nav-item" data-section="about">
-                    <div class="nav-bubble"></div>
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1000 1000" aria-hidden="true" class="nav-icon">
-                            <path d="M500 81q-116 0-215 58-96 56-152 152-58 100-58 215.5T133 721q56 96 152 152 99 58 215 58t215-58q96-56 152-152 58-99 58-214.5T867 291q-56-96-152-152-99-58-215-58zm-81 462q-38-29-63-81-23-50-23-99 0-45 22.5-83.5t61-61T500 196t83.5 22.5 61 61T667 363q0 50-25 102-25 53-65 81-17 12-17 33v5q0 24 15 42.5t38 23.5q77 16 132 45 15 8 17.5 25t-9.5 29q-49 52-115.5 80t-138 28T362 828.5 246 748q-12-12-9.5-28.5T254 695q53-29 128-45 23-5 38-23.5t15-41.5v-10q0-20-16-32z"/>
-                        </svg>
-                        About
                     </a>
                 </li>
 
@@ -61,17 +91,30 @@
                     </a>
                 </li>
 
-                <li class="nav-item" data-section="contact">
-                    <div class="nav-bubble"></div>
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" aria-hidden="true" class="nav-icon">
-                            <path fill="currentColor" fill-rule="evenodd" d="M3.6 7.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V17c0 .6-.4 1-1 1C7.6 18 0 10.4 0 1c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1L3.6 7.8Z"/>
-                        </svg>
-                        Contact
-                    </a>
-                </li>
-
             </ul>
+
+            <!-- Resume download button
+                 The "download" attribute tells the browser to download the file instead of opening it.
+                 Replace Bella_Gallo_Resume.pdf with your actual PDF filename.
+                 Hidden on mobile via CSS to keep the navbar clean. -->
+            <a href="./Bella_Gallo_Resume.pdf" download class="nav-resume-btn" aria-label="Download Resume">Resume</a>
+
+            <!-- Contact icon links
+                 These are plain <a> tags (not nav-items) so they never get the active highlight.
+                 Font Awesome class names (fa-solid fa-envelope etc.) load the icons.
+                 target="_blank" opens the link in a new tab.
+                 rel="noopener noreferrer" is a security best practice when using target="_blank". -->
+            <div class="nav-contact-links">
+                <a class="nav-contact-icon" href="mailto:" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a class="nav-contact-icon" href="https://www.linkedin.com/in/isabellagallo86328/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a class="nav-contact-icon" href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -81,32 +124,18 @@
         <!-- HOME -->
         <section id="home" class="page-section active">
             <div class="hero">
-                <img class="top-flower" src="./images/flower1.png" alt="">
-                <img class="bottom-flower" src="./images/flower2.png" alt="">
+                <div class="wave wave-top"></div>
+                <div class="wave wave-bottom"></div>
                 <div class="hero-content">
-                    <h1>Hello, I'm Bella.</h1>
-                    <p class="hero-subtitle">Computer Engineer</p>
-                    <p class="hero-subtitle hero-subtitle--small">Diving into the realm of UX/UI &amp; Full Stack Development</p>
+                    <h1>I'm Bella.</h1>
+                    <p class="hero-subtitle">Computer Engineer, Aspiring Web Developer</p>
+                    <p class="hero-subtitle hero-subtitle--small"> Hello! I am a computer engineer 
+                        with a passion for turning complex systems into clean, 
+                        intuitive interfaces. My work spans robotics, autonomous systems, and
+                        machine learning. Working on user interfaces for complex systems inspired me to 
+                        dive into the realm of interface design.
                     <div class="hero-buttons">
                         <button class="hero-btn" data-target="projects">View Projects</button>
-                        <button class="hero-btn hero-btn--outline" data-target="contact">Get in Touch</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="page-section">
-            <div class="section-wrap">
-                <div class="about-grid">
-                    <div class="widget">
-                        <h2 class="widget-heading">About Me</h2>
-                        <p class="body-text">
-                            I began early in my career as a hardware encryption engineer intern. Most recently I was hired at a national laboratory as a computer engineer, working extensively on user interfaces for devices, robots, and autonomous systems.
-                        </p>
-                    </div>
-                    <div class="widget about-photo-widget">
-                        <img class="profile-pic" src="./images/profilePic.JPG" alt="Isabella Gallo">
                     </div>
                 </div>
             </div>
@@ -128,10 +157,10 @@
                     <!-- Filter buttons — data-category must match the data-category on each .proj-card -->
                     <div class="filter-row">
                         <button class="filter-btn filter-active" data-category="all">All</button>
-                        <button class="filter-btn" data-category="ai">AI / ML</button>
-                        <button class="filter-btn" data-category="fullstack">Full Stack</button>
-                        <button class="filter-btn" data-category="frontend">Frontend</button>
-                        <button class="filter-btn" data-category="automation">Industrial Automation</button>
+                        <button class="filter-btn" data-category="frontend">Frontend</button>  
+                        <button class="filter-btn" data-category="ai">ML & AI</button>
+                        <button class="filter-btn" data-category="uxui">UX / UI</button>
+                        <button class="filter-btn" data-category="embedded">Embedded & Controls</button>
                     </div>
                 </div>
 
@@ -165,7 +194,7 @@
                         <!-- FRONT: image with title overlay -->
                         <div class="proj-card-front">
                             <div class="proj-card-img">
-                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                                <div class="proj-img-placeholder">[ - ]</div>
                             </div>
                             <div class="proj-card-caption">
                                 <span class="proj-category">AI / ML</span>
@@ -187,11 +216,6 @@
                                 <span class="proj-tag">PyTesseract</span>
                                 <span class="proj-tag">NVIDIA Jetson Orin</span>
                             </div>
-                            <div class="proj-links">
-                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
@@ -201,7 +225,7 @@
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
                             <div class="proj-card-img">
-                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                                <div class="proj-img-placeholder">[ - ]</div>
                             </div>
                             <div class="proj-card-caption">
                                 <span class="proj-category">AI / ML</span>
@@ -213,7 +237,7 @@
                                 <span class="proj-category">AI / ML</span>
                                 <h3 class="proj-title">OCR System</h3>
                             </div>
-                            <p class="proj-desc">Automated OCR pipeline for industrial inspection at Savannah River National Laboratory. Identifies and validates equipment labels on radioactive waste containers using 360° rotation scanning and 6-step criteria verification.</p>
+                            <p class="proj-desc">Built on EasyOCR and PyTesseract as a starting point only — extensive custom logic was engineered around them for 360° rotation scanning, error correction, and 6-step validation for nuclear waste container inspection at Savannah River National Laboratory.</p>
                             <div class="proj-tags">
                                 <span class="proj-tag">Python</span>
                                 <span class="proj-tag">EasyOCR</span>
@@ -221,31 +245,27 @@
                                 <span class="proj-tag">NumPy</span>
                                 <span class="proj-tag">GPU Accelerated</span>
                                 <span class="proj-tag">Affine Transforms</span>
+                                <span class="proj-tag">PyTesseract</span>
                             </div>
                             <div class="proj-links">
-                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                <a href="https://github.com/JaidedAI/EasyOCR" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="EasyOCR on GitHub">
                                     <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <span style="font-size:0.7em;margin-left:4px;">EasyOCR</span>
+                                </a>
+                                <a href="https://github.com/madmaze/pytesseract" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="PyTesseract on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <span style="font-size:0.7em;margin-left:4px;">PyTesseract</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- AGV Control Interface -->
-                    <div class="proj-card" data-category="automation">
+                    <div class="proj-card" data-category="embedded">
                         <a href="projects/agv-interface.html" class="proj-card-link" aria-label="View AGV Control Interface project"></a>
-                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
-                        <div class="proj-card-front">
-                            <div class="proj-card-img">
-                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
-                            </div>
-                            <div class="proj-card-caption">
-                                <span class="proj-category">Industrial Automation</span>
-                                <h3 class="proj-title">AGV Control Interface</h3>
-                            </div>
-                        </div>
-                        <div class="proj-card-back">
+                        <div class="proj-card-back" style="display:flex;">
                             <div class="proj-card-top">
-                                <span class="proj-category">Industrial Automation</span>
+                                <span class="proj-category">Embedded & Controls</span>
                                 <h3 class="proj-title">AGV Control Interface</h3>
                             </div>
                             <p class="proj-desc">Worked with Amerden AGV systems and proprietary software to configure driving path mapping, object placement, and area safety scanning using SICK safety sensors. Interfaced with PLC ladder logic for motion control and developed operator-facing software tools for fleet management and navigation configuration.</p>
@@ -257,10 +277,32 @@
                                 <span class="proj-tag">LiDAR</span>
                                 <span class="proj-tag">Fleet Management</span>
                             </div>
-                            <div class="proj-links">
-                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
+                        </div>
+                    </div>
+                    <div class="proj-card" data-category="embedded">
+                        <a href="projects/smartmotor-mixer.html" class="proj-card-link" aria-label="View SmartMotor Mixing Device project"></a>
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ - ]</div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">Embedded & Controls</span>
+                                <h3 class="proj-title">SmartMotor Mixing Device</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Embedded & Controls</span>
+                                <h3 class="proj-title">SmartMotor Mixing Device</h3>
+                            </div>
+                            <p class="proj-desc">Programmed a Moog Animatics SmartMotor to drive a mixing device using torque mode control. Implemented torque ramp profiles to smoothly accelerate and decelerate the shaft through a defined number of rotations, preventing mechanical shock while maintaining precise mixing cycles.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">Moog Animatics</span>
+                                <span class="proj-tag">Torque Control</span>
+                                <span class="proj-tag">Motion Control</span>
+                                <span class="proj-tag">SmartMotor SMI</span>
+                                <span class="proj-tag">Embedded Systems</span>
                             </div>
                         </div>
                     </div>
@@ -272,7 +314,7 @@
                         <div class="proj-card-front">
                             <div class="proj-card-img">
                                 <div class="proj-img-placeholder">
-                                    <img class="crawler-img" src="./images/CrawlerInterface.PNG">
+                                    <!-- <img class="crawler-img" src="./images/CrawlerInterface.PNG"> -->
                                 </div>
                             </div>
                             <div class="proj-card-caption">
@@ -292,33 +334,28 @@
                                 <span class="proj-tag">Real-Time Monitoring</span>
                                 <span class="proj-tag">Python</span>
                             </div>
-                            <div class="proj-links">
-                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
                     <!-- Calorimeter -->
-                    <div class="proj-card" data-category="fullstack">
+                    <div class="proj-card" data-category="frontend">
                         <a href="projects/calorimeter.html" class="proj-card-link" aria-label="View Calorimeter Heating System project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
                             <div class="proj-card-img">
                                 <div class="proj-img-placeholder">
-                                    <img class="cal-pic1" src ="./images/Cal1.PNG" ></img>
+                                    <!-- <img class="cal-pic1" src="./images/Cal1.PNG"> -->
 
                                 </div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Full Stack</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">Calorimeter Heating System</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Full Stack</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">Calorimeter Heating System</h3>
                             </div>
                             <p class="proj-desc">Built the frontend interface and contributed to backend logic for a calorimeter heating system, providing real-time temperature monitoring and precise instrument control for laboratory use.</p>
@@ -328,30 +365,25 @@
                                 <span class="proj-tag">Hardware Interface</span>
                                 <span class="proj-tag">Real-Time Monitoring</span>
                             </div>
-                            <div class="proj-links">
-                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
                     <!-- Mass Spectrometer -->
-                    <div class="proj-card" data-category="fullstack">
+                    <div class="proj-card" data-category="frontend">
                         <a href="projects/mass-spectrometer.html" class="proj-card-link" aria-label="View Mass Spectrometer Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
                             <div class="proj-card-img">
-                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                                <div class="proj-img-placeholder">[ - ]</div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Full Stack</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">Mass Spectrometer Interface</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Full Stack</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">Mass Spectrometer Interface</h3>
                             </div>
                             <p class="proj-desc">Led frontend development and contributed to backend integration for a mass spectrometer interface, visualizing live spectral data and enabling precise instrument control for scientific measurement workflows.</p>
@@ -362,30 +394,25 @@
                                 <span class="proj-tag">Hardware Interface</span>
                                 <span class="proj-tag">Real-Time Monitoring</span>
                             </div>
-                            <div class="proj-links">
-                                <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
                     <!-- IR Facial Recognition -->
-                    <div class="proj-card" data-category="fullstack">
+                    <div class="proj-card" data-category="frontend">
                         <a href="projects/ir-facial-recognition.html" class="proj-card-link" aria-label="View IR Facial Recognition Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
                             <div class="proj-card-img">
-                                <div class="proj-img-placeholder">[ Add screenshot ]</div>
+                                <div class="proj-img-placeholder">[ - ]</div>
                             </div>
                             <div class="proj-card-caption">
-                                <span class="proj-category">Full Stack</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">IR Facial Recognition Interface</h3>
                             </div>
                         </div>
                         <div class="proj-card-back">
                             <div class="proj-card-top">
-                                <span class="proj-category">Full Stack</span>
+                                <span class="proj-category">Frontend</span>
                                 <h3 class="proj-title">IR Facial Recognition Interface</h3>
                             </div>
                             <p class="proj-desc">Full stack senior capstone project with a heavy frontend focus — built the complete UX/UI and integrated it with a Python/OpenCV backend for real-time IR-based facial recognition. The project that sparked my passion for making complex systems feel intuitive.</p>
@@ -405,6 +432,35 @@
                         </div>
                     </div>
 
+                    <!-- Figma Self Taught -->
+                    <div class="proj-card" data-category="uxui">
+                        <button class="proj-toggle-btn" aria-label="Show description">+</button>
+                        <div class="proj-card-front">
+                            <div class="proj-card-img">
+                                <div class="proj-img-placeholder">[ - ]</div>
+                            </div>
+                            <div class="proj-card-caption">
+                                <span class="proj-category">UX / UI</span>
+                                <h3 class="proj-title">Figma — Small Business App</h3>
+                            </div>
+                        </div>
+                        <div class="proj-card-back">
+                            <div class="proj-card-top">
+                                <span class="proj-category">UX / UI</span>
+                                <h3 class="proj-title">Figma — Small Business App</h3>
+                            </div>
+                            <p class="proj-desc">Self-taught Figma by designing a complete multi-page app for a small business — homepage, about, items catalog, and checkout flow. Demonstrates mastery of components, auto layout, interactive prototyping, and design systems.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">Figma</span>
+                                <span class="proj-tag">UI Design</span>
+                                <span class="proj-tag">UX Design</span>
+                                <span class="proj-tag">Prototyping</span>
+                                <span class="proj-tag">Component Design</span>
+                                <span class="proj-tag">Design Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Empty state message — hidden by default, shown by JS when a filter returns 0 results -->
@@ -417,53 +473,140 @@
         <section id="skills" class="page-section">
             <div class="section-wrap">
                 <h2 class="section-heading">My Skills</h2>
-                <div class="skills-grid">
-                    <div class="widget skill-widget">
-                        <img class="skill-img" src="./images/frontendIcon.png" alt="Frontend">
-                        <h3 class="skill-name">Frontend Development</h3>
-                        <p class="body-text">Building responsive, user-friendly interfaces using HTML, CSS, JavaScript, and React. Led frontend development across all projects, including production GUIs with PyQt and Visual Basic at a national laboratory.</p>
+                <p class="skills-sub-heading">Web Development</p>
+                
+                <!-- icons https://www.w3schools.com/icons/fontawesome_icons_brand.asp#gsc.tab=0 -->
+                <div class="skill-icons-row">
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-html5"></i>
+                        <span>HTML</span>
                     </div>
-                    <div class="widget skill-widget">
-                        <img class="skill-img" src="./images/MLIcon.png" alt="ML">
-                        <h3 class="skill-name">Machine Learning &amp; CV</h3>
-                        <p class="body-text">Engineered real-time anomaly detection and OCR pipelines using PyTorch, Anomalib, OpenCV, and PyTesseract on NVIDIA Jetson Orin with CUDA, achieving 95% detection accuracy.</p>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <span>CSS</span>
                     </div>
-                    <div class="widget skill-widget">
-                        <img class="skill-img" src="./images/robotIcon.png" alt="Robotics">
-                        <h3 class="skill-name">Robotics &amp; Automation</h3>
-                        <p class="body-text">Programmed AGVs with PLC logic for automated material handling, integrating LiDAR, vision, and encoder sensor fusion with RTOS motion control achieving sub-10ms response times.</p>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-js"></i>
+                        <span>JavaScript</span>
                     </div>
-                    <div class="widget skill-widget">
-                        <img class="skill-img" src="./images/leadershipIcon.png" alt="Leadership">
-                        <h3 class="skill-name">Leadership</h3>
-                        <p class="body-text">Led frontend development across automation systems and robotics interfaces. I love taking something complex and making it feel simple and intuitive for the people using it.</p>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-figma"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-bootstrap"></i>
+                        <span>Bootstrap</span>
                     </div>
                 </div>
+
+                <p class="skills-sub-heading">Machine Learning &amp; Computer Vision</p>
+                <div class="skill-icons-row">
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-brain"></i>
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>CUDA</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>NumPy</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>OCR</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Anomaly Detection</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Image Processing</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-brands fa-linux"></i>
+                        <span>Linux</span>
+                    </div>
+                </div>
+
+                <p class="skills-sub-heading">Robotics &amp; Automation</p>
+                <div class="skill-icons-row">
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>PyQt</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-gears"></i>
+                        <span>PLC</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                        <span>LiDAR</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-map"></i>
+                        <span>Path Mapping</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>SICK Sensors</span>
+                    </div>
+                    <div class="skill-icon-card">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <span>RTOS</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- CONTACT -->
-        <section id="contact" class="page-section">
-            <div class="section-wrap contact-wrap">
-                <h2 class="section-heading">Get in Touch</h2>
-                <div class="contact-row">
-                    <a class="contact-icon-card" href="mailto:" aria-label="Email">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <a class="contact-icon-card" href="https://www.linkedin.com/in/isabellagallo86328/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a class="contact-icon-card" href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-        </section>
 
     </main>
+
+    <!-- ===== FOOTER =====
+         Sits below <main> inside the flex layout so it always sticks to the bottom.
+         Three columns: copyright left | nav links center | contact icons right.
+         Nav links use data-target which the existing JS already listens for,
+         so they navigate sections the same way the navbar does. -->
+    <footer class="site-footer">
+        <span class="footer-copy">© 2026 Bella Gallo</span>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="#" data-target="home">Home</a>
+            <a href="#" data-target="projects">Projects</a>
+            <a href="#" data-target="skills">Skills</a>
+        </nav>
+        <div class="footer-icons">
+            <a href="mailto:" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/isabellagallo86328/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBXFB+bAJFpONUF5PCFpj3SJkQ" crossorigin="anonymous"></script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate OG Image</title>
+    <style>
+        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px; font-family: monospace; color: #ccc; }
+        canvas { border: 1px solid #333; max-width: 100%; }
+        button { padding: 12px 32px; background: #9940FF; color: #000; border: none; font-family: monospace; font-size: 1em; letter-spacing: 2px; cursor: pointer; }
+        button:hover { background: #7a2fd4; }
+    </style>
+</head>
+<body>
+    <p>Your OG image — click Download to save as PNG</p>
+    <canvas id="canvas" width="1200" height="630"></canvas>
+    <button onclick="download()">Download og-image.png</button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const W = 1200, H = 630;
+
+        // Background
+        ctx.fillStyle = '#0D0D0D';
+        ctx.fillRect(0, 0, W, H);
+
+        // Dot grid
+        ctx.fillStyle = '#1E1E1E';
+        for (let x = 0; x < W; x += 32) {
+            for (let y = 0; y < H; y += 32) {
+                ctx.beginPath();
+                ctx.arc(x + 1, y + 1, 1, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Outer border frame
+        ctx.strokeStyle = 'rgba(153, 64, 255, 0.35)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(40, 40, W - 80, H - 80, 6);
+        ctx.stroke();
+
+        // Corner accents
+        ctx.strokeStyle = '#9940FF';
+        ctx.lineWidth = 3;
+        const corners = [
+            [[40,80],[40,40],[80,40]],       // top-left
+            [[1160,80],[1160,40],[1120,40]],  // top-right
+            [[40,550],[40,590],[80,590]],     // bottom-left
+            [[1160,550],[1160,590],[1120,590]] // bottom-right
+        ];
+        corners.forEach(pts => {
+            ctx.beginPath();
+            ctx.moveTo(pts[0][0], pts[0][1]);
+            ctx.lineTo(pts[1][0], pts[1][1]);
+            ctx.lineTo(pts[2][0], pts[2][1]);
+            ctx.stroke();
+        });
+
+        // BG monogram
+        ctx.fillStyle = '#9940FF';
+        ctx.font = 'bold italic 180px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText('BG', W / 2, 310);
+
+        // Separator line
+        ctx.strokeStyle = 'rgba(153, 64, 255, 0.4)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(460, 345);
+        ctx.lineTo(740, 345);
+        ctx.stroke();
+
+        // Full name
+        ctx.fillStyle = '#D4CFC9';
+        ctx.font = 'bold 46px Arial, sans-serif';
+        ctx.letterSpacing = '6px';
+        ctx.fillText('Bella Gallo', W / 2, 410);
+
+        // Title
+        ctx.fillStyle = '#555555';
+        ctx.font = '20px "Courier New", monospace';
+        ctx.fillText('COMPUTER ENGINEER  ·  ASPIRING WEB DEVELOPER', W / 2, 460);
+
+        // URL
+        ctx.fillStyle = '#333333';
+        ctx.font = '16px "Courier New", monospace';
+        ctx.fillText('bg1750.github.io/bellagallo', W / 2, 565);
+
+        function download() {
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

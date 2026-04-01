@@ -1,4 +1,13 @@
 /* ============================================================
+   STYLE-RETRO.CSS — Modern Retro Minimal
+   Purple as accent only. Dark near-black base. Clean, sharp geometry.
+
+   TO SWITCH THEMES:
+     Retro  → change href="style.css" to href="style-retro.css" in all HTML files
+     Revert → change href="style-retro.css" back to href="style.css"
+   ============================================================ */
+
+/* ============================================================
    1. RESET
    ============================================================ */
 *, *::before, *::after {
@@ -12,8 +21,8 @@
    ============================================================ */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #31003C;
-    color: #C8A79C;
+    background-color: #0D0D0D;
+    color: #D4CFC9;
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -22,7 +31,6 @@ body {
 
 /* ============================================================
    3. LAYOUT
-   — Outer flex column: navbar on top, scrollable main below
    ============================================================ */
 .layout-grid {
     display: flex;
@@ -34,8 +42,8 @@ body {
    4. NAVBAR
    ============================================================ */
 .site-header {
-    background-color: #4C066C;
-    border-bottom: 1px solid #9940FF44;
+    background-color: #0D0D0D;
+    border-bottom: 1px solid #1E1E1E;
     flex-shrink: 0;
 }
 
@@ -53,53 +61,41 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    background-color: #9940FF;
-    color: #31003C;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #D4CFC9;
     font-family: 'Mea Culpa', cursive;
-    font-size: 1.5em;
+    font-size: 1.4em;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 2px;
+    border: 1px solid #2A2A2A;
     flex-shrink: 0;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: border-color 0.2s, color 0.2s;
 }
 
 .nav-logo:hover {
-    background-color: #C8A79C;
+    border-color: #9940FF;
+    color: #9940FF;
 }
 
 .nav-list {
     list-style: none;
     display: flex;
-    flex-direction: row; /* HORIZONTAL */
-    gap: 4px;
+    flex-direction: row;
+    gap: 2px;
     align-items: center;
 }
 
-/* Each nav item: relative so bubble fills it */
 .nav-item {
     position: relative;
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 0;
+    overflow: visible;
 }
 
-/* Purple bubble behind the active item */
-.nav-bubble {
-    position: absolute;
-    inset: 0;
-    background-color: #9940FF;
-    border-radius: 10px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.nav-item.active .nav-bubble {
-    opacity: 1;
-}
+/* Replace bubble with bottom-border active indicator */
+.nav-bubble { display: none; }
 
 .nav-link {
     position: relative;
@@ -107,243 +103,222 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 9px 16px;
-    color: #C8A79C;
+    padding: 10px 14px 8px;
+    color: #555;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 0.72em;
     font-weight: 500;
+    font-family: monospace;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
-    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
 }
 
 .nav-item.active .nav-link {
-    color: #31003C;
-    font-weight: 700;
+    color: #9940FF;
+    border-bottom-color: #9940FF;
 }
 
 .nav-item:not(.active):hover .nav-link {
-    color: #9940FF;
+    color: #D4CFC9;
 }
 
 .nav-icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
 }
 
-/* ----- Main scrollable content area ----- */
+/* Main scrollable area */
 main {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-/* ----- Scrollbar ----- */
+/* Slim scrollbar */
 main::-webkit-scrollbar,
-.detail-scroll-area::-webkit-scrollbar {
-    width: 4px;
-}
+.detail-scroll-area::-webkit-scrollbar { width: 2px; }
 
 main::-webkit-scrollbar-track,
-.detail-scroll-area::-webkit-scrollbar-track {
-    background: transparent;
-}
+.detail-scroll-area::-webkit-scrollbar-track { background: transparent; }
 
 main::-webkit-scrollbar-thumb,
 .detail-scroll-area::-webkit-scrollbar-thumb {
-    background: #9940FF44;
+    background: #2A2A2A;
     border-radius: 999px;
 }
 
 main::-webkit-scrollbar-thumb:hover,
-.detail-scroll-area::-webkit-scrollbar-thumb:hover {
-    background: #9940FF99;
-}
+.detail-scroll-area::-webkit-scrollbar-thumb:hover { background: #9940FF66; }
 
-/* ----- Page section visibility (JS toggles .active) ----- */
-.page-section {
-    display: none;
-    min-height: 100%;
-}
-
-.page-section.active {
-    display: block;
-}
+/* Page section visibility */
+.page-section { display: none; min-height: 100%; }
+.page-section.active { display: block; }
 
 /* ============================================================
    5. SHARED / GLOBAL COMPONENTS
-   — Reused across multiple pages
    ============================================================ */
-
-/* Card widget base */
 .widget {
-    background-color: #4C066C;
-    border-radius: 16px;
+    background-color: #111111;
+    border-radius: 2px;
+    border: 1px solid #1E1E1E;
     padding: 28px;
 }
 
 /* ============================================================
    6. HOME PAGE
    ============================================================ */
+main:has(#home.active) { overflow: hidden; height: 100%; }
+#home.active { height: 100%; overflow: hidden; }
+
 .hero {
     position: relative;
-    height: calc(100vh - 65px);
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #34146C;
+    background-color: #0D0D0D;
     overflow: hidden;
 }
 
-.top-flower {
+/* Subtle dot-grid background — retro terminal feel */
+.hero::before {
+    content: '';
     position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 220px;
-    height: 220px;
-    opacity: 0.6;
+    inset: 0;
+    background-image: radial-gradient(circle, #1E1E1E 1px, transparent 1px);
+    background-size: 32px 32px;
     pointer-events: none;
+    z-index: 0;
 }
 
-.bottom-flower {
+/* Wave — same mask math, just recolored and subdued */
+.wave {
+    --size: 60px;
+    --b: 10px;
+    --m: 0.5;
+    --p: calc(var(--m) * var(--size));
+    --R: calc(var(--size) * sqrt(var(--m) * var(--m) + 1));
+
     position: absolute;
-    left: 20px;
-    bottom: 20px;
-    width: 220px;
-    height: 220px;
-    opacity: 0.6;
+    left: 0;
+    width: 100%;
+    height: 80px;
     pointer-events: none;
+    z-index: 2;
+
+    mask:
+        radial-gradient(var(--R) at left 50% bottom calc(-1*var(--p)), #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
+        radial-gradient(var(--R) at left 50% top calc(-1*var(--p)), #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%) 50% var(--size)/calc(4*var(--size)) 100%;
+    background: #9940FF;
+    opacity: 0.25;
 }
+
+.wave-top { top: 0; }
+.wave-bottom { bottom: 0; transform: scaleY(-1); }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     z-index: 1;
     text-align: center;
 }
 
 h1 {
-    color: #9940FF;
-    font-size: 4.5em;
+    color: #D4CFC9;
+    font-size: 4.5rem !important;
     font-family: 'Mea Culpa', cursive;
     font-weight: bold;
     line-height: 1.1;
 }
 
 .hero-subtitle {
-    font-size: 1.3em;
-    color: #C8A79C;
-    letter-spacing: 2px;
+    font-size: 0.78em;
+    color: #555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: monospace;
+    max-width: 560px;
 }
 
-/* Modifier class applied to the second hero subtitle line to make it
-   visually smaller than the "Computer Engineer" line above it */
 .hero-subtitle--small {
-    font-size: 0.95em;
+    font-size: 0.88em;
+    letter-spacing: 0;
+    line-height: 1.85;
+    color: #555;
+    max-width: 460px;
+    font-family: 'Inter', sans-serif;
+    text-transform: none;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .hero-btn {
-    padding: 13px 36px;
-    background-color: #9940FF;
-    color: #31003C;
-    border: 2px solid #9940FF;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1em;
+    padding: 10px 28px;
+    background-color: transparent;
+    color: #9940FF;
+    border: 1px solid #9940FF;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.75em;
+    font-family: monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .hero-btn:hover {
-    background-color: #C8A79C;
-    border-color: #C8A79C;
-    color: #31003C;
+    background-color: #9940FF;
+    color: #0D0D0D;
 }
 
 .hero-btn--outline {
-    background-color: transparent;
-    color: #C8A79C;
-    border-color: #C8A79C;
+    color: #444;
+    border-color: #2A2A2A;
 }
 
 .hero-btn--outline:hover {
-    background-color: #C8A79C;
-    color: #31003C;
+    background-color: #1A1A1A;
+    color: #D4CFC9;
+    border-color: #555;
 }
 
-/* Centered content wrapper used on About, Projects, Skills, Contact */
+/* Shared section wrapper */
 .section-wrap {
     padding: 48px 40px;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Purple section heading used on About, Skills, Contact */
+/* Section heading — monospace uppercase, underlined */
 .section-heading {
-    color: #9940FF;
-    font-size: 2em;
+    color: #D4CFC9;
+    font-size: 1.1em;
+    font-family: monospace;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
     margin-bottom: 32px;
-}
-
-/* ============================================================
-   7. ABOUT PAGE
-   ============================================================ */
-
-/* Two-column grid: text widget on left, photo on right */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: start;
-}
-
-.about-photo-widget {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 180px;
-}
-
-.profile-pic {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #9940FF;
-    display: block;
-}
-
-.widget-heading {
-    color: #9940FF;
-    font-size: 1.6em;
-    margin-bottom: 16px;
-}
-
-.body-text {
-    color: #C8A79C;
-    font-size: 1em;
-    line-height: 1.8;
-    text-align: left;
-    display: block;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #1E1E1E;
 }
 
 /* ============================================================
    8. PROJECTS PAGE
    ============================================================ */
-
-/* --- Section header: "Selected Work" label + "Projects" heading on the left,
-       filter buttons on the right --- */
 .proj-header {
     display: flex;
     flex-wrap: wrap;
@@ -353,113 +328,100 @@ h1 {
     margin-bottom: 28px;
 }
 
-/* Small monospace label above the Projects heading */
 .proj-label {
-    font-size: 0.75em;
+    font-size: 0.65em;
     font-family: monospace;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #9940FF;
     margin-bottom: 6px;
 }
 
-/* Main "Projects" heading */
 .proj-heading {
-    font-size: 2em;
-    font-weight: bold;
-    color: #C8A79C;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #D4CFC9;
     line-height: 1.1;
 }
 
-/* Row of filter buttons that sit to the right of the heading */
 .filter-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
-/* --- Filter buttons: default (inactive) state --- */
 .filter-btn {
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid #9940FF44;
+    padding: 4px 12px;
+    border-radius: 2px;
+    border: 1px solid #2A2A2A;
     background-color: transparent;
-    color: #C8A79C;
-    font-size: 0.8em;
+    color: #555;
+    font-size: 0.68em;
+    font-family: monospace;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: border-color 0.2s, color 0.2s;
 }
 
-/* Filter button on hover */
 .filter-btn:hover {
+    border-color: #555;
+    color: #D4CFC9;
+}
+
+.filter-btn.filter-active {
     border-color: #9940FF;
     color: #9940FF;
-}
-
-/* Filter button when it is the currently selected category */
-.filter-btn.filter-active {
-    background-color: #9940FF;
-    border-color: #9940FF;
-    color: #31003C;
+    background-color: transparent;
     font-weight: 600;
 }
 
-/* Hint text below projects header */
 .proj-hint {
-    font-size: 0.78rem;
-    color: #C8A79C99;
+    font-size: 0.72rem;
+    color: #333;
     margin-bottom: 16px;
+    font-family: monospace;
 }
 
-/* Decorative 1px gradient line between the header and the card grid */
 .proj-divider {
     height: 1px;
-    background: linear-gradient(to right, #9940FF66, #4C066C, transparent);
-    margin-bottom: 32px;
+    background: #1E1E1E;
+    margin-bottom: 28px;
 }
 
-/* 3-column responsive grid that holds the project cards */
 .proj-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 12px;
 }
 
-/* --- Project card: base style --- */
+/* Card — sharp, flat, border-only hover */
 .proj-card {
     position: relative;
-    background-color: #4C066C;
-    border-radius: 12px;
-    border: 1px solid #9940FF22; /* subtle border at rest */
-    overflow: hidden;            /* clips the image and caption inside the rounded corners */
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    background-color: #0F0F0F;
+    border-radius: 2px;
+    border: 1px solid #1E1E1E;
+    overflow: hidden;
+    transition: border-color 0.2s;
     cursor: pointer;
-    min-height: 280px;           /* consistent card height across the grid */
+    min-height: 280px;
 }
 
-/* --- Hover effect: purple outline glow + slight lift --- */
 .proj-card:hover {
-    border-color: #9940FF;                               /* solid purple border */
-    box-shadow: 0 0 0 1px #9940FF, 0 6px 28px #9940FF22; /* outer glow ring */
-    transform: translateY(-3px);                         /* lifts card upward */
+    border-color: #9940FF;
+    box-shadow: none;
+    transform: none;
 }
 
-/* --- Title turns purple on hover (targets .proj-title inside a hovered card) --- */
-.proj-card:hover .proj-title {
-    color: #9940FF;
-}
+.proj-card:hover .proj-title { color: #9940FF; }
 
-/* --- Stretched invisible link covering the entire card, so clicking anywhere opens the project detail page --- */
 .proj-card-link {
     position: absolute;
-    inset: 0;            /* fills the full card area */
-    border-radius: 12px;
-    z-index: 1;          /* above card content, but below the toggle button (z-index: 3) and links (z-index: 2) */
+    inset: 0;
+    border-radius: 2px;
+    z-index: 1;
 }
 
-/* ----- Card front (image + caption — shown by default) ----- */
-
-/* Front face fills the full card */
 .proj-card-front {
     display: flex;
     flex-direction: column;
@@ -468,14 +430,8 @@ h1 {
     min-height: 280px;
 }
 
-/* Image area fills the available space above the caption */
-.proj-card-img {
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-}
+.proj-card-img { width: 100%; flex: 1; min-height: 0; }
 
-/* Image tag inside .proj-card-img — covers the full area */
 .proj-card-img img {
     width: 100%;
     height: 100%;
@@ -483,7 +439,6 @@ h1 {
     display: block;
 }
 
-/* Placeholder shown until a real screenshot is added */
 .proj-img-placeholder {
     width: 100%;
     height: 100%;
@@ -491,15 +446,14 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #31003C;
-    border: 2px dashed #9940FF33;
-    color: #9940FF55;
+    background-color: #0A0A0A;
+    border: none;
+    color: #2A2A2A;
     font-family: monospace;
-    font-size: 0.8em;
-    overflow: hidden; /* prevents oversized images from breaking out of the card */
+    font-size: 0.72em;
+    overflow: hidden;
 }
 
-/* Images inside placeholder (e.g. crawler, calorimeter) fill the card like any other project image */
 .proj-img-placeholder img {
     width: 100%;
     height: 100%;
@@ -507,191 +461,143 @@ h1 {
     display: block;
 }
 
-/* Caption panel sitting below the image */
 .proj-card-caption {
-    padding: 12px 20px;
-    background: rgba(49, 0, 60, 0.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-top: 1px solid #9940FF33;
-    border-radius: 0 0 12px 12px;
+    padding: 10px 14px;
+    background: #0F0F0F;
+    border-top: 1px solid #1E1E1E;
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
 
-/* ----- Card back (description — shown when + is clicked) ----- */
-
-/* Back face hidden by default; shown when .proj-card has the .flipped class */
 .proj-card-back {
     display: none;
     flex-direction: column;
-    gap: 12px;
-    padding: 24px;
+    gap: 10px;
+    padding: 18px;
     height: 100%;
     min-height: 280px;
+    background: #0F0F0F;
 }
 
-/* When .flipped is added by JS: hide the front, show the back */
 .proj-card.flipped .proj-card-front { display: none; }
 .proj-card.flipped .proj-card-back  { display: flex; }
 
-/* ----- Toggle button (+ / -) in top-right corner ----- */
-/* z-index 3: sits above the card link (1) and GitHub links (2) */
-
-/* Positioned in the top-right corner of the card.
-   z-index: 3 keeps it above both the card link (z-index: 1) and the GitHub links (z-index: 2)
-   so it always captures its own click events. */
+/* Toggle button — small, sharp, monospace */
 .proj-toggle-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 8px;
+    right: 8px;
     z-index: 3;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background-color: #9940FF;
-    color: #31003C;
-    border: none;
-    font-size: 1.1em;
+    width: 22px;
+    height: 22px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: #9940FF;
+    border: 1px solid #9940FF44;
+    font-size: 0.95em;
     font-weight: bold;
+    font-family: monospace;
     line-height: 1;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .proj-toggle-btn:hover {
-    background-color: #C8A79C;
+    background-color: #9940FF;
+    color: #0D0D0D;
+    border-color: #9940FF;
 }
 
-/* Top section of each card: stacks category label above the title */
-.proj-card-top {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
+.proj-card-top { display: flex; flex-direction: column; gap: 3px; }
 
-/* Small uppercase monospace category label (e.g. "AI / ML", "Robotics") */
 .proj-category {
-    font-size: 0.7em;
+    font-size: 0.62em;
     font-family: monospace;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #9940FF;
 }
 
-/* Project title — color transitions to purple on card hover (see .proj-card:hover .proj-title) */
 .proj-title {
-    font-size: 1em;
+    font-size: 0.92em;
     font-weight: 600;
-    color: #C8A79C;
+    color: #D4CFC9;
     line-height: 1.3;
+    transition: color 0.2s;
 }
 
-/* Short project description shown on the card */
 .proj-desc {
-    font-size: 0.875em;
-    color: #C8A79Caa;
-    line-height: 1.7;
-    flex: 1; /* pushes the tags and links to the bottom of the card */
+    font-size: 0.82em;
+    color: #555;
+    line-height: 1.75;
+    flex: 1;
 }
 
-/* Container for technology pill badges */
-.proj-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
+.proj-tags { display: flex; flex-wrap: wrap; gap: 5px; }
 
-/* Individual technology badge pill */
 .proj-tag {
-    font-size: 0.72em;
-    padding: 3px 10px;
-    border-radius: 4px;
-    background-color: #31003C;
-    color: #9940FF;
-    border: 1px solid #9940FF33;
+    font-size: 0.65em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: #444;
+    border: 1px solid #222;
     font-family: monospace;
 }
 
-/* Bottom row of each card containing icon links (e.g. GitHub).
-   z-index: 2 ensures these links sit above the .proj-card-link overlay
-   so they remain independently clickable. */
 .proj-links {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #9940FF22;
+    padding-top: 10px;
+    border-top: 1px solid #1E1E1E;
     margin-top: auto;
     position: relative;
     z-index: 2;
 }
 
-/* Icon-only link (GitHub, etc.) inside .proj-links */
 .proj-link-icon {
-    color: #C8A79C66;
+    color: #333;
     transition: color 0.2s;
     display: flex;
     align-items: center;
 }
 
-.proj-link-icon:hover {
-    color: #9940FF;
-}
+.proj-link-icon:hover { color: #9940FF; }
 
-/* Message shown when a filter returns zero matching cards */
 .proj-empty {
     text-align: center;
     padding: 48px 0;
-    color: #C8A79C66;
+    color: #333;
     font-family: monospace;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    letter-spacing: 1px;
 }
 
-/* ----- Calorimeter detail page ----- */
-.detail-cal-pic1 {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 32px;
-}
-
-.detail-cal-pic1 .carousel-item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* ----- Crawler detail page ----- */
-.crawler-img-sub {
-    height:500px;
-    width:700px;
-}
+/* Calorimeter / Crawler detail specifics */
+.detail-cal-pic1 { width: 100%; max-width: 500px; margin-bottom: 32px; }
+.detail-cal-pic1 .carousel-item img { width: 100%; height: 300px; object-fit: cover; object-position: center; }
+.crawler-img-sub { height: 500px; width: 700px; }
 
 /* ============================================================
    9. SKILLS PAGE
    ============================================================ */
-
-/* 2-column grid of skill widgets */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-.skill-widget {
-    text-align: center;
-}
+.skill-widget { text-align: center; }
 
-/* Restored to original large size */
 .skill-img {
     width: 140px;
     height: 140px;
-    border-radius: 50%;
+    border-radius: 2px;
     object-fit: cover;
     display: block;
     margin: 0 auto 16px;
@@ -699,97 +605,148 @@ h1 {
 
 .skill-name {
     color: #9940FF;
-    font-size: 1.05em;
-    font-weight: bold;
+    font-size: 0.8em;
+    font-weight: 600;
     margin-bottom: 10px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .skill-widget .body-text {
     text-align: left;
-    font-size: 0.9em;
+    font-size: 0.88em;
+    color: #555;
+    line-height: 1.7;
 }
 
-/* ============================================================
-   10. CONTACT PAGE
-   ============================================================ */
-.contact-wrap {
+.skills-sub-heading {
+    font-size: 0.65em;
+    font-family: monospace;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9940FF;
+    margin-bottom: 14px;
+    margin-top: 36px;
+}
+
+.skill-icons-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.skill-icon-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: calc(100vh - 65px);
-}
-
-.contact-row {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Icon card — same hover style as project cards (purple glow + lift) */
-.contact-icon-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 28px 36px;
-    background-color: #4C066C;
-    border-radius: 12px;
-    border: 1px solid #9940FF22;
-    text-decoration: none;
-    color: #C8A79C;
-    font-size: 0.9em;
+    gap: 8px;
+    padding: 16px 20px;
+    background-color: #0F0F0F;
+    border-radius: 2px;
+    border: 1px solid #1E1E1E;
+    color: #444;
+    font-size: 0.68em;
+    font-family: monospace;
+    letter-spacing: 1px;
     font-weight: 500;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s, color 0.2s;
+    transition: border-color 0.2s, color 0.2s;
+    min-width: 80px;
 }
 
-.contact-icon-card i {
-    font-size: 2.5rem;
-    color: #C8A79C;
+.skill-icon-card i {
+    font-size: 1.6rem;
+    color: #333;
     transition: color 0.2s;
 }
 
-/* same structure as the projects hover */
-.contact-icon-card:hover {
+.skill-icon-card:hover {
     border-color: #9940FF;
-    box-shadow: 0 0 0 1px #9940FF, 0 6px 28px #9940FF22;
-    transform: translateY(-3px);
     color: #9940FF;
+    box-shadow: none;
+    transform: none;
 }
 
-.contact-icon-card:hover i {
+.skill-icon-card:hover i { color: #9940FF; }
+
+/* ============================================================
+   10. NAVBAR CONTACT ICONS & RESUME BUTTON
+   ============================================================ */
+
+/* Resume download button
+   Sits between the nav links and contact icons in the navbar.
+   The 'download' attribute on the <a> tag triggers the file save —
+   CSS here just controls how the button looks and animates. */
+.nav-resume-btn {
+    display: flex;
+    align-items: center;
+    padding: 6px 14px;
+    border: 1px solid #9940FF;
+    border-radius: 2px;
     color: #9940FF;
+    text-decoration: none;
+    font-size: 0.68em;
+    font-family: monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;          /* stops 'Resume' breaking onto two lines on small screens */
+    transition: background-color 0.2s, color 0.2s; /* smooth 0.2s colour fade on hover */
+}
+
+/* On hover: fill solid purple, text goes dark */
+.nav-resume-btn:hover {
+    background-color: #9940FF;
+    color: #0D0D0D;
+}
+
+/* Wrapper for the three contact icons (email, LinkedIn, GitHub).
+   margin-left: auto pushes this group flush to the right of the navbar. */
+.nav-contact-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: auto;
+}
+
+/* Each individual icon link — square tap target, icon centred inside */
+.nav-contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    color: #333;                  /* dim by default so icons don't compete with nav links */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+/* Icon turns purple on hover */
+.nav-contact-icon:hover {
+    color: #9940FF;
+    background-color: transparent;
 }
 
 /* ============================================================
    11. PROJECT DETAIL PAGES
-   — Layout shared across all detail pages (agv, crawler, etc.)
    ============================================================ */
 .detail-page {
-    background-color: #31003C;
+    background-color: #0D0D0D;
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    color: #C8A79C;
+    color: #D4CFC9;
     font-family: 'Inter', sans-serif;
 }
 
-.detail-scroll-area {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-}
+.detail-scroll-area { flex: 1; overflow-y: auto; overflow-x: hidden; }
 
 .detail-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: #31003Cee;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #9940FF22;
+    background-color: #0D0D0D;
+    border-bottom: 1px solid #1E1E1E;
     padding: 0 32px;
-    height: 56px;
+    height: 54px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -797,8 +754,8 @@ h1 {
 
 .detail-logo {
     font-family: 'Mea Culpa', cursive;
-    font-size: 1.5em;
-    color: #C8A79C;
+    font-size: 1.4em;
+    color: #D4CFC9;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -816,21 +773,22 @@ h1 {
     align-items: center;
     gap: 6px;
     font-family: monospace;
-    font-size: 0.85em;
-    color: #C8A79C88;
+    font-size: 0.72em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #333;
     text-decoration: none;
     margin-bottom: 40px;
     transition: color 0.2s;
 }
 
 .detail-back:hover { color: #9940FF; }
-
 .detail-back svg { flex-shrink: 0; }
 
 .detail-category {
-    font-size: 0.7em;
+    font-size: 0.62em;
     font-family: monospace;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #9940FF;
     display: block;
@@ -839,33 +797,28 @@ h1 {
 
 .detail-title {
     font-size: 2.2em;
-    font-weight: bold;
-    color: #C8A79C;
+    font-weight: 700;
+    color: #D4CFC9;
     line-height: 1.15;
     margin-bottom: 16px;
 }
 
 .detail-summary {
-    font-size: 1.05em;
-    line-height: 1.8;
-    color: #C8A79Cbb;
+    font-size: 0.95em;
+    line-height: 1.85;
+    color: #555;
     margin-bottom: 28px;
 }
 
-.detail-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 28px;
-}
+.detail-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 
 .detail-tag {
-    font-size: 0.75em;
-    padding: 4px 12px;
-    border-radius: 4px;
-    background-color: #4C066C;
-    color: #9940FF;
-    border: 1px solid #9940FF33;
+    font-size: 0.7em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: #444;
+    border: 1px solid #222;
     font-family: monospace;
 }
 
@@ -874,7 +827,7 @@ h1 {
     align-items: center;
     gap: 12px;
     padding-bottom: 28px;
-    border-bottom: 1px solid #9940FF22;
+    border-bottom: 1px solid #1E1E1E;
     margin-bottom: 36px;
 }
 
@@ -882,28 +835,30 @@ h1 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 18px;
-    border-radius: 8px;
-    border: 1px solid #9940FF44;
-    color: #C8A79C;
+    padding: 7px 14px;
+    border-radius: 2px;
+    border: 1px solid #2A2A2A;
+    color: #555;
     text-decoration: none;
-    font-size: 0.85em;
-    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+    font-size: 0.78em;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    transition: border-color 0.2s, color 0.2s;
 }
 
 .detail-gh-btn:hover {
     border-color: #9940FF;
     color: #9940FF;
-    background-color: #9940FF11;
+    background-color: transparent;
 }
 
 .detail-img-wrap {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 2px;
     overflow: hidden;
-    border: 1px solid #9940FF22;
+    border: 1px solid #1E1E1E;
     margin-bottom: 40px;
-    background-color: #4C066C;
+    background-color: #0F0F0F;
 }
 
 .detail-img-wrap img {
@@ -919,81 +874,115 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9940FF44;
+    color: #222;
     font-family: monospace;
-    font-size: 0.85em;
-    border: 2px dashed #9940FF22;
-    border-radius: 10px;
+    font-size: 0.78em;
+    border: 1px solid #1E1E1E;
+    border-radius: 2px;
     margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
-.detail-body {
-    font-size: 0.95em;
-    line-height: 1.85;
-    color: #C8A79Caa;
-}
-
+.detail-body { font-size: 0.93em; line-height: 1.9; color: #555; }
 .detail-body p { margin-bottom: 20px; }
 
 .detail-body h3 {
-    color: #C8A79C;
-    font-size: 1.1em;
+    color: #D4CFC9;
+    font-size: 0.82em;
     font-weight: 600;
-    margin: 32px 0 12px;
+    margin: 36px 0 12px;
+    font-family: monospace;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
 }
 
 /* ============================================================
-   12. RESPONSIVE / MOBILE
+   12. FOOTER
    ============================================================ */
+/* Footer strip — slim 44px bar pinned to the bottom of the page.
+   flex-shrink: 0 stops it from being squashed when the page is short.
+   Three columns: copyright left | nav links centre | contact icons right.
+   The nav links use data-target so the existing JS handles section switching. */
+.site-footer {
+    flex-shrink: 0;               /* never shrink, always stay full height */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    height: 44px;
+    border-top: 1px solid #1E1E1E;
+    background-color: #0D0D0D;
+}
 
-/* Tablet: collapse project grid to 2 columns */
+/* Copyright text on the left */
+.footer-copy {
+    font-family: monospace;
+    font-size: 0.65em;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Quick navigation links in the centre of the footer */
+.footer-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav a {
+    font-family: monospace;
+    font-size: 0.65em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover { color: #9940FF; }
+
+/* Contact icon links on the right — same icons as the navbar */
+.footer-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-icons a {
+    color: #333;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-icons a:hover { color: #9940FF; }
+
+/* ============================================================
+   13. RESPONSIVE / MOBILE
+   ============================================================ */
 @media (max-width: 900px) {
     .proj-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobile: full single-column layout */
 @media (max-width: 768px) {
     body { overflow: auto; height: auto; }
-
+    body:has(#home.active) { overflow: hidden; height: 100dvh; }
     .layout-grid { height: auto; }
-
     .header-inner { padding: 8px 16px; flex-wrap: wrap; }
-
-    /* FIX: nav text labels overflow on small screens — collapse to icon-only
-       by zeroing font-size (hides text nodes) and tightening padding */
     .nav-link { font-size: 0; padding: 9px 10px; gap: 0; }
-    .nav-icon { width: 20px; height: 20px; }
-
+    .nav-icon { width: 18px; height: 18px; }
     main { overflow: visible; }
-
     .page-section { min-height: auto; }
-
     .hero { height: auto; min-height: calc(100vh - 60px); }
-
-    h1 { font-size: 3em; }
-
     .section-wrap { padding: 32px 20px; }
-
-    /* About */
     .about-grid { grid-template-columns: 1fr; }
-    /* FIX: profile picture was hidden on portrait mobile — changed display:none to
-       a centered block so it stacks below the About Me text on small screens */
     .about-photo-widget { display: flex; justify-content: center; }
     .profile-pic { width: 120px; height: 120px; }
-
-    /* Projects */
     .proj-grid { grid-template-columns: 1fr; }
     .proj-header { flex-direction: column; align-items: flex-start; }
-
-    /* Skills */
     .skills-grid { grid-template-columns: 1fr; }
-
     .skill-img { width: 100px; height: 100px; }
-
-    /* FIX: contact section was getting clipped on mobile because min-height was
-       forcing it to 100vh — removed fixed height so it sizes naturally with padding.
-       Buttons now stack full-width so they don't overflow on small screens. */
-    .contact-wrap { min-height: auto; padding-top: 64px; padding-bottom: 64px; }
-    .contact-row { flex-direction: column; }
-    .contact-icon-card { width: 100%; flex-direction: row; justify-content: flex-start; padding: 20px 24px; }
+    .nav-contact-links { gap: 2px; }
+    .nav-contact-icon { width: 30px; height: 30px; font-size: 0.88rem; }
+    .nav-resume-btn { display: none; }      /* hide Resume button on mobile — navbar too narrow */
+    .footer-nav { display: none; }          /* hide footer nav links on mobile — just show icons */
+    .site-footer { justify-content: space-between; padding: 0 16px; }
 }

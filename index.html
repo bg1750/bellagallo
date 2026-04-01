@@ -628,6 +628,10 @@
             section.classList.add('active');
             section.scrollTop = 0;
         }
+        // Write the current section into the URL as a hash (e.g. #projects).
+        // This means refreshing the page will bring you back to the same section.
+        // history.replaceState updates the URL bar without causing a page reload.
+        history.replaceState(null, '', '#' + id);
     }
 
     document.querySelectorAll('.nav-item[data-section]').forEach(item => {

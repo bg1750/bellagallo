@@ -956,7 +956,45 @@ h1 {
 .footer-icons a:hover { color: #9940FF; }
 
 /* ============================================================
-   13. RESPONSIVE / MOBILE
+   13. SCROLL-IN ANIMATIONS
+   ============================================================
+   How it works (beginner explanation):
+   - Elements start invisible (.fade-in class sets opacity: 0).
+   - When JS adds the .visible class, a @keyframes animation plays —
+     sliding the element up from 24px below and fading it in.
+   - @keyframes is more reliable than CSS transitions for replaying
+     animations, because it re-runs every time the class is added.
+   ============================================================ */
+
+/* The animation itself: slides up 24px while fading in */
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Starting state: invisible. No transform here — the animation handles it. */
+.fade-in {
+    opacity: 0;
+}
+
+/* When .visible is added by JS, play the animation.
+   animation-fill-mode: both — holds the "from" state during any delay,
+   and holds the "to" state after the animation finishes. */
+.fade-in.visible {
+    animation: fadeSlideIn 0.5s ease both;
+}
+
+/* Stagger delays — each item waits a little longer than the previous.
+   Applied via JS by adding delay-1, delay-2, delay-3 classes.
+   These only take effect once .visible is also present. */
+.fade-in.delay-1.visible { animation-delay: 0.08s; }
+.fade-in.delay-2.visible { animation-delay: 0.16s; }
+.fade-in.delay-3.visible { animation-delay: 0.24s; }
+.fade-in.delay-4.visible { animation-delay: 0.32s; }
+.fade-in.delay-5.visible { animation-delay: 0.40s; }
+
+/* ============================================================
+   14. RESPONSIVE / MOBILE
    ============================================================ */
 @media (max-width: 900px) {
     .proj-grid { grid-template-columns: repeat(2, 1fr); }

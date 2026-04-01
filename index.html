@@ -93,11 +93,6 @@
 
             </ul>
 
-            <!-- Resume download button
-                 The "download" attribute tells the browser to download the file instead of opening it.
-                 Replace Bella_Gallo_Resume.pdf with your actual PDF filename.
-                 Hidden on mobile via CSS to keep the navbar clean. -->
-            <a href="./Bella_Gallo_Resume.pdf" download class="nav-resume-btn" aria-label="Download Resume">Resume</a>
 
             <!-- Contact icon links
                  These are plain <a> tags (not nav-items) so they never get the active highlight.
@@ -108,7 +103,7 @@
                 <a class="nav-contact-icon" href="mailto:" aria-label="Email">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
-                <a class="nav-contact-icon" href="https://www.linkedin.com/in/isabellagallo86328/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a class="nav-contact-icon" href="https://www.linkedin.com/in/isabellargallo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
                 <a class="nav-contact-icon" href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -134,8 +129,11 @@
                         intuitive interfaces. My work spans robotics, autonomous systems, and
                         machine learning. Working on user interfaces for complex systems inspired me to 
                         dive into the realm of interface design.
+                    <!-- Hero CTAs: primary action left, resume download right.
+                         The <a> tag uses download to trigger a file save instead of opening in browser. -->
                     <div class="hero-buttons">
                         <button class="hero-btn" data-target="projects">View Projects</button>
+                        <a href="./Bella_Gallo_Resume.pdf" download class="hero-btn hero-btn--outline">Download Resume</a>
                     </div>
                 </div>
             </div>
@@ -186,7 +184,7 @@
                          To add a real screenshot, replace the .proj-img-placeholder div with an <img> tag. -->
 
                     <!-- Real-Time Anomaly Detection -->
-                    <div class="proj-card" data-category="ai">
+                    <div class="proj-card fade-in" data-category="ai">
                         <!-- Full-card link to detail page (z-index 1) -->
                         <a href="projects/anomaly-detection.html" class="proj-card-link" aria-label="View Real-Time Anomaly Detection project"></a>
                         <!-- Toggle button — stops propagation so it doesn't trigger the card link -->
@@ -220,7 +218,7 @@
                     </div>
 
                     <!-- NucFilter OCR -->
-                    <div class="proj-card" data-category="ai">
+                    <div class="proj-card fade-in" data-category="ai">
                         <a href="projects/ocr.html" class="proj-card-link" aria-label="View NucFilter OCR project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -261,7 +259,7 @@
                     </div>
 
                     <!-- AGV Control Interface -->
-                    <div class="proj-card" data-category="embedded">
+                    <div class="proj-card fade-in" data-category="embedded">
                         <a href="projects/agv-interface.html" class="proj-card-link" aria-label="View AGV Control Interface project"></a>
                         <div class="proj-card-back" style="display:flex;">
                             <div class="proj-card-top">
@@ -279,7 +277,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="proj-card" data-category="embedded">
+                    <div class="proj-card fade-in" data-category="embedded">
                         <a href="projects/smartmotor-mixer.html" class="proj-card-link" aria-label="View SmartMotor Mixing Device project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -308,7 +306,7 @@
                     </div>
 
                     <!-- Crawler Robot Interface -->
-                    <div class="proj-card" data-category="frontend">
+                    <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/crawler-robot.html" class="proj-card-link" aria-label="View Crawler Robot Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -338,7 +336,7 @@
                     </div>
 
                     <!-- Calorimeter -->
-                    <div class="proj-card" data-category="frontend">
+                    <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/calorimeter.html" class="proj-card-link" aria-label="View Calorimeter Heating System project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -369,7 +367,7 @@
                     </div>
 
                     <!-- Mass Spectrometer -->
-                    <div class="proj-card" data-category="frontend">
+                    <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/mass-spectrometer.html" class="proj-card-link" aria-label="View Mass Spectrometer Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -398,7 +396,7 @@
                     </div>
 
                     <!-- IR Facial Recognition -->
-                    <div class="proj-card" data-category="frontend">
+                    <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/ir-facial-recognition.html" class="proj-card-link" aria-label="View IR Facial Recognition Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -433,7 +431,7 @@
                     </div>
 
                     <!-- Figma Self Taught -->
-                    <div class="proj-card" data-category="uxui">
+                    <div class="proj-card fade-in" data-category="uxui">
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
                             <div class="proj-card-img">
@@ -472,7 +470,7 @@
         <!-- SKILLS -->
         <section id="skills" class="page-section">
             <div class="section-wrap">
-                <h2 class="section-heading">My Skills</h2>
+                <h2 class="section-heading fade-in">My Skills</h2>
                 <p class="skills-sub-heading">Web Development</p>
                 
                 <!-- icons https://www.w3schools.com/icons/fontawesome_icons_brand.asp#gsc.tab=0 -->
@@ -603,7 +601,7 @@
         </nav>
         <div class="footer-icons">
             <a href="mailto:" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/isabellagallo86328/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/isabellargallo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
     </footer>
@@ -632,6 +630,27 @@
         // This means refreshing the page will bring you back to the same section.
         // history.replaceState updates the URL bar without causing a page reload.
         history.replaceState(null, '', '#' + id);
+
+        // Re-trigger animations for the newly visible section.
+        // We use requestAnimationFrame instead of setTimeout so we wait exactly
+        // one frame after the section becomes display:block — long enough for the
+        // browser to paint it, short enough to feel instant.
+        if (section) {
+            requestAnimationFrame(() => {
+                if (id === 'projects') {
+                    // Replay the card animation every time projects is opened.
+                    // animateProjCards handles its own double-rAF internally.
+                    const shown = [...section.querySelectorAll('.proj-card')]
+                        .filter(c => c.style.display !== 'none');
+                    animateProjCards(shown);
+                } else {
+                    // For Skills etc: just mark any unplayed elements as visible.
+                    section.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+                        el.classList.add('visible');
+                    });
+                }
+            });
+        }
     }
 
     document.querySelectorAll('.nav-item[data-section]').forEach(item => {
@@ -662,13 +681,77 @@
         });
     });
 
+    // ===== SCROLL-IN ANIMATIONS =====
+    // IntersectionObserver watches elements on the page.
+    // When an element becomes visible in the viewport (even just 10% of it),
+    // the observer fires and adds the "visible" class — which triggers the CSS transition.
+    // This is the modern, performant way to do scroll animations (no scroll event listeners needed).
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Element is now on screen — play the animation
+                    entry.target.classList.add('visible');
+                    // Stop watching it once it has animated (fire once, not repeatedly)
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 } // trigger when 10% of the element is visible
+    );
+
+    // Give project cards a stagger delay so they don't all pop in at once.
+    // index % 3 cycles through delay-1, delay-2, delay-3 for each row of 3 cards.
+    document.querySelectorAll('.proj-card.fade-in').forEach((card, index) => {
+        card.classList.add('delay-' + ((index % 3) + 1));
+    });
+
+    // Skill icon cards: add fade-in + stagger delays automatically via JS.
+    // Each row of icons fades in left-to-right with a small delay between each icon.
+    document.querySelectorAll('.skill-icon-card').forEach((card, index) => {
+        card.classList.add('fade-in');
+        card.classList.add('delay-' + ((index % 5) + 1));
+    });
+
+    // Tell the observer to watch fade-in elements — but NOT project cards.
+    // Project cards are handled exclusively by animateProjCards (called from
+    // navigateTo and the filter buttons). Letting the observer also watch them
+    // caused a race condition where both tried to add .visible at the same time.
+    document.querySelectorAll('.fade-in:not(.proj-card)').forEach(el => observer.observe(el));
+
+    // ===== ANIMATE PROJECT CARDS HELPER =====
+    // Replays the fade-in animation for a given list of cards.
+    //
+    // The key technique here is "void el.offsetWidth" — this is called a
+    // "forced reflow". Reading offsetWidth forces the browser to immediately
+    // process any pending style changes (like removing .visible) before we
+    // add it back. Without this, the browser batches the remove+add into one
+    // paint and the animation never plays. This is the standard, reliable way
+    // to restart a CSS animation in JavaScript.
+    function animateProjCards(cards) {
+        // Step 1: remove .visible so the animation resets
+        cards.forEach(card => card.classList.remove('visible'));
+
+        // Step 2: force reflow — browser must process the removal NOW
+        // Reading offsetWidth has no side effect; it just forces a style flush.
+        if (cards.length > 0) void cards[0].offsetWidth;
+
+        // Step 3: re-assign stagger delays and add .visible — animation plays
+        cards.forEach((card, i) => {
+            card.classList.remove('delay-1','delay-2','delay-3','delay-4','delay-5');
+            card.classList.add('delay-' + ((i % 3) + 1));
+            card.classList.add('visible');
+        });
+    }
+
     // ===== PROJECT FILTER =====
     // When a filter button is clicked:
     //   1. Remove the active style from all buttons, add it to the clicked one.
     //   2. Read the clicked button's data-category value.
     //   3. Loop through every project card — show it if its data-category matches
     //      (or if "All" was clicked), hide it otherwise.
-    //   4. If no cards are visible after filtering, show the empty-state message.
+    //   4. Replay the card animation for the newly visible cards.
+    //   5. If no cards are visible after filtering, show the empty-state message.
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projCards = document.querySelectorAll('.proj-card');
     const projEmpty = document.getElementById('proj-empty');
@@ -678,13 +761,15 @@
             filterBtns.forEach(b => b.classList.remove('filter-active'));
             btn.classList.add('filter-active');
             const cat = btn.dataset.category;
-            let visible = 0;
+            const shownCards = [];
             projCards.forEach(card => {
                 const show = cat === 'all' || card.dataset.category === cat;
                 card.style.display = show ? '' : 'none';
-                if (show) visible++;
+                if (show) shownCards.push(card);
             });
-            projEmpty.style.display = visible === 0 ? 'block' : 'none';
+            projEmpty.style.display = shownCards.length === 0 ? 'block' : 'none';
+            // Replay the fade-in animation for whichever cards are now visible
+            animateProjCards(shownCards);
         });
     });
 </script>

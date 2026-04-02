@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Gallo — Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', serif;
+            font-size: 14px;
+            color: #1a1a1a;
+            background: #fff;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 40px 60px;
+            line-height: 1.5;
+        }
+
+        /* ── HEADER ── */
+        .resume-header {
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .resume-header h1 {
+            font-size: 2rem;
+            font-weight: normal;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .resume-header .tagline {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin: 4px 0 10px;
+        }
+
+        .contact-line {
+            font-size: 0.78rem;
+            color: #444;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+        }
+
+        .contact-line a { color: #444; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+        .contact-line a:hover { color: #1a1a1a; text-decoration: underline; }
+        .contact-line span { color: #bbb; }
+        .contact-line i { font-size: 0.82rem; }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 22px;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+        }
+
+        /* ── EXPERIENCE ENTRIES ── */
+        .entry {
+            margin-bottom: 16px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .entry-title {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .entry-date {
+            font-size: 0.78rem;
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            white-space: nowrap;
+        }
+
+        .entry-org {
+            font-style: italic;
+            font-size: 0.88rem;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .entry ul {
+            padding-left: 18px;
+            margin-top: 4px;
+        }
+
+        .entry ul li {
+            margin-bottom: 3px;
+            font-size: 0.88rem;
+        }
+
+        /* ── PROJECTS ── */
+        .project-entry {
+            margin-bottom: 12px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .project-name {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .project-tags {
+            font-size: 0.75rem;
+            color: #666;
+            font-family: 'Arial', sans-serif;
+            font-style: italic;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            margin-top: 2px;
+            color: #333;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 6px 12px;
+            font-size: 0.87rem;
+        }
+
+        .skill-label {
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .skill-value {
+            color: #333;
+        }
+
+        /* ── EDUCATION ── */
+        .edu-entry .entry-header { margin-bottom: 2px; }
+
+        /* ── PRINT BUTTON ── */
+        .print-bar {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .print-btn {
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .print-btn:hover { background: #444; }
+
+        /* Hide the button when printing */
+        @media print {
+            body { margin: 0; padding: 20px 40px; }
+            .print-bar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRINT BUTTON — hidden when printing -->
+    <div class="print-bar">
+        <button class="print-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <!-- HEADER -->
+    <header class="resume-header">
+        <h1>Isabella R. Gallo</h1>
+        <p class="tagline">Computer Engineer &nbsp;·&nbsp; Frontend &amp; Web Developer</p>
+        <div class="contact-line">
+            <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-envelope"></i>isabella.gallo1750@gmail.com</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/isabellagallo86328/" target="_blank"><i class="fa-brands fa-linkedin"></i>linkedin.com/in/isabellagallo86328</a>
+            <span>|</span>
+            <a href="https://github.com/bg1750" target="_blank"><i class="fa-brands fa-github"></i>github.com/bg1750</a>
+            <span>|</span>
+            <a href="https://bg1750.github.io/bellagallo" target="_blank"><i class="fa-solid fa-globe"></i>bg1750.github.io/bellagallo</a>
+        </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="section">
+        <h2 class="section-title">Summary</h2>
+        <p style="font-size:0.88rem; color:#333;">
+            Computer engineer with hands-on experience designing operator-facing interfaces for robotics, autonomous systems, and scientific instrumentation. Self-taught in modern frontend web development — HTML, CSS, JavaScript, React, and Figma — with a growing portfolio of personal projects built independently outside of work. Comfortable moving between embedded systems and the browser, and driven by an interest in turning complex systems into clean, intuitive interfaces.
+        </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Computer Engineer</span>
+                <span class="entry-date">April 2024 – Present</span>
+            </div>
+            <p class="entry-org">Savannah River National Laboratory &nbsp;—&nbsp; Aiken, SC</p>
+            <ul>
+                <li>Designed and developed operator-facing GUI interfaces for robotics and autonomous systems using PyQt and Python.</li>
+                <li>Built real-time monitoring dashboards displaying live telemetry, system health indicators, and command dispatch for crawler robot operations.</li>
+                <li>Developed machine learning pipelines for real-time anomaly detection and optical character recognition (OCR) deployed on NVIDIA Jetson Orin edge hardware.</li>
+                <li>Programmed and configured automated guided vehicles (AGVs) and industrial safety systems including PLC ladder logic and SICK safety controllers.</li>
+                <li>Programmed Moog Animatics SmartMotor controllers in torque mode for precision motion control in lab mixing applications.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Hardware Engineering Intern</span>
+                <span class="entry-date">Jun 2023 – Feb 2024</span>
+            </div>
+            <p class="entry-org">EndoSec LLC &nbsp;—&nbsp; Remote</p>
+            <ul>
+                <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL and verified correctness using the NIST SP 800-22r1a statistical test suite.</li>
+                <li>Conducted and documented research on SHA-3 and Keccak cryptographic implementations, producing technical guides and performance reports.</li>
+                <li>Designed system and architecture diagrams using yEd, Visio, and Draw.io.</li>
+                <li>Expanded expertise in cryptography, ASIC design, and FPGA programming; used Unix and Git for source control throughout.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Personal Portfolio Website</span>
+                <span class="project-tags">HTML · CSS · JavaScript · Self-taught</span>
+            </div>
+            <p class="project-desc">Designed and built a responsive single-page portfolio site from scratch with no frameworks. Features custom section-based navigation, animated project cards with category filtering, and a dark retro-minimal theme. Deployed via GitHub Pages.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">IR Facial Recognition System</span>
+                <span class="project-tags">Python · OpenCV · PyTorch · Computer Vision</span>
+            </div>
+            <p class="project-desc">Capstone project building an infrared facial recognition pipeline. Implemented image processing, model training, and real-time inference for identity verification in low-light environments.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Real-Time Anomaly Detection</span>
+                <span class="project-tags">Python · Anomalib · NVIDIA Jetson Orin · Edge ML</span>
+            </div>
+            <p class="project-desc">Deployed an anomaly detection model to an NVIDIA Jetson Orin for real-time visual inspection. Optimized inference pipeline for edge deployment using CUDA acceleration.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">OCR Data Extraction Pipeline</span>
+                <span class="project-tags">Python · PyTesseract · OpenCV · Image Processing</span>
+            </div>
+            <p class="project-desc">Built an optical character recognition pipeline to extract and structure text data from instrument readouts and scientific documents.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Crawler Robot Operator Interface</span>
+                <span class="project-tags">Python · PyQt · Real-Time Control</span>
+            </div>
+            <p class="project-desc">Designed the full operator-facing dashboard for a crawler robot navigating hazardous environments. Included live telemetry display, command dispatch with input validation, and collapsible diagnostic panels.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Figma — Small Business App Design</span>
+                <span class="project-tags">Figma · UI/UX · Prototyping · Design Systems</span>
+            </div>
+            <p class="project-desc">Self-taught Figma by designing a complete multi-page app for a small business — homepage, about, items catalog, and checkout flow. Demonstrates component design, auto layout, and interactive prototyping.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">HerRoutine — Women's Health Tracker</span>
+                <span class="project-tags">HTML · CSS · JavaScript</span>
+            </div>
+            <p class="project-desc">Built a multi-page web app for tracking cycle, nutrition, and workouts. Features dedicated pages per module with custom CSS styling and client-side JavaScript logic.</p>
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-label">Frontend / Web</span>
+            <span class="skill-value">HTML5, CSS3, JavaScript, React, Bootstrap, Figma, Node.js, Git</span>
+
+            <span class="skill-label">Languages</span>
+            <span class="skill-value">Python, C, C++, VHDL, Visual Basic, LaTeX, MATLAB</span>
+
+            <span class="skill-label">ML / Computer Vision</span>
+            <span class="skill-value">PyTorch, OpenCV, Anomalib, PyTesseract, NumPy, CUDA, NVIDIA Jetson Orin</span>
+
+            <span class="skill-label">Desktop GUI</span>
+            <span class="skill-value">PyQt, Visual Basic (.NET)</span>
+
+            <span class="skill-label">Embedded / Controls</span>
+            <span class="skill-value">PLC Ladder Logic, PLC Structured Text, Moog Animatics SmartMotor, Microcontrollers, RTOS, FPGA / VHDL</span>
+
+            <span class="skill-label">Robotics</span>
+            <span class="skill-value">AGV Programming, LiDAR, SICK Safety Controllers, Fanuc Robots, Path Mapping</span>
+
+            <span class="skill-label">Operating Systems</span>
+            <span class="skill-value">Linux / Unix, Windows</span>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="entry edu-entry">
+            <div class="entry-header">
+                <span class="entry-title">B.S. Electrical and Computer Engineering</span>
+                <span class="entry-date">May 2023</span>
+            </div>
+            <p class="entry-org">The Ohio State University &nbsp;—&nbsp; Columbus, OH</p>
+            <ul>
+                <li>Area of focus: Computer Engineering — digital logic, FPGA implementation, software development</li>
+                <li>Primary languages studied: C, VHDL, Python</li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>

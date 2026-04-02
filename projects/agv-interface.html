@@ -28,11 +28,9 @@
 
         <span class="detail-category">Robotics</span>
         <h1 class="detail-title">AGV Control Interface</h1>
-        <p class="detail-summary">Built a production-grade GUI for automated guided vehicles using PyQt, integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor deployment.</p>
+        <p class="detail-summary">Improved an interface for Savannah River National Laboratory specializing in LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor deployment.</p>
 
         <div class="detail-tags">
-            <span class="detail-tag">PyQt</span>
-            <span class="detail-tag">Python</span>
             <span class="detail-tag">PLC</span>
             <span class="detail-tag">LiDAR</span>
             <span class="detail-tag">RTOS</span>
@@ -46,13 +44,13 @@
             <p>This project involved designing and building the operator-facing control interface for a fleet of automated guided vehicles operating in a production environment. The interface needed to surface real-time positional data, sensor health, and control inputs without introducing latency that could affect vehicle safety.</p>
 
             <h3>Sensor Fusion</h3>
-            <p>Each AGV combined data from LiDAR scanners, a forward-facing camera, and wheel encoders. The interface consumed fused position estimates, visualizing the vehicle's path and surrounding obstacles on a live floor map rendered within the PyQt GUI.</p>
+            <p>Each AGV combined data from LiDAR scanners, a forward-facing camera, and wheel encoders. The interface consumed fused position estimates, visualizing the vehicle's path and surrounding obstacles on a live floor map rendered through the LiDAR data.</p>
 
             <h3>Motion Control</h3>
             <p>Commands sent through the GUI were relayed to the vehicle's RTOS layer, which enforced sub-10ms round-trip execution. PLC integration allowed hardware-level interlocks to be monitored and overridden directly from the interface when needed.</p>
 
             <h3>Operator Experience</h3>
-            <p>The interface was designed around operator workflows — minimizing the number of interactions needed for common tasks, surfacing alerts prominently, and providing enough diagnostic detail for maintenance without cluttering the primary view.</p>
+            <p>The interface was designed around operator workflows, minimizing the number of interactions needed for common tasks, surfacing alerts prominently, and providing enough diagnostic detail for maintenance without cluttering the primary view.</p>
         </div>
 
     </main>

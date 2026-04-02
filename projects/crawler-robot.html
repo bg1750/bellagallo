@@ -28,7 +28,7 @@
 
         <span class="detail-category">Frontend</span>
         <h1 class="detail-title">Crawler Robot Interface</h1>
-        <p class="detail-summary">Designed and built the operator-facing control interface for a crawler robot. Focused entirely on the frontend — creating a responsive dashboard for real-time status monitoring and command dispatch.</p>
+        <p class="detail-summary">Designed and built the operator-facing control interface for a crawler robot at Savannah River National Laboratory. I focused entirely on the frontend, creating a responsive dashboard for real-time status monitoring and command dispatch.</p>
 
         <div class="detail-tags">
             <span class="detail-tag">PyQt</span>
@@ -44,16 +44,19 @@
         </div> -->
 
         <div class="detail-body">
-            <p>This project centered on building the operator interface for a crawler robot — a vehicle designed to navigate constrained or hazardous environments. The GUI needed to provide clear, low-latency feedback while keeping the interaction model simple enough for an operator to use under pressure.</p>
+            <p>This project centered on building the operator interface for a crawler robot, a vehicle designed to navigate constrained or hazardous environments. The GUI needed to provide clear, low-latency feedback while keeping the interaction model simple enough for an operator to use under pressure.</p>
+
+            <h3>Design Process</h3>
+            <p>Each iteration of the interface began with a conversation with the team lead and customer to understand what information mattered most and how operators would realistically use the panel under field conditions. From there I sketched layout options by hand, working out the hierarchy and grouping before touching any code. Once a direction was agreed on, I built it out in software and sent progress updates at key points so the team could confirm the design was tracking with their expectations before it was finalized.</p>
 
             <h3>Command Dispatch</h3>
-            <p>The interface allowed operators to send directional commands and mode changes to the robot with immediate visual confirmation. All inputs were validated before transmission to prevent sending conflicting commands during critical maneuvers.</p>
+            <p>The interface allowed operators to send directional commands and mode changes to the robot with immediate visual confirmation.</p>
 
             <h3>Real-Time Monitoring</h3>
-            <p>A live status panel surfaced telemetry from the robot including speed, heading, and system health indicators. The panel updated continuously without blocking the UI thread, keeping the interface responsive at all times.</p>
+            <p>A live status panel surfaced telemetry from the robot including position, speed, and system health indicators. The panel included a live 3D orientation display that rotated visually in real time to reflect the robot's actual roll, pitch, and yaw, giving the operator an immediate spatial read of the vehicle's attitude without interpreting raw numbers. All telemetry updated continuously without blocking the UI thread, keeping the interface responsive at all times.</p>
 
             <h3>Dashboard Design</h3>
-            <p>Built with PyQt, the dashboard was designed to be readable at a glance — prioritizing the most critical information in the primary view and grouping secondary diagnostics into collapsible panels.</p>
+            <p>Built with PyQt, the dashboard was designed to be readable at a glance, prioritizing the most critical information in the primary view and grouping secondary diagnostics into collapsible panels.</p>
         </div>
 
     </main>

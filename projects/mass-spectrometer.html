@@ -28,10 +28,9 @@
 
         <span class="detail-category">Hardware</span>
         <h1 class="detail-title">Mass Spectrometer Interface</h1>
-        <p class="detail-summary">Built a GUI for a mass spectrometer, visualizing spectral data and enabling precise instrument control for scientific measurement workflows.</p>
+        <p class="detail-summary">Built a GUI for a mass spectrometer at Savannah River National Laboratory, visualizing spectral data and enabling precise instrument control for scientific measurement workflows.</p>
 
         <div class="detail-tags">
-            <span class="detail-tag">Python</span>
             <span class="detail-tag">Visual Basic</span>
             <span class="detail-tag">Data Visualization</span>
             <span class="detail-tag">Hardware Interface</span>
@@ -43,8 +42,11 @@
         <div class="detail-body">
             <p>This project involved building a software interface for a mass spectrometer instrument, replacing a cumbersome manual workflow with a purpose-built GUI that gave researchers direct, intuitive access to the instrument's capabilities.</p>
 
+            <h3>Design Process</h3>
+            <p>Each iteration of the interface began with a conversation with the team lead and customer to understand what information mattered most and how researchers would realistically interact with the instrument during a scan session. From there I sketched layout options by hand, working out the hierarchy and grouping before touching any code. Once a direction was agreed on, I built it out in software and sent progress updates at key points so the team could confirm the design was tracking with their expectations before it was finalized.</p>
+
             <h3>Spectral Visualization</h3>
-            <p>The centerpiece of the interface was a live spectral plot that rendered mass-to-charge ratio data as it came in from the instrument. Peaks could be annotated, zoomed into, and exported — making it significantly faster to identify compounds during a scan session.</p>
+            <p>The centerpiece of the interface was a live spectral plot that rendered mass-to-charge ratio data as it came in from the instrument. Peaks could be annotated, zoomed into, and exported, making it significantly faster to identify compounds during a scan session.</p>
 
             <h3>Instrument Control</h3>
             <p>Scan parameters including mass range, resolution mode, and acquisition time were configurable directly from the interface. Commands were sent to the instrument over its serial protocol, with the GUI confirming each setting before initiating a scan.</p>

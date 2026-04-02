@@ -34,6 +34,50 @@
             }
         }
 
+        // Waves (matches home page .wave style: #9940FF, opacity 0.2, scalloped mask)
+        function drawWave(isBottom) {
+            const waveH = 34;
+            const period = 200;  // 4 * --size (50px)
+            const amp = 12;
+            const waveEdge = isBottom ? H - waveH : waveH;
+
+            ctx.save();
+            ctx.globalAlpha = 0.2;
+            ctx.fillStyle = '#9940FF';
+            ctx.beginPath();
+
+            if (isBottom) {
+                ctx.moveTo(0, H);
+                ctx.lineTo(W, H);
+                ctx.lineTo(W, waveEdge);
+            } else {
+                ctx.moveTo(0, 0);
+                ctx.lineTo(W, 0);
+                ctx.lineTo(W, waveEdge);
+            }
+
+            // Scalloped edge drawn right-to-left with alternating bezier bumps
+            let count = 0;
+            for (let x = W; x > 0; x -= period / 2) {
+                const bump = (count % 2 === 0 ? amp : -amp) * (isBottom ? -1 : 1);
+                const nextX = Math.max(0, x - period / 2);
+                ctx.bezierCurveTo(
+                    x - period / 8,     waveEdge + bump,
+                    x - 3 * period / 8, waveEdge + bump,
+                    nextX,              waveEdge
+                );
+                count++;
+            }
+
+            ctx.lineTo(0, isBottom ? H : 0);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        drawWave(false);  // top
+        drawWave(true);   // bottom
+
         // Outer border frame
         ctx.strokeStyle = 'rgba(153, 64, 255, 0.35)';
         ctx.lineWidth = 1.5;
@@ -59,7 +103,7 @@
         });
 
         // BG monogram
-        ctx.fillStyle = '#9940FF';
+        ctx.fillStyle = '#000000';
         ctx.font = 'bold italic 180px Georgia, serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'alphabetic';

@@ -168,7 +168,7 @@
     <!-- HEADER -->
     <header class="resume-header">
         <h1>Isabella R. Gallo</h1>
-        <p class="tagline">Computer Engineer &nbsp;·&nbsp; Frontend &amp; Web Developer</p>
+        <p class="tagline">Software Engineer &nbsp;·&nbsp; Frontend &amp; Web Developer</p>
         <div class="contact-line">
             <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-envelope"></i>isabella.gallo1750@gmail.com</a>
             <span>|</span>
@@ -184,7 +184,7 @@
     <section class="section">
         <h2 class="section-title">Summary</h2>
         <p style="font-size:0.88rem; color:#333;">
-            Computer engineer with hands-on experience building operator interfaces for robotics, autonomous systems, and scientific instrumentation. Self-taught in modern frontend web development — HTML, CSS, JavaScript, React, and Figma — with a growing portfolio of personal projects. Driven by an interest in turning complex systems into clean, intuitive interfaces.
+            Software engineer with hands-on experience building operator interfaces for robotics, autonomous systems, and scientific instrumentation at Savannah River National Laboratory. Pursuing full stack web development with a focus on interface design, bringing the same attention to usability from professional engineering work into the browser. Driven by the conviction that the quality of an interface is the quality of the experience.
         </p>
     </section>
 
@@ -194,7 +194,7 @@
 
         <div class="entry">
             <div class="entry-header">
-                <span class="entry-title">Computer Engineer</span>
+                <span class="entry-title">Software Engineer</span>
                 <span class="entry-date">April 2024 – Present</span>
             </div>
             <p class="entry-org">Savannah River National Laboratory &nbsp;—&nbsp; Aiken, SC</p>
@@ -223,54 +223,108 @@
 
     <!-- PROJECTS -->
     <section class="section">
-        <h2 class="section-title">Projects</h2>
-
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Personal Portfolio Website</span>
-                <span class="project-tags">HTML · CSS · JavaScript</span>
-            </div>
-            <p class="project-desc">Single-page portfolio built from scratch — custom section navigation, animated project cards with category filtering, deployed via GitHub Pages.</p>
-        </div>
-
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">IR Facial Recognition System</span>
-                <span class="project-tags">Python · OpenCV · PyTorch</span>
-            </div>
-            <p class="project-desc">Capstone project — infrared facial recognition pipeline with model training and real-time inference for identity verification in low-light environments.</p>
-        </div>
+        <h2 class="section-title">Projects — Savannah River National Laboratory</h2>
 
         <div class="project-entry">
             <div class="project-header">
                 <span class="project-name">Real-Time Anomaly Detection</span>
-                <span class="project-tags">Python · Anomalib · NVIDIA Jetson Orin</span>
+                <span class="project-tags">Python · PyTorch · Anomalib · CUDA · NVIDIA Jetson Orin · OpenCV</span>
             </div>
-            <p class="project-desc">Anomaly detection model deployed to NVIDIA Jetson Orin for real-time edge inference with CUDA-accelerated image processing.</p>
+            <p class="project-desc">Multi-phase project: initial version built from scratch using a custom CNN autoencoder, subsequently rearchitected around Anomalib with extensive custom additions to meet industrial requirements. Deployed to NVIDIA Jetson Orin with CUDA acceleration, achieving 95% detection accuracy in a production manufacturing environment.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
-                <span class="project-name">OCR Data Extraction Pipeline</span>
-                <span class="project-tags">Python · PyTesseract · OpenCV</span>
+                <span class="project-name">OCR System</span>
+                <span class="project-tags">Python · PyTesseract · EasyOCR · OpenCV · NumPy · GPU Accelerated</span>
             </div>
-            <p class="project-desc">Automated extraction and structuring of text from instrument readouts and scientific documents using optical character recognition.</p>
+            <p class="project-desc">Automated label reading and validation pipeline for industrial barrel inspection. EasyOCR and PyTesseract evaluated in testing; PyTesseract carried into deployment with extensive custom logic for 360° rotation scanning, error correction, and 6-step sequential validation built entirely from scratch.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
-                <span class="project-name">Figma — Small Business App Design</span>
-                <span class="project-tags">Figma · UI/UX · Prototyping</span>
+                <span class="project-name">AGV Control Interface</span>
+                <span class="project-tags">PLC · Ladder Logic · LiDAR · RTOS · Sensor Fusion</span>
             </div>
-            <p class="project-desc">Self-taught Figma by designing a complete multi-page app — homepage, about, catalog, and checkout — demonstrating components, auto layout, and interactive prototyping.</p>
+            <p class="project-desc">Improved operator-facing interface for a fleet of AGVs integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor deployment.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
-                <span class="project-name">HerRoutine — Women's Health Tracker</span>
-                <span class="project-tags">HTML · CSS · JavaScript</span>
+                <span class="project-name">Crawler Robot Interface</span>
+                <span class="project-tags">Python · PyQt · Real-Time Monitoring</span>
             </div>
-            <p class="project-desc">Multi-page web app for tracking cycle, nutrition, and workouts with dedicated modules and client-side JavaScript logic.</p>
+            <p class="project-desc">Designed and built the operator control interface for a crawler robot. Live 3D orientation display reflecting real-time roll, pitch, and yaw alongside telemetry and command dispatch. Layout sketched and iterated with stakeholder feedback before implementation.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Calorimeter Heating System Interface</span>
+                <span class="project-tags">Visual Basic · Hardware Interface · Real-Time Monitoring</span>
+            </div>
+            <p class="project-desc">Designed and built the GUI for a laboratory calorimeter heating system. Real-time temperature monitoring, configurable setpoints and ramp profiles, and automated data logging. Design process included hand sketches and iterative stakeholder reviews.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Mass Spectrometer Interface</span>
+                <span class="project-tags">Visual Basic · Data Visualization · Hardware Interface</span>
+            </div>
+            <p class="project-desc">Led frontend development and contributed to backend integration for a mass spectrometer GUI. Live spectral plot with annotation and export, configurable scan parameters, and serial communication with the instrument.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">SmartMotor Mixing Device</span>
+                <span class="project-tags">Moog Animatics · Torque Control · Motion Control · SmartMotor SMI</span>
+            </div>
+            <p class="project-desc">Programmed a Moog Animatics SmartMotor in torque mode to drive a laboratory mixing device. Implemented torque ramp profiles for smooth acceleration and deceleration, preventing mechanical shock while maintaining precise and repeatable mixing cycles.</p>
+        </div>
+
+    </section>
+
+    <!-- PERSONAL PROJECTS -->
+    <section class="section">
+        <h2 class="section-title">Projects — Personal &amp; Academic</h2>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Personal Portfolio Website</span>
+                <span class="project-tags">HTML · CSS · JavaScript · GitHub Pages</span>
+            </div>
+            <p class="project-desc">Single-page portfolio built from scratch with custom section navigation, animated project cards with category filtering, and an About section. Deployed via GitHub Pages with a private repository.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">IR Facial Recognition Interface</span>
+                <span class="project-tags">Python · OpenCV · MediaPipe · UX/UI</span>
+            </div>
+            <p class="project-desc">Senior capstone project built as part of a team. Infrared facial recognition pipeline with a frontend built from scratch around the specific workflow. MediaPipe evaluated during research and testing phases. First project to spark a serious interest in frontend and UX/UI design.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Women's Health Tracker</span>
+                <span class="project-tags">HTML · CSS · JavaScript · LocalStorage API · Figma · SVG</span>
+            </div>
+            <p class="project-desc">Personal web app for tracking cycle, workouts, nutrition, symptoms, mood, and energy, designed around the female hormonal cycle. Features phase-aware insights, SVG progress rings, and a Figma-designed component system. Built to extend to full stack with a real database and ML-driven pattern suggestions.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Thread Jutsu Order Tracker</span>
+                <span class="project-tags">HTML · CSS · JavaScript · Figma</span>
+            </div>
+            <p class="project-desc">Stock and order management tool for a small business selling custom apparel across multiple Etsy listings that share the same inventory. Tracks shared stock at the item level and updates counts across all affected listings when an order is logged.</p>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-header">
+                <span class="project-name">Figma: Small Business App Design</span>
+                <span class="project-tags">Figma · UI/UX · Prototyping · Component Design</span>
+            </div>
+            <p class="project-desc">Self-directed Figma project designing a complete multi-page app including homepage, about, items catalog, and checkout flow. Demonstrates components, auto layout, interactive prototyping, and design systems.</p>
         </div>
 
     </section>
@@ -286,7 +340,7 @@
             <span class="skill-value">Python, C, C++, VHDL, Visual Basic, LaTeX, MATLAB</span>
 
             <span class="skill-label">ML / Computer Vision</span>
-            <span class="skill-value">PyTorch, OpenCV, Anomalib, PyTesseract, NumPy, CUDA, NVIDIA Jetson Orin</span>
+            <span class="skill-value">PyTorch, OpenCV, Anomalib, PyTesseract, MediaPipe, NumPy, CUDA, NVIDIA Jetson Orin</span>
 
             <span class="skill-label">Desktop GUI</span>
             <span class="skill-value">PyQt, Visual Basic (.NET)</span>

@@ -28,7 +28,7 @@
 
         <span class="detail-category">AI / ML</span>
         <h1 class="detail-title">Real-Time Anomaly Detection</h1>
-        <p class="detail-summary">Engineered a real-time anomaly detection and OCR pipeline on NVIDIA Jetson Orin with CUDA acceleration. Achieved 95% detection accuracy using PyTorch, Anomalib, and PyTesseract across a production manufacturing environment.</p>
+        <p class="detail-summary">Engineered a real-time anomaly detection and OCR pipeline for Savannah River National Laboratory on NVIDIA Jetson Orin with CUDA acceleration. Achieved 95% detection accuracy using PyTorch, Anomalib, and PyTesseract across a production manufacturing environment.</p>
 
         <div class="detail-tags">
             <span class="detail-tag">PyTorch</span>
@@ -43,6 +43,9 @@
 
         <div class="detail-body">
             <p>This project involved building an end-to-end anomaly detection pipeline capable of running inference in real time on edge hardware. The system was deployed on an NVIDIA Jetson Orin, leveraging CUDA cores to run the detection model with minimal latency in a production setting.</p>
+
+            <h3>Project Phases</h3>
+            <p>This project evolved significantly over time across multiple development phases. The first version was built entirely from scratch using a custom CNN autoencoder, designed and trained to learn normal appearance and flag deviations as anomalies. As requirements grew in complexity to match the demands of the industrial environment, the architecture was rearchitected around Anomalib as a foundation — not as a drop-in solution, but as a base on top of which substantial custom logic was engineered to meet the specific constraints, tolerances, and edge cases of the production setting. The jump from a ground-up implementation to an Anomalib-based one also deepened the understanding of what each component was actually doing, since the first version required building those pieces by hand.</p>
 
             <h3>Detection Pipeline</h3>
             <p>The core detection model was built using Anomalib, a library purpose-built for anomaly detection on images. PyTorch served as the underlying framework. The pipeline ingests a camera feed, preprocesses each frame with OpenCV, runs inference, and flags anomalous regions with bounding box overlays in real time.</p>

@@ -28,7 +28,7 @@
 
         <span class="detail-category">AI / ML</span>
         <h1 class="detail-title">OCR System</h1>
-        <p class="detail-summary">Automated Optical Character Recognition pipeline for industrial inspection at Savannah River National Laboratory. Identifies and validates equipment labels on radioactive waste containers regardless of orientation, using 360° rotation scanning and multi-step criteria verification.</p>
+        <p class="detail-summary">Automated Optical Character Recognition pipeline for industrial inspection at Savannah River National Laboratory. Identifies and validates equipment labels on barrels of material regardless of orientation, using 360° rotation scanning and multi-step criteria verification.</p>
 
         <div class="detail-tags">
             <span class="detail-tag">Python</span>
@@ -179,7 +179,7 @@
             <p>EasyOCR and PyTesseract served as the starting point — nothing more. Both libraries provide raw text extraction out of the box, but the industrial environment made their default output essentially unusable on its own. Extensive custom logic was built on top: GPU-accelerated inference runs at each of the 36 rotation angles, and a pattern substitution engine then corrects common misread characters caused by font similarity, label reflections, print degradation, and image artifacts — none of which the base libraries handle. The corrected output is then passed through the validation pipeline, which was built entirely from scratch.</p>
 
             <h3>6-Step Validation Pipeline</h3>
-            <p>A sequential multi-criteria check confirms that all required fields — container ID, label type, date, fiscal year, and part numbers — are present and correctly formatted. A reading is only emitted as confirmed when it clears every step. The system supports CCC and CCO container types across lid, side-top, side-bottom, and serial number scan positions.</p>
+            <p>A sequential multi-criteria check confirms that all required fields — container ID, label type, date, fiscal year, and part numbers — are present and correctly formatted. A reading is only emitted as confirmed when it clears every step. The system supports multiple barrel types across lid, side-top, side-bottom, and serial number scan positions.</p>
         </div>
 
     </main>

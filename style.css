@@ -722,7 +722,7 @@ h1 {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 48px;
     align-items: start;
     margin-bottom: 48px;
@@ -731,16 +731,56 @@ h1 {
 .about-photo-widget {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .profile-pic {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    max-width: 220px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #1E1E1E;
+    margin-bottom: 16px;
 }
+
+.about-photo-name {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #D4CFC9;
+    margin: 0 0 2px 0;
+}
+
+.about-photo-handle {
+    font-size: 0.82em;
+    color: #666;
+    margin: 0 0 16px 0;
+}
+
+.about-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.about-social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.82em;
+    transition: color 0.2s;
+}
+
+.about-social-link i {
+    font-size: 1em;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.about-social-link:hover { color: #9940FF; }
 
 .about-bio-name {
     font-size: 1.6em;
@@ -752,7 +792,7 @@ h1 {
 .about-bio-text {
     font-size: 0.9em;
     line-height: 1.9;
-    color: #555;
+    color: #A09A93;
     margin-bottom: 16px;
 }
 
@@ -1134,8 +1174,8 @@ h1 {
     .hero { height: auto; min-height: calc(100vh - 60px); }
     .section-wrap { padding: 32px 20px; }
     .about-grid { grid-template-columns: 1fr; }
-    .about-photo-widget { display: flex; justify-content: center; }
-    .profile-pic { width: 120px; height: 120px; }
+    .about-photo-widget { align-items: center; }
+    .profile-pic { max-width: 120px; }
     .about-interests { grid-template-columns: repeat(2, 1fr); }
     .proj-grid { grid-template-columns: 1fr; }
     .proj-header { flex-direction: column; align-items: flex-start; }

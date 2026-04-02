@@ -8,23 +8,36 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { background: #EDEAE5; }
+
         body {
             font-family: 'Georgia', serif;
             font-size: 14px;
             color: #1a1a1a;
-            background: #fff;
+            background: #F7F5F2;
             max-width: 850px;
             margin: 40px auto;
-            padding: 0 40px 60px;
+            padding: 0 0 60px;
             line-height: 1.5;
+            box-shadow: 0 2px 24px rgba(0,0,0,0.08);
         }
 
         /* ── HEADER ── */
         .resume-header {
             text-align: center;
-            padding-bottom: 16px;
-            border-bottom: 2px solid #1a1a1a;
-            margin-bottom: 20px;
+            padding: 40px 40px 24px;
+            margin-bottom: 0;
+            border-bottom: none;
+            position: relative;
+        }
+
+        .resume-header::before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 3px;
+            background: #9940FF;
+            margin: 0 auto 20px;
         }
 
         .resume-header h1 {
@@ -38,41 +51,47 @@
             font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #555;
-            margin: 4px 0 10px;
+            color: #888;
+            margin: 6px 0 14px;
         }
 
         .contact-line {
             font-size: 0.78rem;
-            color: #444;
+            color: #666;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 6px 16px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #DDD9D3;
         }
 
-        .contact-line a { color: #444; text-decoration: none; display: flex; align-items: center; gap: 5px; }
-        .contact-line a:hover { color: #1a1a1a; text-decoration: underline; }
-        .contact-line span { color: #bbb; }
+        .contact-line a { color: #666; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+        .contact-line a:hover { color: #9940FF; }
+        .contact-line span { color: #ccc; }
         .contact-line i { font-size: 0.82rem; }
 
         /* ── SECTIONS ── */
-        .section { margin-top: 22px; }
+        .section { margin-top: 28px; padding: 0 40px; }
 
         .section-title {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
+            font-size: 0.65rem;
+            letter-spacing: 3.5px;
             text-transform: uppercase;
             font-family: 'Arial', sans-serif;
             font-weight: bold;
-            color: #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-            padding-bottom: 4px;
-            margin-bottom: 12px;
+            color: #9940FF;
+            border-bottom: 1px solid #DDD9D3;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
         }
 
         /* ── EXPERIENCE ── */
-        .entry { margin-bottom: 16px; }
+        .entry {
+            margin-bottom: 18px;
+            padding-left: 12px;
+            border-left: 2px solid #E8E4DF;
+        }
 
         .entry-header {
             display: flex;
@@ -85,77 +104,86 @@
         .entry-title { font-weight: bold; font-size: 0.95rem; }
 
         .entry-date {
-            font-size: 0.78rem;
-            color: #555;
+            font-size: 0.76rem;
+            color: #888;
             font-family: 'Arial', sans-serif;
             white-space: nowrap;
         }
 
         .entry-org {
             font-style: italic;
-            font-size: 0.88rem;
-            color: #444;
-            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 6px;
         }
 
         .entry ul { padding-left: 18px; margin-top: 4px; }
-        .entry ul li { margin-bottom: 3px; font-size: 0.88rem; }
+        .entry ul li { margin-bottom: 4px; font-size: 0.87rem; color: #444; }
 
         /* ── PROJECTS ── */
-        .project-entry { margin-bottom: 10px; }
+        .project-entry {
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-left: 2px solid #E8E4DF;
+        }
 
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
+            gap: 4px;
         }
 
         .project-name { font-weight: bold; font-size: 0.9rem; }
 
         .project-tags {
-            font-size: 0.75rem;
-            color: #666;
+            font-size: 0.72rem;
+            color: #999;
             font-family: 'Arial', sans-serif;
             font-style: italic;
         }
 
-        .project-desc { font-size: 0.85rem; margin-top: 2px; color: #333; }
+        .project-desc { font-size: 0.84rem; margin-top: 3px; color: #555; line-height: 1.6; }
 
         /* ── SKILLS ── */
         .skills-grid {
             display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 6px 12px;
+            grid-template-columns: 160px 1fr;
+            gap: 7px 12px;
             font-size: 0.87rem;
         }
 
-        .skill-label { font-weight: bold; color: #1a1a1a; }
-        .skill-value { color: #333; }
+        .skill-label { font-weight: bold; color: #1a1a1a; font-size: 0.82rem; }
+        .skill-value { color: #555; font-size: 0.84rem; }
 
         /* ── EDUCATION ── */
         .edu-entry .entry-header { margin-bottom: 2px; }
 
         /* ── PRINT BUTTON ── */
-        .print-bar { text-align: right; margin-bottom: 20px; }
+        .print-bar { text-align: right; padding: 16px 40px 0; }
 
         .print-btn {
-            background: #1a1a1a;
-            color: #fff;
-            border: none;
-            padding: 8px 20px;
+            background: transparent;
+            color: #9940FF;
+            border: 1px solid #9940FF;
+            padding: 7px 18px;
             font-family: 'Arial', sans-serif;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .print-btn:hover { background: #444; }
+        .print-btn:hover { background: #9940FF; color: #fff; }
 
         @media print {
-            body { margin: 0; padding: 20px 40px; }
+            html { background: #fff; }
+            body { margin: 0; padding: 0 0 40px; box-shadow: none; background: #fff; }
             .print-bar { display: none; }
+            .section-title { color: #555; }
+            .contact-line a:hover { color: #666; }
         }
     </style>
 </head>

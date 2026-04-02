@@ -57,9 +57,7 @@
         .contact-line i { font-size: 0.82rem; }
 
         /* ── SECTIONS ── */
-        .section {
-            margin-top: 22px;
-        }
+        .section { margin-top: 22px; }
 
         .section-title {
             font-size: 0.7rem;
@@ -73,10 +71,8 @@
             margin-bottom: 12px;
         }
 
-        /* ── EXPERIENCE ENTRIES ── */
-        .entry {
-            margin-bottom: 16px;
-        }
+        /* ── EXPERIENCE ── */
+        .entry { margin-bottom: 16px; }
 
         .entry-header {
             display: flex;
@@ -86,10 +82,7 @@
             gap: 4px;
         }
 
-        .entry-title {
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
+        .entry-title { font-weight: bold; font-size: 0.95rem; }
 
         .entry-date {
             font-size: 0.78rem;
@@ -105,20 +98,11 @@
             margin-bottom: 5px;
         }
 
-        .entry ul {
-            padding-left: 18px;
-            margin-top: 4px;
-        }
-
-        .entry ul li {
-            margin-bottom: 3px;
-            font-size: 0.88rem;
-        }
+        .entry ul { padding-left: 18px; margin-top: 4px; }
+        .entry ul li { margin-bottom: 3px; font-size: 0.88rem; }
 
         /* ── PROJECTS ── */
-        .project-entry {
-            margin-bottom: 12px;
-        }
+        .project-entry { margin-bottom: 10px; }
 
         .project-header {
             display: flex;
@@ -127,10 +111,7 @@
             flex-wrap: wrap;
         }
 
-        .project-name {
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
+        .project-name { font-weight: bold; font-size: 0.9rem; }
 
         .project-tags {
             font-size: 0.75rem;
@@ -139,37 +120,24 @@
             font-style: italic;
         }
 
-        .project-desc {
-            font-size: 0.85rem;
-            margin-top: 2px;
-            color: #333;
-        }
+        .project-desc { font-size: 0.85rem; margin-top: 2px; color: #333; }
 
         /* ── SKILLS ── */
         .skills-grid {
             display: grid;
-            grid-template-columns: 140px 1fr;
+            grid-template-columns: 150px 1fr;
             gap: 6px 12px;
             font-size: 0.87rem;
         }
 
-        .skill-label {
-            font-weight: bold;
-            color: #1a1a1a;
-        }
-
-        .skill-value {
-            color: #333;
-        }
+        .skill-label { font-weight: bold; color: #1a1a1a; }
+        .skill-value { color: #333; }
 
         /* ── EDUCATION ── */
         .edu-entry .entry-header { margin-bottom: 2px; }
 
         /* ── PRINT BUTTON ── */
-        .print-bar {
-            text-align: right;
-            margin-bottom: 20px;
-        }
+        .print-bar { text-align: right; margin-bottom: 20px; }
 
         .print-btn {
             background: #1a1a1a;
@@ -185,7 +153,6 @@
 
         .print-btn:hover { background: #444; }
 
-        /* Hide the button when printing */
         @media print {
             body { margin: 0; padding: 20px 40px; }
             .print-bar { display: none; }
@@ -194,7 +161,6 @@
 </head>
 <body>
 
-    <!-- PRINT BUTTON — hidden when printing -->
     <div class="print-bar">
         <button class="print-btn" onclick="window.print()">Save as PDF</button>
     </div>
@@ -218,7 +184,7 @@
     <section class="section">
         <h2 class="section-title">Summary</h2>
         <p style="font-size:0.88rem; color:#333;">
-            Computer engineer with hands-on experience designing operator-facing interfaces for robotics, autonomous systems, and scientific instrumentation. Self-taught in modern frontend web development — HTML, CSS, JavaScript, React, and Figma — with a growing portfolio of personal projects built independently outside of work. Comfortable moving between embedded systems and the browser, and driven by an interest in turning complex systems into clean, intuitive interfaces.
+            Computer engineer with hands-on experience building operator interfaces for robotics, autonomous systems, and scientific instrumentation. Self-taught in modern frontend web development — HTML, CSS, JavaScript, React, and Figma — with a growing portfolio of personal projects. Driven by an interest in turning complex systems into clean, intuitive interfaces.
         </p>
     </section>
 
@@ -233,11 +199,10 @@
             </div>
             <p class="entry-org">Savannah River National Laboratory &nbsp;—&nbsp; Aiken, SC</p>
             <ul>
-                <li>Designed and developed operator-facing GUI interfaces for robotics and autonomous systems using PyQt and Python.</li>
-                <li>Built real-time monitoring dashboards displaying live telemetry, system health indicators, and command dispatch for crawler robot operations.</li>
-                <li>Developed machine learning pipelines for real-time anomaly detection and optical character recognition (OCR) deployed on NVIDIA Jetson Orin edge hardware.</li>
-                <li>Programmed and configured automated guided vehicles (AGVs) and industrial safety systems including PLC ladder logic and SICK safety controllers.</li>
-                <li>Programmed Moog Animatics SmartMotor controllers in torque mode for precision motion control in lab mixing applications.</li>
+                <li>Designed and developed operator-facing GUI dashboards for robotics and autonomous systems using PyQt and Python, including live telemetry and command dispatch.</li>
+                <li>Built machine learning pipelines for real-time anomaly detection and OCR, deployed on NVIDIA Jetson Orin edge hardware with CUDA acceleration.</li>
+                <li>Programmed and configured AGVs and industrial safety systems using PLC ladder logic and SICK safety controllers.</li>
+                <li>Programmed Moog Animatics SmartMotor controllers in torque mode for precision motion control in laboratory mixing applications.</li>
             </ul>
         </div>
 
@@ -248,10 +213,9 @@
             </div>
             <p class="entry-org">EndoSec LLC &nbsp;—&nbsp; Remote</p>
             <ul>
-                <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL and verified correctness using the NIST SP 800-22r1a statistical test suite.</li>
-                <li>Conducted and documented research on SHA-3 and Keccak cryptographic implementations, producing technical guides and performance reports.</li>
-                <li>Designed system and architecture diagrams using yEd, Visio, and Draw.io.</li>
-                <li>Expanded expertise in cryptography, ASIC design, and FPGA programming; used Unix and Git for source control throughout.</li>
+                <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL, verified using the NIST SP 800-22r1a statistical test suite.</li>
+                <li>Researched and documented SHA-3 and Keccak cryptographic implementations, producing technical guides and performance reports.</li>
+                <li>Produced system and architecture diagrams in yEd, Visio, and Draw.io; worked in Unix with Git for source control.</li>
             </ul>
         </div>
 
@@ -264,49 +228,41 @@
         <div class="project-entry">
             <div class="project-header">
                 <span class="project-name">Personal Portfolio Website</span>
-                <span class="project-tags">HTML · CSS · JavaScript · Self-taught</span>
+                <span class="project-tags">HTML · CSS · JavaScript</span>
             </div>
-            <p class="project-desc">Designed and built a responsive single-page portfolio site from scratch with no frameworks. Features custom section-based navigation, animated project cards with category filtering, and a dark retro-minimal theme. Deployed via GitHub Pages.</p>
+            <p class="project-desc">Single-page portfolio built from scratch — custom section navigation, animated project cards with category filtering, deployed via GitHub Pages.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
                 <span class="project-name">IR Facial Recognition System</span>
-                <span class="project-tags">Python · OpenCV · PyTorch · Computer Vision</span>
+                <span class="project-tags">Python · OpenCV · PyTorch</span>
             </div>
-            <p class="project-desc">Capstone project building an infrared facial recognition pipeline. Implemented image processing, model training, and real-time inference for identity verification in low-light environments.</p>
+            <p class="project-desc">Capstone project — infrared facial recognition pipeline with model training and real-time inference for identity verification in low-light environments.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
                 <span class="project-name">Real-Time Anomaly Detection</span>
-                <span class="project-tags">Python · Anomalib · NVIDIA Jetson Orin · Edge ML</span>
+                <span class="project-tags">Python · Anomalib · NVIDIA Jetson Orin</span>
             </div>
-            <p class="project-desc">Deployed an anomaly detection model to an NVIDIA Jetson Orin for real-time visual inspection. Optimized inference pipeline for edge deployment using CUDA acceleration.</p>
+            <p class="project-desc">Anomaly detection model deployed to NVIDIA Jetson Orin for real-time edge inference with CUDA-accelerated image processing.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
                 <span class="project-name">OCR Data Extraction Pipeline</span>
-                <span class="project-tags">Python · PyTesseract · OpenCV · Image Processing</span>
+                <span class="project-tags">Python · PyTesseract · OpenCV</span>
             </div>
-            <p class="project-desc">Built an optical character recognition pipeline to extract and structure text data from instrument readouts and scientific documents.</p>
-        </div>
-
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Crawler Robot Operator Interface</span>
-                <span class="project-tags">Python · PyQt · Real-Time Control</span>
-            </div>
-            <p class="project-desc">Designed the full operator-facing dashboard for a crawler robot navigating hazardous environments. Included live telemetry display, command dispatch with input validation, and collapsible diagnostic panels.</p>
+            <p class="project-desc">Automated extraction and structuring of text from instrument readouts and scientific documents using optical character recognition.</p>
         </div>
 
         <div class="project-entry">
             <div class="project-header">
                 <span class="project-name">Figma — Small Business App Design</span>
-                <span class="project-tags">Figma · UI/UX · Prototyping · Design Systems</span>
+                <span class="project-tags">Figma · UI/UX · Prototyping</span>
             </div>
-            <p class="project-desc">Self-taught Figma by designing a complete multi-page app for a small business — homepage, about, items catalog, and checkout flow. Demonstrates component design, auto layout, and interactive prototyping.</p>
+            <p class="project-desc">Self-taught Figma by designing a complete multi-page app — homepage, about, catalog, and checkout — demonstrating components, auto layout, and interactive prototyping.</p>
         </div>
 
         <div class="project-entry">
@@ -314,7 +270,7 @@
                 <span class="project-name">HerRoutine — Women's Health Tracker</span>
                 <span class="project-tags">HTML · CSS · JavaScript</span>
             </div>
-            <p class="project-desc">Built a multi-page web app for tracking cycle, nutrition, and workouts. Features dedicated pages per module with custom CSS styling and client-side JavaScript logic.</p>
+            <p class="project-desc">Multi-page web app for tracking cycle, nutrition, and workouts with dedicated modules and client-side JavaScript logic.</p>
         </div>
 
     </section>
@@ -324,7 +280,7 @@
         <h2 class="section-title">Skills</h2>
         <div class="skills-grid">
             <span class="skill-label">Frontend / Web</span>
-            <span class="skill-value">HTML5, CSS3, JavaScript, React, Bootstrap, Figma, Node.js, Git</span>
+            <span class="skill-value">HTML5, CSS3, JavaScript, React, Bootstrap, Node.js, Figma, Git</span>
 
             <span class="skill-label">Languages</span>
             <span class="skill-value">Python, C, C++, VHDL, Visual Basic, LaTeX, MATLAB</span>
@@ -336,13 +292,10 @@
             <span class="skill-value">PyQt, Visual Basic (.NET)</span>
 
             <span class="skill-label">Embedded / Controls</span>
-            <span class="skill-value">PLC Ladder Logic, PLC Structured Text, Moog Animatics SmartMotor, Microcontrollers, RTOS, FPGA / VHDL</span>
+            <span class="skill-value">PLC Ladder Logic, PLC Structured Text, Moog Animatics SmartMotor, Microcontrollers, RTOS, FPGA</span>
 
             <span class="skill-label">Robotics</span>
             <span class="skill-value">AGV Programming, LiDAR, SICK Safety Controllers, Fanuc Robots, Path Mapping</span>
-
-            <span class="skill-label">Operating Systems</span>
-            <span class="skill-value">Linux / Unix, Windows</span>
         </div>
     </section>
 
@@ -355,10 +308,7 @@
                 <span class="entry-date">May 2023</span>
             </div>
             <p class="entry-org">The Ohio State University &nbsp;—&nbsp; Columbus, OH</p>
-            <ul>
-                <li>Area of focus: Computer Engineering — digital logic, FPGA implementation, software development</li>
-                <li>Primary languages studied: C, VHDL, Python</li>
-            </ul>
+            <p style="font-size:0.85rem; margin-top:3px; color:#444;">Focus: Computer Engineering — digital logic, FPGA implementation, software development in C, VHDL, and Python.</p>
         </div>
     </section>
 

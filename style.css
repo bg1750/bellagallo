@@ -202,6 +202,7 @@ main:has(#home.active) { overflow: hidden; height: 100%; }
     pointer-events: none;
     z-index: 2;
 
+    
     mask:
         radial-gradient(var(--R) at left 50% bottom calc(-1*var(--p)), #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
         radial-gradient(var(--R) at left 50% top calc(-1*var(--p)), #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%) 50% var(--size)/calc(4*var(--size)) 100%;

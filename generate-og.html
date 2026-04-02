@@ -15,7 +15,12 @@
     <canvas id="canvas" width="1200" height="630"></canvas>
     <button onclick="download()">Download og-image.png</button>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
     <script>
+        async function render() {
+        await document.fonts.load('72px "Mea Culpa"');
+
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         const W = 1200, H = 630;
@@ -35,44 +40,53 @@
             }
         }
 
-        // Waves (matches home page .wave style: #9940FF, opacity 0.2, scalloped mask)
+        // Waves — exact reproduction of CSS:
+        //   --size:50px  --b:100px  --m:0.5
+        //   --p: m*size = 25px
+        //   --R: size*sqrt(m²+1) ≈ 55.9px
+        //   height:34px  background:#9940FF  opacity:0.2
+        //
+        // The CSS mask is two interleaved grids of circles clipped to the band:
+        //   Grid 1: centers at (W/2-100 + n*200,  bandEdge+25)  — bumps at the outer edge
+        //   Grid 2: centers at (W/2     + n*200,  bandEdge-25)  — fills toward the inner edge
         function drawWave(isBottom) {
-            const waveH = 34;
-            const period = 200;  // 4 * --size (50px)
-            const amp = 12;
-            const waveEdge = isBottom ? H - waveH : waveH;
+            const size   = 50;
+            const waveH  = 34;
+            const R      = size * Math.sqrt(0.5 * 0.5 + 1); // ≈ 55.9
+            const p      = 0.5 * size;                        // 25
+            const period = 4 * size;                          // 200
+
+            const bandTop = isBottom ? H - waveH : 0;
+
+            // Circle center Y values (mirrored for bottom wave)
+            const g1y = isBottom ? H - waveH - p : waveH + p; // 59 from whichever edge
+            const g2y = isBottom ? H        + p : 0    - p;   // 25 outside the band
 
             ctx.save();
-            ctx.globalAlpha = 0.2;
-            ctx.fillStyle = '#9940FF';
+            // Clip strictly to the wave band so circles don't bleed into content
             ctx.beginPath();
+            ctx.rect(0, bandTop, W, waveH);
+            ctx.clip();
 
-            if (isBottom) {
-                ctx.moveTo(0, H);
-                ctx.lineTo(W, H);
-                ctx.lineTo(W, waveEdge);
-            } else {
-                ctx.moveTo(0, 0);
-                ctx.lineTo(W, 0);
-                ctx.lineTo(W, waveEdge);
+            ctx.globalAlpha = 0.2;
+            ctx.fillStyle   = '#9940FF';
+
+            // Grid 1: x = (W/2 - 100) + n*200
+            const g1x0 = ((( W/2 - 100) % period) + period) % period;
+            for (let x = g1x0 - period; x < W + period; x += period) {
+                ctx.beginPath();
+                ctx.arc(x, g1y, R, 0, Math.PI * 2);
+                ctx.fill();
             }
 
-            // Scalloped edge drawn right-to-left with alternating bezier bumps
-            let count = 0;
-            for (let x = W; x > 0; x -= period / 2) {
-                const bump = (count % 2 === 0 ? amp : -amp) * (isBottom ? -1 : 1);
-                const nextX = Math.max(0, x - period / 2);
-                ctx.bezierCurveTo(
-                    x - period / 8,     waveEdge + bump,
-                    x - 3 * period / 8, waveEdge + bump,
-                    nextX,              waveEdge
-                );
-                count++;
+            // Grid 2: x = W/2 + n*200
+            const g2x0 = (((W / 2) % period) + period) % period;
+            for (let x = g2x0 - period; x < W + period; x += period) {
+                ctx.beginPath();
+                ctx.arc(x, g2y, R, 0, Math.PI * 2);
+                ctx.fill();
             }
 
-            ctx.lineTo(0, isBottom ? H : 0);
-            ctx.closePath();
-            ctx.fill();
             ctx.restore();
         }
 
@@ -105,39 +119,44 @@
 
         // BG monogram
         ctx.fillStyle = '#000000';
-        ctx.font = 'bold italic 180px Georgia, serif';
+        ctx.font = 'bold italic 200px Georgia, serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText('BG', W / 2, 310);
+        ctx.fillText('BG', W / 2, 305);
 
         // Separator line
         ctx.strokeStyle = 'rgba(153, 64, 255, 0.4)';
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(460, 345);
-        ctx.lineTo(740, 345);
+        ctx.moveTo(420, 340);
+        ctx.lineTo(780, 340);
         ctx.stroke();
 
         // Full name
         ctx.fillStyle = '#D4CFC9';
-        ctx.font = 'bold 46px Arial, sans-serif';
-        ctx.letterSpacing = '6px';
-        ctx.fillText('Bella Gallo', W / 2, 410);
+        ctx.font = '96px "Mea Culpa", cursive';
+        ctx.letterSpacing = '0px';
+        ctx.fillText('Bella Gallo', W / 2, 430);
 
         // Title
         ctx.fillStyle = '#555555';
-        ctx.font = '20px "Courier New", monospace';
-        ctx.fillText('COMPUTER ENGINEER  ·  ASPIRING WEB DEVELOPER', W / 2, 460);
+        ctx.font = '22px "Courier New", monospace';
+        ctx.letterSpacing = '4px';
+        ctx.fillText('SOFTWARE ENGINEER  ·  ASPIRING WEB DEVELOPER', W / 2, 478);
 
         // URL
         ctx.fillStyle = '#333333';
-        ctx.font = '16px "Courier New", monospace';
-        ctx.fillText('bg1750.github.io/bellagallo', W / 2, 565);
+        ctx.font = '18px "Courier New", monospace';
+        ctx.letterSpacing = '2px';
+        ctx.fillText('bg1750.github.io/bellagallo', W / 2, 568);
+
+        } // end render()
+        render();
 
         function download() {
             const link = document.createElement('a');
             link.download = 'og-image.png';
-            link.href = canvas.toDataURL('image/png');
+            link.href = document.getElementById('canvas').toDataURL('image/png');
             link.click();
         }
     </script>

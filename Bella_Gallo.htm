@@ -5,21 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Gallo — Resume</title>
+    <!-- Font Awesome for the small icons next to contact info, dates, and locations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- All resume styles live in resume_style.css -->
     <link rel="stylesheet" href="resume_style.css">
 </head>
 
 <body>
+    <!-- Outer page card — everything sits inside this white container -->
     <div class="page">
 
+        <!-- Save as PDF button — sits top right, hidden when printing -->
         <div class="print-bar">
             <button class="print-btn" onclick="window.print()">Save as PDF</button>
         </div>
 
-        <!-- HEADER -->
+        <!-- Header — name, title, and all contact/link info -->
         <header class="resume-header">
             <h1>Isabella R. Gallo</h1>
             <p class="subtitle">Software Engineer</p>
+            <!-- Contact row: email, LinkedIn, GitHub, portfolio site, location -->
             <div class="contact-line">
                 <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-at"></i>isabella.gallo1750@gmail.com</a>
                 <a href="https://www.linkedin.com/in/isabellargallo/" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
@@ -29,26 +34,29 @@
             </div>
         </header>
 
-        <!-- TWO-COLUMN BODY -->
+        <!-- Two-column body — left is 57% wide (summary/experience/skills/certs/education), right is the rest (projects) -->
         <div class="columns">
 
             <!-- LEFT COLUMN -->
             <div>
 
+                <!-- Summary — short professional bio, update this when the pitch changes -->
                 <section class="section">
                     <h2 class="section-title">Summary</h2>
                     <p class="summary-text">
                         Professionally I am a Software Engineer at Savannah River National Laboratory, where I build operator
                         interfaces for robotics, autonomous systems, and scientific instrumentation. I am currently channeling that
-                        same passion of usability and design into web development. My self teachings include several courses in full stack 
-                        development, UI/UX, and specific areas such as Node.js and React. 
-                        I strive to improve my skills in giving users an exceptional experience whether it is an interface or a web application. 
+                        same passion of usability and design into web development. My self teachings include several courses in full stack
+                        development, UI/UX, and specific areas such as Node.js and React.
+                        I strive to improve my skills in giving users an exceptional experience whether it is an interface or a web application.
                     </p>
                 </section>
 
+                <!-- Experience — each job is its own .exp-entry block with title, company, dates, and bullet points -->
                 <section class="section">
                     <h2 class="section-title">Experience</h2>
 
+                    <!-- SRNL job entry -->
                     <div class="exp-entry">
                         <div class="exp-title">Software Engineer</div>
                         <div class="exp-company">Savannah River National Laboratory</div>
@@ -65,6 +73,7 @@
                         </ul>
                     </div>
 
+                    <!-- EndoSec internship entry -->
                     <div class="exp-entry">
                         <div class="exp-title">Hardware Encryption Engineering Intern</div>
                         <div class="exp-company">EndoSec LLC</div>
@@ -81,6 +90,7 @@
 
                 </section>
 
+                <!-- Industry Skills — the small bordered tags, add/remove skill-tag spans as needed -->
                 <section class="section">
                     <h2 class="section-title">Industry Skills</h2>
                     <div class="skills-tags">
@@ -107,6 +117,7 @@
                     </div>
                 </section>
 
+                <!-- Certifications — laid out in a 2-column grid, add new cert-item divs as courses are completed -->
                 <section class="section">
                     <h2 class="section-title">Certification and Training</h2>
                     <div class="cert-grid">
@@ -117,6 +128,7 @@
                     </div>
                 </section>
 
+                <!-- Education — degree and school on the left, GPA box on the right, bullet details below -->
                 <section class="section">
                     <h2 class="section-title">Education</h2>
                     <div class="edu-row">
@@ -146,6 +158,7 @@
             <!-- RIGHT COLUMN -->
             <div>
 
+                <!-- Work Projects (SRNL) — each project is a .project-entry with name, org, date, description, and tags -->
                 <section class="section">
                     <h2 class="section-title">Projects</h2>
 
@@ -250,6 +263,7 @@
 
                 </section>
 
+                <!-- Personal Projects — same structure as above but uses .personal-entry and .personal-name (purple title) -->
                 <section class="section">
                     <h2 class="section-title">Personal Projects</h2>
 

@@ -1,9 +1,11 @@
+/* Base reset — clears default browser margin/padding and makes box-sizing consistent across everything */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body — sets the font, base text size, and the light gray background behind the page card */
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -12,6 +14,7 @@ body {
     line-height: 1.4;
 }
 
+/* Page container — the white card that holds everything. Max-width keeps it from getting too wide on large screens */
 .page {
     max-width: 880px;
     margin: 16px auto;
@@ -20,11 +23,13 @@ body {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.13);
 }
 
+/* Print bar — the row that holds the "Save as PDF" button, sits above the header */
 .print-bar {
     text-align: right;
     margin-bottom: 7px;
 }
 
+/* Save as PDF button — transparent by default, fills purple on hover */
 .print-btn {
     background: transparent;
     color: #7B2DB8;
@@ -43,10 +48,12 @@ body {
     color: #fff;
 }
 
+/* Resume header — wraps the name, subtitle, and contact row at the top of the page */
 .resume-header {
     margin-bottom: 12px;
 }
 
+/* Name — the big bold heading at the very top */
 .resume-header h1 {
     font-size: 2.1rem;
     font-weight: 900;
@@ -56,6 +63,7 @@ body {
     letter-spacing: -0.5px;
 }
 
+/* Subtitle — the role/title line under the name, shown in purple */
 .resume-header .subtitle {
     font-size: 0.9rem;
     font-weight: 700;
@@ -63,6 +71,7 @@ body {
     margin-bottom: 5px;
 }
 
+/* Contact row — the horizontal list of email, LinkedIn, GitHub, portfolio, and location */
 .contact-line {
     display: flex;
     flex-wrap: wrap;
@@ -80,6 +89,7 @@ body {
     gap: 4px;
 }
 
+/* Links and their icons both turn purple on hover */
 .contact-line a:hover,
 .contact-line a:hover i {
     color: #7B2DB8;
@@ -96,16 +106,19 @@ body {
     color: #666;
 }
 
+/* Two-column layout — left column is 57% (experience/skills/etc), right is the remaining space (projects) */
 .columns {
     display: grid;
     grid-template-columns: 57% 1fr;
     gap: 0 20px;
 }
 
+/* Section wrapper — every block (summary, experience, education, etc.) uses this for consistent bottom spacing */
 .section {
     margin-bottom: 13px;
 }
 
+/* Section title — the bold uppercase heading with the purple underline bar used on every section */
 .section-title {
     font-size: 0.78rem;
     font-weight: 900;
@@ -117,12 +130,14 @@ body {
     margin-bottom: 8px;
 }
 
+/* Summary text — the paragraph in the summary section */
 .summary-text {
     font-size: 0.82rem;
     color: #333;
     line-height: 1.5;
 }
 
+/* Meta line — the small date and location row that appears under job titles, project names, etc. */
 .meta-line {
     display: flex;
     flex-wrap: wrap;
@@ -143,6 +158,7 @@ body {
     font-size: 0.67rem;
 }
 
+/* Education row — puts the degree/school info on the left and the GPA box on the right */
 .edu-row {
     display: flex;
     justify-content: space-between;
@@ -166,6 +182,7 @@ body {
     font-size: 0.84rem;
 }
 
+/* GPA box — the small bordered box that shows the GPA number, sits to the right of the school name */
 .gpa-box {
     border: 1px solid #bbb;
     padding: 4px 9px;
@@ -184,6 +201,7 @@ body {
     margin-top: 1px;
 }
 
+/* Education bullet points — the extra details under the school/degree (focus area, clubs, capstone) */
 .edu-bullets {
     padding-left: 14px;
     margin-top: 4px;
@@ -195,18 +213,21 @@ body {
     margin-bottom: 2px;
 }
 
+/* Experience entries — each job is wrapped in .exp-entry, separated by a dotted border */
 .exp-entry {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px dotted #ccc;
 }
 
+/* Remove the bottom border and spacing on the last job so it doesn't double up with section spacing */
 .exp-entry:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
+/* Job title, company, and department label styles */
 .exp-title {
     font-weight: 700;
     font-size: 0.88rem;
@@ -226,6 +247,7 @@ body {
     margin: 1px 0 3px;
 }
 
+/* Bullet list inside experience entries */
 .exp-entry ul {
     padding-left: 14px;
     margin-top: 3px;
@@ -238,11 +260,13 @@ body {
     line-height: 1.45;
 }
 
+/* Highlight utility — wraps a word or phrase in a yellow background, not currently used but kept for reference */
 .hl {
     background: #FFE08A;
     padding: 1px 0;
 }
 
+/* Industry skills — the row of small bordered tag boxes in the skills section */
 .skills-tags {
     display: flex;
     flex-wrap: wrap;
@@ -258,6 +282,7 @@ body {
     line-height: 1.4;
 }
 
+/* Certifications grid — two columns so the four cert items sit in a 2x2 grid */
 .cert-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -274,6 +299,7 @@ body {
     line-height: 1.4;
 }
 
+/* Project and personal project entries — same spacing and dotted divider style shared between both sections */
 .project-entry,
 .personal-entry {
     margin-bottom: 8px;
@@ -288,6 +314,7 @@ body {
     padding-bottom: 0;
 }
 
+/* Project name is dark, personal project name is purple — only difference between the two */
 .project-name {
     font-weight: 700;
     font-size: 0.86rem;
@@ -301,12 +328,14 @@ body {
     font-size: 0.86rem;
 }
 
+/* Organization label under the project name (used for SRNL projects) */
 .project-org {
     font-weight: 700;
     color: #7B2DB8;
     font-size: 0.81rem;
 }
 
+/* Description text under each project — same style shared between work and personal projects */
 .project-desc,
 .personal-desc {
     font-size: 0.79rem;
@@ -315,6 +344,7 @@ body {
     line-height: 1.45;
 }
 
+/* Bullet list inside personal project entries (used for in-progress notes, etc.) */
 .personal-entry ul {
     padding-left: 14px;
     margin-top: 3px;
@@ -326,6 +356,7 @@ body {
     margin-bottom: 2px;
 }
 
+/* Tech/tool tags that appear at the bottom of each project entry */
 .proj-tags {
     display: flex;
     flex-wrap: wrap;
@@ -342,6 +373,7 @@ body {
     border: 1px solid #222;
 }
 
+/* Print styles — hides the save button and removes the page shadow/margin when printing or saving as PDF */
 @media print {
     body {
         background: #fff;

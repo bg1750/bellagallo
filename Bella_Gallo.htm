@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,391 +9,492 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { background: #EDEAE5; }
-
         body {
-            font-family: 'Georgia', serif;
-            font-size: 14px;
-            color: #1a1a1a;
-            background: #F7F5F2;
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 0 60px;
-            line-height: 1.5;
-            box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #2d2d2d;
+            background: #e5e5e5;
+            line-height: 1.4;
         }
 
-        /* ── HEADER ── */
-        .resume-header {
-            text-align: center;
-            padding: 40px 40px 24px;
-            margin-bottom: 0;
-            border-bottom: none;
-            position: relative;
+        .page {
+            max-width: 880px;
+            margin: 16px auto;
+            background: #fff;
+            padding: 22px 28px 28px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.13);
         }
 
-        .resume-header::before {
-            content: '';
-            display: block;
-            width: 36px;
-            height: 3px;
-            background: #9940FF;
-            margin: 0 auto 20px;
-        }
-
-        .resume-header h1 {
-            font-size: 2rem;
-            font-weight: normal;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .resume-header .tagline {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #888;
-            margin: 6px 0 14px;
-        }
-
-        .contact-line {
-            font-size: 0.78rem;
-            color: #666;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 6px 16px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #DDD9D3;
-        }
-
-        .contact-line a { color: #666; text-decoration: none; display: flex; align-items: center; gap: 5px; }
-        .contact-line a:hover { color: #9940FF; }
-        .contact-line span { color: #ccc; }
-        .contact-line i { font-size: 0.82rem; }
-
-        /* ── SECTIONS ── */
-        .section { margin-top: 28px; padding: 0 40px; }
-
-        .section-title {
-            font-size: 0.65rem;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            color: #9940FF;
-            border-bottom: 1px solid #DDD9D3;
-            padding-bottom: 6px;
-            margin-bottom: 14px;
-        }
-
-        /* ── EXPERIENCE ── */
-        .entry {
-            margin-bottom: 18px;
-            padding-left: 12px;
-            border-left: 2px solid #E8E4DF;
-        }
-
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-
-        .entry-title { font-weight: bold; font-size: 0.95rem; }
-
-        .entry-date {
-            font-size: 0.76rem;
-            color: #888;
-            font-family: 'Arial', sans-serif;
-            white-space: nowrap;
-        }
-
-        .entry-org {
-            font-style: italic;
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 6px;
-        }
-
-        .entry ul { padding-left: 18px; margin-top: 4px; }
-        .entry ul li { margin-bottom: 4px; font-size: 0.87rem; color: #444; }
-
-        /* ── PROJECTS ── */
-        .project-entry {
-            margin-bottom: 12px;
-            padding-left: 12px;
-            border-left: 2px solid #E8E4DF;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-
-        .project-name { font-weight: bold; font-size: 0.9rem; }
-
-        .project-tags {
-            font-size: 0.72rem;
-            color: #999;
-            font-family: 'Arial', sans-serif;
-            font-style: italic;
-        }
-
-        .project-desc { font-size: 0.84rem; margin-top: 3px; color: #555; line-height: 1.6; }
-
-        /* ── SKILLS ── */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 7px 12px;
-            font-size: 0.87rem;
-        }
-
-        .skill-label { font-weight: bold; color: #1a1a1a; font-size: 0.82rem; }
-        .skill-value { color: #555; font-size: 0.84rem; }
-
-        /* ── EDUCATION ── */
-        .edu-entry .entry-header { margin-bottom: 2px; }
-
-        /* ── PRINT BUTTON ── */
-        .print-bar { text-align: right; padding: 16px 40px 0; }
+        .print-bar { text-align: right; margin-bottom: 7px; }
 
         .print-btn {
             background: transparent;
-            color: #9940FF;
-            border: 1px solid #9940FF;
-            padding: 7px 18px;
-            font-family: 'Arial', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
+            color: #7B2DB8;
+            border: 1px solid #7B2DB8;
+            padding: 4px 12px;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.2s, color 0.2s;
+            transition: background 0.18s, color 0.18s;
+        }
+        .print-btn:hover { background: #7B2DB8; color: #fff; }
+
+        .resume-header { margin-bottom: 12px; }
+
+        .resume-header h1 {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 2px;
+            letter-spacing: -0.5px;
         }
 
-        .print-btn:hover { background: #9940FF; color: #fff; }
+        .resume-header .subtitle {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #7B2DB8;
+            margin-bottom: 5px;
+        }
+
+        .contact-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px 12px;
+            font-size: 0.79rem;
+            color: #444;
+            align-items: center;
+        }
+        .contact-line a { color: #444; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .contact-line a:hover, .contact-line a:hover i { color: #7B2DB8; }
+        .contact-line .loc { display: flex; align-items: center; gap: 4px; }
+        .contact-line i { font-size: 0.72rem; color: #666; }
+
+        .columns {
+            display: grid;
+            grid-template-columns: 57% 1fr;
+            gap: 0 20px;
+        }
+
+        .section { margin-bottom: 13px; }
+
+        .section-title {
+            font-size: 0.78rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #7B2DB8;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+
+        .summary-text { font-size: 0.82rem; color: #333; line-height: 1.5; }
+
+        .meta-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px 10px;
+            align-items: center;
+            font-size: 0.74rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        .meta-line span { display: flex; align-items: center; gap: 4px; }
+        .meta-line i { font-size: 0.67rem; }
+
+        .edu-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+        .edu-left { flex: 1; }
+        .edu-degree { font-weight: 700; font-size: 0.88rem; color: #1a1a1a; }
+        .edu-school { font-weight: 700; color: #7B2DB8; font-size: 0.84rem; }
+
+        .gpa-box {
+            border: 1px solid #bbb;
+            padding: 4px 9px;
+            text-align: center;
+            font-size: 0.68rem;
+            color: #777;
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+        .gpa-box .gpa-value { display: block; font-size: 0.92rem; font-weight: 700; color: #1a1a1a; margin-top: 1px; }
+
+        .edu-bullets { padding-left: 14px; margin-top: 4px; }
+        .edu-bullets li { font-size: 0.79rem; color: #444; margin-bottom: 2px; }
+
+        .exp-entry { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dotted #ccc; }
+        .exp-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .exp-title { font-weight: 700; font-size: 0.88rem; color: #1a1a1a; }
+        .exp-company { font-weight: 700; color: #7B2DB8; font-size: 0.83rem; }
+        .exp-dept { font-style: italic; font-size: 0.76rem; color: #666; margin: 1px 0 3px; }
+
+        .exp-entry ul { padding-left: 14px; margin-top: 3px; }
+        .exp-entry ul li { font-size: 0.8rem; color: #333; margin-bottom: 3px; line-height: 1.45; }
+
+        .hl { background: #FFE08A; padding: 1px 0; }
+
+        .skills-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .skill-tag { border: 1px solid #bbb; padding: 2px 8px; font-size: 0.76rem; color: #333; border-radius: 2px; line-height: 1.4; }
+
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+        .cert-item { font-size: 0.78rem; font-weight: 700; color: #1a1a1a; border-bottom: 1px dotted #ccc; padding-bottom: 5px; margin-bottom: 5px; line-height: 1.4; }
+
+        .project-entry, .personal-entry { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dotted #ccc; }
+        .project-entry:last-child, .personal-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .project-name { font-weight: 700; font-size: 0.86rem; color: #1a1a1a; line-height: 1.3; }
+        .personal-name { font-weight: 700; color: #7B2DB8; font-size: 0.86rem; }
+        .project-org { font-weight: 700; color: #7B2DB8; font-size: 0.81rem; }
+
+        .project-desc, .personal-desc { font-size: 0.79rem; color: #333; margin-top: 3px; line-height: 1.45; }
+
+        .personal-entry ul { padding-left: 14px; margin-top: 3px; }
+        .personal-entry ul li { font-size: 0.78rem; color: #444; margin-bottom: 2px; }
+
+        .proj-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+        .proj-tag { font-size: 0.65em; padding: 2px 6px; border-radius: 2px; background-color: transparent; color: #444; border: 1px solid #222; }
 
         @media print {
-            html { background: #fff; }
-            body { margin: 0; padding: 0 0 40px; box-shadow: none; background: #fff; }
+            body { background: #fff; }
+            .page { margin: 0; box-shadow: none; padding: 18px 22px 24px; }
             .print-bar { display: none; }
-            .section-title { color: #555; }
-            .contact-line a:hover { color: #666; }
         }
     </style>
 </head>
+
 <body>
+    <div class="page">
 
-    <div class="print-bar">
-        <button class="print-btn" onclick="window.print()">Save as PDF</button>
-    </div>
-
-    <!-- HEADER -->
-    <header class="resume-header">
-        <h1>Isabella R. Gallo</h1>
-        <p class="tagline">Software Engineer &nbsp;·&nbsp; Frontend &amp; Web Developer</p>
-        <div class="contact-line">
-            <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-envelope"></i>isabella.gallo1750@gmail.com</a>
-            <span>|</span>
-            <a href="https://www.linkedin.com/in/isabellargallo/" target="_blank"><i class="fa-brands fa-linkedin"></i>linkedin.com/in/isabellargallo</a>
-            <span>|</span>
-            <a href="https://github.com/bg1750" target="_blank"><i class="fa-brands fa-github"></i>github.com/bg1750</a>
-            <span>|</span>
-            <a href="https://bg1750.github.io/bellagallo" target="_blank"><i class="fa-solid fa-globe"></i>bg1750.github.io/bellagallo</a>
+        <div class="print-bar">
+            <button class="print-btn" onclick="window.print()">Save as PDF</button>
         </div>
-    </header>
 
-    <!-- SUMMARY -->
-    <section class="section">
-        <h2 class="section-title">Summary</h2>
-        <p style="font-size:0.88rem; color:#333;">
-            Software engineer with hands-on experience building operator interfaces for robotics, autonomous systems, and scientific instrumentation at Savannah River National Laboratory. Pursuing full stack web development with a focus on interface design, bringing the same attention to usability from professional engineering work into the browser. Driven by the conviction that the quality of an interface is the quality of the experience.
-        </p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section">
-        <h2 class="section-title">Experience</h2>
-
-        <div class="entry">
-            <div class="entry-header">
-                <span class="entry-title">Software Engineer</span>
-                <span class="entry-date">April 2024 – Present</span>
+        <!-- HEADER -->
+        <header class="resume-header">
+            <h1>Isabella R. Gallo</h1>
+            <p class="subtitle">Aspiring Frontend &amp; Web Developer</p>
+            <div class="contact-line">
+                <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-at"></i>isabella.gallo1750@gmail.com</a>
+                <a href="https://www.linkedin.com/in/isabellargallo/" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                <a href="https://github.com/bg1750" target="_blank"><i class="fa-brands fa-github"></i>Github</a>
+                <a href="https://bg1750.github.io/bellagallo" target="_blank"><i class="fa-solid fa-globe"></i>Portfolio</a>
+                <span class="loc"><i class="fa-solid fa-location-dot"></i>South Carolina</span>
             </div>
-            <p class="entry-org">Savannah River National Laboratory &nbsp;—&nbsp; Aiken, SC</p>
-            <ul>
-                <li>Designed and developed operator-facing GUI dashboards for robotics and autonomous systems using PyQt and Python, including live telemetry and command dispatch.</li>
-                <li>Built machine learning pipelines for real-time anomaly detection and OCR, deployed on NVIDIA Jetson Orin edge hardware with CUDA acceleration.</li>
-                <li>Programmed and configured AGVs and industrial safety systems using PLC ladder logic and SICK safety controllers.</li>
-                <li>Programmed Moog Animatics SmartMotor controllers in torque mode for precision motion control in laboratory mixing applications.</li>
-            </ul>
-        </div>
+        </header>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span class="entry-title">Hardware Engineering Intern</span>
-                <span class="entry-date">Jun 2023 – Feb 2024</span>
-            </div>
-            <p class="entry-org">EndoSec LLC &nbsp;—&nbsp; Remote</p>
-            <ul>
-                <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL, verified using the NIST SP 800-22r1a statistical test suite.</li>
-                <li>Researched and documented SHA-3 and Keccak cryptographic implementations, producing technical guides and performance reports.</li>
-                <li>Produced system and architecture diagrams in yEd, Visio, and Draw.io; worked in Unix with Git for source control.</li>
-            </ul>
-        </div>
+        <!-- TWO-COLUMN BODY -->
+        <div class="columns">
 
-    </section>
+            <!-- LEFT COLUMN -->
+            <div>
 
-    <!-- PROJECTS -->
-    <section class="section">
-        <h2 class="section-title">Projects — Savannah River National Laboratory</h2>
+                <section class="section">
+                    <h2 class="section-title">Summary</h2>
+                    <p class="summary-text">
+                        Professionally a Computer Engineer at Savannah River National Laboratory, where I build operator
+                        interfaces for robotics, autonomous systems, and scientific instrumentation. Now channeling that
+                        same focus on usability and design into web development — pursuing full-stack skills with a
+                        strong emphasis on frontend and UI/UX. Driven by the conviction that the quality of an interface
+                        is the quality of the experience.
+                    </p>
+                </section>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Real-Time Anomaly Detection</span>
-                <span class="project-tags">Python · PyTorch · Anomalib · CUDA · NVIDIA Jetson Orin · OpenCV</span>
-            </div>
-            <p class="project-desc">Multi-phase project: initial version built from scratch using a custom CNN autoencoder, subsequently rearchitected around Anomalib with extensive custom additions to meet industrial requirements. Deployed to NVIDIA Jetson Orin with CUDA acceleration, achieving 95% detection accuracy in a production manufacturing environment.</p>
-        </div>
+                <section class="section">
+                    <h2 class="section-title">Experience</h2>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">OCR System</span>
-                <span class="project-tags">Python · PyTesseract · EasyOCR · OpenCV · NumPy · GPU Accelerated</span>
-            </div>
-            <p class="project-desc">Automated label reading and validation pipeline for industrial barrel inspection. EasyOCR and PyTesseract evaluated in testing; PyTesseract carried into deployment with extensive custom logic for 360° rotation scanning, error correction, and 6-step sequential validation built entirely from scratch.</p>
-        </div>
+                    <div class="exp-entry">
+                        <div class="exp-title">Computer Engineer</div>
+                        <div class="exp-company">Savannah River National Laboratory</div>
+                        <div class="meta-line">
+                            <span><i class="fa-regular fa-calendar"></i>04/2024 – Present</span>
+                            <span><i class="fa-solid fa-location-dot"></i>Aiken, SC</span>
+                        </div>
+                        <div class="exp-dept">Instrumentation, Robotics and Imaging Systems, Advanced Engineering</div>
+                        <ul>
+                            <li>Designed and developed operator-facing GUI dashboards for robotics and autonomous systems using PyQt and Python, including live telemetry and command dispatch.</li>
+                            <li>Built machine learning pipelines for real-time anomaly detection and OCR, deployed on NVIDIA Jetson Orin edge hardware with CUDA acceleration.</li>
+                            <li>Programmed and configured AGVs and industrial safety systems using PLC ladder logic and SICK safety controllers.</li>
+                            <li>Programmed Moog Animatics SmartMotor controllers in torque mode for precision motion control in laboratory mixing applications.</li>
+                        </ul>
+                    </div>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">AGV Control Interface</span>
-                <span class="project-tags">PLC · Ladder Logic · LiDAR · RTOS · Sensor Fusion</span>
-            </div>
-            <p class="project-desc">Improved operator-facing interface for a fleet of AGVs integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor deployment.</p>
-        </div>
+                    <div class="exp-entry">
+                        <div class="exp-title">Hardware Engineering Intern</div>
+                        <div class="exp-company">EndoSec LLC</div>
+                        <div class="meta-line">
+                            <span><i class="fa-regular fa-calendar"></i>06/2023 – 02/2024</span>
+                            <span><i class="fa-solid fa-location-dot"></i>Remote</span>
+                        </div>
+                        <ul>
+                            <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL, verified using the NIST SP 800-22r1a statistical test suite.</li>
+                            <li>Researched and documented SHA-3 and Keccak cryptographic implementations, producing technical guides and performance reports.</li>
+                            <li>Produced system and architecture diagrams in yEd, Visio, and Draw.io; worked in Unix with Git for source control.</li>
+                        </ul>
+                    </div>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Crawler Robot Interface</span>
-                <span class="project-tags">Python · PyQt · Real-Time Monitoring</span>
-            </div>
-            <p class="project-desc">Designed and built the operator control interface for a crawler robot. Live 3D orientation display reflecting real-time roll, pitch, and yaw alongside telemetry and command dispatch. Layout sketched and iterated with stakeholder feedback before implementation.</p>
-        </div>
+                </section>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Calorimeter Heating System Interface</span>
-                <span class="project-tags">Visual Basic · Hardware Interface · Real-Time Monitoring</span>
-            </div>
-            <p class="project-desc">Designed and built the GUI for a laboratory calorimeter heating system. Real-time temperature monitoring, configurable setpoints and ramp profiles, and automated data logging. Design process included hand sketches and iterative stakeholder reviews.</p>
-        </div>
+                <section class="section">
+                    <h2 class="section-title">Industry Skills</h2>
+                    <div class="skills-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">PyQt</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Anomalib</span>
+                        <span class="skill-tag">PyTesseract</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">CUDA</span>
+                        <span class="skill-tag">Visual Basic</span>
+                        <span class="skill-tag">PLC Ladder Logic</span>
+                        <span class="skill-tag">VHDL</span>
+                        <span class="skill-tag">Linux/Unix</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </section>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Mass Spectrometer Interface</span>
-                <span class="project-tags">Visual Basic · Data Visualization · Hardware Interface</span>
-            </div>
-            <p class="project-desc">Led frontend development and contributed to backend integration for a mass spectrometer GUI. Live spectral plot with annotation and export, configurable scan parameters, and serial communication with the instrument.</p>
-        </div>
+                <section class="section">
+                    <h2 class="section-title">Certification and Training</h2>
+                    <div class="cert-grid">
+                        <div class="cert-item">The Complete Full-Stack Web Development Bootcamp [Udemy Training, 2026]</div>
+                        <div class="cert-item">React – The Complete Guide 2025 (incl. Next.js, Redux) [Udemy Training, 2026]</div>
+                        <div class="cert-item">Figma UI UX Design Essentials [Udemy Training, 2026]</div>
+                        <div class="cert-item">Fanuc Handling Tool Operations and Programming Certification (2024)</div>
+                    </div>
+                </section>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">SmartMotor Mixing Device</span>
-                <span class="project-tags">Moog Animatics · Torque Control · Motion Control · SmartMotor SMI</span>
-            </div>
-            <p class="project-desc">Programmed a Moog Animatics SmartMotor in torque mode to drive a laboratory mixing device. Implemented torque ramp profiles for smooth acceleration and deceleration, preventing mechanical shock while maintaining precise and repeatable mixing cycles.</p>
-        </div>
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="edu-row">
+                        <div class="edu-left">
+                            <div class="edu-degree">B.S. Electrical and Computer Engineering</div>
+                            <div class="edu-school">The Ohio State University</div>
+                            <div class="meta-line">
+                                <span><i class="fa-regular fa-calendar"></i>08/2019 – 05/2023</span>
+                                <span><i class="fa-solid fa-location-dot"></i>Columbus, OH</span>
+                            </div>
+                        </div>
+                        <div class="gpa-box">
+                            GPA
+                            <span class="gpa-value">3.50 / 4.0</span>
+                        </div>
+                    </div>
+                    <ul class="edu-bullets">
+                        <li>Focus: Computer Engineering — digital logic, FPGA implementation, software development in C, VHDL, and Python.</li>
+                        <li>Ombra IR Facial Recognition Capstone — Team Lead &nbsp;·&nbsp; SWE Member &nbsp;·&nbsp; ACM-W Member</li>
+                    </ul>
+                </section>
 
-    </section>
+            </div><!-- /left -->
 
-    <!-- PERSONAL PROJECTS -->
-    <section class="section">
-        <h2 class="section-title">Projects — Personal &amp; Academic</h2>
+            <!-- RIGHT COLUMN -->
+            <div>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Personal Portfolio Website</span>
-                <span class="project-tags">HTML · CSS · JavaScript · GitHub Pages</span>
-            </div>
-            <p class="project-desc">Single-page portfolio built from scratch with custom section navigation, animated project cards with category filtering, and an About section. Deployed via GitHub Pages with a private repository.</p>
-        </div>
+                <section class="section">
+                    <h2 class="section-title">Projects</h2>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">IR Facial Recognition Interface</span>
-                <span class="project-tags">Python · OpenCV · MediaPipe · UX/UI</span>
-            </div>
-            <p class="project-desc">Senior capstone project built as part of a team. Infrared facial recognition pipeline with a frontend built from scratch around the specific workflow. MediaPipe evaluated during research and testing phases. First project to spark a serious interest in frontend and UX/UI design.</p>
-        </div>
+                    <div class="project-entry">
+                        <div class="project-name">Crawler Robot Interface</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Operator control interface for a crawler robot. Live 3D orientation display reflecting real-time roll, pitch, and yaw alongside telemetry and command dispatch. Layout iterated with stakeholder feedback before implementation.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">PyQt</span>
+                            <span class="proj-tag">Python</span>
+                            <span class="proj-tag">Real-Time Control</span>
+                            <span class="proj-tag">Real-Time Monitoring</span>
+                            <span class="proj-tag">Frontend</span>
+                            <span class="proj-tag">Operator Dashboard</span>
+                        </div>
+                    </div>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Women's Health Tracker</span>
-                <span class="project-tags">HTML · CSS · JavaScript · LocalStorage API · Figma · SVG</span>
-            </div>
-            <p class="project-desc">Personal web app for tracking cycle, workouts, nutrition, symptoms, mood, and energy, designed around the female hormonal cycle. Features phase-aware insights, SVG progress rings, and a Figma-designed component system. Built to extend to full stack with a real database and ML-driven pattern suggestions.</p>
-        </div>
+                    <div class="project-entry">
+                        <div class="project-name">Calorimeter Heating System GUI</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Laboratory calorimeter GUI with real-time temperature monitoring, configurable setpoints and ramp profiles, and automated data logging. Design iterated through hand sketches and stakeholder reviews.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Visual Basic</span>
+                            <span class="proj-tag">Hardware Interface</span>
+                            <span class="proj-tag">Real-Time Monitoring</span>
+                        </div>
+                    </div>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Thread Jutsu Order Tracker</span>
-                <span class="project-tags">HTML · CSS · JavaScript · Figma</span>
-            </div>
-            <p class="project-desc">Stock and order management tool for a small business selling custom apparel across multiple Etsy listings that share the same inventory. Tracks shared stock at the item level and updates counts across all affected listings when an order is logged.</p>
-        </div>
+                    <div class="project-entry">
+                        <div class="project-name">Mass Spectrometer Interface</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Frontend development and backend integration for a mass spectrometer GUI. Live spectral plot with annotation and export, configurable scan parameters, and serial communication with the instrument.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Visual Basic</span>
+                            <span class="proj-tag">Data Visualization</span>
+                            <span class="proj-tag">Hardware Interface</span>
+                            <span class="proj-tag">Real-Time Monitoring</span>
+                        </div>
+                    </div>
 
-        <div class="project-entry">
-            <div class="project-header">
-                <span class="project-name">Figma: Small Business App Design</span>
-                <span class="project-tags">Figma · UI/UX · Prototyping · Component Design</span>
-            </div>
-            <p class="project-desc">Self-directed Figma project designing a complete multi-page app including homepage, about, items catalog, and checkout flow. Demonstrates components, auto layout, interactive prototyping, and design systems.</p>
-        </div>
+                    <div class="project-entry">
+                        <div class="project-name">Real-Time Anomaly Detection</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Multi-phase project: initial version built from scratch using a custom CNN autoencoder, rearchitected around Anomalib for industrial requirements. Deployed to NVIDIA Jetson Orin with CUDA, achieving 95% detection accuracy in a production manufacturing environment.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">PyTorch</span>
+                            <span class="proj-tag">Anomalib</span>
+                            <span class="proj-tag">CUDA</span>
+                            <span class="proj-tag">OpenCV</span>
+                            <span class="proj-tag">PyTesseract</span>
+                            <span class="proj-tag">NVIDIA Jetson Orin</span>
+                        </div>
+                    </div>
 
-    </section>
+                    <div class="project-entry">
+                        <div class="project-name">OCR System</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Automated label reading and validation pipeline for industrial barrel inspection. PyTesseract deployed with custom 360° rotation scanning, error correction, and 6-step sequential validation built entirely from scratch.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Python</span>
+                            <span class="proj-tag">EasyOCR</span>
+                            <span class="proj-tag">OpenCV</span>
+                            <span class="proj-tag">NumPy</span>
+                            <span class="proj-tag">GPU Accelerated</span>
+                            <span class="proj-tag">Affine Transforms</span>
+                            <span class="proj-tag">PyTesseract</span>
+                        </div>
+                    </div>
 
-    <!-- SKILLS -->
-    <section class="section">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-            <span class="skill-label">Frontend / Web</span>
-            <span class="skill-value">HTML5, CSS3, JavaScript, React, Bootstrap, Node.js, Figma, Git</span>
+                    <div class="project-entry">
+                        <div class="project-name">AGV Control Interface</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Operator-facing interface for an AGV fleet integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">PLC</span>
+                            <span class="proj-tag">LiDAR</span>
+                            <span class="proj-tag">RTOS</span>
+                            <span class="proj-tag">Ladder Logic</span>
+                            <span class="proj-tag">Sensor Fusion</span>
+                        </div>
+                    </div>
 
-            <span class="skill-label">Languages</span>
-            <span class="skill-value">Python, C, C++, VHDL, Visual Basic, LaTeX, MATLAB</span>
+                    <div class="project-entry">
+                        <div class="project-name">SmartMotor Mixing Device</div>
+                        <div class="project-org">Savannah River National Laboratory</div>
+                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                        <p class="project-desc">Programmed a Moog Animatics SmartMotor in torque mode to drive a laboratory mixing device. Torque ramp profiles implemented for smooth acceleration and deceleration, preventing mechanical shock while maintaining precise mixing cycles.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Moog Animatics</span>
+                            <span class="proj-tag">Torque Control</span>
+                            <span class="proj-tag">Motion Control</span>
+                            <span class="proj-tag">SmartMotor SMI</span>
+                            <span class="proj-tag">Embedded Systems</span>
+                        </div>
+                    </div>
 
-            <span class="skill-label">ML / Computer Vision</span>
-            <span class="skill-value">PyTorch, OpenCV, Anomalib, PyTesseract, MediaPipe, NumPy, CUDA, NVIDIA Jetson Orin</span>
+                </section>
 
-            <span class="skill-label">Desktop GUI</span>
-            <span class="skill-value">PyQt, Visual Basic (.NET)</span>
+                <section class="section">
+                    <h2 class="section-title">Personal Projects</h2>
 
-            <span class="skill-label">Embedded / Controls</span>
-            <span class="skill-value">PLC Ladder Logic, PLC Structured Text, Moog Animatics SmartMotor, Microcontrollers, RTOS, FPGA</span>
+                    <div class="personal-entry">
+                        <div class="personal-name">Personal Portfolio Website</div>
+                        <div class="meta-line">
+                            <span><i class="fa-solid fa-location-dot"></i>South Carolina</span>
+                            <span><i class="fa-solid fa-link"></i><a href="https://bg1750.github.io/bellagallo" target="_blank" style="color:#444; text-decoration:none;">bg1750.github.io/bellagallo</a></span>
+                        </div>
+                        <p class="personal-desc">Single-page portfolio built from scratch with custom section navigation, animated project cards with category filtering, and an About section. Deployed via GitHub Pages.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">HTML5</span>
+                            <span class="proj-tag">CSS3</span>
+                            <span class="proj-tag">JavaScript</span>
+                            <span class="proj-tag">Bootstrap</span>
+                            <span class="proj-tag">React</span>
+                            <span class="proj-tag">Node.js</span>
+                            <span class="proj-tag">SQL</span>
+                            <span class="proj-tag">Figma</span>
+                        </div>
+                    </div>
 
-            <span class="skill-label">Robotics</span>
-            <span class="skill-value">AGV Programming, LiDAR, SICK Safety Controllers, Fanuc Robots, Path Mapping</span>
-        </div>
-    </section>
+                    <div class="personal-entry">
+                        <div class="personal-name">Women's Health Tracker (HerRoutine)</div>
+                        <div class="meta-line">
+                            <span><i class="fa-solid fa-location-dot"></i>South Carolina</span>
+                        </div>
+                        <p class="personal-desc">Personal web app for tracking cycle, workouts, nutrition, symptoms, mood, and energy — designed around the female hormonal cycle. Features phase-aware insights, SVG progress rings, and a Figma-designed component system.</p>
+                        <ul>
+                            <li>Early research and development stage.</li>
+                        </ul>
+                        <div class="proj-tags">
+                            <span class="proj-tag">HTML5</span>
+                            <span class="proj-tag">CSS3</span>
+                            <span class="proj-tag">JavaScript</span>
+                            <span class="proj-tag">LocalStorage API</span>
+                            <span class="proj-tag">Figma</span>
+                            <span class="proj-tag">SVG</span>
+                        </div>
+                    </div>
 
-    <!-- EDUCATION -->
-    <section class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="entry edu-entry">
-            <div class="entry-header">
-                <span class="entry-title">B.S. Electrical and Computer Engineering</span>
-                <span class="entry-date">May 2023</span>
-            </div>
-            <p class="entry-org">The Ohio State University &nbsp;—&nbsp; Columbus, OH</p>
-            <p style="font-size:0.85rem; margin-top:3px; color:#444;">Focus: Computer Engineering — digital logic, FPGA implementation, software development in C, VHDL, and Python.</p>
-        </div>
-    </section>
+                    <div class="personal-entry">
+                        <div class="personal-name">Thread Jutsu Order Tracker</div>
+                        <div class="meta-line">
+                            <span><i class="fa-solid fa-location-dot"></i>South Carolina</span>
+                        </div>
+                        <p class="personal-desc">Stock and order management tool for a small business selling custom apparel across multiple Etsy listings that share the same inventory. Tracks shared stock at the item level and updates counts across all affected listings when an order is logged.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">HTML5</span>
+                            <span class="proj-tag">CSS3</span>
+                            <span class="proj-tag">JavaScript</span>
+                            <span class="proj-tag">Figma</span>
+                        </div>
+                    </div>
 
+                    <div class="personal-entry">
+                        <div class="personal-name">IR Facial Recognition Interface</div>
+                        <div class="meta-line">
+                            <span><i class="fa-solid fa-location-dot"></i>Ohio</span>
+                        </div>
+                        <p class="personal-desc">Senior capstone project. Infrared facial recognition pipeline with a frontend built around the specific workflow. First project to spark a serious interest in frontend and UX/UI design.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">OpenCV</span>
+                            <span class="proj-tag">Python</span>
+                            <span class="proj-tag">MediaPipe</span>
+                            <span class="proj-tag">UX/UI</span>
+                            <span class="proj-tag">Real-Time Monitoring</span>
+                            <span class="proj-tag">Frontend & Backend Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="personal-entry">
+                        <div class="personal-name">Figma: Small Business App Design</div>
+                        <p class="personal-desc">Self-directed Figma project designing a complete multi-page app including homepage, about, items catalog, and checkout flow. Demonstrates components, auto layout, interactive prototyping, and design systems.</p>
+                        <div class="proj-tags">
+                            <span class="proj-tag">Figma</span>
+                            <span class="proj-tag">UI Design</span>
+                            <span class="proj-tag">UX Design</span>
+                            <span class="proj-tag">Prototyping</span>
+                            <span class="proj-tag">Component Design</span>
+                            <span class="proj-tag">Design Systems</span>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div><!-- /right -->
+
+        </div><!-- /columns -->
+
+    </div><!-- /page -->
 </body>
+
 </html>

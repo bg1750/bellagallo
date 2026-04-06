@@ -5,56 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Gallo</title>
 
-    <!-- ===== OPEN GRAPH =====
-         These tags control how your site looks when shared on LinkedIn, Slack, iMessage, etc.
-         Each platform reads these instead of guessing from your page content. -->
-
-    <!-- The title shown in the preview card -->
+    <!-- Open Graph tags — control how the site looks when shared on LinkedIn, Slack, iMessage, etc.
+         Each platform reads these instead of guessing from the page content. -->
     <meta property="og:title" content="Bella Gallo — Aspiring Frontend &amp; Web Developer">
-
-    <!-- The short description shown under the title -->
     <meta property="og:description" content="Software engineer and aspiring web developer building interfaces for robotics, scientific instruments, and the web.">
-
-    <!-- Must be the full URL — no relative paths here -->
+    <!-- og:url must be a full URL, no relative paths -->
     <meta property="og:url" content="https://bg1750.github.io/bellagallo">
-
-    <!-- Tells platforms this is a website (not an article, video, etc.) -->
     <meta property="og:type" content="website">
-
-    <!-- The preview image — must also be a full URL, and a real PNG/JPG file -->
+    <!-- og:image must also be a full URL pointing to a real PNG/JPG -->
     <meta property="og:image" content="https://bg1750.github.io/bellagallo/og-image.png?v=5">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- Twitter/X uses its own tags (same idea, different prefix) -->
+    <!-- Twitter/X uses its own set of tags — same idea, different prefix -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bella Gallo — Software Engineer">
     <meta name="twitter:description" content="Software engineer building interfaces for robotics, scientific instruments, and complex systems aspiring to transition into frontend and web development.">
     <meta name="twitter:image" content="https://bg1750.github.io/bellagallo/og-image.png?v=5">
 
-    <!-- ===== END OPEN GRAPH ===== -->
-
-    <!-- Google Fonts: loads Inter (body text) and Mea Culpa (the BG logo / h1 script font) -->
+    <!-- Google Fonts: Inter for body text, Mea Culpa for the BG logo script font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap: used for the calorimeter image carousel on its detail page -->
+    <!-- Bootstrap CSS — used for the image carousel on project detail pages -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <!-- Font Awesome: icon library used for the navbar contact icons and skill icons -->
+    <!-- Font Awesome — icon library used throughout the navbar, about section, and skills grid -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Favicon: the small BG icon shown in the browser tab (favicon.svg lives in the root folder) -->
+    <!-- Favicon — the small BG icon in the browser tab (favicon.svg lives in the root folder) -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-    <!-- Main stylesheet: all custom styles live in style.css -->
+    <!-- Main stylesheet — all custom styles live here -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="layout-grid">
 
-    <!-- ===== TOP NAVBAR ===== -->
+    <!-- NAVBAR
+         The logo (BG) and nav items are flex children of .header-inner.
+         Each .nav-item has a data-section attribute that the JS navigateTo() function reads.
+         The contact icons on the right are plain <a> tags so they never get the active highlight. -->
     <header class="site-header">
         <div class="header-inner">
             <a class="nav-logo" data-section="home" href="#">BG</a>
@@ -63,6 +55,7 @@
                 <li class="nav-item active" data-section="home">
                     <div class="nav-bubble"></div>
                     <a class="nav-link" href="#">
+                        <!-- Home icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="currentColor" viewBox="0 0 495.398 495.398" aria-hidden="true" class="nav-icon">
                             <path d="m487.083 225.514-75.08-75.08v-86.73c0-15.682-12.708-28.391-28.413-28.391-15.669 0-28.377 12.709-28.377 28.391v29.941L299.31 37.74c-27.639-27.624-75.694-27.575-103.27.05L8.312 225.514c-11.082 11.104-11.082 29.071 0 40.158 11.087 11.101 29.089 11.101 40.172 0l187.71-187.729c6.115-6.083 16.893-6.083 22.976-.018l187.742 187.747a28.337 28.337 0 0 0 20.081 8.312c7.271 0 14.541-2.764 20.091-8.312 11.086-11.086 11.086-29.053-.001-40.158z"/>
                             <path d="M257.561 131.836c-5.454-5.451-14.285-5.451-19.723 0L72.712 296.913a13.977 13.977 0 0 0-4.085 9.877v120.401c0 28.253 22.908 51.16 51.16 51.16h81.754v-126.61h92.299v126.61h81.755c28.251 0 51.159-22.907 51.159-51.159V306.79c0-3.713-1.465-7.271-4.085-9.877L257.561 131.836z"/>
@@ -74,6 +67,7 @@
                 <li class="nav-item" data-section="about">
                     <div class="nav-bubble"></div>
                     <a class="nav-link" href="#">
+                        <!-- About/person icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class="nav-icon">
                             <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
                         </svg>
@@ -84,6 +78,7 @@
                 <li class="nav-item" data-section="projects">
                     <div class="nav-bubble"></div>
                     <a class="nav-link" href="#">
+                        <!-- Projects/folder icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 -8 72 72" aria-hidden="true" class="nav-icon">
                             <path d="M38.68 9.47a5 5 0 0 0-4.45-2.7h-23a3.33 3.33 0 0 0-3.34 3.34v1.79h32.05ZM60.78 14.91H7.89v31a3.34 3.34 0 0 0 3.34 3.34h49.54a3.34 3.34 0 0 0 3.34-3.34V18.25a3.32 3.32 0 0 0-3.33-3.34Z"/>
                         </svg>
@@ -94,6 +89,7 @@
                 <li class="nav-item" data-section="skills">
                     <div class="nav-bubble"></div>
                     <a class="nav-link" href="#">
+                        <!-- Skills/list icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="currentColor" viewBox="0 0 232.688 232.688" aria-hidden="true" class="nav-icon">
                             <path d="M97.688 61.344h120c8.284 0 15-6.716 15-15s-6.716-15-15-15h-120c-8.284 0-15 6.716-15 15s6.715 15 15 15zM217.688 101.344h-120c-8.284 0-15 6.716-15 15s6.716 15 15 15h120c8.284 0 15-6.716 15-15s-6.716-15-15-15zM217.688 171.344h-120c-8.284 0-15 6.716-15 15 0 8.284 6.716 15 15 15h120c8.284 0 15-6.716 15-15 0-8.284-6.716-15-15-15zM48.785 104.408l-9.989-1.452-4.467-9.052a7.5 7.5 0 0 0-13.452 0l-4.468 9.052-9.988 1.452A7.5 7.5 0 0 0 2.263 117.2l7.228 7.045-1.707 9.949a7.5 7.5 0 0 0 10.881 7.908l8.936-4.698 8.936 4.698a7.493 7.493 0 0 0 3.489.861h.021a7.5 7.5 0 0 0 7.276-9.325l-1.612-9.393 7.228-7.045a7.499 7.499 0 0 0-4.154-12.792zM48.785 34.408l-9.989-1.452-4.467-9.052a7.5 7.5 0 0 0-13.452 0l-4.468 9.052-9.988 1.452A7.5 7.5 0 0 0 2.263 47.2l7.228 7.045-1.707 9.949a7.5 7.5 0 0 0 10.881 7.908l8.936-4.698 8.936 4.698a7.493 7.493 0 0 0 3.489.861h.021a7.5 7.5 0 0 0 7.499-7.5 7.52 7.52 0 0 0-.223-1.825l-1.612-9.393 7.228-7.045a7.499 7.499 0 0 0-4.154-12.792zM48.785 174.408l-9.989-1.452-4.467-9.052a7.5 7.5 0 0 0-13.452 0l-4.468 9.052-9.988 1.452A7.5 7.5 0 0 0 2.263 187.2l7.228 7.045-1.707 9.949a7.5 7.5 0 0 0 10.881 7.908l8.936-4.698 8.936 4.698a7.493 7.493 0 0 0 3.489.861h.021a7.5 7.5 0 0 0 7.276-9.325l-1.612-9.393 7.228-7.045a7.499 7.499 0 0 0-4.154-12.792z"/>
                         </svg>
@@ -103,12 +99,8 @@
 
             </ul>
 
-
-            <!-- Contact icon links
-                 These are plain <a> tags (not nav-items) so they never get the active highlight.
-                 Font Awesome class names (fa-solid fa-envelope etc.) load the icons.
-                 target="_blank" opens the link in a new tab.
-                 rel="noopener noreferrer" is a security best practice when using target="_blank". -->
+            <!-- Contact icon links — plain <a> tags (not nav-items) so they never get the active highlight.
+                 rel="noopener noreferrer" is required any time target="_blank" is used. -->
             <div class="nav-contact-links">
                 <a class="nav-contact-icon" href="https://www.linkedin.com/in/isabellargallo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fa-brands fa-linkedin"></i>
@@ -120,24 +112,24 @@
         </div>
     </header>
 
-    <!-- ===== MAIN ===== -->
+    <!-- MAIN — each section is a .page-section; only the active one is visible at a time (controlled by JS) -->
     <main>
 
-        <!-- HOME test -->
+        <!-- HOME -->
         <section id="home" class="page-section active">
             <div class="hero">
                 <div class="wave wave-top"></div>
                 <div class="wave wave-bottom"></div>
                 <div class="hero-content">
                     <h1>I'm Bella.</h1>
-                    <p class="hero-subtitle">Software Engineer, Aspiring Frontend &amp Web Developer</p>
-                    <p class="hero-subtitle hero-subtitle--small"> Hello! I am a software engineer 
-                        with a passion for turning complex systems into clean, 
+                    <p class="hero-subtitle">Software Engineer, Aspiring Frontend &amp; Web Developer</p>
+                    <p class="hero-subtitle hero-subtitle--small">Hello! I am a software engineer
+                        with a passion for turning complex systems into clean,
                         intuitive interfaces. My work spans robotics, autonomous systems, and
-                        machine learning. Working on user interfaces for complex systems inspired me to 
+                        machine learning. Working on user interfaces for complex systems inspired me to
                         dive into the realm of interface design.
-                    <!-- Hero CTAs: primary action left, resume download right.
-                         The <a> tag uses download to trigger a file save instead of opening in browser. -->
+                    </p>
+                    <!-- CTA buttons — "View Projects" navigates via data-target, "View Resume" opens the HTM file in a new tab -->
                     <div class="hero-buttons">
                         <button class="hero-btn" data-target="projects">View Projects</button>
                         <a href="./Bella_Gallo.htm" target="_blank" class="hero-btn hero-btn--outline">View Resume</a>
@@ -146,16 +138,19 @@
             </div>
         </section>
 
-        <!-- ABOUT -->
+        <!-- ABOUT
+             Three parts: photo widget + bio text on top, experience timeline in the middle, interest cards at the bottom. -->
         <section id="about" class="page-section">
             <div class="section-wrap">
                 <h2 class="section-heading fade-in">About</h2>
 
+                <!-- Photo widget (left) and bio paragraphs (right) -->
                 <div class="about-grid fade-in">
                     <div class="about-photo-widget">
                         <img src="./images/profilePic.JPG" alt="Bella Gallo" class="profile-pic">
                         <p class="about-photo-name">Bella Gallo</p>
                         <p class="about-photo-handle">bg1750</p>
+                        <!-- Social links inside the widget — email opens mail client, others open in new tab -->
                         <div class="about-social-links">
                             <a href="mailto:isabella.gallo1750@gmail.com" class="about-social-link">
                                 <i class="fa-solid fa-envelope"></i>
@@ -171,6 +166,7 @@
                             </a>
                         </div>
                     </div>
+                    <!-- Bio text — update these paragraphs whenever the pitch changes -->
                     <div class="about-bio">
                         <p class="about-bio-name">Hi, I'm Bella.</p>
                         <p class="about-bio-text">Equipment Development Engineer at Savannah River National Laboratory, building interfaces for robots, autonomous systems, and scientific instruments. After working across mechanical systems, instruments, and robotics, I developed a real passion for interface design. With a background in art and design already in the mix, it became a natural place where everything converged.</p>
@@ -179,6 +175,8 @@
                     </div>
                 </div>
 
+                <!-- Experience timeline — each .timeline-item is one job or degree.
+                     Add new items at the top since it reads chronologically top-to-bottom. -->
                 <p class="skills-sub-heading">Experience</p>
                 <div class="about-timeline">
                     <div class="timeline-item fade-in">
@@ -210,6 +208,7 @@
                     </div>
                 </div>
 
+                <!-- Interest cards — add/remove .interest-card divs to update the outside-of-work section -->
                 <p class="skills-sub-heading">Outside of Work</p>
                 <div class="about-interests fade-in">
                     <div class="interest-card">
@@ -237,23 +236,27 @@
             </div>
         </section>
 
-        <!-- PROJECTS -->
+        <!-- PROJECTS
+             Header has filter buttons on the right — data-category on each button must match data-category on each .proj-card.
+             The grid is 3 columns (drops to 2 on tablet, 1 on mobile).
+
+             Two card types exist here:
+             - Standard cards: have a front face (image) and a back face (description), toggled by the + button.
+             - Always-back cards: no image, no toggle button — the back face is always visible.
+               These use style="display:flex;" directly since they skip the flip mechanism entirely.
+               If you add an image for one of these later, restructure it to match the standard card pattern. -->
         <section id="projects" class="page-section">
             <div class="section-wrap">
 
-                <!-- ===== SECTION HEADER =====
-                     Left side: "Selected Work" small label + "Projects" heading.
-                     Right side: filter buttons — each button has a data-category attribute
-                     that the JS filter logic reads to show/hide matching project cards. -->
                 <div class="proj-header">
                     <div>
                         <p class="proj-label">Selected Work</p>
                         <h2 class="proj-heading">Projects</h2>
                     </div>
-                    <!-- Filter buttons — data-category must match the data-category on each .proj-card -->
+                    <!-- Filter buttons — data-category must match the data-category on each .proj-card below -->
                     <div class="filter-row">
                         <button class="filter-btn filter-active" data-category="all">All</button>
-                        <button class="filter-btn" data-category="frontend">Frontend</button>  
+                        <button class="filter-btn" data-category="frontend">Frontend</button>
                         <button class="filter-btn" data-category="ai">ML & AI</button>
                         <button class="filter-btn" data-category="uxui">UX / UI</button>
                         <button class="filter-btn" data-category="embedded">Embedded & Controls</button>
@@ -261,34 +264,25 @@
                     </div>
                 </div>
 
-                <!-- Hint text below header -->
                 <p class="proj-hint">Click <strong>+</strong> on any project image for a brief description, or select the project to view the full breakdown.</p>
 
-                <!-- Decorative gradient divider line below the header -->
+                <!-- Decorative gradient divider -->
                 <div class="proj-divider"></div>
 
-                <!-- ===== PROJECT GRID =====
-                     3-column responsive grid (drops to 2 on tablet, 1 on mobile).
-                     Each .proj-card has a data-category attribute used by the filter buttons.
-                     Inside each card, .proj-card-link is an invisible full-card anchor that
-                     makes the whole card clickable and navigates to the project detail page. -->
-                <div class="proj-grid">
+                <!-- PROJECT GRID
+                     Standard card structure:
+                       .proj-card-link  — invisible full-card anchor (z-index 1) that navigates to the detail page
+                       .proj-toggle-btn — the + / − button (z-index 3) that flips the card, stops click propagation
+                       .proj-card-front — image + title/category caption shown by default
+                       .proj-card-back  — description + tags + optional GitHub link, revealed on flip
 
-                    <!-- PROJECT CARD STRUCTURE:
-                         Each card has two faces toggled by the + / − button:
-                         FRONT (.proj-card-front): image + title/category caption at the bottom.
-                         BACK  (.proj-card-back):  description, tech tags, GitHub link — hidden by default.
-                         .proj-card-link: invisible overlay that makes the whole card navigate to the detail page.
-                         .proj-toggle-btn: sits at z-index 3 (above the link overlay) so it captures clicks independently.
-                         To add a real screenshot, replace the .proj-img-placeholder div with an <img> tag. -->
+                     To swap in a real screenshot, replace the .proj-img-placeholder div with an <img> tag. -->
+                <div class="proj-grid">
 
                     <!-- Real-Time Anomaly Detection -->
                     <div class="proj-card fade-in" data-category="ai">
-                        <!-- Full-card link to detail page (z-index 1) -->
                         <a href="projects/anomaly-detection.html" class="proj-card-link" aria-label="View Real-Time Anomaly Detection project"></a>
-                        <!-- Toggle button — stops propagation so it doesn't trigger the card link -->
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
-                        <!-- FRONT: image with title overlay -->
                         <div class="proj-card-front">
                             <div class="proj-card-img">
                                 <div class="proj-img-placeholder">[ - ]</div>
@@ -298,7 +292,6 @@
                                 <h3 class="proj-title">Real-Time Anomaly Detection</h3>
                             </div>
                         </div>
-                        <!-- BACK: description revealed when + is clicked -->
                         <div class="proj-card-back">
                             <div class="proj-card-top">
                                 <span class="proj-category">AI / ML</span>
@@ -316,7 +309,7 @@
                         </div>
                     </div>
 
-                    <!-- NucFilter OCR -->
+                    <!-- OCR System -->
                     <div class="proj-card fade-in" data-category="ai">
                         <a href="projects/ocr.html" class="proj-card-link" aria-label="View NucFilter OCR project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -346,18 +339,18 @@
                             </div>
                             <div class="proj-links">
                                 <a href="https://github.com/JaidedAI/EasyOCR" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="EasyOCR on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                     <span style="font-size:0.7em;margin-left:4px;">EasyOCR</span>
                                 </a>
                                 <a href="https://github.com/madmaze/pytesseract" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="PyTesseract on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                     <span style="font-size:0.7em;margin-left:4px;">PyTesseract</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- AGV Control Interface -->
+                    <!-- AGV Control Interface — no screenshot yet, always shows the description face -->
                     <div class="proj-card fade-in" data-category="embedded">
                         <a href="projects/agv-interface.html" class="proj-card-link" aria-label="View AGV Control Interface project"></a>
                         <div class="proj-card-back" style="display:flex;">
@@ -375,6 +368,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- SmartMotor Mixing Device -->
                     <div class="proj-card fade-in" data-category="embedded">
                         <a href="projects/smartmotor-mixer.html" class="proj-card-link" aria-label="View SmartMotor Mixing Device project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -403,7 +398,8 @@
                         </div>
                     </div>
 
-                    <!-- Crawler Robot Interface -->
+                    <!-- Crawler Robot Interface
+                         Replace the .proj-img-placeholder div with an <img> tag when the screenshot is ready -->
                     <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/crawler-robot.html" class="proj-card-link" aria-label="View Crawler Robot Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -435,7 +431,8 @@
                         </div>
                     </div>
 
-                    <!-- Calorimeter -->
+                    <!-- Calorimeter Heating System
+                         Replace the .proj-img-placeholder div with an <img> tag when the screenshot is ready -->
                     <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/calorimeter.html" class="proj-card-link" aria-label="View Calorimeter Heating System project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -443,7 +440,6 @@
                             <div class="proj-card-img">
                                 <div class="proj-img-placeholder">
                                     <!-- <img class="cal-pic1" src="./images/Cal1.PNG"> -->
-
                                 </div>
                             </div>
                             <div class="proj-card-caption">
@@ -465,7 +461,7 @@
                         </div>
                     </div>
 
-                    <!-- Mass Spectrometer -->
+                    <!-- Mass Spectrometer Interface -->
                     <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/mass-spectrometer.html" class="proj-card-link" aria-label="View Mass Spectrometer Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -493,7 +489,7 @@
                         </div>
                     </div>
 
-                    <!-- IR Facial Recognition -->
+                    <!-- IR Facial Recognition Interface -->
                     <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/ir-facial-recognition.html" class="proj-card-link" aria-label="View IR Facial Recognition Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -522,13 +518,13 @@
                             </div>
                             <div class="proj-links">
                                 <a href="https://github.com/bg1750/Ombra_IR_Facial_Recognition_Capstone" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Women's Health Tracker -->
+                    <!-- Women's Health Tracker — no screenshot yet, always shows the description face -->
                     <div class="proj-card fade-in" data-category="personal">
                         <a href="projects/womens-health-tracker.html" class="proj-card-link" aria-label="View Women's Health Tracker project"></a>
                         <div class="proj-card-back" style="display:flex;">
@@ -547,13 +543,13 @@
                             </div>
                             <div class="proj-links">
                                 <a href="https://github.com/bg1750/Womens-Health-Tracker-Showcase" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Thread Jutsu Order Tracker -->
+                    <!-- Thread Jutsu Order Tracker — no screenshot yet, always shows the description face -->
                     <div class="proj-card fade-in" data-category="personal">
                         <a href="projects/etsy-order-tracker.html" class="proj-card-link" aria-label="View Thread Jutsu Order Tracker project"></a>
                         <div class="proj-card-back" style="display:flex;">
@@ -570,13 +566,13 @@
                             </div>
                             <div class="proj-links">
                                 <a href="https://github.com/bg1750/thread-jutsu-order-tracker" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
-                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- This Site -->
+                    <!-- This Site — no screenshot (it's the site itself), always shows the description face -->
                     <div class="proj-card fade-in" data-category="personal">
                         <div class="proj-card-back" style="display:flex;">
                             <div class="proj-card-top">
@@ -597,7 +593,7 @@
                         </div>
                     </div>
 
-                    <!-- Figma Self Taught -->
+                    <!-- Figma Small Business App -->
                     <div class="proj-card fade-in" data-category="uxui">
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
                         <div class="proj-card-front">
@@ -628,137 +624,64 @@
 
                 </div>
 
-                <!-- Empty state message — hidden by default, shown by JS when a filter returns 0 results -->
+                <!-- Empty state — hidden by default, shown by the filter JS when a category returns zero cards -->
                 <div id="proj-empty" class="proj-empty" style="display:none;">No projects in this category.</div>
 
-
+            </div>
         </section>
 
-        <!-- SKILLS -->
+        <!-- SKILLS
+             Three rows of icon cards grouped by discipline.
+             Font Awesome icon reference: https://www.w3schools.com/icons/fontawesome_icons_brand.asp
+             JS automatically adds fade-in and stagger delay classes to .skill-icon-card elements. -->
         <section id="skills" class="page-section">
             <div class="section-wrap">
                 <h2 class="section-heading fade-in">My Skills</h2>
+
                 <p class="skills-sub-heading">Web Development</p>
-                
-                <!-- icons https://www.w3schools.com/icons/fontawesome_icons_brand.asp#gsc.tab=0 -->
                 <div class="skill-icons-row">
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-html5"></i>
-                        <span>HTML</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-css3-alt"></i>
-                        <span>CSS</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-js"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-react"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-node-js"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-figma"></i>
-                        <span>Figma</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-git-alt"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-python"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-bootstrap"></i>
-                        <span>Bootstrap</span>
-                    </div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-react"></i><span>React</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-figma"></i><span>Figma</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-bootstrap"></i><span>Bootstrap</span></div>
                 </div>
 
                 <p class="skills-sub-heading">Machine Learning &amp; Computer Vision</p>
                 <div class="skill-icons-row">
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-python"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-brain"></i>
-                        <span>PyTorch</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-eye"></i>
-                        <span>OpenCV</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-microchip"></i>
-                        <span>CUDA</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span>NumPy</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <span>OCR</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <span>Anomaly Detection</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-image"></i>
-                        <span>Image Processing</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-brands fa-linux"></i>
-                        <span>Linux</span>
-                    </div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-brain"></i><span>PyTorch</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-eye"></i><span>OpenCV</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-microchip"></i><span>CUDA</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-chart-line"></i><span>NumPy</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-magnifying-glass"></i><span>OCR</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-triangle-exclamation"></i><span>Anomaly Detection</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-image"></i><span>Image Processing</span></div>
+                    <div class="skill-icon-card"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
                 </div>
 
                 <p class="skills-sub-heading">Robotics &amp; Automation</p>
                 <div class="skill-icons-row">
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-robot"></i>
-                        <span>PyQt</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-gears"></i>
-                        <span>PLC</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-satellite-dish"></i>
-                        <span>LiDAR</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-map"></i>
-                        <span>Path Mapping</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>SICK Sensors</span>
-                    </div>
-                    <div class="skill-icon-card">
-                        <i class="fa-solid fa-stopwatch"></i>
-                        <span>RTOS</span>
-                    </div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-robot"></i><span>PyQt</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-gears"></i><span>PLC</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-satellite-dish"></i><span>LiDAR</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-map"></i><span>Path Mapping</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-shield-halved"></i><span>SICK Sensors</span></div>
+                    <div class="skill-icon-card"><i class="fa-solid fa-stopwatch"></i><span>RTOS</span></div>
                 </div>
 
             </div>
         </section>
 
-
     </main>
 
-    <!-- ===== FOOTER =====
-         Sits below <main> inside the flex layout so it always sticks to the bottom.
-         Three columns: copyright left | nav links center | contact icons right.
-         Nav links use data-target which the existing JS already listens for,
-         so they navigate sections the same way the navbar does. -->
+    <!-- FOOTER
+         Three columns: copyright left | section nav center | social icons right.
+         Nav links use data-target which the JS navigateTo() function already handles. -->
     <footer class="site-footer">
         <span class="footer-copy">© 2026 Bella Gallo</span>
         <nav class="footer-nav" aria-label="Footer">
@@ -772,17 +695,21 @@
             <a href="https://github.com/bg1750" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
     </footer>
+
 </div>
 
+<!-- Bootstrap JS — needed for carousel functionality on project detail pages -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBXFB+bAJFpONUF5PCFpj3SJkQ" crossorigin="anonymous"></script>
 <script>
-    // Navigate to section from URL hash on page load
     // ===== HASH ROUTING =====
     // When arriving from a project detail page (e.g. index.html#projects),
     // read the URL hash and jump straight to that section instead of defaulting to Home.
     const initHash = window.location.hash.slice(1);
     if (initHash && document.getElementById(initHash)) navigateTo(initHash);
 
+    // navigateTo — the single function that handles all section switching.
+    // Removes .active from all sections and nav items, then adds it to the target.
+    // Also updates the URL hash and replays animations for the incoming section.
     function navigateTo(id) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
@@ -793,25 +720,22 @@
             section.classList.add('active');
             section.scrollTop = 0;
         }
-        // Write the current section into the URL as a hash (e.g. #projects).
-        // This means refreshing the page will bring you back to the same section.
-        // history.replaceState updates the URL bar without causing a page reload.
+        // history.replaceState updates the URL bar without a page reload.
+        // This means refreshing will bring you back to the same section.
         history.replaceState(null, '', '#' + id);
 
-        // Re-trigger animations for the newly visible section.
-        // We use requestAnimationFrame instead of setTimeout so we wait exactly
-        // one frame after the section becomes display:block — long enough for the
-        // browser to paint it, short enough to feel instant.
+        // Wait one frame after the section becomes visible before triggering animations.
+        // requestAnimationFrame is preferred over setTimeout(0) here — it fires exactly
+        // after the browser has painted the new state, so the animation always plays.
         if (section) {
             requestAnimationFrame(() => {
                 if (id === 'projects') {
-                    // Replay the card animation every time projects is opened.
-                    // animateProjCards handles its own double-rAF internally.
+                    // Replay the card animation every time the Projects section is opened.
                     const shown = [...section.querySelectorAll('.proj-card')]
                         .filter(c => c.style.display !== 'none');
                     animateProjCards(shown);
                 } else {
-                    // For Skills etc: just mark any unplayed elements as visible.
+                    // For all other sections, mark any unplayed fade-in elements as visible.
                     section.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
                         el.classList.add('visible');
                     });
@@ -820,6 +744,7 @@
         }
     }
 
+    // Nav item clicks — each item's link calls navigateTo with the item's data-section value
     document.querySelectorAll('.nav-item[data-section]').forEach(item => {
         item.querySelector('.nav-link').addEventListener('click', e => {
             e.preventDefault();
@@ -827,18 +752,21 @@
         });
     });
 
+    // Logo click — always goes back to Home
     document.querySelector('.nav-logo').addEventListener('click', e => {
         e.preventDefault();
         navigateTo('home');
     });
 
+    // data-target elements — hero buttons and footer nav links use this to navigate
     document.querySelectorAll('[data-target]').forEach(btn => {
         btn.addEventListener('click', () => navigateTo(btn.dataset.target));
     });
 
-    // ===== CARD TOGGLE (+ / − button) =====
-    // Clicking + reveals the description back face; clicking − returns to the image front face.
-    // e.stopPropagation() prevents the click from bubbling up to the .proj-card-link overlay.
+    // ===== CARD FLIP (+ / − button) =====
+    // Clicking + reveals the back face (description); clicking − returns to the front face (image).
+    // e.stopPropagation() prevents the click from bubbling up to the .proj-card-link overlay,
+    // which would otherwise navigate to the detail page every time the button is pressed.
     document.querySelectorAll('.proj-toggle-btn').forEach(btn => {
         btn.addEventListener('click', e => {
             e.stopPropagation();
@@ -849,63 +777,53 @@
     });
 
     // ===== SCROLL-IN ANIMATIONS =====
-    // IntersectionObserver watches elements on the page.
-    // When an element becomes visible in the viewport (even just 10% of it),
-    // the observer fires and adds the "visible" class — which triggers the CSS transition.
-    // This is the modern, performant way to do scroll animations (no scroll event listeners needed).
+    // IntersectionObserver fires when an element enters the viewport (at 10% visibility).
+    // Adding .visible triggers the CSS fade/slide transition defined in style.css.
+    // This is more performant than listening to scroll events.
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Element is now on screen — play the animation
                     entry.target.classList.add('visible');
-                    // Stop watching it once it has animated (fire once, not repeatedly)
+                    // Stop watching once the element has animated — it only needs to fire once
                     observer.unobserve(entry.target);
                 }
             });
         },
-        { threshold: 0.1 } // trigger when 10% of the element is visible
+        { threshold: 0.1 }
     );
 
-    // Give project cards a stagger delay so they don't all pop in at once.
+    // Give project cards a stagger delay so they don't all appear at the same time.
     // index % 3 cycles through delay-1, delay-2, delay-3 for each row of 3 cards.
     document.querySelectorAll('.proj-card.fade-in').forEach((card, index) => {
         card.classList.add('delay-' + ((index % 3) + 1));
     });
 
-    // Skill icon cards: add fade-in + stagger delays automatically via JS.
-    // Each row of icons fades in left-to-right with a small delay between each icon.
+    // Skill icon cards get fade-in and stagger delays added automatically.
+    // Each row fades in left-to-right with a small delay between icons.
     document.querySelectorAll('.skill-icon-card').forEach((card, index) => {
         card.classList.add('fade-in');
         card.classList.add('delay-' + ((index % 5) + 1));
     });
 
-    // Tell the observer to watch fade-in elements — but NOT project cards.
-    // Project cards are handled exclusively by animateProjCards (called from
-    // navigateTo and the filter buttons). Letting the observer also watch them
-    // caused a race condition where both tried to add .visible at the same time.
+    // Only observe non-project-card fade-in elements here.
+    // Project cards are handled exclusively by animateProjCards (called from navigateTo
+    // and the filter buttons). Letting the observer also watch them caused a race condition
+    // where both tried to add .visible at the same time.
     document.querySelectorAll('.fade-in:not(.proj-card)').forEach(el => observer.observe(el));
 
-    // ===== ANIMATE PROJECT CARDS HELPER =====
+    // ===== ANIMATE PROJECT CARDS =====
     // Replays the fade-in animation for a given list of cards.
-    //
-    // The key technique here is "void el.offsetWidth" — this is called a
-    // "forced reflow". Reading offsetWidth forces the browser to immediately
-    // process any pending style changes (like removing .visible) before we
-    // add it back. Without this, the browser batches the remove+add into one
-    // paint and the animation never plays. This is the standard, reliable way
-    // to restart a CSS animation in JavaScript.
+    // The trick is "void el.offsetWidth" — reading offsetWidth forces the browser to flush
+    // any pending style changes (like removing .visible) before we add it back.
+    // Without this forced reflow, the browser batches the remove+add into one paint
+    // and the animation never replays. This is the standard way to restart a CSS animation in JS.
     function animateProjCards(cards) {
-        // Step 1: remove .visible so the animation resets
         cards.forEach(card => card.classList.remove('visible'));
-
-        // Step 2: force reflow — browser must process the removal NOW
-        // Reading offsetWidth has no side effect; it just forces a style flush.
+        // Force reflow — reading offsetWidth has no side effect, it just flushes pending styles
         if (cards.length > 0) void cards[0].offsetWidth;
-
-        // Step 3: re-assign stagger delays and add .visible — animation plays
         cards.forEach((card, i) => {
-            card.classList.remove('delay-1','delay-2','delay-3','delay-4','delay-5');
+            card.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5');
             card.classList.add('delay-' + ((i % 3) + 1));
             card.classList.add('visible');
         });
@@ -913,12 +831,10 @@
 
     // ===== PROJECT FILTER =====
     // When a filter button is clicked:
-    //   1. Remove the active style from all buttons, add it to the clicked one.
-    //   2. Read the clicked button's data-category value.
-    //   3. Loop through every project card — show it if its data-category matches
-    //      (or if "All" was clicked), hide it otherwise.
-    //   4. Replay the card animation for the newly visible cards.
-    //   5. If no cards are visible after filtering, show the empty-state message.
+    //   1. Move the active style to the clicked button.
+    //   2. Show cards whose data-category matches, hide the rest.
+    //   3. Replay the card animation for visible cards.
+    //   4. Show the empty state message if nothing matched.
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projCards = document.querySelectorAll('.proj-card');
     const projEmpty = document.getElementById('proj-empty');
@@ -935,7 +851,6 @@
                 if (show) shownCards.push(card);
             });
             projEmpty.style.display = shownCards.length === 0 ? 'block' : 'none';
-            // Replay the fade-in animation for whichever cards are now visible
             animateProjCards(shownCards);
         });
     });

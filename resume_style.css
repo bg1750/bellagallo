@@ -14,12 +14,12 @@ body {
     line-height: 1.4;
 }
 
-/* Page container — the white card that holds everything. Max-width keeps it from getting too wide on large screens */
+/* Page container — the white card that holds everything. Narrower max-width suits a single-column layout */
 .page {
-    max-width: 880px;
+    max-width: 780px;
     margin: 16px auto;
     background: #fff;
-    padding: 22px 28px 28px;
+    padding: 22px 30px 28px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.13);
 }
 
@@ -106,16 +106,10 @@ body {
     color: #666;
 }
 
-/* Two-column layout — left column is 57% (experience/skills/etc), right is the remaining space (projects) */
-.columns {
-    display: grid;
-    grid-template-columns: 57% 1fr;
-    gap: 0 20px;
-}
-
-/* Section wrapper — every block (summary, experience, education, etc.) uses this for consistent bottom spacing */
+/* Section wrapper — every block (summary, experience, education, etc.) uses this for consistent bottom spacing.
+   Single-column layout: sections simply stack top-to-bottom for clean ATS parsing */
 .section {
-    margin-bottom: 13px;
+    margin-bottom: 14px;
 }
 
 /* Section title — the bold uppercase heading with the purple underline bar used on every section */
@@ -152,6 +146,16 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+/* Links inside a meta line (e.g. project URLs) stay muted rather than default browser blue */
+.meta-line a {
+    color: #666;
+    text-decoration: none;
+}
+
+.meta-line a:hover {
+    color: #7B2DB8;
 }
 
 .meta-line i {
@@ -273,6 +277,32 @@ body {
     gap: 5px;
 }
 
+/* Grouped skills — each category is a row: a bold label on the left, its tags on the right */
+.skills-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.skill-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.skill-cat {
+    flex: 0 0 118px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #1a1a1a;
+}
+
+.skill-tags-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .skill-tag {
     border: 1px solid #bbb;
     padding: 2px 8px;
@@ -282,21 +312,25 @@ body {
     line-height: 1.4;
 }
 
-/* Certifications grid — two columns so the four cert items sit in a 2x2 grid */
-.cert-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 14px;
+/* Certifications — simple stacked list, one item per line for clean ATS parsing */
+.cert-list {
+    list-style: none;
+    padding-left: 0;
 }
 
-.cert-item {
-    font-size: 0.78rem;
+.cert-list li {
+    font-size: 0.8rem;
     font-weight: 700;
     color: #1a1a1a;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
     border-bottom: 1px dotted #ccc;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
     line-height: 1.4;
+}
+
+.cert-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
 /* Project and personal project entries — same spacing and dotted divider style shared between both sections */

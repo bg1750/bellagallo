@@ -1030,6 +1030,13 @@ h1 {
     display: block;
 }
 
+/* Full-image variant — shows the complete image uncropped at its natural ratio */
+.detail-img-wrap.full-img img {
+    aspect-ratio: auto;
+    object-fit: contain;
+    height: auto;
+}
+
 .detail-img-placeholder {
     width: 100%;
     aspect-ratio: 16/9;
@@ -1043,6 +1050,193 @@ h1 {
     border-radius: 2px;
     margin-bottom: 40px;
     letter-spacing: 1px;
+}
+
+/* ============================================================
+   FIGMA GALLERY — carousel (landscape screens) + scroll strip (tall pages)
+   ============================================================ */
+.figma-gallery { margin-top: 48px; }
+
+.gallery-heading {
+    color: #D4CFC9;
+    font-size: 0.82em;
+    font-weight: 600;
+    margin: 40px 0 14px;
+    font-family: monospace;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.gallery-hint {
+    font-family: monospace;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    color: #666;
+    margin: -6px 0 14px;
+}
+
+/* ---- Carousel ---- */
+.carousel { position: relative; }
+
+.carousel-viewport {
+    overflow: hidden;
+    border: 1px solid #1E1E1E;
+    border-radius: 3px;
+    background-color: #0D0D0D;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+    background-color: #0D0D0D;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #9940FF;
+    background-color: rgba(13, 13, 13, 0.8);
+    color: #9940FF;
+    font-size: 1.4em;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+    backdrop-filter: blur(2px);
+}
+
+.carousel-btn:hover { background-color: #9940FF; color: #0D0D0D; }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background-color: #2A2A2A;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.carousel-dot:hover { background-color: #555; }
+.carousel-dot.active { background-color: #9940FF; transform: scale(1.3); }
+
+/* ---- Scroll strip of tall pages ---- */
+.scroll-strip {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    /* vertical padding leaves room for the hover glow so it isn't clipped */
+    padding: 22px 4px;
+    scroll-snap-type: x mandatory;
+}
+
+.page-frame {
+    flex: 0 0 auto;
+    width: 260px;
+    height: 480px;
+    margin: 0;
+    overflow-y: auto;
+    border: 1px solid #1E1E1E;
+    border-radius: 3px;
+    background-color: #0D0D0D;
+    scroll-snap-align: start;
+}
+
+.page-frame img {
+    display: block;
+    width: 100%;
+}
+
+/* Non-scrolling frames (landscape / square screens): show the whole image,
+   wider frame, and enlarge to a full-screen overlay on hover */
+.page-frame--static {
+    width: 380px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.page-frame--static img {
+    width: 100%;
+    height: auto;
+}
+
+/* Purple glow on hover to signal the frame is clickable */
+.page-frame--static:hover {
+    border-color: #9940FF;
+    box-shadow: 0 0 0 1px #9940FF, 0 0 22px rgba(153, 64, 255, 0.5);
+}
+
+/* Hover overlay — shows the full image centered on a dimmed backdrop */
+.zoom-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 4vw;
+    background: rgba(8, 8, 8, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    cursor: zoom-out;
+    transition: opacity 0.2s ease;
+}
+
+.zoom-overlay.show { opacity: 1; pointer-events: auto; }
+
+.zoom-overlay img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border: 1px solid #1E1E1E;
+    border-radius: 3px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Slim themed scrollbars for the strip and the frames */
+.scroll-strip::-webkit-scrollbar,
+.page-frame::-webkit-scrollbar { width: 6px; height: 6px; }
+
+.scroll-strip::-webkit-scrollbar-thumb,
+.page-frame::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 3px; }
+
+.scroll-strip::-webkit-scrollbar-thumb:hover,
+.page-frame::-webkit-scrollbar-thumb:hover { background: #9940FF66; }
+
+@media (max-width: 520px) {
+    .page-frame { width: 78vw; height: 60vh; }
 }
 
 .detail-body { font-size: 0.93em; line-height: 1.9; color: #555; }

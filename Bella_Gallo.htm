@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <!-- Outer page card — everything sits inside this white container -->
+    <!-- Outer page card — everything sits inside this white container.
+         Single-column layout so ATS parsers read sections top-to-bottom in order. -->
     <div class="page">
 
         <!-- Save as PDF button — sits top right, hidden when printing -->
@@ -23,336 +24,181 @@
         <!-- Header — name, title, and all contact/link info -->
         <header class="resume-header">
             <h1>Isabella R. Gallo</h1>
-            <p class="subtitle">Software Engineer</p>
+            <p class="subtitle">Software Engineer · User Interface Designer</p>
             <!-- Contact row: email, LinkedIn, GitHub, portfolio site, location -->
             <div class="contact-line">
-                <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-at"></i>isabella.gallo1750@gmail.com</a>
-                <a href="https://www.linkedin.com/in/isabellargallo/" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-                <a href="https://github.com/bg1750" target="_blank"><i class="fa-brands fa-github"></i>Github</a>
-                <a href="https://bg1750.github.io/bellagallo" target="_blank"><i class="fa-solid fa-globe"></i>Portfolio</a>
+                <a href="mailto:isabella.gallo1750@gmail.com"><i class="fa-solid fa-mail-bulk"></i>isabella.gallo1750@gmail.com</a>
+                <a href="https://www.linkedin.com/in/isabellargallo/" target="_blank"><i class="fa-brands fa-linkedin"></i>linkedin.com/in/isabellargallo</a>
+                <a href="https://github.com/bg1750" target="_blank"><i class="fa-brands fa-github"></i>github.com/bg1750</a>
+                <a href="https://bg1750.github.io/bellagallo" target="_blank"><i class="fa-solid fa-globe"></i>bg1750.github.io/bellagallo</a>
                 <span class="loc"><i class="fa-solid fa-location-dot"></i>South Carolina</span>
             </div>
         </header>
 
-        <!-- Two-column body — left is 57% wide (summary/experience/skills/certs/education), right is the rest (projects) -->
-        <div class="columns">
+        <!-- About Me — short professional bio, UX/UI + frontend focused -->
+        <section class="section">
+            <h2 class="section-title">Summary</h2>
+            <p class="summary-text">
+                Hello, I am a software engineer with a passion for design and art. I love finding where technology and
+                creativity overlap, which has led me into web and UI/UX design. In my current position, I specialize in
+                constructing user interfaces that are both functional and visually intentional, improving efficiency and ease
+                of use for the operators who rely on them. Outside of work, I'm actively pursuing this passion through
+                personal projects and courses in full-stack development and UI/UX!
+            </p>
+        </section>
 
-            <!-- LEFT COLUMN -->
-            <div>
+        <!-- Experience — each job is its own .exp-entry block with title, company, dates, and bullet points -->
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
 
-                <!-- Summary — short professional bio, update this when the pitch changes -->
-                <section class="section">
-                    <h2 class="section-title">Summary</h2>
-                    <p class="summary-text">
-                        Professionally I am a Software Engineer at Savannah River National Laboratory, where I build operator
-                        interfaces for robotics, autonomous systems, and scientific instrumentation. I am currently channeling that
-                        same passion of usability and design into web development. My self teachings include several courses in full stack
-                        development, UI/UX, and specific areas such as Node.js and React.
-                        I strive to improve my skills in giving users an exceptional experience whether it is an interface or a web application.
-                    </p>
-                </section>
+            <!-- SRNL job entry -->
+            <div class="exp-entry">
+                <div class="exp-title">Software Engineer</div>
+                <div class="exp-company">Savannah River National Laboratory</div>
+                <div class="meta-line">
+                    <span><i class="fa-regular fa-calendar"></i>04/2024 – Present</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Aiken, SC</span>
+                </div>
+                <div class="exp-dept">Instrumentation, Robotics and Imaging Systems, Advanced Engineering</div>
+                <ul>
+                    <li>Design and build operator-facing GUI interfaces for lab instruments and autonomous 
+                        systems (PyQt/Python, Visual Basic) with live telemetry and command dispatch; iterate layouts 
+                        with customers before build, managing source control and CI/CD in Azure DevOps.</li>
+                    <li>Built machine learning pipelines for real-time anomaly detection and OCR (PyTorch, TensorFlow, Anomalib), 
+                        deployed on NVIDIA Jetson Orin edge hardware with CUDA acceleration, cutting ~20 minutes from the manual
+                        inspection process.</li>
+                    <li>Programmed instrumentation interfaces and precision motion control for laboratory systems (PLC ladder logic, 
+                        SICK safety controllers, Moog Animatics SmartMotor).</li>
+                </ul>
+            </div>
 
-                <!-- Experience — each job is its own .exp-entry block with title, company, dates, and bullet points -->
-                <section class="section">
-                    <h2 class="section-title">Experience</h2>
+            <!-- EndoSec internship entry -->
+            <div class="exp-entry">
+                <div class="exp-title">Hardware Encryption Engineering Intern</div>
+                <div class="exp-company">EndoSec LLC</div>
+                <div class="meta-line">
+                    <span><i class="fa-regular fa-calendar"></i>06/2023 – 02/2024</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Remote</span>
+                </div>
+                <ul>
+                    <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL, verified with the NIST SP 800-22r1a statistical test suite.</li>
+                    <li>Researched and documented SHA-3 and Keccak implementations, producing technical guides, architecture diagrams, and performance reports.</li>
+                </ul>
+            </div>
 
-                    <!-- SRNL job entry -->
-                    <div class="exp-entry">
-                        <div class="exp-title">Software Engineer</div>
-                        <div class="exp-company">Savannah River National Laboratory</div>
-                        <div class="meta-line">
-                            <span><i class="fa-regular fa-calendar"></i>04/2024 – Present</span>
-                            <span><i class="fa-solid fa-location-dot"></i>Aiken, SC</span>
-                        </div>
-                        <div class="exp-dept">Instrumentation, Robotics and Imaging Systems, Advanced Engineering</div>
-                        <ul>
-                            <li>Designed and developed operator-facing GUI dashboards for robotics and autonomous systems using PyQt and Python, including live telemetry and command dispatch.</li>
-                            <li>Built machine learning pipelines for real-time anomaly detection and OCR, deployed on NVIDIA Jetson Orin edge hardware with CUDA acceleration.</li>
-                            <li>Programmed and configured AGVs and industrial safety systems using PLC ladder logic and SICK safety controllers.</li>
-                            <li>Programmed Moog Animatics SmartMotor controllers in torque mode for precision motion control in laboratory mixing applications.</li>
-                        </ul>
-                    </div>
+        </section>
 
-                    <!-- EndoSec internship entry -->
-                    <div class="exp-entry">
-                        <div class="exp-title">Hardware Encryption Engineering Intern</div>
-                        <div class="exp-company">EndoSec LLC</div>
-                        <div class="meta-line">
-                            <span><i class="fa-regular fa-calendar"></i>06/2023 – 02/2024</span>
-                            <span><i class="fa-solid fa-location-dot"></i>Remote</span>
-                        </div>
-                        <ul>
-                            <li>Implemented the 64-bit MT19937 Mersenne Twister algorithm in VHDL, verified using the NIST SP 800-22r1a statistical test suite.</li>
-                            <li>Researched and documented SHA-3 and Keccak cryptographic implementations, producing technical guides and performance reports.</li>
-                            <li>Produced system and architecture diagrams in yEd, Visio, and Draw.io; worked in Unix with Git for source control.</li>
-                        </ul>
-                    </div>
-
-                </section>
-
-                <!-- Industry Skills — the small bordered tags, add/remove skill-tag spans as needed -->
-                <section class="section">
-                    <h2 class="section-title">Industry Skills</h2>
-                    <div class="skills-tags">
+        <!-- Skills — grouped by category (design/frontend first), each row is a label + its tags -->
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-groups">
+                <div class="skill-row">
+                    <span class="skill-cat">Software</span>
+                    <div class="skill-tags-inline">
                         <span class="skill-tag">HTML</span>
                         <span class="skill-tag">CSS</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C/C++</span>
-                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Visual Basic</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-cat">Design</span>
+                    <div class="skill-tags-inline">
                         <span class="skill-tag">UI/UX</span>
                         <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">PyQt</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Anomalib</span>
-                        <span class="skill-tag">PyTesseract</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">CUDA</span>
-                        <span class="skill-tag">Visual Basic</span>
-                        <span class="skill-tag">PLC Ladder Logic</span>
-                        <span class="skill-tag">VHDL</span>
+                        <span class="skill-tag">Sketch</span>
+                        <span class="skill-tag">Wireframing</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-cat">Tools</span>
+                    <div class="skill-tags-inline">
+                        <span class="skill-tag">Git</span>
                         <span class="skill-tag">Linux/Unix</span>
-                        <span class="skill-tag">Node.js</span>
                     </div>
-                </section>
-
-                <!-- Certifications — laid out in a 2-column grid, add new cert-item divs as courses are completed -->
-                <section class="section">
-                    <h2 class="section-title">Certification and Training</h2>
-                    <div class="cert-grid">
-                        <div class="cert-item">The Complete Full-Stack Web Development Bootcamp [Udemy Training, 2026]</div>
-                        <div class="cert-item">React – The Complete Guide 2025 (incl. Next.js, Redux) [Udemy Training, 2026]</div>
-                        <div class="cert-item">Figma UI UX Design Essentials [Udemy Training, 2026]</div>
-                        <div class="cert-item">Fanuc Handling Tool Operations and Programming Certification (2024)</div>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-cat">ML &amp; Vision</span>
+                    <div class="skill-tags-inline">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">OpenCV</span>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
-                <!-- Education — degree and school on the left, GPA box on the right, bullet details below -->
-                <section class="section">
-                    <h2 class="section-title">Education</h2>
-                    <div class="edu-row">
-                        <div class="edu-left">
-                            <div class="edu-degree">B.S. Electrical and Computer Engineering</div>
-                            <div class="edu-school">The Ohio State University</div>
-                            <div class="meta-line">
-                                <span><i class="fa-regular fa-calendar"></i>08/2019 – 05/2023</span>
-                                <span><i class="fa-solid fa-location-dot"></i>Columbus, OH</span>
-                            </div>
-                        </div>
-                        <div class="gpa-box">
-                            GPA
-                            <span class="gpa-value">3.50 / 4.0</span>
-                        </div>
+        <!-- Projects — single combined section, UX/frontend-relevant work first -->
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="project-entry">
+                <div class="project-name">Instrumentation GUIs — Calorimeter &amp; Mass Spectrometer</div>
+                <div class="project-org">Savannah River National Laboratory</div>
+                <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                <p class="project-desc">Operator GUIs for lab instruments: real-time temperature monitoring with configurable setpoints and ramp profiles (calorimeter), and a live spectral plot with annotation, export, and serial communication (mass spectrometer). Iterated through hand sketches and customer reviews.</p>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-name">Real-Time Anomaly Detection &amp; OCR</div>
+                <div class="project-org">Savannah River National Laboratory</div>
+                <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                <p class="project-desc">Computer-vision pipelines for industrial inspection: an Anomalib/PyTorch defect detector deployed to NVIDIA Jetson Orin (95% accuracy in production), and a PyTesseract + OpenCV OCR label-reading system with 360° rotation scanning and multi-step validation, built from scratch. Together they cut ~20 minutes from the manual inspection process.</p>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-name">Crawler Robot Interface</div>
+                <div class="project-org">Savannah River National Laboratory</div>
+                <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
+                <p class="project-desc">Operator control interface for a crawler robot with a live 3D orientation display (roll, pitch, yaw), telemetry, and command dispatch. The live, responsive redesign cut system deployment time by 60%; layout iterated through hand sketches and customer reviews.</p>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-name">IR Facial Recognition Interface</div>
+                <div class="project-org">The Ohio State University — Senior Capstone</div>
+                <p class="project-desc">Infrared facial recognition pipeline with a frontend built around the operator workflow. It was the project that first sparked my interest in UX/UI design.</p>
+            </div>
+
+        </section>
+
+        <!-- Certifications — simple stacked list for clean ATS parsing -->
+        <section class="section">
+            <h2 class="section-title">Certification &amp; Training</h2>
+            <ul class="cert-list">
+                <li>The Complete Full-Stack Web Development Bootcamp — HTML, CSS, JavaScript, Node.js, SQL, Bootstrap, REST APIs (Udemy, 2026)</li>
+                <li>React – The Complete Guide 2025 — Next.js, Redux, TypeScript (Udemy, 2026)</li>
+                <li>Figma UI/UX Design Essentials — wireframing, prototyping, storyboarding, design systems (Udemy, 2026)</li>
+                <li>Fanuc Handling Tool Operations and Programming Certification (2024)</li>
+            </ul>
+        </section>
+
+        <!-- Education — degree and school, with GPA and details -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-row">
+                <div class="edu-left">
+                    <div class="edu-degree">B.S. Electrical and Computer Engineering</div>
+                    <div class="edu-school">The Ohio State University</div>
+                    <div class="meta-line">
+                        <span><i class="fa-regular fa-calendar"></i>08/2019 – 05/2023</span>
+                        <span><i class="fa-solid fa-location-dot"></i>Columbus, OH</span>
                     </div>
-                    <ul class="edu-bullets">
-                        <li>Focus: Computer Engineering — digital logic, FPGA implementation, software development in C, VHDL, and Python.</li>
-                        <li>Ombra IR Facial Recognition Capstone | Team Lead <br>
-                        OSU SWE | Society of Women Engineers Member <br>
-                        ACM-W | Association of Computing Machinery Women's Chapter Member</li>
-                    </ul>
-                </section>
-
-            </div><!-- /left -->
-
-            <!-- RIGHT COLUMN -->
-            <div>
-
-                <!-- Work Projects (SRNL) — each project is a .project-entry with name, org, date, description, and tags -->
-                <section class="section">
-                    <h2 class="section-title">Projects</h2>
-
-                    <div class="project-entry">
-                        <div class="project-name">Crawler Robot Interface</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Operator control interface for a crawler robot. Live 3D orientation display reflecting real-time roll, pitch, and yaw alongside telemetry and command dispatch. Layout iterated with stakeholder feedback before implementation.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">PyQt</span>
-                            <span class="proj-tag">Python</span>
-                            <span class="proj-tag">Real-Time Control</span>
-                            <span class="proj-tag">Real-Time Monitoring</span>
-                            <span class="proj-tag">Frontend</span>
-                            <span class="proj-tag">Operator Dashboard</span>
-                        </div>
-                    </div>
-
-                    <div class="project-entry">
-                        <div class="project-name">Calorimeter Heating System GUI</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Laboratory calorimeter GUI with real-time temperature monitoring, configurable setpoints and ramp profiles, and automated data logging. Design iterated through hand sketches and stakeholder reviews.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Visual Basic</span>
-                            <span class="proj-tag">Hardware Interface</span>
-                            <span class="proj-tag">Real-Time Monitoring</span>
-                        </div>
-                    </div>
-
-                    <div class="project-entry">
-                        <div class="project-name">Mass Spectrometer Interface</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Frontend development and backend integration for a mass spectrometer GUI. Live spectral plot with annotation and export, configurable scan parameters, and serial communication with the instrument.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Visual Basic</span>
-                            <span class="proj-tag">Data Visualization</span>
-                            <span class="proj-tag">Hardware Interface</span>
-                            <span class="proj-tag">Real-Time Monitoring</span>
-                        </div>
-                    </div>
-
-                    <div class="project-entry">
-                        <div class="project-name">Real-Time Anomaly Detection</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Multi-phase project: initial version built from scratch using a custom CNN autoencoder, rearchitected around Anomalib for industrial requirements. Deployed to NVIDIA Jetson Orin with CUDA, achieving 95% detection accuracy in a production manufacturing environment.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">PyTorch</span>
-                            <span class="proj-tag">Anomalib</span>
-                            <span class="proj-tag">CUDA</span>
-                            <span class="proj-tag">OpenCV</span>
-                            <span class="proj-tag">PyTesseract</span>
-                            <span class="proj-tag">NVIDIA Jetson Orin</span>
-                        </div>
-                    </div>
-
-                    <div class="project-entry">
-                        <div class="project-name">OCR System</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Automated label reading and validation pipeline for industrial barrel inspection. PyTesseract deployed with custom 360° rotation scanning, error correction, and 6-step sequential validation built entirely from scratch.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Python</span>
-                            <span class="proj-tag">EasyOCR</span>
-                            <span class="proj-tag">OpenCV</span>
-                            <span class="proj-tag">NumPy</span>
-                            <span class="proj-tag">GPU Accelerated</span>
-                            <span class="proj-tag">Affine Transforms</span>
-                            <span class="proj-tag">PyTesseract</span>
-                        </div>
-                    </div>
-
-                    <div class="project-entry">
-                        <div class="project-name">AGV Control Interface</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Operator-facing interface for an AGV fleet integrating LiDAR, vision, and encoder sensor fusion. RTOS motion control achieving sub-10ms response times across a multi-robot factory floor.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">PLC</span>
-                            <span class="proj-tag">LiDAR</span>
-                            <span class="proj-tag">RTOS</span>
-                            <span class="proj-tag">Ladder Logic</span>
-                            <span class="proj-tag">Sensor Fusion</span>
-                        </div>
-                    </div>
-
-                    <div class="project-entry">
-                        <div class="project-name">SmartMotor Mixing Device</div>
-                        <div class="project-org">Savannah River National Laboratory</div>
-                        <div class="meta-line"><span><i class="fa-regular fa-calendar"></i>2024 – Present</span></div>
-                        <p class="project-desc">Programmed a Moog Animatics SmartMotor in torque mode to drive a laboratory mixing device. Torque ramp profiles implemented for smooth acceleration and deceleration, preventing mechanical shock while maintaining precise mixing cycles.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Moog Animatics</span>
-                            <span class="proj-tag">Torque Control</span>
-                            <span class="proj-tag">Motion Control</span>
-                            <span class="proj-tag">SmartMotor SMI</span>
-                            <span class="proj-tag">Embedded Systems</span>
-                        </div>
-                    </div>
-
-                </section>
-
-                <!-- Personal Projects — same structure as above but uses .personal-entry and .personal-name (purple title) -->
-                <section class="section">
-                    <h2 class="section-title">Personal Projects</h2>
-
-                    <div class="personal-entry">
-                        <div class="personal-name">Personal Portfolio Website</div>
-                        <div class="meta-line">
-                            <span><i class="fa-solid fa-location-dot"></i>South Carolina</span>
-                            <span><i class="fa-solid fa-link"></i><a href="https://bg1750.github.io/bellagallo" target="_blank" style="color:#444; text-decoration:none;">bg1750.github.io/bellagallo</a></span>
-                        </div>
-                        <p class="personal-desc">Single-page portfolio built from scratch with custom section navigation, animated project cards with category filtering, and an About section. Deployed via GitHub Pages.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">HTML5</span>
-                            <span class="proj-tag">CSS3</span>
-                            <span class="proj-tag">JavaScript</span>
-                            <span class="proj-tag">Bootstrap</span>
-                            <span class="proj-tag">React</span>
-                            <span class="proj-tag">Node.js</span>
-                            <span class="proj-tag">SQL</span>
-                            <span class="proj-tag">Figma</span>
-                        </div>
-                    </div>
-
-                    <div class="personal-entry">
-                        <div class="personal-name">Women's Health Tracker (HerRoutine)</div>
-                        <div class="meta-line">
-                            <span><i class="fa-solid fa-location-dot"></i>South Carolina</span>
-                        </div>
-                        <p class="personal-desc">Personal web app for tracking cycle, workouts, nutrition, symptoms, mood, and energy — designed around the female hormonal cycle. Features phase-aware insights, SVG progress rings, and a Figma-designed component system.</p>
-                        <ul>
-                            <li>Early research and development stage.</li>
-                        </ul>
-                        <div class="proj-tags">
-                            <span class="proj-tag">HTML5</span>
-                            <span class="proj-tag">CSS3</span>
-                            <span class="proj-tag">JavaScript</span>
-                            <span class="proj-tag">LocalStorage API</span>
-                            <span class="proj-tag">Figma</span>
-                            <span class="proj-tag">SVG</span>
-                        </div>
-                    </div>
-
-                    <div class="personal-entry">
-                        <div class="personal-name">Thread Jutsu Order Tracker</div>
-                        <div class="meta-line">
-                            <span><i class="fa-solid fa-location-dot"></i>South Carolina</span>
-                        </div>
-                        <p class="personal-desc">Stock and order management tool for a small business selling custom apparel across multiple Etsy listings that share the same inventory. Tracks shared stock at the item level and updates counts across all affected listings when an order is logged.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">HTML5</span>
-                            <span class="proj-tag">CSS3</span>
-                            <span class="proj-tag">JavaScript</span>
-                            <span class="proj-tag">Figma</span>
-                        </div>
-                    </div>
-
-                    <div class="personal-entry">
-                        <div class="personal-name">IR Facial Recognition Interface</div>
-                        <div class="meta-line">
-                            <span><i class="fa-solid fa-location-dot"></i>Ohio</span>
-                        </div>
-                        <p class="personal-desc">Senior capstone project. Infrared facial recognition pipeline with a frontend built around the specific workflow. First project to spark a serious interest in frontend and UX/UI design.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">OpenCV</span>
-                            <span class="proj-tag">Python</span>
-                            <span class="proj-tag">MediaPipe</span>
-                            <span class="proj-tag">UX/UI</span>
-                            <span class="proj-tag">Real-Time Monitoring</span>
-                            <span class="proj-tag">Frontend & Backend Integration</span>
-                        </div>
-                    </div>
-
-                    <div class="personal-entry">
-                        <div class="personal-name">Figma: Small Business App Design</div>
-                        <p class="personal-desc">Self-directed Figma project designing a complete multi-page app including homepage, about, items catalog, and checkout flow. Demonstrates components, auto layout, interactive prototyping, and design systems.</p>
-                        <div class="proj-tags">
-                            <span class="proj-tag">Figma</span>
-                            <span class="proj-tag">UI Design</span>
-                            <span class="proj-tag">UX Design</span>
-                            <span class="proj-tag">Prototyping</span>
-                            <span class="proj-tag">Component Design</span>
-                            <span class="proj-tag">Design Systems</span>
-                        </div>
-                    </div>
-
-                </section>
-
-            </div><!-- /right -->
-
-        </div><!-- /columns -->
+                </div>
+                <div class="gpa-box">
+                    GPA
+                    <span class="gpa-value">3.50 / 4.0</span>
+                </div>
+            </div>
+            <ul class="edu-bullets">
+                <li>Focus: Computer Engineering, covering digital logic, FPGA implementation, and software development in C, VHDL, and Python.</li>
+                <li>IR Facial Recognition Capstone (Team Lead) · Society of Women Engineers · ACM-W (Association for Computing Machinery, Women's Chapter).</li>
+            </ul>
+        </section>
 
     </div><!-- /page -->
 </body>

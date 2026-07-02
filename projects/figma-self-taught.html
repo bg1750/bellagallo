@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma Self-Taught Project — Bella Gallo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="detail-page">
+
+    <header class="detail-header">
+        <a href="../index.html" class="detail-logo">BG</a>
+    </header>
+
+    <div class="detail-scroll-area">
+    <main class="detail-main">
+
+        <a href="../index.html#projects" class="detail-back">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to projects
+        </a>
+
+        <span class="detail-category">UX / UI</span>
+        <h1 class="detail-title">Figma Self-Taught Project</h1>
+        <p class="detail-summary">I taught myself Figma by designing a complete multi-page app for a small business from scratch, including a homepage, about page, items catalog, and checkout flow. The project was as much about learning the tool as it was about learning how a real design system holds together across screens.</p>
+
+        <div class="detail-tags">
+            <span class="detail-tag">Figma</span>
+            <span class="detail-tag">UI Design</span>
+            <span class="detail-tag">UX Design</span>
+            <span class="detail-tag">Prototyping</span>
+            <span class="detail-tag">Component Design</span>
+            <span class="detail-tag">Design Systems</span>
+        </div>
+
+        <!-- Scroll strip: tall full-length pages, scroll each frame vertically -->
+        <h3 class="gallery-heading">Desktop Pages</h3>
+        <p class="gallery-hint">Scroll the longer pages within their frame &middot; click a page to enlarge it &middot; swipe across to see more</p>
+        <div class="scroll-strip">
+            <figure class="page-frame"><img src="../images/figma1.PNG" alt="Full-length page design"></figure>
+            <figure class="page-frame"><img src="../images/figma2.PNG" alt="Full-length page design"></figure>
+            <figure class="page-frame"><img src="../images/figma3.PNG" alt="Full-length page design"></figure>
+            <figure class="page-frame"><img src="../images/figma4.PNG" alt="Full-length page design"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma7.PNG" alt="Design screen"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma6.PNG" alt="Design screen"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma8.PNG" alt="Design screen"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma9.PNG" alt="Design screen"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma10.PNG" alt="Design screen"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma11.PNG" alt="Design screen"></figure>
+            <figure class="page-frame page-frame--static"><img src="../images/figma12.PNG" alt="Design screen"></figure>
+
+        </div>
+        
+    <!-- ============ GALLERY ============ -->
+    <section class="figma-gallery">
+    
+        <!-- Carousel: landscape / square screens, one at a time -->
+        <h3 class="gallery-heading">Mobile Device Screens</h3>
+        <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
+                </div>
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous screen">&#8249;</button>
+            <button class="carousel-btn next" aria-label="Next screen">&#8250;</button>
+            <div class="carousel-dots" aria-hidden="true"></div>
+        </div>
+
+
+        </section>
+
+
+        <div class="detail-body">
+
+            <h3>Why I Built It</h3>
+            <p>Coming from a hardware and embedded background, I understood how things worked underneath, but I wanted real control over how an interface looks and feels before a single line of code gets written. I picked Figma because it is the tool most frontend and product teams actually design in, and the fastest way to learn it was to commit to a full project rather than a handful of disconnected practice screens.</p>
+
+            <h3>What I Designed</h3>
+            <p>I scoped out a complete multi-page app for a small business: a homepage to introduce the brand, an about page to tell its story, an items catalog to browse products, and a checkout flow to carry a purchase through to completion. Designing the full journey, rather than isolated screens, forced me to think about navigation, state, and consistency the same way a user would experience them end to end.</p>
+
+            <h3>Components &amp; Auto Layout</h3>
+            <p>Rather than rebuilding the same buttons, cards, and nav bars on every page, I built them once as reusable components and let auto layout handle spacing and resizing as content changed. This is where the tool really clicked for me, updating a component once and watching it propagate everywhere it was used is the design equivalent of writing a function instead of copying code.</p>
+
+            <h3>Design System</h3>
+            <p>I established a consistent set of color styles, type scales, and spacing rules so every screen felt like part of the same product. Defining these as shared styles up front kept the whole design coherent and made later changes a matter of editing one definition instead of hunting through every frame.</p>
+
+            <h3>Interactive Prototyping</h3>
+            <p>To make the design feel real, I wired the screens together into an interactive prototype with working navigation and transitions, so the full flow from landing on the homepage to completing checkout could be clicked through end to end. Prototyping surfaced friction points that were invisible in static mockups and shaped how I refined the layouts.</p>
+
+            <h3>What I Took Away</h3>
+            <p>This project gave me a working fluency in Figma and, more importantly, a real understanding of how thoughtful design decisions translate into the interfaces I now build on the frontend. It is where my interest in design and development genuinely converged.</p>
+
+        </div>
+
+    </main>
+    </div>
+
+    <!-- Minimal carousel logic: builds dots, wires prev/next -->
+    <script>
+        document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+            var track = carousel.querySelector('.carousel-track');
+            var slides = Array.prototype.slice.call(track.children);
+            var dotsWrap = carousel.querySelector('.carousel-dots');
+            var index = 0;
+
+            slides.forEach(function (_, i) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to screen ' + (i + 1));
+                dot.addEventListener('click', function () { go(i); });
+                dotsWrap.appendChild(dot);
+            });
+            var dots = Array.prototype.slice.call(dotsWrap.children);
+
+            function go(i) {
+                index = (i + slides.length) % slides.length;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                dots.forEach(function (d, di) { d.classList.toggle('active', di === index); });
+            }
+
+            carousel.querySelector('.prev').addEventListener('click', function () { go(index - 1); });
+            carousel.querySelector('.next').addEventListener('click', function () { go(index + 1); });
+        });
+
+        // Click-to-enlarge for the non-scrolling frames (everything except the first four tall pages).
+        // Hover shows a purple glow (CSS); clicking opens the enlarged view; click backdrop or Esc to close.
+        (function () {
+            var overlay = document.createElement('div');
+            overlay.className = 'zoom-overlay';
+            var big = document.createElement('img');
+            overlay.appendChild(big);
+            document.body.appendChild(overlay);
+
+            function close() { overlay.classList.remove('show'); }
+
+            document.querySelectorAll('.page-frame--static').forEach(function (frame) {
+                var img = frame.querySelector('img');
+                if (!img) return;
+                frame.addEventListener('click', function () {
+                    big.src = img.currentSrc || img.src;
+                    overlay.classList.add('show');
+                });
+            });
+
+            overlay.addEventListener('click', close);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') close();
+            });
+        })();
+    </script>
+
+</body>
+</html>

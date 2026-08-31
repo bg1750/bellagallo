@@ -6,7 +6,7 @@
     <title>OCR System — Bella Gallo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -64,8 +64,7 @@
             <!-- the five stage cards and four arrows all live inside this flex row -->
             <div class="pipe-row">
 
-                <!-- Stage 1 — all the visual divs inside pv-ingest are empty on purpose;
-                     they're just shaped/positioned/animated with CSS to create the graphic -->
+                <!-- Stage 1 (the pv-ingest divs are empty; CSS shapes and animates them) -->
                 <div class="p-stage">
                     <div class="p-stage-num">01</div>
                     <div class="p-stage-name">Image Ingestion</div>
@@ -103,7 +102,7 @@
                     <div class="p-desc">Isolate the label region of interest to reduce noise</div>
                 </div>
 
-                <!-- animation-delay staggers the dots so they don't all move in sync -->
+                <!-- staggered so the dots don't move in sync -->
                 <div class="p-arrow"><div class="p-arrow-dot" style="animation-delay:.3s"></div></div>
 
                 <!-- Stage 3 -->
@@ -135,8 +134,6 @@
                             <div class="oc-bar"></div>
                             <div class="oc-bar"></div>
                             <div class="oc-beam"></div>  <!-- scan beam sweeping down -->
-                            <!-- inline style here just to position this specific flash;
-                                 easier than making a separate class for one small tweak -->
                             <div class="oc-flash" style="top:8px; left:6px; width:60%;"></div>
                         </div>
                     </div>
@@ -149,8 +146,7 @@
                 <div class="p-stage">
                     <div class="p-stage-num">05</div>
                     <div class="p-stage-name">Validation</div>
-                    <!-- height:auto overrides the fixed 86px so all 6 rows fit;
-                         align-items:flex-start stops them from centering weirdly -->
+                    <!-- height:auto so all 6 rows fit -->
                     <div class="p-visual" style="height:auto; align-items:flex-start;">
                         <div class="pv-valid">
                             <!-- 6 rows, one per validation criterion — each fades in with a delay -->

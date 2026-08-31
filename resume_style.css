@@ -1,20 +1,19 @@
-/* Base reset — clears default browser margin/padding and makes box-sizing consistent across everything */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body — sets the font, base text size, and the light gray background behind the page card */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: #2d2d2d;
     background: #e5e5e5;
     line-height: 1.4;
 }
 
-/* Page container — the white card that holds everything. Narrower max-width suits a single-column layout */
+/* White page card */
 .page {
     max-width: 780px;
     margin: 16px auto;
@@ -29,13 +28,13 @@ body {
     margin-bottom: 7px;
 }
 
-/* Save as PDF button — transparent by default, fills purple on hover */
+/* Save as PDF button */
 .print-btn {
     background: transparent;
     color: #7B2DB8;
     border: 1px solid #7B2DB8;
     padding: 4px 12px;
-    font-family: Arial, sans-serif;
+    font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -106,8 +105,7 @@ body {
     color: #666;
 }
 
-/* Section wrapper — every block (summary, experience, education, etc.) uses this for consistent bottom spacing.
-   Single-column layout: sections simply stack top-to-bottom for clean ATS parsing */
+/* Section spacing */
 .section {
     margin-bottom: 14px;
 }
@@ -264,7 +262,7 @@ body {
     line-height: 1.45;
 }
 
-/* Highlight utility — wraps a word or phrase in a yellow background, not currently used but kept for reference */
+/* Highlight utility */
 .hl {
     background: #FFE08A;
     padding: 1px 0;
@@ -348,7 +346,7 @@ body {
     padding-bottom: 0;
 }
 
-/* Project name is dark, personal project name is purple — only difference between the two */
+/* Project name (dark); personal-name is the purple variant */
 .project-name {
     font-weight: 700;
     font-size: 0.86rem;
@@ -407,7 +405,7 @@ body {
     border: 1px solid #222;
 }
 
-/* Print styles — hides the save button and removes the page shadow/margin when printing or saving as PDF */
+/* Print / Save as PDF */
 @media print {
     body {
         background: #fff;

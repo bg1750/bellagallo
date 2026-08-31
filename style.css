@@ -1,15 +1,8 @@
-/* ============================================================
-   STYLE-RETRO.CSS — Modern Retro Minimal
-   Purple as accent only. Dark near-black base. Clean, sharp geometry.
+/* My site styles. Dark near-black base, purple accent, sharp geometry.
+   Type: Space Grotesk for display + body, Space Mono for labels,
+   Instrument Serif italic for the BG monogram and my name. */
 
-   TO SWITCH THEMES:
-     Retro  → change href="style.css" to href="style-retro.css" in all HTML files
-     Revert → change href="style-retro.css" back to href="style.css"
-   ============================================================ */
-
-/* ============================================================
-   1. RESET
-   ============================================================ */
+/* Reset */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -20,7 +13,7 @@
    2. BASE & TYPOGRAPHY
    ============================================================ */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     background-color: #0D0D0D;
     color: #D4CFC9;
     height: 100vh;
@@ -65,8 +58,9 @@ body {
     height: 40px;
     background-color: transparent;
     color: #D4CFC9;
-    font-family: 'Mea Culpa', cursive;
-    font-size: 1.4em;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.7em;
     text-decoration: none;
     border-radius: 2px;
     border: 1px solid #2A2A2A;
@@ -108,7 +102,7 @@ body {
     text-decoration: none;
     font-size: 0.72em;
     font-weight: 500;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     white-space: nowrap;
@@ -172,12 +166,14 @@ main::-webkit-scrollbar-thumb:hover,
 /* ============================================================
    6. HOME PAGE
    ============================================================ */
-main:has(#home.active) { overflow: hidden; height: 100%; }
-#home.active { height: 100%; overflow: hidden; }
+/* 2026-08-28  MERGE-HOME-ABOUT: Home + About are one scrolling view now. Give the active Home
+   section a definite height so the hero can fill the first screen; About overflows below it and
+   the page scrolls normally (note: NO overflow:hidden here — that would re-break scrolling). */
+#home.active { height: 100%; }
 
 .hero {
     position: relative;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -224,10 +220,12 @@ main:has(#home.active) { overflow: hidden; height: 100%; }
 
 h1 {
     color: #D4CFC9;
-    font-size: 4.5rem !important;
-    font-family: 'Mea Culpa', cursive;
-    font-weight: bold;
-    line-height: 1.1;
+    font-size: 5rem !important;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.05;
 }
 
 .hero-subtitle {
@@ -235,7 +233,7 @@ h1 {
     color: #555;
     letter-spacing: 3px;
     text-transform: uppercase;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     max-width: 560px;
 }
 
@@ -245,7 +243,7 @@ h1 {
     line-height: 1.85;
     color: #555;
     max-width: 460px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     text-transform: none;
 }
 
@@ -265,7 +263,7 @@ h1 {
     border-radius: 2px;
     font-weight: 600;
     font-size: 0.75em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
@@ -288,6 +286,39 @@ h1 {
     border-color: #555;
 }
 
+/* 2026-08-28  MERGE-HOME-ABOUT: scroll cue at the bottom of the hero, hints About is below */
+.scroll-cue {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 3;
+    animation: scrollCueBob 1.8s ease-in-out infinite;
+    transition: color 0.2s;
+}
+
+.scroll-cue:hover { color: #9940FF; }
+
+@keyframes scrollCueBob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(5px); }
+}
+
+/* 2026-08-28  MERGE-HOME-ABOUT: About block, now stacked under the hero inside the Home view */
+.about-block { position: relative; }
+
 /* Shared section wrapper */
 .section-wrap {
     padding: 48px 40px;
@@ -299,7 +330,7 @@ h1 {
 .section-heading {
     color: #D4CFC9;
     font-size: 1.1em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-weight: 400;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -322,7 +353,7 @@ h1 {
 
 .proj-label {
     font-size: 0.65em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #9940FF;
@@ -349,7 +380,7 @@ h1 {
     background-color: transparent;
     color: #555;
     font-size: 0.68em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
@@ -372,7 +403,7 @@ h1 {
     font-size: 0.72rem;
     color: #333;
     margin-bottom: 16px;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
 }
 
 .proj-divider {
@@ -441,7 +472,7 @@ h1 {
     background-color: #0A0A0A;
     border: none;
     color: #2A2A2A;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.72em;
     overflow: hidden;
 }
@@ -489,7 +520,7 @@ h1 {
     border: 1px solid #9940FF44;
     font-size: 0.95em;
     font-weight: bold;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     line-height: 1;
     cursor: pointer;
     display: flex;
@@ -508,7 +539,7 @@ h1 {
 
 .proj-category {
     font-size: 0.62em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #9940FF;
@@ -538,7 +569,7 @@ h1 {
     background-color: transparent;
     color: #444;
     border: 1px solid #222;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
 }
 
 .proj-links {
@@ -565,7 +596,7 @@ h1 {
     text-align: center;
     padding: 48px 0;
     color: #333;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.8em;
     letter-spacing: 1px;
 }
@@ -600,7 +631,7 @@ h1 {
     font-size: 0.8em;
     font-weight: 600;
     margin-bottom: 10px;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -614,7 +645,7 @@ h1 {
 
 .skills-sub-heading {
     font-size: 0.65em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #9940FF;
@@ -635,7 +666,7 @@ h1 {
     border: 1px solid #1E1E1E;
     color: #444;
     font-size: 0.68em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 1px;
     font-weight: 500;
     transition: border-color 0.2s, color 0.2s;
@@ -661,10 +692,7 @@ h1 {
    10. NAVBAR CONTACT ICONS & RESUME BUTTON
    ============================================================ */
 
-/* Resume download button
-   Sits between the nav links and contact icons in the navbar.
-   The 'download' attribute on the <a> tag triggers the file save —
-   CSS here just controls how the button looks and animates. */
+/* Resume button in the navbar */
 .nav-resume-btn {
     display: flex;
     align-items: center;
@@ -674,21 +702,19 @@ h1 {
     color: #9940FF;
     text-decoration: none;
     font-size: 0.68em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
-    white-space: nowrap;          /* stops 'Resume' breaking onto two lines on small screens */
-    transition: background-color 0.2s, color 0.2s; /* smooth 0.2s colour fade on hover */
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-/* On hover: fill solid purple, text goes dark */
 .nav-resume-btn:hover {
     background-color: #9940FF;
     color: #0D0D0D;
 }
 
-/* Wrapper for the three contact icons (email, LinkedIn, GitHub).
-   margin-left: auto pushes this group flush to the right of the navbar. */
+/* Contact icons, pushed to the far right of the navbar */
 .nav-contact-links {
     display: flex;
     align-items: center;
@@ -696,7 +722,6 @@ h1 {
     margin-left: auto;
 }
 
-/* Each individual icon link — square tap target, icon centred inside */
 .nav-contact-icon {
     display: flex;
     align-items: center;
@@ -704,13 +729,12 @@ h1 {
     width: 36px;
     height: 36px;
     border-radius: 2px;
-    color: #333;                  /* dim by default so icons don't compete with nav links */
+    color: #333;
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s;
 }
 
-/* Icon turns purple on hover */
 .nav-contact-icon:hover {
     color: #9940FF;
     background-color: transparent;
@@ -732,6 +756,10 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* 2026-08-28  MERGE-HOME-ABOUT: keep the photo/socials in view while the bio scrolls past */
+    position: sticky;
+    top: 24px;
+    align-self: start;
 }
 
 .profile-pic {
@@ -820,7 +848,7 @@ h1 {
 }
 
 .timeline-date {
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.68em;
     letter-spacing: 2px;
     color: #9940FF;
@@ -839,7 +867,7 @@ h1 {
 .timeline-org {
     font-size: 0.78em;
     color: #444;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     margin-bottom: 8px;
 }
 
@@ -876,7 +904,7 @@ h1 {
     font-size: 0.78em;
     font-weight: 600;
     color: #D4CFC9;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 1px;
 }
 
@@ -896,7 +924,7 @@ h1 {
     display: flex;
     flex-direction: column;
     color: #D4CFC9;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .detail-scroll-area { flex: 1; overflow-y: auto; overflow-x: hidden; }
@@ -915,8 +943,9 @@ h1 {
 }
 
 .detail-logo {
-    font-family: 'Mea Culpa', cursive;
-    font-size: 1.4em;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.7em;
     color: #D4CFC9;
     text-decoration: none;
     transition: color 0.2s;
@@ -934,7 +963,7 @@ h1 {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.72em;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -949,7 +978,7 @@ h1 {
 
 .detail-category {
     font-size: 0.62em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #9940FF;
@@ -958,10 +987,13 @@ h1 {
 }
 
 .detail-title {
-    font-size: 2.2em;
-    font-weight: 700;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3.4rem !important;   /* deliberate; overrides the hero h1 !important */
     color: #D4CFC9;
-    line-height: 1.15;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
     margin-bottom: 16px;
 }
 
@@ -981,7 +1013,7 @@ h1 {
     background-color: transparent;
     color: #444;
     border: 1px solid #222;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
 }
 
 .detail-links {
@@ -1003,7 +1035,7 @@ h1 {
     color: #555;
     text-decoration: none;
     font-size: 0.78em;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 0.5px;
     transition: border-color 0.2s, color 0.2s;
 }
@@ -1044,7 +1076,7 @@ h1 {
     align-items: center;
     justify-content: center;
     color: #222;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.78em;
     border: 1px solid #1E1E1E;
     border-radius: 2px;
@@ -1053,100 +1085,26 @@ h1 {
 }
 
 /* ============================================================
-   FIGMA GALLERY — carousel (landscape screens) + scroll strip (tall pages)
+   FIGMA GALLERY — horizontal scroll strip of full-length design pages.
+   Section headings + hint text, then the strip and its frames below.
    ============================================================ */
-.figma-gallery { margin-top: 48px; }
-
 .gallery-heading {
     color: #D4CFC9;
     font-size: 0.82em;
     font-weight: 600;
     margin: 40px 0 14px;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 2.5px;
     text-transform: uppercase;
 }
 
 .gallery-hint {
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.7em;
     letter-spacing: 1px;
     color: #666;
     margin: -6px 0 14px;
 }
-
-/* ---- Carousel ---- */
-.carousel { position: relative; }
-
-.carousel-viewport {
-    overflow: hidden;
-    border: 1px solid #1E1E1E;
-    border-radius: 3px;
-    background-color: #0D0D0D;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.carousel-slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-.carousel-slide img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: contain;
-    background-color: #0D0D0D;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #9940FF;
-    background-color: rgba(13, 13, 13, 0.8);
-    color: #9940FF;
-    font-size: 1.4em;
-    line-height: 1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
-    backdrop-filter: blur(2px);
-}
-
-.carousel-btn:hover { background-color: #9940FF; color: #0D0D0D; }
-.carousel-btn.prev { left: 12px; }
-.carousel-btn.next { right: 12px; }
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 16px;
-}
-
-.carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-    background-color: #2A2A2A;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.carousel-dot:hover { background-color: #555; }
-.carousel-dot.active { background-color: #9940FF; transform: scale(1.3); }
 
 /* ---- Scroll strip of tall pages ---- */
 .scroll-strip {
@@ -1168,6 +1126,7 @@ h1 {
     border-radius: 3px;
     background-color: #0D0D0D;
     scroll-snap-align: start;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .page-frame img {
@@ -1192,8 +1151,8 @@ h1 {
     height: auto;
 }
 
-/* Purple glow on hover to signal the frame is clickable */
-.page-frame--static:hover {
+/* Purple glow on hover for every frame in the strip (scrolling and click-to-enlarge alike) */
+.page-frame:hover {
     border-color: #9940FF;
     box-shadow: 0 0 0 1px #9940FF, 0 0 22px rgba(153, 64, 255, 0.5);
 }
@@ -1247,7 +1206,7 @@ h1 {
     font-size: 0.82em;
     font-weight: 600;
     margin: 36px 0 12px;
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     letter-spacing: 2.5px;
     text-transform: uppercase;
 }
@@ -1255,12 +1214,9 @@ h1 {
 /* ============================================================
    12. FOOTER
    ============================================================ */
-/* Footer strip — slim 44px bar pinned to the bottom of the page.
-   flex-shrink: 0 stops it from being squashed when the page is short.
-   Three columns: copyright left | nav links centre | contact icons right.
-   The nav links use data-target so the existing JS handles section switching. */
+/* Slim footer bar pinned to the bottom */
 .site-footer {
-    flex-shrink: 0;               /* never shrink, always stay full height */
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1270,22 +1226,20 @@ h1 {
     background-color: #0D0D0D;
 }
 
-/* Copyright text on the left */
 .footer-copy {
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.65em;
     color: #333;
     letter-spacing: 1px;
 }
 
-/* Quick navigation links in the centre of the footer */
 .footer-nav {
     display: flex;
     gap: 20px;
 }
 
 .footer-nav a {
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.65em;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -1296,7 +1250,6 @@ h1 {
 
 .footer-nav a:hover { color: #9940FF; }
 
-/* Contact icon links on the right — same icons as the navbar */
 .footer-icons {
     display: flex;
     gap: 12px;
@@ -1311,38 +1264,21 @@ h1 {
 
 .footer-icons a:hover { color: #9940FF; }
 
-/* ============================================================
-   13. SCROLL-IN ANIMATIONS
-   ============================================================
-   How it works (beginner explanation):
-   - Elements start invisible (.fade-in class sets opacity: 0).
-   - When JS adds the .visible class, a @keyframes animation plays —
-     sliding the element up from 24px below and fading it in.
-   - @keyframes is more reliable than CSS transitions for replaying
-     animations, because it re-runs every time the class is added.
-   ============================================================ */
-
-/* The animation itself: slides up 24px while fading in */
+/* Scroll-in animations — fade + slide up, triggered by adding .visible */
 @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Starting state: invisible. No transform here — the animation handles it. */
 .fade-in {
     opacity: 0;
 }
 
-/* When .visible is added by JS, play the animation.
-   animation-fill-mode: both — holds the "from" state during any delay,
-   and holds the "to" state after the animation finishes. */
 .fade-in.visible {
     animation: fadeSlideIn 0.5s ease both;
 }
 
-/* Stagger delays — each item waits a little longer than the previous.
-   Applied via JS by adding delay-1, delay-2, delay-3 classes.
-   These only take effect once .visible is also present. */
+/* Stagger delays, applied per-item in JS */
 .fade-in.delay-1.visible { animation-delay: 0.08s; }
 .fade-in.delay-2.visible { animation-delay: 0.16s; }
 .fade-in.delay-3.visible { animation-delay: 0.24s; }
@@ -1368,7 +1304,8 @@ h1 {
     .hero { height: auto; min-height: calc(100vh - 60px); }
     .section-wrap { padding: 32px 20px; }
     .about-grid { grid-template-columns: 1fr; }
-    .about-photo-widget { align-items: center; }
+    /* 2026-08-28  MERGE-HOME-ABOUT: drop the sticky photo on mobile — single column, centered */
+    .about-photo-widget { align-items: center; position: static; }
     .profile-pic { max-width: 120px; }
     .about-interests { grid-template-columns: repeat(2, 1fr); }
     .proj-grid { grid-template-columns: 1fr; }

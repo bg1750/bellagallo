@@ -6,7 +6,7 @@
     <title>Figma Self-Taught Project — Bella Gallo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style.css?v=2">
 </head>
@@ -39,7 +39,7 @@
             <span class="detail-tag">Design Systems</span>
         </div>
 
-        <!-- Scroll strip: tall full-length pages, scroll each frame vertically -->
+        <!-- Scroll strip of full-length design pages -->
         <h3 class="gallery-heading">Desktop Pages</h3>
         <p class="gallery-hint">Scroll the longer pages within their frame &middot; click a page to enlarge it &middot; swipe across to see more</p>
         <div class="scroll-strip">
@@ -56,34 +56,6 @@
             <figure class="page-frame page-frame--static"><img src="../images/figma12.PNG" alt="Design screen"></figure>
 
         </div>
-
-        
-        
-    <!-- ============ GALLERY ============ -->
-    <section class="figma-gallery">
-    
-        <!-- Carousel: landscape / square screens, one at a time -->
-        <h3 class="gallery-heading">Mobile Device Screens</h3>
-        <div class="carousel" data-carousel>
-            <div class="carousel-viewport">
-                <div class="carousel-track">
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                    <div class="carousel-slide"><img src="../images/figma.PNG" alt="Figma design screen"></div>
-                </div>
-            </div>
-            <button class="carousel-btn prev" aria-label="Previous screen">&#8249;</button>
-            <button class="carousel-btn next" aria-label="Next screen">&#8250;</button>
-            <div class="carousel-dots" aria-hidden="true"></div>
-        </div>
-
-
-        </section>
-
 
         <div class="detail-body">
 
@@ -110,44 +82,19 @@
     </main>
     </div>
 
-    <!-- Minimal carousel logic: builds dots, wires prev/next -->
+    <!-- Click a static frame to open it full-screen; click the backdrop or press Escape to close. -->
     <script>
-        document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
-            var track = carousel.querySelector('.carousel-track');
-            var slides = Array.prototype.slice.call(track.children);
-            var dotsWrap = carousel.querySelector('.carousel-dots');
-            var index = 0;
-
-            slides.forEach(function (_, i) {
-                var dot = document.createElement('button');
-                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', 'Go to screen ' + (i + 1));
-                dot.addEventListener('click', function () { go(i); });
-                dotsWrap.appendChild(dot);
-            });
-            var dots = Array.prototype.slice.call(dotsWrap.children);
-
-            function go(i) {
-                index = (i + slides.length) % slides.length;
-                track.style.transform = 'translateX(-' + (index * 100) + '%)';
-                dots.forEach(function (d, di) { d.classList.toggle('active', di === index); });
-            }
-
-            carousel.querySelector('.prev').addEventListener('click', function () { go(index - 1); });
-            carousel.querySelector('.next').addEventListener('click', function () { go(index + 1); });
-        });
-
-        // Click-to-enlarge for the non-scrolling frames (everything except the first four tall pages).
-        // Hover shows a purple glow (CSS); clicking opens the enlarged view; click backdrop or Esc to close.
         (function () {
             var overlay = document.createElement('div');
             overlay.className = 'zoom-overlay';
+
             var big = document.createElement('img');
             overlay.appendChild(big);
             document.body.appendChild(overlay);
 
             function close() { overlay.classList.remove('show'); }
 
+            // Only the non-scrolling frames enlarge; the tall pages stay scroll-only.
             document.querySelectorAll('.page-frame--static').forEach(function (frame) {
                 var img = frame.querySelector('img');
                 if (!img) return;

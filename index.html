@@ -5,28 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Gallo</title>
 
-    <!-- Open Graph tags — control how the site looks when shared on LinkedIn, Slack, iMessage, etc.
-         Each platform reads these instead of guessing from the page content. -->
+    <!-- Open Graph — how the link previews when shared -->
     <meta property="og:title" content="Bella Gallo — Aspiring Frontend &amp; Web Developer">
-    <meta property="og:description" content="Software engineer and aspiring web developer building interfaces for robotics, scientific instruments, and the web.">
-    <!-- og:url must be a full URL, no relative paths -->
+    <meta property="og:description" content="Computer engineer and aspiring web developer building interfaces for robotics, scientific instruments, and the web.">
     <meta property="og:url" content="https://bg1750.github.io/bellagallo">
     <meta property="og:type" content="website">
-    <!-- og:image must also be a full URL pointing to a real PNG/JPG -->
     <meta property="og:image" content="https://bg1750.github.io/bellagallo/og-image.png?v=5">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- Twitter/X uses its own set of tags — same idea, different prefix -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bella Gallo — Software Engineer">
-    <meta name="twitter:description" content="Software engineer building interfaces for robotics, scientific instruments, and complex systems aspiring to transition into frontend and web development.">
+    <meta name="twitter:title" content="Bella Gallo — Computer Engineer">
+    <meta name="twitter:description" content="Computer engineer building interfaces for robotics, scientific instruments, and complex systems aspiring to transition into frontend and web development.">
     <meta name="twitter:image" content="https://bg1750.github.io/bellagallo/og-image.png?v=5">
 
-    <!-- Google Fonts: Inter for body text, Mea Culpa for the BG logo script font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS — used for the image carousel on project detail pages -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -43,10 +38,7 @@
 <body>
 <div class="layout-grid">
 
-    <!-- NAVBAR
-         The logo (BG) and nav items are flex children of .header-inner.
-         Each .nav-item has a data-section attribute that the JS navigateTo() function reads.
-         The contact icons on the right are plain <a> tags so they never get the active highlight. -->
+    <!-- Navbar -->
     <header class="site-header">
         <div class="header-inner">
             <a class="nav-logo" data-section="home" href="#">BG</a>
@@ -99,8 +91,6 @@
 
             </ul>
 
-            <!-- Contact icon links — plain <a> tags (not nav-items) so they never get the active highlight.
-                 rel="noopener noreferrer" is required any time target="_blank" is used. -->
             <div class="nav-contact-links">
                 <a class="nav-contact-icon" href="https://www.linkedin.com/in/isabellargallo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fa-brands fa-linkedin"></i>
@@ -112,45 +102,48 @@
         </div>
     </header>
 
-    <!-- MAIN — each section is a .page-section; only the active one is visible at a time (controlled by JS) -->
     <main>
 
-        <!-- HOME -->
+        <!-- 2026-08-28  MERGE-HOME-ABOUT: Home + About are one scrolling view. The hero fills the
+             first screen; About flows directly below it. The About nav item and the hero scroll cue
+             smooth-scroll to #about instead of switching to a separate tab. (search: MERGE-HOME-ABOUT) -->
         <section id="home" class="page-section active">
             <div class="hero">
                 <div class="wave wave-top"></div>
                 <div class="wave wave-bottom"></div>
                 <div class="hero-content">
                     <h1>I'm Bella.</h1>
-                    <p class="hero-subtitle">Software Engineer, Aspiring Frontend &amp; Web Developer</p>
-                    <p class="hero-subtitle hero-subtitle--small">Hello! I am a software engineer
+                    <p class="hero-subtitle">Computer Engineer, Aspiring Frontend &amp; Web Developer</p>
+                    <p class="hero-subtitle hero-subtitle--small">Hello! I am a computer engineer
                         with a passion for turning complex systems into clean,
                         intuitive interfaces. My work spans robotics, autonomous systems, and
                         machine learning. Working on user interfaces for complex systems inspired me to
                         dive into the realm of interface design.
                     </p>
-                    <!-- CTA buttons — "View Projects" navigates via data-target, "View Resume" opens the HTM file in a new tab -->
                     <div class="hero-buttons">
                         <button class="hero-btn" data-target="projects">View Projects</button>
                         <a href="./Bella_Gallo.htm" target="_blank" class="hero-btn hero-btn--outline">View Resume</a>
                     </div>
                 </div>
+                <!-- 2026-08-28  MERGE-HOME-ABOUT: scroll cue hinting About is just below the hero -->
+                <button class="scroll-cue" data-target="about" aria-label="Scroll down to About">
+                    <span>About</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
             </div>
-        </section>
 
-        <!-- ABOUT
-             Three parts: photo widget + bio text on top, experience timeline in the middle, interest cards at the bottom. -->
-        <section id="about" class="page-section">
+            <!-- 2026-08-28  MERGE-HOME-ABOUT: About now lives inside the Home view, not a separate tab -->
+            <div id="about" class="about-block">
             <div class="section-wrap">
                 <h2 class="section-heading fade-in">About</h2>
 
-                <!-- Photo widget (left) and bio paragraphs (right) -->
                 <div class="about-grid fade-in">
                     <div class="about-photo-widget">
                         <img src="./images/profilePic.JPG" alt="Bella Gallo" class="profile-pic">
                         <p class="about-photo-name">Bella Gallo</p>
                         <p class="about-photo-handle">bg1750</p>
-                        <!-- Social links inside the widget — email opens mail client, others open in new tab -->
                         <div class="about-social-links">
                             <a href="mailto:isabella.gallo1750@gmail.com" class="about-social-link">
                                 <i class="fa-solid fa-envelope"></i>
@@ -166,17 +159,15 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Bio text — update these paragraphs whenever the pitch changes -->
                     <div class="about-bio">
                         <p class="about-bio-name">Hi, I'm Bella.</p>
-                        <p class="about-bio-text">Equipment Development Engineer at Savannah River National Laboratory, building interfaces for robots, autonomous systems, and scientific instruments. After working across mechanical systems, instruments, and robotics, I developed a real passion for interface design. With a background in art and design already in the mix, it became a natural place where everything converged.</p>
+                        <p class="about-bio-text">I am a Computer Engineer at Savannah River National Laboratory, building interfaces for robots, autonomous systems, and scientific instruments. After working across mechanical systems, instruments, and robotics, I developed a real passion for interface design. With a background in art and design already in the mix, it became a natural place where everything converged.</p>
                         <p class="about-bio-text">Web development opened something up for me that I wasn't expecting. Coming from a background in hardware, embedded systems, and ML, I always understood how things worked underneath, but building for the frontend is where the experience actually lives. There's something exciting about having control over how something feels to use, not just whether it functions. B.S. in ECE from Ohio State, and still finding new corners of this field worth exploring.</p>
                         <p class="about-bio-text">Outside of work, I run a small custom apparel business with my husband, cook almost every night, and travel whenever I can. I like things that take real time to get good at. That might be the thread connecting most of what I do.</p>
                     </div>
                 </div>
 
-                <!-- Experience timeline — each .timeline-item is one job or degree.
-                     Add new items at the top since it reads chronologically top-to-bottom. -->
+                <!-- Experience timeline -->
                 <p class="skills-sub-heading">Experience</p>
                 <div class="about-timeline">
                     <div class="timeline-item fade-in">
@@ -208,7 +199,6 @@
                     </div>
                 </div>
 
-                <!-- Interest cards — add/remove .interest-card divs to update the outside-of-work section -->
                 <p class="skills-sub-heading">Outside of Work</p>
                 <div class="about-interests fade-in">
                     <div class="interest-card">
@@ -234,17 +224,11 @@
                 </div>
 
             </div>
+            </div><!-- 2026-08-28  MERGE-HOME-ABOUT: /#about block, still inside the Home view -->
         </section>
 
-        <!-- PROJECTS
-             Header has filter buttons on the right — data-category on each button must match data-category on each .proj-card.
-             The grid is 3 columns (drops to 2 on tablet, 1 on mobile).
-
-             Two card types exist here:
-             - Standard cards: have a front face (image) and a back face (description), toggled by the + button.
-             - Always-back cards: no image, no toggle button — the back face is always visible.
-               These use style="display:flex;" directly since they skip the flip mechanism entirely.
-               If you add an image for one of these later, restructure it to match the standard card pattern. -->
+        <!-- Projects. Standard cards flip between an image and a description;
+             cards with no screenshot yet just show the description face (display:flex). -->
         <section id="projects" class="page-section">
             <div class="section-wrap">
 
@@ -253,7 +237,6 @@
                         <p class="proj-label">Selected Work</p>
                         <h2 class="proj-heading">Projects</h2>
                     </div>
-                    <!-- Filter buttons — data-category must match the data-category on each .proj-card below -->
                     <div class="filter-row">
                         <button class="filter-btn filter-active" data-category="all">All</button>
                         <button class="filter-btn" data-category="frontend">Frontend</button>
@@ -266,17 +249,8 @@
 
                 <p class="proj-hint">Click <strong>+</strong> on any project image for a brief description, or select the project to view the full breakdown.</p>
 
-                <!-- Decorative gradient divider -->
                 <div class="proj-divider"></div>
 
-                <!-- PROJECT GRID
-                     Standard card structure:
-                       .proj-card-link  — invisible full-card anchor (z-index 1) that navigates to the detail page
-                       .proj-toggle-btn — the + / − button (z-index 3) that flips the card, stops click propagation
-                       .proj-card-front — image + title/category caption shown by default
-                       .proj-card-back  — description + tags + optional GitHub link, revealed on flip
-
-                     To swap in a real screenshot, replace the .proj-img-placeholder div with an <img> tag. -->
                 <div class="proj-grid">
 
                     <!-- Figma Small Business App -->
@@ -309,8 +283,7 @@
                         </div>
                     </div>
 
-                    <!-- Crawler Robot Interface
-                         Replace the .proj-img-placeholder div with an <img> tag when the screenshot is ready -->
+                    <!-- Crawler Robot Interface -->
                     <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/crawler-robot.html" class="proj-card-link" aria-label="View Crawler Robot Interface project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -505,8 +478,7 @@
                         </div>
                     </div>
 
-                    <!-- Calorimeter Heating System
-                         Replace the .proj-img-placeholder div with an <img> tag when the screenshot is ready -->
+                    <!-- Calorimeter Heating System -->
                     <div class="proj-card fade-in" data-category="frontend">
                         <a href="projects/calorimeter.html" class="proj-card-link" aria-label="View Calorimeter Heating System project"></a>
                         <button class="proj-toggle-btn" aria-label="Show description">+</button>
@@ -535,7 +507,7 @@
                         </div>
                     </div>
 
-                    <!-- Women's Health Tracker — no screenshot yet, always shows the description face -->
+                    <!-- Women's Health Tracker -->
                     <div class="proj-card fade-in" data-category="personal">
                         <a href="projects/womens-health-tracker.html" class="proj-card-link" aria-label="View Women's Health Tracker project"></a>
                         <div class="proj-card-back" style="display:flex;">
@@ -560,7 +532,7 @@
                         </div>
                     </div>
 
-                    <!-- Thread Jutsu Order Tracker — no screenshot yet, always shows the description face -->
+                    <!-- Thread Jutsu Order Tracker -->
                     <div class="proj-card fade-in" data-category="personal">
                         <a href="projects/etsy-order-tracker.html" class="proj-card-link" aria-label="View Thread Jutsu Order Tracker project"></a>
                         <div class="proj-card-back" style="display:flex;">
@@ -583,7 +555,7 @@
                         </div>
                     </div>
 
-                    <!-- This Site — no screenshot (it's the site itself), always shows the description face -->
+                    <!-- This Site -->
                     <div class="proj-card fade-in" data-category="personal">
                         <div class="proj-card-back" style="display:flex;">
                             <div class="proj-card-top">
@@ -604,7 +576,7 @@
                         </div>
                     </div>
 
-                    <!-- AGV Control Interface — no screenshot yet, always shows the description face -->
+                    <!-- AGV Control Interface -->
                     <div class="proj-card fade-in" data-category="embedded">
                         <a href="projects/agv-interface.html" class="proj-card-link" aria-label="View AGV Control Interface project"></a>
                         <div class="proj-card-back" style="display:flex;">
@@ -625,16 +597,12 @@
 
                 </div>
 
-                <!-- Empty state — hidden by default, shown by the filter JS when a category returns zero cards -->
                 <div id="proj-empty" class="proj-empty" style="display:none;">No projects in this category.</div>
 
             </div>
         </section>
 
-        <!-- SKILLS
-             Three rows of icon cards grouped by discipline.
-             Font Awesome icon reference: https://www.w3schools.com/icons/fontawesome_icons_brand.asp
-             JS automatically adds fade-in and stagger delay classes to .skill-icon-card elements. -->
+        <!-- Skills -->
         <section id="skills" class="page-section">
             <div class="section-wrap">
                 <h2 class="section-heading fade-in">My Skills</h2>
@@ -680,9 +648,7 @@
 
     </main>
 
-    <!-- FOOTER
-         Three columns: copyright left | section nav center | social icons right.
-         Nav links use data-target which the JS navigateTo() function already handles. -->
+    <!-- Footer -->
     <footer class="site-footer">
         <span class="footer-copy">© 2026 Bella Gallo</span>
             <div class="footer-icons">
@@ -693,53 +659,78 @@
 
 </div>
 
-<!-- Bootstrap JS — needed for carousel functionality on project detail pages -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBXFB+bAJFpONUF5PCFpj3SJkQ" crossorigin="anonymous"></script>
 <script>
-    // ===== HASH ROUTING =====
-    // When arriving from a project detail page (e.g. index.html#projects),
-    // read the URL hash and jump straight to that section instead of defaulting to Home.
+    // Routing: Projects and Skills are tabs; Home + About share one scrolling view.
+    // 2026-08-28  MERGE-HOME-ABOUT
     const initHash = window.location.hash.slice(1);
     if (initHash && document.getElementById(initHash)) navigateTo(initHash);
 
-    // navigateTo — the single function that handles all section switching.
-    // Removes .active from all sections and nav items, then adds it to the target.
-    // Also updates the URL hash and replays animations for the incoming section.
-    function navigateTo(id) {
+    function setActiveNav(id) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
         const navItem = document.querySelector(`.nav-item[data-section="${id}"]`);
-        const section = document.getElementById(id);
         if (navItem) navItem.classList.add('active');
-        if (section) {
-            section.classList.add('active');
-            section.scrollTop = 0;
-        }
-        // history.replaceState updates the URL bar without a page reload.
-        // This means refreshing will bring you back to the same section.
-        history.replaceState(null, '', '#' + id);
-
-        // Wait one frame after the section becomes visible before triggering animations.
-        // requestAnimationFrame is preferred over setTimeout(0) here — it fires exactly
-        // after the browser has painted the new state, so the animation always plays.
-        if (section) {
-            requestAnimationFrame(() => {
-                if (id === 'projects') {
-                    // Replay the card animation every time the Projects section is opened.
-                    const shown = [...section.querySelectorAll('.proj-card')]
-                        .filter(c => c.style.display !== 'none');
-                    animateProjCards(shown);
-                } else {
-                    // For all other sections, mark any unplayed fade-in elements as visible.
-                    section.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
-                        el.classList.add('visible');
-                    });
-                }
-            });
-        }
     }
 
-    // Nav item clicks — each item's link calls navigateTo with the item's data-section value
+    // 2026-08-28  MERGE-HOME-ABOUT: scroll helpers that target the *real* scroll container.
+    // Desktop scrolls <main>; on mobile (<=768px, where main is overflow:visible) the window scrolls.
+    // We can't use element.scrollIntoView() here: because #home has a fixed height and About overflows
+    // it, scrollIntoView tries to scroll <body> (locked) instead of <main>, so nothing moves.
+    function getScroller() {
+        const main = document.querySelector('main');
+        return (main && main.scrollHeight > main.clientHeight + 4) ? main : null;
+    }
+    function smoothScrollToEl(el) {
+        const scroller = getScroller();
+        if (scroller) {
+            const delta = el.getBoundingClientRect().top - scroller.getBoundingClientRect().top;
+            scroller.scrollTo({ top: scroller.scrollTop + delta, behavior: 'smooth' });
+        } else {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    function smoothScrollTop() {
+        (getScroller() || window).scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateTo(id) {
+        // 2026-08-28  MERGE-HOME-ABOUT: 'about' isn't its own tab anymore — it's part of the Home view.
+        const view = (id === 'about') ? 'home' : id;
+
+        document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+        const section = document.getElementById(view);
+        if (section) section.classList.add('active');
+        setActiveNav(id);
+
+        history.replaceState(null, '', '#' + id);
+
+        requestAnimationFrame(() => {
+            // Scroll position: About scrolls to its block, Home to the top, tabs reset to the top.
+            if (id === 'about') {
+                smoothScrollToEl(document.getElementById('about'));
+            } else if (id === 'home') {
+                smoothScrollTop();
+            } else {
+                const main = document.querySelector('main');
+                if (main) main.scrollTop = 0;
+                window.scrollTo(0, 0);
+            }
+
+            // Replay the entrance animations for whatever is now visible.
+            if (!section) return;
+            if (view === 'projects') {
+                const shown = [...section.querySelectorAll('.proj-card')]
+                    .filter(c => c.style.display !== 'none');
+                animateProjCards(shown);
+            } else {
+                section.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }
+        });
+    }
+
+    // Nav clicks
     document.querySelectorAll('.nav-item[data-section]').forEach(item => {
         item.querySelector('.nav-link').addEventListener('click', e => {
             e.preventDefault();
@@ -747,40 +738,48 @@
         });
     });
 
-    // Logo click — always goes back to Home
+    // Logo always goes home
     document.querySelector('.nav-logo').addEventListener('click', e => {
         e.preventDefault();
         navigateTo('home');
     });
 
-    // data-target elements — hero buttons and footer nav links use this to navigate
+    // Hero buttons, footer links, and the hero scroll cue
     document.querySelectorAll('[data-target]').forEach(btn => {
         btn.addEventListener('click', () => navigateTo(btn.dataset.target));
     });
 
-    // ===== CARD FLIP (+ / − button) =====
-    // Clicking + reveals the back face (description); clicking − returns to the front face (image).
-    // e.stopPropagation() prevents the click from bubbling up to the .proj-card-link overlay,
-    // which would otherwise navigate to the detail page every time the button is pressed.
+    // 2026-08-28  MERGE-HOME-ABOUT: scroll-spy so the Home/About nav highlight follows the scroll.
+    const heroSpyEl = document.querySelector('#home .hero');
+    const aboutSpyEl = document.getElementById('about');
+    if (heroSpyEl && aboutSpyEl) {
+        const spy = new IntersectionObserver((entries) => {
+            // Only steer the highlight while the merged Home view is the one on screen.
+            if (!document.getElementById('home').classList.contains('active')) return;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActiveNav(entry.target === aboutSpyEl ? 'about' : 'home');
+            });
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+        spy.observe(heroSpyEl);
+        spy.observe(aboutSpyEl);
+    }
+
+    // +/− flips a card between its image and its description.
     document.querySelectorAll('.proj-toggle-btn').forEach(btn => {
         btn.addEventListener('click', e => {
-            e.stopPropagation();
+            e.stopPropagation();   // don't follow the card's link
             const card = btn.closest('.proj-card');
             card.classList.toggle('flipped');
             btn.textContent = card.classList.contains('flipped') ? '−' : '+';
         });
     });
 
-    // ===== SCROLL-IN ANIMATIONS =====
-    // IntersectionObserver fires when an element enters the viewport (at 10% visibility).
-    // Adding .visible triggers the CSS fade/slide transition defined in style.css.
-    // This is more performant than listening to scroll events.
+    // Reveal elements as they scroll into view.
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Stop watching once the element has animated — it only needs to fire once
                     observer.unobserve(entry.target);
                 }
             });
@@ -788,35 +787,24 @@
         { threshold: 0.1 }
     );
 
-    // Give project cards a stagger delay so they don't all appear at the same time.
-    // index % 3 cycles through delay-1, delay-2, delay-3 for each row of 3 cards.
+    // Stagger project cards by column.
     document.querySelectorAll('.proj-card.fade-in').forEach((card, index) => {
         card.classList.add('delay-' + ((index % 3) + 1));
     });
 
-    // Skill icon cards get fade-in and stagger delays added automatically.
-    // Each row fades in left-to-right with a small delay between icons.
+    // Skill icons opt into the fade here, staggered across each row.
     document.querySelectorAll('.skill-icon-card').forEach((card, index) => {
         card.classList.add('fade-in');
         card.classList.add('delay-' + ((index % 5) + 1));
     });
 
-    // Only observe non-project-card fade-in elements here.
-    // Project cards are handled exclusively by animateProjCards (called from navigateTo
-    // and the filter buttons). Letting the observer also watch them caused a race condition
-    // where both tried to add .visible at the same time.
+    // Project cards are animated separately, so keep them off the observer.
     document.querySelectorAll('.fade-in:not(.proj-card)').forEach(el => observer.observe(el));
 
-    // ===== ANIMATE PROJECT CARDS =====
-    // Replays the fade-in animation for a given list of cards.
-    // The trick is "void el.offsetWidth" — reading offsetWidth forces the browser to flush
-    // any pending style changes (like removing .visible) before we add it back.
-    // Without this forced reflow, the browser batches the remove+add into one paint
-    // and the animation never replays. This is the standard way to restart a CSS animation in JS.
+    // Replays the fade-in for a set of cards (on opening Projects or filtering).
     function animateProjCards(cards) {
         cards.forEach(card => card.classList.remove('visible'));
-        // Force reflow — reading offsetWidth has no side effect, it just flushes pending styles
-        if (cards.length > 0) void cards[0].offsetWidth;
+        if (cards.length > 0) void cards[0].offsetWidth;   // force reflow so the animation re-runs
         cards.forEach((card, i) => {
             card.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5');
             card.classList.add('delay-' + ((i % 3) + 1));
@@ -824,12 +812,7 @@
         });
     }
 
-    // ===== PROJECT FILTER =====
-    // When a filter button is clicked:
-    //   1. Move the active style to the clicked button.
-    //   2. Show cards whose data-category matches, hide the rest.
-    //   3. Replay the card animation for visible cards.
-    //   4. Show the empty state message if nothing matched.
+    // Category filter
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projCards = document.querySelectorAll('.proj-card');
     const projEmpty = document.getElementById('proj-empty');
@@ -838,13 +821,16 @@
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('filter-active'));
             btn.classList.add('filter-active');
+
             const cat = btn.dataset.category;
             const shownCards = [];
+
             projCards.forEach(card => {
                 const show = cat === 'all' || card.dataset.category === cat;
                 card.style.display = show ? '' : 'none';
                 if (show) shownCards.push(card);
             });
+
             projEmpty.style.display = shownCards.length === 0 ? 'block' : 'none';
             animateProjCards(shownCards);
         });

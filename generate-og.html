@@ -5,11 +5,11 @@
     <title>Generate OG Image</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px; font-family: monospace; color: #ccc; }
+        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px; font-family: 'Space Mono', monospace; color: #ccc; }
         canvas { border: 1px solid #333; max-width: 100%; }
-        button { padding: 12px 32px; background: #9940FF; color: #000; border: none; font-family: monospace; font-size: 1em; letter-spacing: 2px; cursor: pointer; }
+        button { padding: 12px 32px; background: #9940FF; color: #000; border: none; font-family: 'Space Mono', monospace; font-size: 1em; letter-spacing: 2px; cursor: pointer; }
         button:hover { background: #7a2fd4; }
     </style>
 </head>
@@ -18,21 +18,23 @@
     <canvas id="canvas" width="1200" height="630"></canvas>
     <button onclick="download()">Download og-image.png</button>
 
+    <!-- Small build tool (not part of the live site): draws the social-share preview
+         image onto a canvas and lets me download it as og-image.png. -->
     <script>
+        // async so we can wait for the web font before drawing the name.
         async function render() {
-        await document.fonts.load('72px "Mea Culpa"');
+        await document.fonts.load('italic 96px "Instrument Serif"');
 
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
-        const W = 1200, H = 630;
+        const W = 1200, H = 630;   // standard OG image size
 
         // Background
         ctx.fillStyle = '#0D0D0D';
         ctx.fillRect(0, 0, W, H);
 
-        // Dot 
-        
+        // Dot grid texture
         ctx.fillStyle = '#1E1E1E';
         for (let x = 0; x < W; x += 32) {
             for (let y = 0; y < H; y += 32) {
@@ -42,15 +44,8 @@
             }
         }
 
-        // Waves — exact reproduction of CSS:
-        //   --size:50px  --b:100px  --m:0.5
-        //   --p: m*size = 25px
-        //   --R: size*sqrt(m²+1) ≈ 55.9px
-        //   height:34px  background:#9940FF  opacity:0.2
-        //
-        // The CSS mask is two interleaved grids of circles clipped to the band:
-        //   Grid 1: centers at (W/2-100 + n*200,  bandEdge+25)  — bumps at the outer edge
-        //   Grid 2: centers at (W/2     + n*200,  bandEdge-25)  — fills toward the inner edge
+        // Waves — matches the CSS mask (--size:50, --b:100, --m:0.5, band 34px).
+        // Two interleaved grids of circles clipped to a thin band at each edge.
         function drawWave(isBottom) {
             const size   = 50;
             const waveH  = 34;
@@ -60,12 +55,10 @@
 
             const bandTop = isBottom ? H - waveH : 0;
 
-            // Circle center Y values (mirrored for bottom wave)
-            const g1y = isBottom ? H - waveH - p : waveH + p; // 59 from whichever edge
-            const g2y = isBottom ? H        + p : 0    - p;   // 25 outside the band
+            const g1y = isBottom ? H - waveH - p : waveH + p;
+            const g2y = isBottom ? H        + p : 0    - p;
 
             ctx.save();
-            // Clip strictly to the wave band so circles don't bleed into content
             ctx.beginPath();
             ctx.rect(0, bandTop, W, waveH);
             ctx.clip();
@@ -73,7 +66,6 @@
             ctx.globalAlpha = 0.2;
             ctx.fillStyle   = '#9940FF';
 
-            // Grid 1: x = (W/2 - 100) + n*200
             const g1x0 = ((( W/2 - 100) % period) + period) % period;
             for (let x = g1x0 - period; x < W + period; x += period) {
                 ctx.beginPath();
@@ -81,7 +73,6 @@
                 ctx.fill();
             }
 
-            // Grid 2: x = W/2 + n*200
             const g2x0 = (((W / 2) % period) + period) % period;
             for (let x = g2x0 - period; x < W + period; x += period) {
                 ctx.beginPath();
@@ -92,24 +83,24 @@
             ctx.restore();
         }
 
-        drawWave(false);  // top
-        drawWave(true);   // bottom
+        drawWave(false);
+        drawWave(true);
 
-        // Outer border frame
+        // Border frame
         ctx.strokeStyle = 'rgba(153, 64, 255, 0.35)';
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.roundRect(40, 40, W - 80, H - 80, 6);
         ctx.stroke();
 
-        // Corner accents
+        // L-shaped corner brackets — each is [start, corner, end]
         ctx.strokeStyle = '#9940FF';
         ctx.lineWidth = 3;
         const corners = [
-            [[40,80],[40,40],[80,40]],       // top-left
-            [[1160,80],[1160,40],[1120,40]],  // top-right
-            [[40,550],[40,590],[80,590]],     // bottom-left
-            [[1160,550],[1160,590],[1120,590]] // bottom-right
+            [[40,80],[40,40],[80,40]],
+            [[1160,80],[1160,40],[1120,40]],
+            [[40,550],[40,590],[80,590]],
+            [[1160,550],[1160,590],[1120,590]]
         ];
         corners.forEach(pts => {
             ctx.beginPath();
@@ -119,34 +110,36 @@
             ctx.stroke();
         });
 
-        // BG monogram — large background graphic
+        // Big faint BG monogram behind everything
         ctx.fillStyle = '#2E1155';
-        ctx.font = 'bold italic 580px Georgia, serif';
+        ctx.font = 'italic 580px Georgia, serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'alphabetic';
         ctx.fillText('BG', W / 2, 500);
 
-        // Full name — layered on top of BG
+        // My name on top
         ctx.fillStyle = '#D4CFC9';
-        ctx.font = '96px "Mea Culpa", cursive';
+        ctx.font = 'italic 108px "Instrument Serif", serif';
         ctx.letterSpacing = '0px';
         ctx.fillText('Bella Gallo', W / 2, 390);
 
         // Title
         ctx.fillStyle = '#666666';
-        ctx.font = '20px "Courier New", monospace';
+        ctx.font = '20px "Space Mono", monospace';
         ctx.letterSpacing = '6px';
-        ctx.fillText('SOFTWARE ENGINEER', W / 2, 435);
+        ctx.fillText('COMPUTER ENGINEER', W / 2, 435);
 
         // URL
         ctx.fillStyle = '#2E2E2E';
-        ctx.font = '16px "Courier New", monospace';
+        ctx.font = '16px "Space Mono", monospace';
         ctx.letterSpacing = '2px';
         ctx.fillText('bg1750.github.io/bellagallo', W / 2, 585);
 
-        } // end render()
+        }
+
         render();
 
+        // Save the canvas as a PNG
         function download() {
             const link = document.createElement('a');
             link.download = 'og-image.png';

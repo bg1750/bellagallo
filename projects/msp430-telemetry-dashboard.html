@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSP430 Telemetry Dashboard — Bella Gallo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="detail-page">
+
+    <header class="detail-header">
+        <a href="../index.html" class="detail-logo">BG</a>
+    </header>
+
+    <div class="detail-scroll-area">
+    <main class="detail-main">
+
+        <a href="../index.html#projects" class="detail-back">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to projects
+        </a>
+
+        <span class="detail-category">Personal Projects</span>
+        <h1 class="detail-title">MSP430 Telemetry Dashboard</h1>
+        <p class="detail-summary">A complete hardware-to-browser telemetry system for an ultra-low-power sensor node: C firmware on an MSP430FR6989 streams sensor readings, a Python service validates and stores them, and a live web dashboard renders them. It runs end-to-end with the board attached and still demos with a built-in simulator when it isn't.</p>
+
+        <div class="detail-tags">
+            <span class="detail-tag">C (MSP430)</span>
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">FastAPI</span>
+            <span class="detail-tag">WebSocket</span>
+            <span class="detail-tag">SQLite</span>
+            <span class="detail-tag">JavaScript</span>
+            <span class="detail-tag">Canvas API</span>
+            <span class="detail-tag">HTML5</span>
+            <span class="detail-tag">CSS3</span>
+        </div>
+
+        <div class="detail-links">
+            <a href="https://github.com/bg1750/msp430-telemetry-dashboard" target="_blank" rel="noopener noreferrer" class="detail-gh-btn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+            </a>
+        </div>
+
+        <div class="detail-img-placeholder">[ - ]</div>
+
+        <div class="detail-body">
+
+            <h3>The Problem</h3>
+            <p>Sensor data on an embedded device usually stops at a serial console — readable in the moment, but not something you can actually watch, chart, or act on. I wanted the full path: an ultra-low-power microcontroller sampling real sensors, and that data arriving in a browser as a live, operator-style dashboard. It also had to demo cleanly without the hardware present, since a portfolio piece needs to run on any machine.</p>
+
+            <h3>What It Does</h3>
+            <p>C firmware on an MSP430FR6989 reads the internal temperature sensor, drives the segment LCD, and streams framed readings over UART while sleeping in low-power mode between samples. A Python host uses pyserial to read those frames, validates each checksum, timestamps and stores them in SQLite, and broadcasts them over a FastAPI WebSocket. The dashboard subscribes to that stream and renders it with a hand-rolled, high-DPI Canvas strip chart — no charting library — plus stat tiles, an alarm state machine (nominal / near-limit / high / low), and an event log that records only true state transitions. Three data sources let it run anywhere: Device for real hardware, Live for a built-in simulator, and Replay for a recorded run that demos identically every time.</p>
+
+            <h3>Safety-Critical Mindset</h3>
+            <p>The alarm path is deliberately exercised — the simulator injects rare spikes so you can watch the status flip to a high or low alarm and see the log capture the transition and recovery. The logic that matters most is locked down with tests: the alarm state machine (including exact-threshold behaviour) and the telemetry framing on both the JavaScript and Python sides, with unit, end-to-end, and accessibility checks running in CI.</p>
+
+            <h3>Vision</h3>
+            <p>Next steps are pushing calibration settings from the dashboard back down to the device, adding the light and voltage sensors the protocol already carries, and replaying chart history straight from the host's SQLite store.</p>
+
+        </div>
+
+    </main>
+    </div>
+
+</body>
+</html>

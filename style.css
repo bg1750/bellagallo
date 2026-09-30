@@ -166,9 +166,9 @@ main::-webkit-scrollbar-thumb:hover,
 /* ============================================================
    6. HOME PAGE
    ============================================================ */
-/* 2026-08-28  MERGE-HOME-ABOUT: Home + About are one scrolling view now. Give the active Home
-   section a definite height so the hero can fill the first screen; About overflows below it and
-   the page scrolls normally (note: NO overflow:hidden here — that would re-break scrolling). */
+/* Home + About are one scrolling view. Give the active Home section a definite height so the hero
+   fills the first screen; About overflows below it and the page scrolls normally.
+   Don't add overflow:hidden here — that breaks the scroll. */
 #home.active { height: 100%; }
 
 .hero {
@@ -286,7 +286,7 @@ h1 {
     border-color: #555;
 }
 
-/* 2026-08-28  MERGE-HOME-ABOUT: scroll cue at the bottom of the hero, hints About is below */
+/* scroll cue at the bottom of the hero, hints About is below */
 .scroll-cue {
     position: absolute;
     bottom: 26px;
@@ -316,7 +316,7 @@ h1 {
     50%      { transform: translateX(-50%) translateY(5px); }
 }
 
-/* 2026-08-28  MERGE-HOME-ABOUT: About block, now stacked under the hero inside the Home view */
+/* About block, stacked under the hero inside the Home view */
 .about-block { position: relative; }
 
 /* Shared section wrapper */
@@ -756,7 +756,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* 2026-08-28  MERGE-HOME-ABOUT: keep the photo/socials in view while the bio scrolls past */
+    /* keep the photo/socials in view while the bio scrolls past */
     position: sticky;
     top: 24px;
     align-self: start;
@@ -1304,7 +1304,7 @@ h1 {
     .hero { height: auto; min-height: calc(100vh - 60px); }
     .section-wrap { padding: 32px 20px; }
     .about-grid { grid-template-columns: 1fr; }
-    /* 2026-08-28  MERGE-HOME-ABOUT: drop the sticky photo on mobile — single column, centered */
+    /* drop the sticky photo on mobile — single column, centered */
     .about-photo-widget { align-items: center; position: static; }
     .profile-pic { max-width: 120px; }
     .about-interests { grid-template-columns: repeat(2, 1fr); }

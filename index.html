@@ -6,8 +6,8 @@
     <title>Bella Gallo</title>
 
     <!-- Open Graph — how the link previews when shared -->
-    <meta property="og:title" content="Bella Gallo — Aspiring Frontend &amp; Web Developer">
-    <meta property="og:description" content="Computer engineer and aspiring web developer building interfaces for robotics, scientific instruments, and the web.">
+    <meta property="og:title" content="Bella Gallo — Computer Engineer &amp; User Interface Developer">
+    <meta property="og:description" content="Computer engineer and user interface developer for robotics, autonomous systems, and scientific instruments. As a hobby, self-teaching web development and UX/UI design.">
     <meta property="og:url" content="https://bg1750.github.io/bellagallo">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://bg1750.github.io/bellagallo/og-image.png?v=5">
@@ -15,8 +15,8 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bella Gallo — Computer Engineer">
-    <meta name="twitter:description" content="Computer engineer building interfaces for robotics, scientific instruments, and complex systems aspiring to transition into frontend and web development.">
+    <meta name="twitter:title" content="Bella Gallo — Computer Engineer &amp; User Interface Developer">
+    <meta name="twitter:description" content="Computer engineer and user interface developer building interfaces for robotics, scientific instruments, and complex systems. As a hobby, self-teaching web development and UX/UI design.">
     <meta name="twitter:image" content="https://bg1750.github.io/bellagallo/og-image.png?v=5">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,28 +104,28 @@
 
     <main>
 
-        <!-- 2026-08-28  MERGE-HOME-ABOUT: Home + About are one scrolling view. The hero fills the
-             first screen; About flows directly below it. The About nav item and the hero scroll cue
-             smooth-scroll to #about instead of switching to a separate tab. (search: MERGE-HOME-ABOUT) -->
+        <!-- Home + About are one scrolling view: the hero fills the first screen, About flows right
+             below it. The About nav item and the scroll cue smooth-scroll to #about instead of
+             switching to a separate tab. -->
         <section id="home" class="page-section active">
             <div class="hero">
                 <div class="wave wave-top"></div>
                 <div class="wave wave-bottom"></div>
                 <div class="hero-content">
                     <h1>I'm Bella.</h1>
-                    <p class="hero-subtitle">Computer Engineer, Aspiring Frontend &amp; Web Developer</p>
+                    <p class="hero-subtitle">Computer Engineer &amp; User Interface Developer</p>
                     <p class="hero-subtitle hero-subtitle--small">Hello! I am a computer engineer
-                        with a passion for turning complex systems into clean,
+                        and user interface developer with a passion for turning complex systems into clean,
                         intuitive interfaces. My work spans robotics, autonomous systems, and
-                        machine learning. Working on user interfaces for complex systems inspired me to
-                        dive into the realm of interface design.
+                        machine learning. As a hobby, I have been self-teaching web development and
+                        UX/UI design.
                     </p>
                     <div class="hero-buttons">
                         <button class="hero-btn" data-target="projects">View Projects</button>
                         <a href="./Bella_Gallo.htm" target="_blank" class="hero-btn hero-btn--outline">View Resume</a>
                     </div>
                 </div>
-                <!-- 2026-08-28  MERGE-HOME-ABOUT: scroll cue hinting About is just below the hero -->
+                <!-- scroll cue hinting About is just below the hero -->
                 <button class="scroll-cue" data-target="about" aria-label="Scroll down to About">
                     <span>About</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -134,7 +134,7 @@
                 </button>
             </div>
 
-            <!-- 2026-08-28  MERGE-HOME-ABOUT: About now lives inside the Home view, not a separate tab -->
+            <!-- About lives inside the Home view, not a separate tab -->
             <div id="about" class="about-block">
             <div class="section-wrap">
                 <h2 class="section-heading fade-in">About</h2>
@@ -161,8 +161,8 @@
                     </div>
                     <div class="about-bio">
                         <p class="about-bio-name">Hi, I'm Bella.</p>
-                        <p class="about-bio-text">I am a Computer Engineer at Savannah River National Laboratory, building interfaces for robots, autonomous systems, and scientific instruments. After working across mechanical systems, instruments, and robotics, I developed a real passion for interface design. With a background in art and design already in the mix, it became a natural place where everything converged.</p>
-                        <p class="about-bio-text">Web development opened something up for me that I wasn't expecting. Coming from a background in hardware, embedded systems, and ML, I always understood how things worked underneath, but building for the frontend is where the experience actually lives. There's something exciting about having control over how something feels to use, not just whether it functions. B.S. in ECE from Ohio State, and still finding new corners of this field worth exploring.</p>
+                        <p class="about-bio-text">I am a Computer Engineer and User Interface Developer at Savannah River National Laboratory, building interfaces for robots, autonomous systems, and scientific instruments. After working across mechanical systems, instruments, and robotics, I developed a real passion for interface design. With a background in art and design already in the mix, it became a natural place where everything converged.</p>
+                        <p class="about-bio-text">As a hobby, I have been self-teaching web development and UX/UI design, and it opened up something I wasn't expecting. Coming from a background in hardware, embedded systems, and ML, I always understood how things worked underneath, but building for the frontend is where the experience actually lives. There's something exciting about having control over how something feels to use, not just whether it functions. B.S. in ECE from Ohio State, and still finding new corners of this field worth exploring.</p>
                         <p class="about-bio-text">Outside of work, I run a small custom apparel business with my husband, cook almost every night, and travel whenever I can. I like things that take real time to get good at. That might be the thread connecting most of what I do.</p>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                 </div>
 
             </div>
-            </div><!-- 2026-08-28  MERGE-HOME-ABOUT: /#about block, still inside the Home view -->
+            </div><!-- end #about block -->
         </section>
 
         <!-- Projects. Standard cards flip between an image and a description;
@@ -555,6 +555,31 @@
                         </div>
                     </div>
 
+                    <!-- MSP430 Telemetry Dashboard -->
+                    <div class="proj-card fade-in" data-category="personal">
+                        <a href="projects/msp430-telemetry-dashboard.html" class="proj-card-link" aria-label="View MSP430 Telemetry Dashboard project"></a>
+                        <div class="proj-card-back" style="display:flex;">
+                            <div class="proj-card-top">
+                                <span class="proj-category">Personal Projects</span>
+                                <h3 class="proj-title">MSP430 Telemetry Dashboard</h3>
+                            </div>
+                            <p class="proj-desc">A hardware-to-browser telemetry system: C firmware on an MSP430FR6989 streams sensor readings over UART, a Python service validates and stores them, and a live web dashboard renders them with a hand-rolled Canvas chart, alarm logic, and event log. Demos with or without the board.</p>
+                            <div class="proj-tags">
+                                <span class="proj-tag">C</span>
+                                <span class="proj-tag">Python</span>
+                                <span class="proj-tag">FastAPI</span>
+                                <span class="proj-tag">WebSocket</span>
+                                <span class="proj-tag">JavaScript</span>
+                                <span class="proj-tag">Canvas API</span>
+                            </div>
+                            <div class="proj-links">
+                                <a href="https://github.com/bg1750/msp430-telemetry-dashboard" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="View on GitHub">
+                                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- This Site -->
                     <div class="proj-card fade-in" data-category="personal">
                         <div class="proj-card-back" style="display:flex;">
@@ -662,7 +687,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBXFB+bAJFpONUF5PCFpj3SJkQ" crossorigin="anonymous"></script>
 <script>
     // Routing: Projects and Skills are tabs; Home + About share one scrolling view.
-    // 2026-08-28  MERGE-HOME-ABOUT
     const initHash = window.location.hash.slice(1);
     if (initHash && document.getElementById(initHash)) navigateTo(initHash);
 
@@ -672,10 +696,10 @@
         if (navItem) navItem.classList.add('active');
     }
 
-    // 2026-08-28  MERGE-HOME-ABOUT: scroll helpers that target the *real* scroll container.
+    // Scroll helpers that target the real scroll container.
     // Desktop scrolls <main>; on mobile (<=768px, where main is overflow:visible) the window scrolls.
-    // We can't use element.scrollIntoView() here: because #home has a fixed height and About overflows
-    // it, scrollIntoView tries to scroll <body> (locked) instead of <main>, so nothing moves.
+    // Can't just use scrollIntoView() here: #home has a fixed height and About overflows it, so
+    // scrollIntoView tries to scroll <body> (locked) instead of <main> and nothing moves.
     function getScroller() {
         const main = document.querySelector('main');
         return (main && main.scrollHeight > main.clientHeight + 4) ? main : null;
@@ -694,7 +718,7 @@
     }
 
     function navigateTo(id) {
-        // 2026-08-28  MERGE-HOME-ABOUT: 'about' isn't its own tab anymore — it's part of the Home view.
+        // 'about' isn't its own tab — it's part of the Home view.
         const view = (id === 'about') ? 'home' : id;
 
         document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
@@ -749,7 +773,7 @@
         btn.addEventListener('click', () => navigateTo(btn.dataset.target));
     });
 
-    // 2026-08-28  MERGE-HOME-ABOUT: scroll-spy so the Home/About nav highlight follows the scroll.
+    // Scroll-spy so the Home/About nav highlight follows the scroll.
     const heroSpyEl = document.querySelector('#home .hero');
     const aboutSpyEl = document.getElementById('about');
     if (heroSpyEl && aboutSpyEl) {

@@ -5,12 +5,20 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+/* Most type on this page is sized in rem, so it keys off this root size.
+   Shrinking it scales every heading, bullet, and line-height together to fit one page. */
+html {
     font-size: 13px;
+}
+
+/* Web-safe font stack for the resume: Arial/Helvetica parse cleanly in every ATS,
+   so the downloadable PDF never risks font substitution or garbled text. */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
     color: #2d2d2d;
     background: #e5e5e5;
-    line-height: 1.4;
+    line-height: 1.32;
 }
 
 /* White page card */
@@ -22,7 +30,7 @@ body {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.13);
 }
 
-/* Print bar — the row that holds the "Save as PDF" button, sits above the header */
+/* Print bar — holds the Save as PDF button */
 .print-bar {
     text-align: right;
     margin-bottom: 7px;
@@ -47,30 +55,30 @@ body {
     color: #fff;
 }
 
-/* Resume header — wraps the name, subtitle, and contact row at the top of the page */
+/* Header — name, subtitle, contact row */
 .resume-header {
-    margin-bottom: 12px;
+    margin-bottom: 7px;
 }
 
-/* Name — the big bold heading at the very top */
+/* Name */
 .resume-header h1 {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
     font-weight: 900;
     color: #1a1a1a;
     line-height: 1.1;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     letter-spacing: -0.5px;
 }
 
-/* Subtitle — the role/title line under the name, shown in purple */
+/* Subtitle — role line under the name */
 .resume-header .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     color: #7B2DB8;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
-/* Contact row — the horizontal list of email, LinkedIn, GitHub, portfolio, and location */
+/* Contact row — email, LinkedIn, GitHub, portfolio, location */
 .contact-line {
     display: flex;
     flex-wrap: wrap;
@@ -107,29 +115,29 @@ body {
 
 /* Section spacing */
 .section {
-    margin-bottom: 14px;
+    margin-bottom: 6px;
 }
 
-/* Section title — the bold uppercase heading with the purple underline bar used on every section */
+/* Section title — uppercase heading with the purple underline */
 .section-title {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     color: #1a1a1a;
     border-bottom: 2px solid #7B2DB8;
-    padding-bottom: 3px;
-    margin-bottom: 8px;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
 }
 
-/* Summary text — the paragraph in the summary section */
+/* Summary paragraph */
 .summary-text {
     font-size: 0.82rem;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 
-/* Meta line — the small date and location row that appears under job titles, project names, etc. */
+/* Meta line — date/location row under titles */
 .meta-line {
     display: flex;
     flex-wrap: wrap;
@@ -160,7 +168,7 @@ body {
     font-size: 0.67rem;
 }
 
-/* Education row — puts the degree/school info on the left and the GPA box on the right */
+/* Education row — degree/school left, GPA box right */
 .edu-row {
     display: flex;
     justify-content: space-between;
@@ -184,7 +192,7 @@ body {
     font-size: 0.84rem;
 }
 
-/* GPA box — the small bordered box that shows the GPA number, sits to the right of the school name */
+/* GPA box */
 .gpa-box {
     border: 1px solid #bbb;
     padding: 4px 9px;
@@ -203,7 +211,7 @@ body {
     margin-top: 1px;
 }
 
-/* Education bullet points — the extra details under the school/degree (focus area, clubs, capstone) */
+/* Education bullets — focus, clubs, capstone */
 .edu-bullets {
     padding-left: 14px;
     margin-top: 4px;
@@ -215,14 +223,14 @@ body {
     margin-bottom: 2px;
 }
 
-/* Experience entries — each job is wrapped in .exp-entry, separated by a dotted border */
+/* Experience entries — one job each, dotted divider between */
 .exp-entry {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
     border-bottom: 1px dotted #ccc;
 }
 
-/* Remove the bottom border and spacing on the last job so it doesn't double up with section spacing */
+/* last job: drop the divider and extra spacing */
 .exp-entry:last-child {
     border-bottom: none;
     margin-bottom: 0;
@@ -258,8 +266,8 @@ body {
 .exp-entry ul li {
     font-size: 0.8rem;
     color: #333;
-    margin-bottom: 3px;
-    line-height: 1.45;
+    margin-bottom: 2px;
+    line-height: 1.28;
 }
 
 /* Highlight utility */
@@ -275,39 +283,23 @@ body {
     gap: 5px;
 }
 
-/* Grouped skills — each category is a row: a bold label on the left, its tags on the right */
+/* Grouped skills — bold category label followed by a comma-separated,
+   ATS-friendly plain-text list on the same line */
 .skills-groups {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
 }
 
 .skill-row {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+    font-size: 0.79rem;
+    color: #333;
+    line-height: 1.35;
 }
 
 .skill-cat {
-    flex: 0 0 118px;
     font-weight: 700;
-    font-size: 0.78rem;
     color: #1a1a1a;
-}
-
-.skill-tags-inline {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.skill-tag {
-    border: 1px solid #bbb;
-    padding: 2px 8px;
-    font-size: 0.76rem;
-    color: #333;
-    border-radius: 2px;
-    line-height: 1.4;
 }
 
 /* Certifications — simple stacked list, one item per line for clean ATS parsing */
@@ -317,13 +309,13 @@ body {
 }
 
 .cert-list li {
-    font-size: 0.8rem;
+    font-size: 0.79rem;
     font-weight: 700;
     color: #1a1a1a;
-    padding-bottom: 4px;
-    margin-bottom: 4px;
+    padding-bottom: 2px;
+    margin-bottom: 2px;
     border-bottom: 1px dotted #ccc;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .cert-list li:last-child {
@@ -331,11 +323,11 @@ body {
     margin-bottom: 0;
 }
 
-/* Project and personal project entries — same spacing and dotted divider style shared between both sections */
+/* Project entries — dotted divider, shared with personal projects */
 .project-entry,
 .personal-entry {
-    margin-bottom: 8px;
-    padding-bottom: 8px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
     border-bottom: 1px dotted #ccc;
 }
 
@@ -367,13 +359,13 @@ body {
     font-size: 0.81rem;
 }
 
-/* Description text under each project — same style shared between work and personal projects */
+/* Project description text */
 .project-desc,
 .personal-desc {
     font-size: 0.79rem;
     color: #333;
-    margin-top: 3px;
-    line-height: 1.45;
+    margin-top: 2px;
+    line-height: 1.33;
 }
 
 /* Bullet list inside personal project entries (used for in-progress notes, etc.) */
@@ -407,17 +399,35 @@ body {
 
 /* Print / Save as PDF */
 @media print {
+    /* margin:0 leaves the browser no room for its date / title / URL header and footer,
+       so they're dropped. Page margins are added back as padding on .page below. */
+    @page {
+        margin: 0;
+    }
+
     body {
         background: #fff;
     }
 
     .page {
         margin: 0;
+        max-width: none;
         box-shadow: none;
-        padding: 18px 22px 24px;
+        padding: 0.25in 0.5in;
     }
 
     .print-bar {
+        display: none;
+    }
+
+    /* ATS safety: the Font Awesome icons render from an icon font via CSS
+       pseudo-elements (private-use Unicode). Left in, they can leak stray
+       glyph characters into the PDF's text layer, which an applicant-tracking
+       system then tries to parse. Hiding them in print keeps the on-screen
+       web view decorated while guaranteeing the exported PDF contains only
+       clean, real text (email, links, dates) for the parser. */
+    .contact-line i,
+    .meta-line i {
         display: none;
     }
 }

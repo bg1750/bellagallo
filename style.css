@@ -919,15 +919,16 @@ h1 {
    ============================================================ */
 .detail-page {
     background-color: #0D0D0D;
-    height: 100vh;
-    overflow: hidden;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     color: #D4CFC9;
     font-family: 'Space Grotesk', sans-serif;
 }
 
-.detail-scroll-area { flex: 1; overflow-y: auto; overflow-x: hidden; }
+.detail-scroll-area { overflow-x: hidden; }
 
 .detail-header {
     position: sticky;

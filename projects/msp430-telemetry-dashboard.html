@@ -28,7 +28,7 @@
 
         <span class="detail-category">Personal Projects</span>
         <h1 class="detail-title">MSP430 Telemetry Dashboard</h1>
-        <p class="detail-summary">A complete hardware-to-browser telemetry system for an ultra-low-power sensor node: C firmware on an MSP430FR6989 streams live temperature and supply-voltage readings, a Python service validates and stores them, and a web dashboard renders them end-to-end — live hardware data only, no simulation.</p>
+        <p class="detail-summary">An MSP430 reads its own temperature and supply voltage and streams them over serial. A small Python service relays the data, and this dashboard charts it live in the browser.</p>
 
         <div class="detail-tags">
             <span class="detail-tag">C (MSP430)</span>
@@ -55,17 +55,14 @@
 
         <div class="detail-body">
 
-            <h3>The Problem</h3>
-            <p>Sensor data on an embedded device usually stops at a serial console — readable in the moment, but not something you can actually watch, chart, or act on. I wanted the full path: an ultra-low-power microcontroller sampling real sensors, and that data arriving in a browser as a live, operator-style dashboard — robust enough that a flaky cable or a corrupt byte never takes the whole pipeline down.</p>
+            <h3>What it does</h3>
+            <p>C firmware on an MSP430FR6989 samples the internal temperature sensor and the chip's supply voltage, shows the temperature on the on-board LCD, and streams the readings over UART. A Python host checks each frame's checksum, stores it in SQLite, and pushes it to the browser over a WebSocket. The dashboard charts the live stream with a hand-drawn Canvas chart, stat tiles, and an alarm log — no charting library.</p>
 
-            <h3>What It Does</h3>
-            <p>C firmware on an MSP430FR6989 reads the internal temperature sensor and the chip's own supply voltage through the ADC, shows the rounded temperature on the on-board segment LCD, and streams framed TEMP and VOLT readings over UART while an LED blinks as a heartbeat. It's register-level and deliberately minimal — a plain polled loop on the internal oscillator, no crystal or RTOS — so bring-up stays deterministic. A Python host uses pyserial to read those frames, validates each XOR checksum, timestamps and stores them in SQLite, and broadcasts them over a FastAPI WebSocket. The dashboard subscribes to that live stream and renders it with a hand-rolled, high-DPI Canvas strip chart — no charting library — plus stat tiles, an alarm state machine (nominal / near-limit / high / low), and an event log that records only true state transitions.</p>
+            <h3>The tricky part</h3>
+            <p>Keeping it solid when things go wrong: the host drops any corrupt or partial frame instead of crashing, and crossing a threshold trips an alarm the log records. The alarm logic and frame parser are covered by unit, end-to-end, and accessibility tests in CI.</p>
 
-            <h3>Safety-Critical Mindset</h3>
-            <p>Handling the ugly cases is the point. The host validates every frame and silently drops anything corrupt or partial — counted, never fatal — so unplugging the board mid-stream or injecting a bad byte never crashes the pipeline, and the firmware's hot path is bounded so a stalled peripheral can't hang it. On the dashboard, crossing a low or high threshold flips the status tile to an alarm and the log captures the transition and recovery. The logic that matters most is locked down with tests: the alarm state machine (including exact-threshold behaviour) and the Python frame parser, with unit, end-to-end, and accessibility checks running in CI.</p>
-
-            <h3>Vision</h3>
-            <p>Next steps are pushing calibration settings from the dashboard back down to the device, wiring up an external light sensor (the protocol already carries the tag), and replaying chart history straight from the host's SQLite store.</p>
+            <h3>Next</h3>
+            <p>Push calibration back to the device, add a light sensor, and replay history from the SQLite store.</p>
 
         </div>
 

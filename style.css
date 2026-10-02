@@ -1294,9 +1294,12 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    /* Mobile scrolls the whole document (main is overflow:visible). The Home view can't be
+       locked here the way it is on desktop — About lives inside it and must scroll into view. */
     body { overflow: auto; height: auto; }
-    body:has(#home.active) { overflow: hidden; height: 100dvh; }
     .layout-grid { height: auto; }
+    /* Keep the navbar pinned so it's always reachable after scrolling into About. */
+    .site-header { position: sticky; top: 0; z-index: 100; }
     .header-inner { padding: 8px 16px; flex-wrap: wrap; }
     .nav-link { font-size: 0; padding: 9px 10px; gap: 0; }
     .nav-icon { width: 18px; height: 18px; }

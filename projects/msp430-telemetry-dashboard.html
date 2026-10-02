@@ -56,7 +56,7 @@
         <div class="detail-body">
 
             <h3>What it does</h3>
-            <p>C firmware on an MSP430FR6989 samples the internal temperature sensor and the chip's supply voltage, shows the temperature on the on-board LCD, and streams the readings over UART. A Python host checks each frame's checksum, stores it in SQLite, and pushes it to the browser over a WebSocket. The dashboard charts the live stream with a hand-drawn Canvas chart, stat tiles, and an alarm log — no charting library.</p>
+            <p>C firmware on an MSP430FR6989 samples the internal temperature sensor and the chip's supply voltage, shows the temperature on the on-board LCD, and streams the readings over UART. A Python host checks each frame's checksum, stores it in SQLite, and pushes it to the browser over a WebSocket. The dashboard charts the live stream with a hand-drawn Canvas chart, stat tiles, and an alarm log, all without a charting library.</p>
 
             <h3>The tricky part</h3>
             <p>Keeping it solid when things go wrong: the host drops any corrupt or partial frame instead of crashing, and crossing a threshold trips an alarm the log records. The alarm logic and frame parser are covered by unit, end-to-end, and accessibility tests in CI.</p>

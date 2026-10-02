@@ -357,14 +357,28 @@ h1 {
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #9940FF;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    /* Kicker rule trailing the label, like the references' section mastheads. */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.proj-label::after {
+    content: "";
+    height: 1px;
+    width: 64px;
+    background: #2A2A2A;
 }
 
+/* Oversized editorial masthead — same italic display serif as the hero, much larger. */
 .proj-heading {
-    font-size: 1.8em;
-    font-weight: 700;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3.2rem;
+    letter-spacing: 0.5px;
     color: #D4CFC9;
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .filter-row {
@@ -412,10 +426,37 @@ h1 {
     margin-bottom: 28px;
 }
 
+/* Editorial masonry project grid.
+   Every card keeps its OWN natural height and the cards pack into vertical columns
+   with no gaps. Because each write-up is a different length, the cards stagger and
+   offset each other — and that staggered rhythm IS the asymmetry (it's how the
+   reference sites get their editorial, "hand-placed" feel without fixed sizes).
+
+   How the three properties work together:
+   - column-count .......... how many vertical columns the cards flow down.
+   - column-gap ............ the horizontal space between those columns.
+   - .proj-card margin ..... the vertical space between two cards in the same column.
+   - break-inside: avoid ... stops one card from being chopped in half across two
+                             columns, so every card stays whole.
+   Filtering by category just hides cards (display:none) and the remaining cards
+   re-pack automatically — no empty holes to clean up. */
 .proj-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    column-count: 3;
+    column-gap: 16px;
+    /* Numbers the cards 01, 02, 03… The counter only counts cards that are actually
+       rendered, so filtering a category re-numbers the visible ones contiguously. */
+    counter-reset: proj;
+}
+
+/* Each card is a normal block that fills its column's width. The bottom margin is the
+   vertical gap; break-inside keeps the card intact inside the column flow. */
+.proj-card {
+    display: block;
+    width: 100%;
+    margin: 0 0 16px;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;   /* Safari needs the prefixed form */
+    counter-increment: proj;              /* advance the 01/02/03… index per card */
 }
 
 /* Card — sharp, flat, border-only hover */
@@ -537,12 +578,33 @@ h1 {
 
 .proj-card-top { display: flex; flex-direction: column; gap: 3px; }
 
+/* Large catalogue index (01, 02, 03…) sitting above each card's category — the
+   "art-studio index" move from the reference sites. Faint by default, accent on hover. */
+.proj-card-top::before {
+    content: counter(proj, decimal-leading-zero);
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #2E2E2E;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+.proj-card:hover .proj-card-top::before { color: #9940FF; }
+
 .proj-category {
     font-size: 0.62em;
     font-family: 'Space Mono', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #9940FF;
+    /* Accent rule beneath the category label — turns each card into a catalogue entry. */
+    display: block;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #1E1E1E;
+    margin-bottom: 5px;
 }
 
 .proj-title {
@@ -1290,7 +1352,8 @@ h1 {
    14. RESPONSIVE / MOBILE
    ============================================================ */
 @media (max-width: 900px) {
-    .proj-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Masonry drops to two columns — same natural-height cards, just narrower flow. */
+    .proj-grid { column-count: 2; }
 }
 
 @media (max-width: 768px) {
@@ -1312,7 +1375,8 @@ h1 {
     .about-photo-widget { align-items: center; position: static; }
     .profile-pic { max-width: 120px; }
     .about-interests { grid-template-columns: repeat(2, 1fr); }
-    .proj-grid { grid-template-columns: 1fr; }
+    /* Single column stack — masonry collapses to one column, every card full width. */
+    .proj-grid { column-count: 1; }
     .proj-header { flex-direction: column; align-items: flex-start; }
     .skills-grid { grid-template-columns: 1fr; }
     .skill-img { width: 100px; height: 100px; }

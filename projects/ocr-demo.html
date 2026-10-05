@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotary Label OCR Demo</title>
+<style>
+  :root {
+    --bg:#0d1117; --panel:#161b22; --border:#273040; --text:#e6edf3;
+    --muted:#9aa5b1; --accent:#58a6ff; --ok:#3fb950; --bad:#f85149; --warn:#d29922;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { background:var(--bg); }
+  body { font-family:"Segoe UI",Arial,sans-serif; background:var(--bg); color:var(--text);
+         line-height:1.5; min-height:100vh; }
+  .wrap { max-width:1060px; margin:0 auto; padding:28px 20px 64px; }
+  header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  h1 { font-size:1.7rem; }
+  .status { font-weight:800; padding:8px 16px; border-radius:999px; letter-spacing:1px;
+            background:var(--warn); color:#241a02; }
+  .status.ok { background:var(--ok); color:#04210f; }
+  .sub { color:var(--muted); margin:8px 0 20px; }
+  .grid { display:grid; grid-template-columns:420px 1fr; gap:16px; }
+  @media (max-width:820px){ .grid { grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:14px; }
+  .panel h2 { font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted);
+              margin-bottom:10px; font-weight:700; }
+  canvas#view { width:100%; height:auto; display:block; background:#05070b; border-radius:8px; }
+  .scanline { margin-top:10px; font-family:"Consolas",monospace; color:var(--muted); font-size:0.9rem;
+              display:flex; justify-content:space-between; }
+
+  table { width:100%; border-collapse:collapse; font-family:"Consolas",monospace; font-size:0.9rem; }
+  th,td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--border); }
+  th { color:var(--muted); font-weight:600; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; }
+  td.val { color:var(--text); }
+  .type { color:var(--muted); }
+  .pill { padding:2px 8px; border-radius:999px; font-size:0.75rem; font-weight:700; }
+  .pill.read { background:rgba(63,185,80,0.18); color:var(--ok); }
+  .pill.wait { background:rgba(210,153,34,0.18); color:var(--warn); }
+  .corr { color:var(--accent); }
+
+  .controls { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; margin-top:16px; }
+  button { font:inherit; font-weight:600; color:#fff; background:#21304a; border:1px solid var(--border);
+           border-radius:8px; padding:9px 16px; cursor:pointer; }
+  button:hover { background:#2b3d5c; }
+  button.primary { background:var(--accent); color:#04121f; border-color:var(--accent); }
+  .slider { display:flex; flex-direction:column; gap:2px; min-width:190px; }
+  .slider label { font-size:0.8rem; color:var(--muted); }
+  .slider .v { font-family:"Consolas",monospace; color:var(--text); }
+  input[type=range]{ width:100%; accent-color:var(--accent); }
+
+  .note { background:var(--panel); border:1px solid var(--border); border-radius:10px;
+          padding:14px 18px; margin-top:20px; color:#c7d0da; font-style:italic; font-size:0.92rem; }
+  footer { margin-top:24px; text-align:center; color:var(--muted); font-size:0.85rem; }
+  footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Rotary Label OCR Demo</h1>
+    <span id="status" class="status">IDLE</span>
+  </header>
+  <p class="sub">Parts arrive at any orientation, so the reader rotates the image through a full turn,
+     runs OCR at each step, and locks each word or number once it reads cleanly. Each token is then
+     classified by type, with simple error correction for common misreads.</p>
+
+  <div class="grid">
+    <div class="panel">
+      <h2>Reader view</h2>
+      <canvas id="view" width="380" height="300"></canvas>
+      <div class="scanline"><span id="scanline">Rotation: 0&deg;</span><span id="count">0 / 0 read</span></div>
+    </div>
+
+    <div class="panel">
+      <h2>Detected tokens</h2>
+      <table>
+        <thead><tr><th>Token</th><th>Type</th><th>Found at</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="scanBtn" class="primary">Start scan</button>
+    <button id="newBtn">New label</button>
+    <div class="slider">
+      <label>Confidence threshold <span id="thVal" class="v">55%</span></label>
+      <input id="thresh" type="range" min="30" max="85" step="1" value="55">
+    </div>
+  </div>
+
+  <p class="note">This is a simulated stand-in for professional work I can't share publicly. It mirrors
+     the real pipeline (full-rotation scanning, confidence-filtered detection, and token classification
+     with error correction) on a synthetic label, with no sensitive data.</p>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function () {
+  const view = document.getElementById("view");
+  const ctx = view.getContext("2d");
+  const W = view.width, H = view.height;
+
+  const statusEl = document.getElementById("status");
+  const scanlineEl = document.getElementById("scanline");
+  const countEl = document.getElementById("count");
+  const rowsEl = document.getElementById("rows");
+  const thresh = document.getElementById("thresh");
+  const thVal = document.getElementById("thVal");
+
+  // Generic content pools. Nothing here is specific to any real part or field.
+  const WORDS = ["SAMPLE","PANEL","MODULE","SENSOR","WIDGET","UNIT","BLOCK","GAUGE","DRIVE","FRAME","ROTOR","VALVE"];
+
+  // Token types the reader recognizes, each with a generic validator and a
+  // generic correction for common OCR misreads.
+  const TYPES = {
+    WORD:   { test:v => /^[A-Z]{3,}$/.test(v),        fix:lettersOnly },
+    NUMBER: { test:v => /^\d{3,}$/.test(v),           fix:digitsOnly },
+    DATE:   { test:v => /^\d{2}\/\d{2}$/.test(v),     fix:v => digitsOnly(v.replace("/","")).replace(/(\d{2})(\d{2})/,"$1/$2") },
+    CODE:   { test:v => /^(?=.*[A-Z])(?=.*\d)[A-Z0-9]{4,}$/.test(v), fix:v => v },
+  };
+
+  const DIGIT_FIX = { O:"0", I:"1", S:"5", B:"8" };
+  const LETTER_FIX = { "0":"O", "1":"I", "5":"S", "8":"B" };
+  const CONF = { "0":"O","O":"0","1":"I","I":"1","5":"S","S":"5","8":"B","B":"8" };
+  function digitsOnly(s){ return s.replace(/[OISB]/g, c => DIGIT_FIX[c] || c); }
+  function lettersOnly(s){ return s.replace(/[0158]/g, c => LETTER_FIX[c] || c); }
+
+  function rndDigits(n){ let s=""; for(let i=0;i<n;i++) s+=Math.floor(Math.random()*10); return s; }
+  function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+
+  // Build a random, generic token (a standard word, a number, a date, or a code).
+  function makeToken(){
+    const kind = pick(["WORD","WORD","NUMBER","NUMBER","DATE","CODE"]);
+    if (kind === "WORD")   return { type:"WORD",   truth:pick(WORDS) };
+    if (kind === "NUMBER") return { type:"NUMBER", truth:rndDigits(4 + Math.floor(Math.random()*3)) };
+    if (kind === "DATE") {
+      const m=String(1+Math.floor(Math.random()*12)).padStart(2,"0");
+      const y=String(21+Math.floor(Math.random()*8)).padStart(2,"0");
+      return { type:"DATE", truth:m+"/"+y };
+    }
+    return { type:"CODE", truth:pick(["AB","XC","KR","TV","PL"])[0] + pick(WORDS)[0] + rndDigits(3) };
+  }
+
+  let mount = 0, angle = 0, scanning = false, tokens = [], raf = null;
+
+  function garble(v){
+    if (Math.random() < 0.45) {
+      const i = Math.floor(Math.random()*v.length), ch = v[i];
+      if (CONF[ch]) return v.slice(0,i)+CONF[ch]+v.slice(i+1);
+    }
+    return v;
+  }
+
+  function newLabel(){
+    stop();
+    mount = Math.floor(Math.random()*360);
+    angle = 0;
+    const n = 5;
+    const offsets = [-12,-6,0,7,13];
+    tokens = [];
+    for (let i=0;i<n;i++){
+      const t = makeToken();
+      tokens.push({ type:t.type, truth:t.truth, off:offsets[i], y:-70+i*36,
+                    locked:false, raw:"", value:"", conf:0, foundAt:null, valid:false });
+    }
+    renderRows(); draw(); setStatus("IDLE","");
+    scanlineEl.innerHTML = "Rotation: 0&deg;";
+    countEl.textContent = "0 / " + n + " read";
+  }
+
+  function setStatus(text, cls){ statusEl.textContent = text; statusEl.className = "status" + (cls?(" "+cls):""); }
+  function angDiff(a){ a = ((a % 360) + 360) % 360; return a > 180 ? 360 - a : a; }
+
+  function step(){
+    if (!scanning) return;
+    angle = (angle + 3) % 360;
+    const th = parseInt(thresh.value,10);
+
+    tokens.forEach(t => {
+      if (t.locked) return;
+      const err = angDiff(angle - (mount + t.off));
+      let conf = Math.max(0, Math.min(99, Math.round(99 - err*7 + (Math.random()*6-3))));
+      t.conf = conf;
+      if (err <= 6 && conf >= th) {
+        t.locked = true; t.foundAt = angle;
+        t.raw = garble(t.truth);
+        t.value = TYPES[t.type].fix(t.raw);
+        t.valid = TYPES[t.type].test(t.value);
+      }
+    });
+
+    scanlineEl.innerHTML = "Rotation: " + angle + "&deg;";
+    countEl.textContent = tokens.filter(t=>t.locked).length + " / " + tokens.length + " read";
+    renderRows(); draw();
+
+    if (tokens.every(t => t.locked)) { scanning=false; setStatus("LOCKED","ok"); btnReset(); return; }
+    if (angle === 0) { scanning=false; setStatus("INCOMPLETE",""); btnReset(); return; }
+    raf = setTimeout(step, 45);
+  }
+  function btnReset(){ document.getElementById("scanBtn").textContent = "Start scan"; }
+
+  function draw(){
+    ctx.fillStyle = "#05070b"; ctx.fillRect(0,0,W,H);
+    ctx.save(); ctx.translate(W/2, H/2); ctx.rotate((mount - angle) * Math.PI/180);
+
+    ctx.fillStyle = "#e9ead5"; roundRect(ctx,-150,-95,300,190,10); ctx.fill();
+    ctx.strokeStyle = "#b9ba9a"; ctx.lineWidth = 2; ctx.stroke();
+
+    ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    tokens.forEach(t => {
+      ctx.fillStyle = "#2a2a22"; ctx.font = "16px Consolas, monospace";
+      ctx.fillText(t.truth, -120, t.y);
+      const err = angDiff(angle - (mount + t.off));
+      if (t.locked || err <= 6) {
+        const wTxt = ctx.measureText(t.truth).width;
+        ctx.strokeStyle = "#2ecc71"; ctx.lineWidth = 2;
+        ctx.strokeRect(-124, t.y-12, wTxt+8, 24);
+        ctx.fillStyle = "#8a2be2"; ctx.font = "10px Consolas, monospace";
+        ctx.fillText((t.locked? 98 : t.conf) + "%", -124, t.y-20);
+      }
+    });
+    ctx.restore();
+  }
+  function roundRect(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y);
+    c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+    c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
+
+  function renderRows(){
+    rowsEl.innerHTML = "";
+    tokens.forEach(t => {
+      const corrected = t.locked && t.raw !== t.value;
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        `<td class="val">${t.locked ? t.value : "&mdash;"}` +
+          (corrected ? ` <span class="corr">(was ${t.raw})</span>` : "") + `</td>` +
+        `<td class="type">${t.locked ? t.type : "&mdash;"}</td>` +
+        `<td class="type">${t.foundAt!==null ? t.foundAt+"°" : "&mdash;"}</td>` +
+        `<td>${t.locked
+            ? `<span class="pill read">READ</span>`
+            : `<span class="pill wait">scanning</span>`}</td>`;
+      rowsEl.appendChild(tr);
+    });
+  }
+
+  function start(){
+    if (scanning) { stop(); return; }
+    if (tokens.every(t=>t.locked)) newLabel();
+    scanning = true; setStatus("SCANNING","");
+    document.getElementById("scanBtn").textContent = "Stop"; step();
+  }
+  function stop(){ scanning=false; if (raf) clearTimeout(raf); btnReset(); }
+
+  document.getElementById("scanBtn").addEventListener("click", start);
+  document.getElementById("newBtn").addEventListener("click", newLabel);
+  thresh.addEventListener("input", () => thVal.textContent = thresh.value + "%");
+
+  (function(){ const host=location.hostname, path=location.pathname.split("/").filter(Boolean);
+    if (host.endsWith("github.io") && path.length) {
+      document.getElementById("foot").innerHTML =
+        '<a href="https://github.com/'+host.split(".")[0]+'/'+path[0]+'">View the portfolio on GitHub</a>'; } })();
+
+  newLabel();
+  if (new URLSearchParams(location.search).has("shot")) {
+    tokens.forEach(t => { t.locked=true; t.foundAt=((mount+t.off)%360+360)%360;
+      t.raw=garble(t.truth); t.value=TYPES[t.type].fix(t.raw); t.valid=TYPES[t.type].test(t.value); });
+    angle = mount; setStatus("LOCKED","ok"); renderRows(); draw();
+    scanlineEl.innerHTML = "Rotation: " + mount + "&deg;";
+    countEl.textContent = tokens.length + " / " + tokens.length + " read";
+  }
+})();
+</script>
+</body>
+</html>

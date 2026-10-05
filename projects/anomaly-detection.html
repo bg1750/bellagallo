@@ -37,9 +37,13 @@
             <span class="detail-tag">OpenCV</span>
             <span class="detail-tag">PyTesseract</span>
             <span class="detail-tag">NVIDIA Jetson Orin</span>
+            <span class="detail-tag">Autoencoder</span>
+            <span class="detail-tag">Reconstruction Error</span>
         </div>
 
         <p class="detail-summary" style="font-style:italic; opacity:0.85;">The production system can't be shown publicly, so the from-scratch autoencoder approach it started from is on GitHub as a standalone PyTorch project. It's generic, with no source imagery or data; run it on your own webcam or a folder of frames.</p>
+
+        <p class="detail-summary">Technically: a convolutional autoencoder trained only on normal frames, flagging anomalies by per-frame MSE reconstruction error held above a threshold for several consecutive frames.</p>
 
         <div class="detail-links">
             <a href="https://github.com/bg1750/anomaly-detection-mockup" target="_blank" rel="noopener noreferrer" class="detail-gh-btn">

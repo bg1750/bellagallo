@@ -101,16 +101,10 @@
   .btn:hover{transform:translateY(-3px);box-shadow:var(--hover-shadow);}
   .btn.ghost:hover{background:var(--clay-soft);}
 
-  /* hero photo */
-  .portrait{flex:0 0 300px;position:relative;}
-  .portrait .frame{width:300px;height:360px;max-width:70vw;
-    border-radius:62% 38% 55% 45% / 48% 55% 45% 52%;overflow:hidden;box-shadow:var(--shadow);
-    border:6px solid var(--paper);transform:rotate(-3deg);transition:transform var(--flow), box-shadow var(--flow);}
-  .portrait:hover .frame{transform:rotate(0deg) scale(1.02);box-shadow:var(--hover-shadow);}
-  .portrait img{width:100%;height:100%;object-fit:cover;display:block;}
-  .portrait .tag{position:absolute;bottom:-14px;left:-10px;background:var(--teal);color:#F4EAD8;
-    font-family:"Indie Flower",cursive;font-size:1.05rem;padding:6px 16px;border-radius:999px;
-    transform:rotate(-4deg);box-shadow:var(--shadow);}
+  /* hero tree — faint ethereal outline where the photo was */
+  .hero-art{flex:0 0 380px;display:flex;justify-content:center;align-items:center;}
+  .hero-tree{width:380px;max-width:84vw;height:auto;color:var(--ink);opacity:0.16;
+    filter:drop-shadow(0 10px 34px rgba(0,0,0,0.22));}
 
   /* section headings */
   .sec{position:relative;padding:70px 0;}
@@ -192,7 +186,7 @@
     .work-card:hover{transform:translateY(-4px);}
     .wc-img{flex:none;}
     .navlinks{display:none;}
-    .portrait{flex:1 1 auto;margin:0 auto;}
+    .hero-art{flex:1 1 auto;margin:0 auto;}
     .hero{padding:120px 0 60px;}
     .hero-inner{gap:30px;}
     .sec{padding:48px 0;}
@@ -240,9 +234,36 @@
         </div>
       </div>
 
-      <div class="portrait">
-        <div class="frame"><img src="images/profilePic.jpg" alt="Bella Gallo"></div>
-        <span class="tag">tinkerer &amp; designer</span>
+      <div class="hero-art">
+        <svg class="hero-tree" viewBox="0 0 300 440" fill="none" stroke="currentColor"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <!-- trunk -->
+          <path stroke-width="11" d="M150 440 C147 380 153 350 150 315"/>
+          <!-- main limbs -->
+          <g stroke-width="7">
+            <path d="M150 318 C122 288 104 272 86 238"/>
+            <path d="M150 318 C178 288 196 272 214 238"/>
+            <path d="M150 315 C150 285 150 262 150 228"/>
+          </g>
+          <!-- secondary branches -->
+          <g stroke-width="4.5">
+            <path d="M86 238 C70 214 56 206 42 176"/>
+            <path d="M86 238 C96 212 92 196 82 166"/>
+            <path d="M214 238 C230 214 244 206 258 176"/>
+            <path d="M214 238 C204 212 208 196 218 166"/>
+            <path d="M150 228 C134 206 128 192 116 164"/>
+            <path d="M150 228 C166 206 172 192 184 164"/>
+          </g>
+          <!-- twigs -->
+          <g stroke-width="2.4">
+            <path d="M42 176 C32 158 27 150 20 132"/><path d="M42 176 C48 156 45 148 40 130"/>
+            <path d="M82 166 C74 148 72 140 68 122"/><path d="M82 166 C90 150 92 142 98 126"/>
+            <path d="M258 176 C268 158 273 150 280 132"/><path d="M258 176 C252 156 255 148 260 130"/>
+            <path d="M218 166 C226 148 228 140 232 122"/><path d="M218 166 C210 150 208 142 202 126"/>
+            <path d="M116 164 C108 146 106 138 102 120"/><path d="M116 164 C124 148 122 140 128 124"/>
+            <path d="M184 164 C192 146 194 138 198 120"/><path d="M184 164 C176 148 178 140 172 124"/>
+          </g>
+        </svg>
       </div>
     </div>
   </header>

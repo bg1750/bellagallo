@@ -6,9 +6,9 @@
     <title>OCR System — Bella Gallo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Indie+Flower&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="project-earthy.css">
 </head>
 <body class="detail-page">
 
@@ -19,7 +19,7 @@
     <div class="detail-scroll-area">
     <main class="detail-main">
 
-        <a href="../index.html#projects" class="detail-back">
+        <a href="../index.html#work" class="detail-back">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
@@ -60,118 +60,6 @@
         <div class="detail-img-wrap">
             <img src="../images/OcrDemo.png" alt="Interactive OCR demo reading a rotated label">
         </div>
-
-        <!-- ===== PROCESSING PIPELINE ===== -->
-        <!-- Pipeline styles extracted to ocr-pipeline.css -->
-        <link rel="stylesheet" href="ocr-pipeline.css">
-
-        <div class="pipeline-section">
-            <div class="pipeline-label">System Architecture</div>
-            <div class="pipeline-title">Processing Pipeline</div>
-
-            <!-- the five stage cards and four arrows all live inside this flex row -->
-            <div class="pipe-row">
-
-                <!-- Stage 1 (the pv-ingest divs are empty; CSS shapes and animates them) -->
-                <div class="p-stage">
-                    <div class="p-stage-num">01</div>
-                    <div class="p-stage-name">Image Ingestion</div>
-                    <div class="p-visual">
-                        <div class="pv-ingest">
-                            <div class="fi-outer"></div>   <!-- pulsing outer frame -->
-                            <div class="fi-inner"></div>   <!-- inner frame -->
-                            <div class="fi-scan"></div>    <!-- moving scan line -->
-                            <div class="fi-corner tl"></div> <!-- corner brackets -->
-                            <div class="fi-corner tr"></div>
-                            <div class="fi-corner bl"></div>
-                            <div class="fi-corner br"></div>
-                        </div>
-                    </div>
-                    <div class="p-desc">Load drum inspection scan from structured file directory</div>
-                </div>
-
-                <!-- arrow between stage 1 and 2 — the dot inside is what slides along it -->
-                <div class="p-arrow"><div class="p-arrow-dot"></div></div>
-
-                <!-- Stage 2 -->
-                <div class="p-stage">
-                    <div class="p-stage-num">02</div>
-                    <div class="p-stage-name">Region Crop</div>
-                    <div class="p-visual">
-                        <div class="pv-crop">
-                            <div class="cr-full"></div>      <!-- full image outline -->
-                            <div class="cr-overlay"></div>   <!-- dim overlay on corners -->
-                            <div class="cr-roi">             <!-- glowing ROI selection box -->
-                                <div class="cr-handle tl"></div>
-                                <div class="cr-handle br"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-desc">Isolate the label region of interest to reduce noise</div>
-                </div>
-
-                <!-- staggered so the dots don't move in sync -->
-                <div class="p-arrow"><div class="p-arrow-dot" style="animation-delay:.3s"></div></div>
-
-                <!-- Stage 3 -->
-                <div class="p-stage">
-                    <div class="p-stage-num">03</div>
-                    <div class="p-stage-name">Rotation Scan</div>
-                    <div class="p-visual">
-                        <div class="pv-rotate">
-                            <div class="ro-orbit"></div>  <!-- spinning dashed circle -->
-                            <div class="ro-rect"></div>   <!-- spinning rectangle inside it -->
-                            <div class="ro-deg">360°</div>
-                        </div>
-                    </div>
-                    <div class="p-desc">Rotate image in 10° increments across full 360° sweep</div>
-                </div>
-
-                <div class="p-arrow"><div class="p-arrow-dot" style="animation-delay:.6s"></div></div>
-
-                <!-- Stage 4 -->
-                <div class="p-stage">
-                    <div class="p-stage-num">04</div>
-                    <div class="p-stage-name">OCR Extraction</div>
-                    <div class="p-visual">
-                        <div class="pv-ocr">
-                            <!-- 5 bars = 5 lines of text being scanned -->
-                            <div class="oc-bar"></div>
-                            <div class="oc-bar"></div>
-                            <div class="oc-bar"></div>
-                            <div class="oc-bar"></div>
-                            <div class="oc-bar"></div>
-                            <div class="oc-beam"></div>  <!-- scan beam sweeping down -->
-                            <div class="oc-flash" style="top:8px; left:6px; width:60%;"></div>
-                        </div>
-                    </div>
-                    <div class="p-desc">EasyOCR extracts raw text at each rotation angle</div>
-                </div>
-
-                <div class="p-arrow"><div class="p-arrow-dot" style="animation-delay:.9s"></div></div>
-
-                <!-- Stage 5 -->
-                <div class="p-stage">
-                    <div class="p-stage-num">05</div>
-                    <div class="p-stage-name">Validation</div>
-                    <!-- height:auto so all 6 rows fit -->
-                    <div class="p-visual" style="height:auto; align-items:flex-start;">
-                        <div class="pv-valid">
-                            <!-- 6 rows, one per validation criterion — each fades in with a delay -->
-                            <div class="pv-check-row"><div class="pv-check-icon">✓</div><div class="pv-check-line"></div></div>
-                            <div class="pv-check-row"><div class="pv-check-icon">✓</div><div class="pv-check-line"></div></div>
-                            <div class="pv-check-row"><div class="pv-check-icon">✓</div><div class="pv-check-line"></div></div>
-                            <div class="pv-check-row"><div class="pv-check-icon">✓</div><div class="pv-check-line"></div></div>
-                            <div class="pv-check-row"><div class="pv-check-icon">✓</div><div class="pv-check-line"></div></div>
-                            <div class="pv-check-row"><div class="pv-check-icon">✓</div><div class="pv-check-line"></div></div>
-                        </div>
-                    </div>
-                    <div class="p-desc">6-step sequential criteria check; emit confirmed reading on pass</div>
-                </div>
-
-            </div>
-        </div>
-        <!-- ===== END PIPELINE ===== -->
 
         <div class="detail-body">
             <p>An OCR system that automates reading and validating equipment labels during industrial inspection, a task previously done manually and prone to orientation-related misreads.</p>

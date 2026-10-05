@@ -1,8 +1,8 @@
-<!-- Browser-tab icon: BG initials in italic serif on a dark, purple-bordered tile -->
+<!-- tab icon: BG monogram on a desert-brown tile with a teal dot, matching the brand -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#0D0D0D"/>
-  <rect x="1.5" y="1.5" width="29" height="29" rx="3" fill="none" stroke="#9940FF" stroke-width="1.5"/>
-  <text x="16" y="23" text-anchor="middle"
+  <rect width="32" height="32" rx="7" fill="#55493A"/>
+  <text x="16" y="22" text-anchor="middle"
         font-family="Georgia, 'Times New Roman', serif"
-        font-style="italic" font-size="18" font-weight="bold" fill="#9940FF">BG</text>
+        font-size="17" font-weight="bold" fill="#F3EBDA">BG</text>
+  <circle cx="26" cy="8.5" r="2.4" fill="#5F9199"/>
 </svg>

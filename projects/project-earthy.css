@@ -1,0 +1,97 @@
+/* earthy styles for the project detail pages. swaps in for ../style.css
+   so the pages match the new home page. */
+
+:root{
+  /* ashy desert — medium brown base + dusty purple / red / blue / green */
+  --cream:#55493A; --paper:#635741; --sand:#7A6E54;
+  --clay:#A65A49; --clay-soft:#6E3B2E;
+  --sage:#869A7E; --sage-soft:#566049;
+  --teal:#5F9199; --teal-soft:#3C5A5C;
+  --blue:#738CA0; --blue-soft:#44586B;
+  --plum:#93788C; --plum-soft:#5C4A57;
+  --ochre:#C68A55;
+  --ink:#F3EBDA; --muted:#CBBDA2;
+  --shadow:24px 24px 50px rgba(0,0,0,0.32);
+  --hover-shadow:0 16px 36px rgba(0,0,0,0.34);
+  --flow:0.4s cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body.detail-page{
+  font-family:"Hanken Grotesk",system-ui,sans-serif;
+  color:var(--ink);background:var(--cream);line-height:1.7;
+  -webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden;
+}
+/* barely-there paper grain */
+body.detail-page::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none;}
+
+/* header */
+.detail-header{display:flex;align-items:center;padding:26px 34px;position:relative;z-index:2;}
+.detail-logo{font-family:"Yeseva One",serif;font-size:1.4rem;color:var(--ink);}
+
+.detail-scroll-area{position:relative;z-index:2;}
+.detail-main{max-width:760px;margin:0 auto;padding:8px 28px 90px;position:relative;}
+/* soft blobs behind the article for depth */
+.detail-main::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;
+  background:var(--teal-soft);filter:blur(65px);opacity:0.4;top:30px;right:-150px;z-index:-1;}
+.detail-main::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+  background:var(--plum-soft);filter:blur(65px);opacity:0.45;bottom:140px;left:-150px;z-index:-1;}
+
+.detail-back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);
+  font-size:0.95rem;margin-bottom:30px;transition:color .2s;}
+.detail-back:hover{color:var(--clay);}
+
+/* handwritten eyebrow */
+.detail-category{font-family:"Indie Flower",cursive;font-size:1.35rem;color:var(--teal);
+  display:block;margin-bottom:2px;}
+.detail-title{font-family:"Yeseva One",serif;font-weight:400;
+  font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.06;margin-bottom:20px;}
+
+.detail-summary{font-size:1.12rem;margin-bottom:20px;max-width:62ch;}
+.detail-summary[style*="italic"]{color:var(--muted);}  /* the "stand-in" note */
+.detail-summary a{color:var(--clay);}
+
+/* soft pills */
+.detail-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+.detail-tag{background:var(--paper);border:1px solid var(--sand);border-radius:999px;
+  padding:7px 15px;font-size:0.85rem;color:var(--ink);box-shadow:5px 5px 14px rgba(0,0,0,0.25);transition:transform var(--flow), box-shadow var(--flow), border-color var(--flow);}
+.detail-tag:hover{transform:translateY(-2px);box-shadow:var(--hover-shadow);border-color:var(--teal);}
+
+.detail-links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;}
+.detail-gh-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:0.92rem;
+  padding:11px 20px;border-radius:999px;border:1.5px solid var(--clay);color:var(--clay);
+  background:transparent;transition:all var(--flow);}
+.detail-gh-btn:hover{background:var(--clay);color:#F4EAD8;transform:translateY(-3px);box-shadow:var(--hover-shadow);}
+.detail-gh-btn svg{width:16px;height:16px;}
+
+.detail-img-wrap{border-radius:22px 26px 20px 26px;overflow:hidden;box-shadow:var(--shadow);
+  margin:10px 0 34px;border:6px solid var(--paper);}
+.detail-img-wrap img{width:100%;display:block;}
+.detail-img-placeholder{display:none;}   /* hide the old empty boxes */
+
+.detail-body{font-size:1.06rem;}
+.detail-body p{margin-bottom:16px;}
+.detail-body h3{font-family:"Yeseva One",serif;font-weight:400;font-size:1.5rem;
+  color:var(--teal);margin:28px 0 10px;}
+.detail-body ul{margin:0 0 16px 1.2em;}
+.detail-body li{margin-bottom:8px;}
+
+/* figma page: the scrolling strip of designs */
+.gallery-heading{font-family:"Yeseva One",serif;font-weight:400;font-size:1.5rem;margin:26px 0 6px;}
+.gallery-hint{color:var(--muted);font-size:0.9rem;margin-bottom:16px;}
+.scroll-strip{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 22px;}
+.page-frame{flex:0 0 auto;width:260px;max-height:430px;overflow:auto;border-radius:16px;
+  box-shadow:var(--shadow);background:var(--paper);border:5px solid var(--paper);}
+.page-frame img{width:100%;display:block;}
+.page-frame--static{cursor:zoom-in;}
+.zoom-overlay{position:fixed;inset:0;background:rgba(20,15,10,0.8);display:none;
+  align-items:center;justify-content:center;z-index:100;padding:30px;}
+.zoom-overlay.show{display:flex;}
+.zoom-overlay img{max-width:90%;max-height:90%;border-radius:12px;box-shadow:var(--shadow);}
+
+
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }

@@ -28,7 +28,7 @@
 
         <span class="detail-category">AI / ML</span>
         <h1 class="detail-title">OCR System</h1>
-        <p class="detail-summary">Automated Optical Character Recognition pipeline for industrial inspection at Savannah River National Laboratory. Identifies and validates equipment labels on barrels of material regardless of orientation, using 360° rotation scanning and multi-step criteria verification.</p>
+        <p class="detail-summary">Automated Optical Character Recognition pipeline for industrial inspection at Savannah River National Laboratory. Identifies and validates equipment labels regardless of orientation, using 360° rotation scanning and multi-step verification.</p>
 
         <div class="detail-tags">
             <span class="detail-tag">Python</span>
@@ -174,16 +174,12 @@
         <!-- ===== END PIPELINE ===== -->
 
         <div class="detail-body">
-            <p>Developed for Savannah River National Laboratory, this system automates the reading and validation of labels on barrels of material, a task previously done manually and prone to orientation-related misreads.</p>
-
-            <h3>Rotation Scanning</h3>
-            <p>Each drum inspection image is rotated in 10° increments across a full 360° sweep (36 total angles per frame). This guarantees label detection regardless of how the container was positioned during scanning. The loop exits early at the first angle that passes all validation criteria, keeping processing time low.</p>
-
-            <h3>OCR Extraction & Error Correction</h3>
-            <p>Both EasyOCR and PyTesseract were evaluated during testing phases to determine which was better suited to the industrial environment and robotic inspection setup. EasyOCR was ruled out during testing. PyTesseract proved more reliable for the specific label types, lighting conditions, and image characteristics present in the deployment environment and was carried forward into production. From there, PyTesseract served only as the extraction starting point. Its default output was far from usable on its own under real conditions, so extensive custom logic was built on top: GPU-accelerated inference runs at each of the 36 rotation angles, and a pattern substitution engine corrects common misread characters caused by font similarity, label reflections, print degradation, and image artifacts, none of which the base library handles. The corrected output is then passed through the validation pipeline, which was built entirely from scratch.</p>
-
-            <h3>6-Step Validation Pipeline</h3>
-            <p>A sequential multi-criteria check confirms that all required fields, including container ID, label type, date, fiscal year, and part numbers, are present and correctly formatted. A reading is only emitted as confirmed when it clears every step. The system supports multiple barrel types across lid, side-top, side-bottom, and serial number scan positions.</p>
+            <p>An OCR system that automates reading and validating equipment labels during industrial inspection, a task previously done manually and prone to orientation-related misreads.</p>
+            <ul>
+                <li>Each image is rotated through a full 360° sweep in 10° steps (36 angles) so labels read regardless of orientation, exiting early at the first angle that passes validation.</li>
+                <li>PyTesseract (chosen over EasyOCR in testing) handles extraction, with custom logic on top: GPU-accelerated inference at every angle and a substitution engine that corrects common misread characters.</li>
+                <li>A multi-step validation pipeline, built from scratch, confirms every required field is present and correctly formatted before emitting a confirmed reading.</li>
+            </ul>
         </div>
 
     </main>

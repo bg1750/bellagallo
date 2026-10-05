@@ -426,36 +426,30 @@ h1 {
     margin-bottom: 28px;
 }
 
-/* Editorial masonry project grid.
-   Every card keeps its OWN natural height and the cards pack into vertical columns
-   with no gaps. Because each write-up is a different length, the cards stagger and
-   offset each other — and that staggered rhythm IS the asymmetry (it's how the
-   reference sites get their editorial, "hand-placed" feel without fixed sizes).
+/* Editorial project grid.
+   A CSS grid of three equal columns. Cards flow left to right, top to bottom
+   (row-major), so the catalogue index reads 01 02 03 across the first row, 04 05 06
+   across the next, and so on. Each card keeps its own natural height (align-items:
+   start), so rows stay crisp without stretching short cards.
 
-   How the three properties work together:
-   - column-count .......... how many vertical columns the cards flow down.
-   - column-gap ............ the horizontal space between those columns.
-   - .proj-card margin ..... the vertical space between two cards in the same column.
-   - break-inside: avoid ... stops one card from being chopped in half across two
-                             columns, so every card stays whole.
+   - grid-template-columns .. how many columns the cards flow across.
+   - gap .................... the space between cards, both directions.
    Filtering by category just hides cards (display:none) and the remaining cards
-   re-pack automatically — no empty holes to clean up. */
+   re-flow automatically — no empty holes to clean up. */
 .proj-grid {
-    column-count: 3;
-    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 16px;
     /* Numbers the cards 01, 02, 03… The counter only counts cards that are actually
        rendered, so filtering a category re-numbers the visible ones contiguously. */
     counter-reset: proj;
 }
 
-/* Each card is a normal block that fills its column's width. The bottom margin is the
-   vertical gap; break-inside keeps the card intact inside the column flow. */
+/* Each card fills its grid cell. */
 .proj-card {
     display: block;
     width: 100%;
-    margin: 0 0 16px;
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;   /* Safari needs the prefixed form */
     counter-increment: proj;              /* advance the 01/02/03… index per card */
 }
 
@@ -1352,8 +1346,8 @@ h1 {
    14. RESPONSIVE / MOBILE
    ============================================================ */
 @media (max-width: 900px) {
-    /* Masonry drops to two columns — same natural-height cards, just narrower flow. */
-    .proj-grid { column-count: 2; }
+    /* Drops to two columns — same natural-height cards, just narrower flow. */
+    .proj-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1375,8 +1369,8 @@ h1 {
     .about-photo-widget { align-items: center; position: static; }
     .profile-pic { max-width: 120px; }
     .about-interests { grid-template-columns: repeat(2, 1fr); }
-    /* Single column stack — masonry collapses to one column, every card full width. */
-    .proj-grid { column-count: 1; }
+    /* Single column stack — every card full width. */
+    .proj-grid { grid-template-columns: 1fr; }
     .proj-header { flex-direction: column; align-items: flex-start; }
     .skills-grid { grid-template-columns: 1fr; }
     .skill-img { width: 100px; height: 100px; }

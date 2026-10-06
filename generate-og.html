@@ -5,143 +5,139 @@
     <title>Generate OG Image</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- same fonts the site uses -->
+    <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Hanken+Grotesk:wght@400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
     <style>
-        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px; font-family: 'Space Mono', monospace; color: #ccc; }
-        canvas { border: 1px solid #333; max-width: 100%; }
-        button { padding: 12px 32px; background: #9940FF; color: #000; border: none; font-family: 'Space Mono', monospace; font-size: 1em; letter-spacing: 2px; cursor: pointer; }
-        button:hover { background: #7a2fd4; }
+        body { background:#2a231b; display:flex; flex-direction:column; align-items:center; gap:20px; padding:40px; font-family:"Hanken Grotesk",sans-serif; color:#CBBDA2; }
+        canvas { border:1px solid #444; max-width:100%; border-radius:8px; }
+        button { padding:12px 32px; background:#A65A49; color:#F3EBDA; border:none; border-radius:999px; font-family:"Hanken Grotesk",sans-serif; font-size:1em; letter-spacing:1px; cursor:pointer; }
+        button:hover { background:#8f4a3b; }
     </style>
 </head>
 <body>
-    <p>Your OG image — click Download to save as PNG</p>
+    <p>your og image — click download to save it as og-image.png</p>
     <canvas id="canvas" width="1200" height="630"></canvas>
-    <button onclick="download()">Download og-image.png</button>
+    <button onclick="download()">download og-image.png</button>
 
-    <!-- Small build tool (not part of the live site): draws the social-share preview
-         image onto a canvas and lets me download it as og-image.png. -->
+    <!-- little build tool (not part of the live site): draws the link-preview card
+         on a canvas and lets me save it as og-image.png, matching the site's look. -->
     <script>
-        // async so we can wait for the web font before drawing the name.
+        // desert palette (same values as style.css)
+        var C = { cream:"#55493A", paper:"#635741", sand:"#7A6E54", clay:"#A65A49",
+                  sage:"#869A7E", teal:"#5F9199", plum:"#93788C", ochre:"#C68A55",
+                  ink:"#F3EBDA", muted:"#CBBDA2" };
+
+        // async so we can wait for the cursive font before drawing the name
         async function render() {
-        await document.fonts.load('italic 96px "Instrument Serif"');
+            await document.fonts.load('400 200px "Mr De Haviland"');
+            await document.fonts.load('600 26px "Hanken Grotesk"');
+            await document.fonts.ready;
 
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            var W = 1200, H = 630;   // standard og image size
 
-        const W = 1200, H = 630;   // standard OG image size
+            // warm desert background (soft top-to-bottom gradient)
+            var bg = ctx.createLinearGradient(0, 0, 0, H);
+            bg.addColorStop(0, "#5c4f3e");
+            bg.addColorStop(1, "#453a2d");
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, W, H);
 
-        // Background
-        ctx.fillStyle = '#0D0D0D';
-        ctx.fillRect(0, 0, W, H);
+            // soft colored glows, like the blobs on the site
+            blob(W - 160, 120, 360, C.teal, 0.22);
+            blob(140, H - 80, 380, C.plum, 0.20);
+            blob(W / 2, H / 2, 300, C.sage, 0.08);
 
-        // Dot grid texture
-        ctx.fillStyle = '#1E1E1E';
-        for (let x = 0; x < W; x += 32) {
-            for (let y = 0; y < H; y += 32) {
-                ctx.beginPath();
-                ctx.arc(x + 1, y + 1, 1, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        // Waves — matches the CSS mask (--size:50, --b:100, --m:0.5, band 34px).
-        // Two interleaved grids of circles clipped to a thin band at each edge.
-        function drawWave(isBottom) {
-            const size   = 50;
-            const waveH  = 34;
-            const R      = size * Math.sqrt(0.5 * 0.5 + 1); // ≈ 55.9
-            const p      = 0.5 * size;                        // 25
-            const period = 4 * size;                          // 200
-
-            const bandTop = isBottom ? H - waveH : 0;
-
-            const g1y = isBottom ? H - waveH - p : waveH + p;
-            const g2y = isBottom ? H        + p : 0    - p;
-
-            ctx.save();
-            ctx.beginPath();
-            ctx.rect(0, bandTop, W, waveH);
-            ctx.clip();
-
-            ctx.globalAlpha = 0.2;
-            ctx.fillStyle   = '#9940FF';
-
-            const g1x0 = ((( W/2 - 100) % period) + period) % period;
-            for (let x = g1x0 - period; x < W + period; x += period) {
-                ctx.beginPath();
-                ctx.arc(x, g1y, R, 0, Math.PI * 2);
-                ctx.fill();
+            // faint tiny-dot texture so it isn't flat
+            ctx.fillStyle = "rgba(243,235,218,0.04)";
+            for (var x = 0; x < W; x += 26) {
+                for (var y = 0; y < H; y += 26) {
+                    ctx.beginPath();
+                    ctx.arc(x, y, 1, 0, Math.PI * 2);
+                    ctx.fill();
+                }
             }
 
-            const g2x0 = (((W / 2) % period) + period) % period;
-            for (let x = g2x0 - period; x < W + period; x += period) {
-                ctx.beginPath();
-                ctx.arc(x, g2y, R, 0, Math.PI * 2);
-                ctx.fill();
-            }
-
-            ctx.restore();
-        }
-
-        drawWave(false);
-        drawWave(true);
-
-        // Border frame
-        ctx.strokeStyle = 'rgba(153, 64, 255, 0.35)';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.roundRect(40, 40, W - 80, H - 80, 6);
-        ctx.stroke();
-
-        // L-shaped corner brackets — each is [start, corner, end]
-        ctx.strokeStyle = '#9940FF';
-        ctx.lineWidth = 3;
-        const corners = [
-            [[40,80],[40,40],[80,40]],
-            [[1160,80],[1160,40],[1120,40]],
-            [[40,550],[40,590],[80,590]],
-            [[1160,550],[1160,590],[1120,590]]
-        ];
-        corners.forEach(pts => {
-            ctx.beginPath();
-            ctx.moveTo(pts[0][0], pts[0][1]);
-            ctx.lineTo(pts[1][0], pts[1][1]);
-            ctx.lineTo(pts[2][0], pts[2][1]);
+            // rounded border frame in clay
+            ctx.strokeStyle = "rgba(166,90,73,0.5)";
+            ctx.lineWidth = 2;
+            roundRect(40, 40, W - 80, H - 80, 24);
             ctx.stroke();
-        });
 
-        // Big faint BG monogram behind everything
-        ctx.fillStyle = '#2E1155';
-        ctx.font = 'italic 580px Georgia, serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'alphabetic';
-        ctx.fillText('BG', W / 2, 500);
+            // little "hello, i'm" tag above the name
+            ctx.textAlign = "center";
+            ctx.fillStyle = C.plum;
+            ctx.font = '40px "Indie Flower", cursive';
+            ctx.fillText("hello, i'm", W / 2, 210);
 
-        // My name on top
-        ctx.fillStyle = '#D4CFC9';
-        ctx.font = 'italic 108px "Instrument Serif", serif';
-        ctx.letterSpacing = '0px';
-        ctx.fillText('Bella Gallo', W / 2, 390);
+            // the name in cursive, teal -> plum gradient (same as the site's h1)
+            var nameGrad = ctx.createLinearGradient(W / 2 - 330, 0, W / 2 + 330, 0);
+            nameGrad.addColorStop(0, C.teal);
+            nameGrad.addColorStop(1, C.plum);
+            ctx.fillStyle = nameGrad;
+            ctx.font = '400 215px "Mr De Haviland", cursive';
+            ctx.fillText("Bella Gallo", W / 2, 400);
 
-        // Title
-        ctx.fillStyle = '#666666';
-        ctx.font = '20px "Space Mono", monospace';
-        ctx.letterSpacing = '6px';
-        ctx.fillText('COMPUTER ENGINEER', W / 2, 435);
+            // hand-drawn squiggle underline in teal
+            ctx.strokeStyle = C.teal;
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(W / 2 - 150, 430);
+            ctx.bezierCurveTo(W / 2 - 60, 418, W / 2 - 20, 446, W / 2 + 40, 430);
+            ctx.bezierCurveTo(W / 2 + 90, 420, W / 2 + 120, 440, W / 2 + 150, 430);
+            ctx.stroke();
 
-        // URL
-        ctx.fillStyle = '#2E2E2E';
-        ctx.font = '16px "Space Mono", monospace';
-        ctx.letterSpacing = '2px';
-        ctx.fillText('bg1750.github.io/bellagallo', W / 2, 585);
+            // role line
+            ctx.fillStyle = C.ink;
+            ctx.font = '600 28px "Hanken Grotesk", sans-serif';
+            ctx.letterSpacing = "3px";
+            ctx.fillText("COMPUTER ENGINEER  ·  UI DEVELOPER", W / 2, 505);
 
+            // site url at the bottom
+            ctx.fillStyle = C.muted;
+            ctx.font = '400 18px "Hanken Grotesk", sans-serif';
+            ctx.letterSpacing = "2px";
+            ctx.fillText("bg1750.github.io/bellagallo", W / 2, 575);
         }
 
+        // a blurred circle of color that fades to transparent (fake blob)
+        function blob(cx, cy, r, hex, alpha) {
+            var g = ctx_rgba(cx, cy, r, hex, alpha);
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, 1200, 630);
+        }
+        function ctx_rgba(cx, cy, r, hex, alpha) {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+            g.addColorStop(0, hexA(hex, alpha));
+            g.addColorStop(1, hexA(hex, 0));
+            return g;
+        }
+        // "#RRGGBB" + alpha -> "rgba(...)"
+        function hexA(hex, a) {
+            var n = parseInt(hex.slice(1), 16);
+            return "rgba(" + ((n >> 16) & 255) + "," + ((n >> 8) & 255) + "," + (n & 255) + "," + a + ")";
+        }
+        // rounded-rect path helper (older canvases lack roundRect)
+        function roundRect(x, y, w, h, r) {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+        }
+
+        var ctx = document.getElementById('canvas').getContext('2d');
         render();
 
-        // Save the canvas as a PNG
+        // save the canvas as a png
         function download() {
-            const link = document.createElement('a');
+            var link = document.createElement('a');
             link.download = 'og-image.png';
             link.href = document.getElementById('canvas').toDataURL('image/png');
             link.click();

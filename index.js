@@ -4,27 +4,27 @@
 // each one: cat = category, t = title, img = thumbnail (null = none),
 // url = page it opens, d = one-liner, status = the little tag. edit/reorder freely.
 var projects = [
-  {cat:"Interface / Instrument", t:"Pan-Tilt Gimbal Console", img:"images/GimbalConsole.png",
+  {cat:"Interface / Instrument", t:"Pan-Tilt Gimbal Console", img:"assets/images/GimbalConsole.png",
    url:"projects/gimbal-console.html",
    d:"A two-axis camera console with live attitude instruments, drawn from scratch in PyQt6.",
    status:"Live demo"},
-  {cat:"Interface / Instrument", t:"Zaber Motion Stage", img:"images/ZaberStageController.png",
+  {cat:"Interface / Instrument", t:"Zaber Motion Stage", img:"assets/images/ZaberStageController.png",
    url:"projects/zaber-stage-controller.html",
    d:"A control panel for linear and rotary motion stages, wired to a software simulator.",
    status:"Live demo"},
-  {cat:"Interface / Instrument", t:"Picoammeter Readout", img:"images/PicoammeterReadout.png",
+  {cat:"Interface / Instrument", t:"Picoammeter Readout", img:"assets/images/PicoammeterReadout.png",
    url:"projects/picoammeter-readout.html",
    d:"An operator panel for a low-current measurement setup, with a large live readout.",
    status:"Live demo"},
-  {cat:"Telemetry", t:"MSP430 Telemetry Dashboard", img:"images/msp430-dashboard.gif",
+  {cat:"Telemetry", t:"MSP430 Telemetry Dashboard", img:"assets/images/msp430-dashboard.gif",
    url:"projects/msp430-telemetry-dashboard.html",
    d:"C firmware streams live readings over UART to a Python service and a web dashboard.",
    status:"Live demo"},
-  {cat:"AI / ML", t:"OCR System", img:"images/OcrDemo.png",
+  {cat:"AI / ML", t:"OCR System", img:"assets/images/OcrDemo.png",
    url:"projects/ocr.html",
    d:"Industrial label OCR with 360° rotation scanning, error correction, and validation.",
    status:"Live demo"},
-  {cat:"UX / UI", t:"Figma Self-Taught Project", img:"images/figma3.PNG",
+  {cat:"UX / UI", t:"Figma Self-Taught Project", img:"assets/images/figma3.PNG",
    url:"projects/figma-self-taught.html",
    d:"I taught myself Figma by designing a full multi-page app for a small business.",
    status:"Project"},
@@ -103,7 +103,7 @@ var obs = new IntersectionObserver(function(entries){  // watches for stuff ente
 document.querySelectorAll(".reveal").forEach(function(el){ obs.observe(el); });  // watch everything marked ".reveal"
 
 // soft ethereal sound when a hero button is clicked
-var openSound = new Audio("soundFX/ethereal-ambience-loop-danijel-zambo-1-1-00-05.mp3");  // the sound file
+var openSound = new Audio("assets/audio/ethereal-ambience-loop-danijel-zambo-1-1-00-05.mp3");  // the sound file
 openSound.volume = 0.35;                           // keep it gentle
 var heroBtns = document.querySelectorAll(".btn.solid, .btn.ghost");  // both hero buttons
 heroBtns.forEach(function(btn){

@@ -3,8 +3,8 @@
 with a faint fir behind them, same 3-column shape as the hero tree.
 
 run it:
-    python make-favicon.py            -> writes favicon.svg
-    python make-favicon.py --preview  -> also writes favicon-preview.png (needs pillow)
+    python tools/make-favicon.py            -> writes favicon.svg
+    python tools/make-favicon.py --preview  -> also writes favicon-preview.png (needs pillow)
 
 needs: fontTools. pillow only if you want the preview.
 tweak the constants below to change the letters, colors, or how faint the tree is.
@@ -15,12 +15,12 @@ from fontTools.pens.svgPathPen import SVGPathPen
 
 # ---- stuff you can tweak ----
 LETTERS     = "BG"            # what the icon says
-FONT_PATH   = "mrdehaviland.ttf"
+FONT_PATH   = "assets/fonts/mrdehaviland.ttf"
 TILE_COLOR  = "#55493A"       # the rounded background tile
 TEXT_COLOR  = "#F3EBDA"       # the letters
 FIR_COLOR   = "#A68DA6"       # dusty purple tree
 FIR_OPACITY = 0.12            # lower = more see-through
-OUT         = "favicon.svg"
+OUT         = "assets/favicon.svg"
 
 # the hero fir's tiers, straight from style.css: (top, width, height) per crown
 CROWNS = [(18,34,8),(66,61,11),(116,71,13),(165,84,15),(214,100,18),

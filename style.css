@@ -38,7 +38,7 @@ body{
 /* faint tiled texture over the whole page (rocky-wall.png) */
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.3;
-  background-image:url("images/rocky-wall.png");
+  background-image:url("assets/images/rocky-wall.png");
   background-repeat:repeat;
 }
 a{color:inherit;text-decoration:none;}

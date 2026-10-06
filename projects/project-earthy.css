@@ -72,7 +72,6 @@ a{color:inherit;text-decoration:none;}
 .detail-img-wrap{border-radius:22px 26px 20px 26px;overflow:hidden;box-shadow:var(--shadow);
   margin:10px 0 34px;border:6px solid var(--paper);}
 .detail-img-wrap img{width:100%;display:block;}
-.detail-img-placeholder{display:none;}   /* hide the old empty boxes */
 
 .detail-body{font-size:1.06rem;}
 .detail-body p{margin-bottom:16px;}

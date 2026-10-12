@@ -51,11 +51,22 @@ a{color:inherit;text-decoration:none;}
 
 .shell{max-width:1080px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
 
-/* top nav */
+/* top nav — full-width sticky bar so content scrolls cleanly beneath it */
 nav{
-  position:absolute;top:0;left:0;right:0;z-index:10;
+  position: -webkit-sticky;
+  position: sticky;      /* stays pinned to the top on scroll */
+  top: 0;
+  z-index: 100;          /* above page content */
+  /* translucent bar + blur so the nav reads as its own surface, not floating text */
+  background: rgba(85, 73, 58, 0.82);   /* --cream with alpha */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--sand);
+}
+/* inner wrapper keeps the brand + links centered at page width */
+.nav-inner{
   display:flex;align-items:center;justify-content:space-between;
-  max-width:1080px;margin:0 auto;padding:26px 28px;
+  max-width:1080px;margin:0 auto;padding:18px 28px;
 }
 .brand{font-family:"Neuton",serif;font-size:1.75rem;font-weight:700;letter-spacing:0.3px;}
 .brand .dot{color:var(--teal);}
@@ -239,7 +250,8 @@ footer .copy{font-size:0.82rem;color:var(--muted);}
     align-self:stretch;transform:none;flex-direction:column;max-width:100%;}
   .work-card:hover{transform:translateY(-4px);}
   .wc-img{flex:none;}
-  .navlinks{display:none;}
+  .nav-inner{flex-direction:column;gap:10px;padding:14px 20px;}
+  .navlinks{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-size:0.9rem;}
   .hero-art{transform:scale(0.4);right:-90px;bottom:0;opacity:0.1;}
   .hero{padding:120px 0 60px;}
   .hero-inner{gap:30px;}

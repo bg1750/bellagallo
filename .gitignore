@@ -1,0 +1,6 @@
+# Local dev tools / helper scripts — not for the public site
+tools/
+
+# Resume source files (editable originals)
+Isabella_Gallo_Resume_2026.docx
+make-favicon.py

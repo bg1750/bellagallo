@@ -2,7 +2,7 @@
 
 /* colors */
 :root{
-  /* ashy desert — medium brown base + dusty purple / red / blue / green (figma desert palettes) */
+/* Color vars to easily adjust as needed*/
   --cream:#55493A;     /* bg, medium desert brown (not too dark) */
   --paper:#635741;     /* cards, lighter */
   --sand:#7A6E54;      /* borders */
@@ -51,25 +51,31 @@ a{color:inherit;text-decoration:none;}
 
 .shell{max-width:1080px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
 
-/* top nav — full-width sticky bar so content scrolls cleanly beneath it */
+/* sticky top nav with its own little bar */
 nav{
   position: -webkit-sticky;
-  position: sticky;      /* stays pinned to the top on scroll */
+  position: sticky;      /* sticks up top when you scroll */
   top: 0;
-  z-index: 100;          /* above page content */
-  /* translucent bar + blur so the nav reads as its own surface, not floating text */
-  background: rgba(85, 73, 58, 0.82);   /* --cream with alpha */
+  z-index: 100;          /* keep it over everything */
+  /* see-through bar + blur so stuff scrolls under it, not through it */
+  background: rgba(85, 73, 58, 0.82);   /* --cream with some see-through */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--sand);
 }
-/* inner wrapper keeps the brand + links centered at page width */
+/* lines the name + links up with the rest of the page */
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
   max-width:1080px;margin:0 auto;padding:18px 28px;
 }
-.brand{font-family:"Neuton",serif;font-size:1.75rem;font-weight:700;letter-spacing:0.3px;}
-.brand .dot{color:var(--teal);}
+/* little logo up top, kept plain so it's not a repeat of the big script name */
+.brand{
+  display:inline-block;
+  font-family:"Hanken Grotesk",sans-serif;font-weight:700;
+  font-size:1.15rem;line-height:1;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink);
+}
+.brand .dot{color:var(--clay);}
 .navlinks{display:flex;gap:26px;font-size:0.95rem;}
 .navlinks a{color:var(--muted);transition:color .2s;}
 .navlinks a:hover{color:var(--clay);}
@@ -94,12 +100,14 @@ h1 .leaf{font-style:normal;}
 .btn:hover{transform:translateY(-3px);box-shadow:var(--hover-shadow);}
 .btn.ghost:hover{background:var(--clay-soft);}
 
-/* faint fir tree behind the hero. shape borrowed from kerthin's pure-css fir (MIT):
-   https://github.com/Kerthin/trees-templateSait  (app/scss/trees/fir.scss)
+/* fir tree behind the hero — pure css, shape from kerthin (MIT):
    https://dev.to/kerthin/11-geometric-objects-trees-pure-css-p8l
-   tweak its size/position/color here */
-.hero-art{position:absolute;z-index:0;pointer-events:none;right:200px;bottom:-180px;
-  width:454px;height:750px;transform-origin:bottom right;transform:scale(1.1);
+   size/position/color all live here */
+.hero-art{position:absolute;z-index:0;pointer-events:none;
+  /* slide it off to the right as the page gets narrow instead of sliding over the text */
+  right:clamp(-220px, calc(100vw - 1140px), 40px);
+  bottom:-180px;
+  width:454px;height:750px;transform-origin:bottom right;transform:scale(1.05);
   opacity:0.2;filter:drop-shadow(0 14px 44px rgba(0,0,0,0.22));}
 
 .fir{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:554px;height:850px;
@@ -252,7 +260,8 @@ footer .copy{font-size:0.82rem;color:var(--muted);}
   .wc-img{flex:none;}
   .nav-inner{flex-direction:column;gap:10px;padding:14px 20px;}
   .navlinks{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-size:0.9rem;}
-  .hero-art{transform:scale(0.4);right:-90px;bottom:0;opacity:0.1;}
+  /* same tree, just fainter on phones (the clamp already tucks it off to the right) */
+  .hero-art{opacity:0.12;}
   .hero{padding:120px 0 60px;}
   .hero-inner{gap:30px;}
   .sec{padding:48px 0;}
